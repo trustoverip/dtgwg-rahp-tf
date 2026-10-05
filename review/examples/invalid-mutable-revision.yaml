@@ -1,0 +1,7 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-901
+target:
+  repository: https://github.com/trustoverip/dtgwg-cred-spec
+  revision: main
+rahp_version: v0.3-dev
+findings: []
