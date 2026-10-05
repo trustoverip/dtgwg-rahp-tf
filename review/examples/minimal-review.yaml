@@ -1,0 +1,23 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-001
+target:
+  repository: https://github.com/trustoverip/dtgwg-cred-spec
+  revision: "1111111111111111111111111111111111111111"
+  version_label: candidate-example
+rahp_version: v0.3-dev
+reviewed_at: "2026-10-05"
+findings:
+  - id: F-001
+    summary: Age-assurance handling needs an explicit normative decision.
+    risks: [RK-EX04]
+    control_plane: specification
+    status: open
+  - id: F-002
+    summary: Existing governance treatment is sufficient for this bounded finding.
+    risks: [RK-EX04]
+    control_plane: governance
+    status: resolved
+    resolution:
+      type: already-addressed
+      reference: governance-precedents.yaml
+      rationale: Existing governance material records the treatment and review path.
