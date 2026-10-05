@@ -108,6 +108,11 @@ resolve under `https://trustoverip.github.io/dtgwg-rahp-tf/id/`.
 **Using an AI assistant** — `RAHP_AI_Assisted_Process.md`, and the provenance rules
 in `CONTRIBUTING.md`.
 
+**Pressure-testing a specification** — `docs/pressure-testing-a-spec.md`. Reviews
+are pinned to immutable source revisions, findings reference the RAHP risk corpus,
+and control-plane classification is kept separate from finding status and resolution.
+A valid review record is reproducible review metadata; it is not an assurance PASS.
+
 ## Known gaps
 
 Gaps are tracked as records in `method/lifecycle.yaml` and rendered on the lifecycle
