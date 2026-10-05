@@ -1,0 +1,12 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-903
+target:
+  repository: https://github.com/trustoverip/dtgwg-cred-spec
+  revision: "3333333333333333333333333333333333333333"
+rahp_version: v0.3-dev
+findings:
+  - id: F-001
+    summary: This resolved fixture intentionally omits resolution evidence.
+    risks: [RK-EX04]
+    control_plane: specification
+    status: resolved

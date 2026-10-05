@@ -1,0 +1,12 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-902
+target:
+  repository: https://github.com/trustoverip/dtgwg-cred-spec
+  revision: "2222222222222222222222222222222222222222"
+rahp_version: v0.3-dev
+findings:
+  - id: F-001
+    summary: This fixture deliberately references an unknown risk identifier.
+    risks: [RK-ZZ99]
+    control_plane: specification
+    status: open
