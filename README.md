@@ -86,7 +86,10 @@ consequence. Critical risks carry no numeric score, must be gated by a guardrail
 may not be risk-accepted. One risk currently carries it: `RK-EX04`, child safety
 non-compliance / age assurance failure.
 
-## Where to start
+## What do you want to do?
+
+**Adopt RAHP for another project or Working Group** — `ADOPTION.md`. Start with one bounded target and a proportionate review; you do not need to reproduce the full DTG corpus.
+
 
 **New to the toolkit** — `build/site/index.html`. The persona cards are the entry
 point; every other artefact connects through them.
