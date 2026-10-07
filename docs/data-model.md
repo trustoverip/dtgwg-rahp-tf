@@ -250,7 +250,7 @@ The specification-review record adds a second provenance boundary by pinning the
 For a reader trying to understand the current model, a practical order is:
 
 1. `README.md` for repository orientation;
-2. `ADOPTION.md` once available for the bounded adoption path;
+2. [ADOPTION.md](../ADOPTION.md) for the bounded adoption path;
 3. this page for the record relationship map;
 4. `lifecycle.yaml` for method stages and gaps;
 5. `rahp.schema.json` for record structures;
