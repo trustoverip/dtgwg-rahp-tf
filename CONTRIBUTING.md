@@ -5,39 +5,38 @@ to change them safely, and what a reviewable contribution looks like.
 
 ## The one rule
 
-**`data/` is canonical. Everything in `build/` is generated.**
+**The root YAML is canonical. Newly built output in `build/` is generated.**
 
 If a fact is wrong on the website, in the JSON-LD, or in a spreadsheet export,
-the fix goes in `data/` and you re-run `python3 tools/build.py`. Never edit a
+the fix goes in the relevant root YAML and you re-run `python3 build.py`. Never edit a
 generated file — your change will be silently destroyed by the next build.
 
 ## Repository layout
 
+```text
+lifecycle.yaml · vocabularies.yaml · rahp.schema.json   Method contracts
+instance.yaml                                         DTG namespace and reference rules
+risks.yaml · controls.yaml · guardrails.yaml · ...      Canonical instance records
+rahp.jsonld                                           JSON-LD context
+validate.py · build.py                                Current validation/build commands
+import_xlsx.py · verify_migration.py                  Historical migration tooling
+review/ · tests/                                     Specification-review contract and tests
+build/                                               New generated output (created locally)
 ```
-method/            The RAHP method. Portable. Another working group keeps this.
-  lifecycle.yaml     Five lifecycle stages, their evidence requirements, and every known gap
-  vocabularies.yaml  Controlled vocabularies (severity, standards status, persona type, …)
-  schema/            JSON Schema for every record type
-data/              The DTG instance. Another working group replaces this.
-  instance.yaml      Namespaces, cross-reference edges, invariants — drives the validator
-  risks.yaml  controls.yaml  guardrails.yaml  assurance-tests.yaml
-  metrics.yaml  user-stories.yaml  scenarios.yaml  epics.yaml  personas.yaml
-  recommendations.yaml  risk-acceptances.yaml  governance-precedents.yaml
-tools/             validate.py · build.py · import_xlsx.py (migration only)
-context/           JSON-LD context
-build/             Generated. Not committed except on tagged releases.
-```
+
+The proposed `method/`, `data/`, `tools/` and `context/` separation is not implemented. Existing root HTML, JSON and record JSON-LD files are retained published artifacts; a new build writes to `build/` and does not overwrite them. The root `validate.yml` is an inactive workflow template, not installed CI. Historical workbook import/reconciliation is outside the normal contributor workflow.
 
 ## Setup
 
 ```bash
 pip install -r requirements.txt
-python3 tools/validate.py     # must exit 0 before you start
+python3 validate.py     # must exit 0 before you start
+python3 -m unittest discover -s tests -v
 ```
 
 ## Making a change
 
-1. Edit the relevant file in `data/`.
+1. Edit the relevant canonical YAML file at the repository root.
 2. Add a `provenance` block to every record you add or materially change:
 
    ```yaml
@@ -51,13 +50,13 @@ python3 tools/validate.py     # must exit 0 before you start
    Provenance is not bureaucracy. It is how a reader in two years works out
    whether a risk score reflects evidence or someone's Tuesday afternoon.
 
-3. Run `python3 tools/validate.py`. Fix errors. Read the warnings — most of them
+3. Run `python3 validate.py`. Fix errors. Read the warnings — most of them
    are telling you something true.
-4. Run `python3 tools/build.py` if you want to see the change in the site.
+4. Run `python3 build.py` if you want to see the change in the site.
 5. Open a PR using the template. Paste the validator summary line into it:
 
    ```
-   python3 tools/validate.py --summary
+   python3 validate.py --summary
    ```
 
 ## Adding each record type
@@ -90,7 +89,7 @@ are computed at build time from the records that reference the persona.
 **A recommendation (`REC-xx`)** proposes a change to the target specification.
 Set `class` to `normative`, `recommended` or `process`, and `status` truthfully.
 
-**A risk acceptance (`RA-xxx`)** — read the header of `data/risk-acceptances.yaml`
+**A risk acceptance (`RA-xxx`)** — read the header of `risk-acceptances.yaml`
 before adding one. There is currently no agreed acceptance authority, so every
 record is `pending`. Do not invent one.
 
@@ -107,7 +106,7 @@ The validator enforces this.
 
 ## Naming conventions
 
-- Files in `data/` and `method/`: lowercase, hyphenated, `.yaml`.
+- Canonical YAML files: lowercase, hyphenated, `.yaml`.
 - No version numbers in filenames. Git tags carry versions; `CHANGELOG.md`
   explains them. (The old `_v3`/`_v4`/`(1)` filenames are exactly what this rule
   is here to prevent.)

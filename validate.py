@@ -5,23 +5,23 @@ validate.py — integrity check for a RAHP artefact set.
 Exits 0 on a clean repository. Exits 1 if any ERROR is found. Warnings do not
 fail the build but are always printed and counted.
 
-    python3 tools/validate.py                 # human-readable report
-    python3 tools/validate.py --summary       # one line, suitable for a commit message
-    python3 tools/validate.py --json          # machine-readable
-    python3 tools/validate.py --strict        # treat warnings as errors
+    python3 validate.py                 # human-readable report
+    python3 validate.py --summary       # one line, suitable for a commit message
+    python3 validate.py --json          # machine-readable
+    python3 validate.py --strict        # treat warnings as errors
 
 What it checks:
-  1  Schema      — every record validates against method/schema/rahp.schema.json
+  1  Schema      — every record validates against rahp.schema.json
   2  Vocabulary  — every controlled-vocabulary field holds a permitted value
   3  Identifiers — IDs match their namespace pattern; no duplicates within a namespace
   4  References  — every cross-reference resolves to a defined record
   5  Symmetry    — bidirectional links agree (a risk citing GR-07 and GR-07 citing that risk)
-  6  Invariants  — the method's own rules from data/instance.yaml
+  6  Invariants  — the method's own rules from instance.yaml
   7  Orphans     — identifiers defined but never referenced
   8  Counts      — README figures match actual record counts
 
-Configuration is read from data/instance.yaml. No working-group-specific logic
-is hard-coded here: point it at a different data/ directory and it works.
+Configuration is read from instance.yaml. No working-group-specific logic
+is hard-coded here: use --data to point it at a different record directory and it works.
 """
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ try:
 except ImportError:  # pragma: no cover
     HAVE_JSONSCHEMA = False
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
+ROOT = pathlib.Path(__file__).resolve().parent
 
 
 class Report:
@@ -101,7 +101,7 @@ def check_schema(by_type, rep: Report):
                  "(pip install -r requirements.txt)")
         rep.check("schema", True, "skipped")
         return
-    schema_path = ROOT / "method" / "schema" / "rahp.schema.json"
+    schema_path = ROOT / "rahp.schema.json"
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
     defs = schema["$defs"]
     bad = 0
@@ -369,7 +369,7 @@ def check_coverage_stats(by_type, rep: Report):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default=str(ROOT / "data"))
+    ap.add_argument("--data", default=str(ROOT))
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--summary", action="store_true")
     ap.add_argument("--strict", action="store_true", help="treat warnings as errors")
@@ -377,7 +377,7 @@ def main():
 
     data_dir = pathlib.Path(a.data)
     instance = load_yaml(data_dir / "instance.yaml")
-    vocab = load_yaml(ROOT / "method" / "vocabularies.yaml")
+    vocab = load_yaml(ROOT / "vocabularies.yaml")
 
     rep = Report()
     by_type, _ = load_records(data_dir, instance)

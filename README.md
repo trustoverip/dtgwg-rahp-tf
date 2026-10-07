@@ -17,8 +17,7 @@ turning the answers into requirements a standards body can act on.
 ## What changed in v0.3
 
 Everything that used to live in spreadsheets, Word documents and hand-maintained
-HTML now lives in versioned YAML under `data/`. The spreadsheets and the website
-are **generated views**, not sources. There is one place to change a fact, and a
+HTML now lives in versioned YAML at the repository root. The maintained YAML is canonical. Existing workbook files are historical migration inputs; newly built exports and website pages are generated views. There is one place to change a fact, and a
 validator that fails the build when the artefacts contradict each other.
 
 The first run of that validator on the migrated v5/v6 content found 31 asymmetric
@@ -26,23 +25,23 @@ cross-references and 3 orphaned controls that no manual review had caught.
 
 ## Method and instance
 
-The repository separates the two things that were previously entangled:
+The method and the worked instance are conceptually separate. Both currently live at the repository root:
 
 | | |
 |---|---|
-| **`method/`** | The RAHP method. Lifecycle stages, controlled vocabularies, record schemas. Contains no DTG content. Another working group keeps this unchanged. |
-| **`data/`** | The DTG instance. Every risk, control, guardrail, persona and metric. Another working group replaces this wholesale. |
+| **Method contracts** | `lifecycle.yaml`, `vocabularies.yaml`, `rahp.schema.json` and `rahp.jsonld`. |
+| **DTG instance** | `instance.yaml` and the record files it names, including `risks.yaml`, `controls.yaml` and `personas.yaml`. |
 
-To apply RAHP to a different specification: fork, keep `method/` and `tools/`,
-empty `data/` except `instance.yaml`, and start at lifecycle stage `STAGE-1`.
+For incremental adoption, start with [ADOPTION.md](ADOPTION.md). Directory separation remains a proposed architecture, not the current physical layout.
 
 ## Quick start
 
 ```bash
 pip install -r requirements.txt
-python3 tools/validate.py      # integrity check — exits 0 on a clean repo
-python3 tools/build.py         # regenerate the site, JSON-LD and exports
-open build/site/index.html
+python3 validate.py      # integrity check — exits 0 on a clean repo
+python3 build.py         # regenerate the site, JSON-LD and exports
+python3 -m unittest discover -s tests -v
+# Open build/site/index.html in a browser after building.
 ```
 
 ## What is in the DTG instance
@@ -62,8 +61,7 @@ open build/site/index.html
 | `RA-xxx` | Risk acceptance | 3 risk acceptances (all `pending`) |
 | `GP-xxx` | Governance precedent | 3 governance precedents |
 
-These counts are checked by `tools/validate.py` on every pull request. They cannot
-drift.
+`validate.py` checks these counts locally. The root `validate.yml` is an inactive workflow template; it is not installed under `.github/workflows/`. Do not infer automated PR validation from its presence.
 
 ## Three distinctions that matter
 
@@ -118,13 +116,13 @@ A valid review record is reproducible review metadata; it is not an assurance PA
 
 ## Known gaps
 
-Gaps are tracked as records in `method/lifecycle.yaml` and rendered on the lifecycle
+Gaps are tracked as records in `lifecycle.yaml` and rendered on the lifecycle
 page, so they can be counted and closed rather than merely acknowledged. The two
 marked `blocking`:
 
 - **`GAP-3.1` — no formal risk acceptance workflow.** No decision on who may accept a
   risk, under what authority, for how long, with what documentation. This blocks
-  `AT-17` from ever passing and blocks every record in `data/risk-acceptances.yaml`
+  `AT-17` from ever passing and blocks every record in `risk-acceptances.yaml`
   from moving beyond `pending`.
 - **`GAP-5.1` — no contribution and integration governance.** No triage process and no
   defined authority for deciding what enters the next toolkit version.
@@ -137,8 +135,8 @@ metric carries a `monitoring: null` hook.
 
 ## Contributing
 
-See `CONTRIBUTING.md`. In short: `data/` is canonical, `build/` is generated, every
-record needs provenance, and `python3 tools/validate.py` must exit 0.
+See `CONTRIBUTING.md`. In short: the root YAML is canonical, `build/` is generated, every
+record needs provenance, and `python3 validate.py` must exit 0.
 
 ---
 
