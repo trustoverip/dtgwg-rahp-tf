@@ -41,14 +41,14 @@ Before adding a new risk, control, guardrail, assurance test, persona, scenario,
 
 Relevant current source files include:
 
-- `risks.yaml`
-- `controls.yaml`
-- `guardrails.yaml`
-- `assurance-tests.yaml`
-- `personas.yaml`
-- `scenarios.yaml`
-- `recommendations.yaml`
-- `governance-precedents.yaml`
+- `data/risks.yaml`
+- `data/controls.yaml`
+- `data/guardrails.yaml`
+- `data/assurance-tests.yaml`
+- `data/personas.yaml`
+- `data/scenarios.yaml`
+- `data/recommendations.yaml`
+- `data/governance-precedents.yaml`
 
 Reuse an existing record when its proposition remains valid for the new target. Add a new record only when the existing corpus does not express the required risk, harm, control, or evidence proposition accurately.
 

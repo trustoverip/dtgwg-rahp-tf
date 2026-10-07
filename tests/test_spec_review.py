@@ -12,7 +12,7 @@ spec.loader.exec_module(mod)
 
 class SpecReviewValidationTests(unittest.TestCase):
     def setUp(self):
-        self.risks = ROOT / "risks.yaml"
+        self.risks = ROOT / "data" / "risks.yaml"
         self.valid = yaml.safe_load((ROOT / "review" / "examples" / "minimal-review.yaml").read_text())
 
     def errors(self, record):
