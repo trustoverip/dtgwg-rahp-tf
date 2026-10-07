@@ -1,0 +1,20 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-101
+target:
+  repository: https://github.com/trustoverip/dtgwg-rahp-tf
+  revision: "62c52b3f5b1768dcfc1f6fab598c8021f72e057c"
+  artifact: review/examples/worked-adoption/target-v1.md
+  version_label: synthetic-training-v1
+rahp_version: v0.3-dev
+reviewed_at: "2026-10-07"
+findings:
+  - id: F-001
+    summary: Training target lacks documentary notice, rationale and challenge safeguards for revocation.
+    risks: [RK-CR01]
+    control_plane: governance
+    status: open
+  - id: F-002
+    summary: Training target specifies expiry rejection without a renewal interface or pending-request behavior.
+    risks: [RK-CR02]
+    control_plane: specification
+    status: open

@@ -171,6 +171,10 @@ A first adoption is successful when another reviewer can answer:
 
 If those questions cannot be answered from the records, the assessment is not yet sufficiently reproducible.
 
+## Try a worked review
+
+The [bounded membership-lifecycle exercise](review/examples/worked-adoption/README.md) shows two immutable fictional source versions, reused RAHP risks, evidence and interpretation, different control planes, structured resolution and a separately retained open finding. It uses the existing review contract and does not claim real-world assurance.
+
 ## Contribution and governance boundary
 
 RAHP can structure findings, evidence, and proposed treatment. It does not by itself grant authority to change another specification, accept residual risk, or make a governance decision.

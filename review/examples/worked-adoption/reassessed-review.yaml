@@ -1,0 +1,24 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-102
+target:
+  repository: https://github.com/trustoverip/dtgwg-rahp-tf
+  revision: "9ab60bc285adeeeb8e2e743bda5b609736ad56b6"
+  artifact: review/examples/worked-adoption/target-v2.md
+  version_label: synthetic-training-v2
+rahp_version: v0.3-dev
+reviewed_at: "2026-10-07"
+findings:
+  - id: F-001
+    summary: Revised training document adds revocation safeguards; documentary gap closed, execution unassessed.
+    risks: [RK-CR01]
+    control_plane: governance
+    status: resolved
+    resolution:
+      type: governance-action
+      reference: https://github.com/trustoverip/dtgwg-rahp-tf/blob/9ab60bc285adeeeb8e2e743bda5b609736ad56b6/review/examples/worked-adoption/target-v2.md#t3-companion-governance-procedure
+      rationale: Within this fictional documentary exercise, T3 adds notice, reasons, challenge and restoration requirements. No actual adoption, execution, independent review or effective remedy is established.
+  - id: F-002
+    summary: Revised training target still lacks a renewal interface and pending-request behavior.
+    risks: [RK-CR02]
+    control_plane: specification
+    status: open

@@ -6,6 +6,7 @@ specification pressure-testing.
 - `spec-review.schema.json` defines the record format.
 - `validate_spec_review.py` validates the schema, finding identifiers and RAHP risk references.
 - `examples/minimal-review.yaml` is a small worked fixture.
+- [Worked adoption](examples/worked-adoption/README.md) is a fictional two-version review with explicit evidence, disposition and reassessment boundaries.
 
 Start with [`docs/pressure-testing-a-spec.md`](../docs/pressure-testing-a-spec.md)
 for the review workflow.
