@@ -39,6 +39,8 @@ pip install -r requirements.txt
 python3 tools/validate.py     # must exit 0 before you start
 ```
 
+The [RAHP validation workflow](.github/workflows/validate.yml) runs corpus, regression, specification-review and build checks. See [validation evidence](docs/validation.md) for retained reports and limits.
+
 ## Making a change
 
 1. Edit the relevant file in `data/`.

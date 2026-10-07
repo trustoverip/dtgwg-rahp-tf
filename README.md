@@ -64,8 +64,7 @@ open build/site/index.html
 | `RA-xxx` | Risk acceptance | 3 risk acceptances (all `pending`) |
 | `GP-xxx` | Governance precedent | 3 governance precedents |
 
-These counts are checked by `tools/validate.py` on every pull request. They cannot
-drift.
+The [RAHP validation workflow](.github/workflows/validate.yml) checks corpus integrity, review regressions and a temporary-output build. See [validation evidence](docs/validation.md) for retained reports and limits.
 
 ## Three distinctions that matter
 
