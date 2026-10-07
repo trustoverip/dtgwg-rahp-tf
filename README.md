@@ -33,6 +33,8 @@ The repository separates the two things that were previously entangled:
 | **`method/`** | The RAHP method. Lifecycle stages, controlled vocabularies, record schemas. Contains no DTG content. Another working group keeps this unchanged. |
 | **`data/`** | The DTG instance. Every risk, control, guardrail, persona and metric. Another working group replaces this wholesale. |
 
+For a reader-facing map of the current record families, cross-references, review records, and authority boundaries, see [RAHP data model](docs/data-model.md).
+
 To apply RAHP to a different specification: fork, keep `method/` and `tools/`,
 empty `data/` except `instance.yaml`, and start at lifecycle stage `STAGE-1`.
 
