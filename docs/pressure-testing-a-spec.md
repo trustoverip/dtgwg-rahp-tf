@@ -127,7 +127,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
 The validator checks the JSON Schema, immutable source pinning, finding identifier
-uniqueness and resolution of risk references against `risks.yaml`.
+uniqueness and resolution of risk references against `data/risks.yaml`.
 
 ## 8. Reassess after material change
 

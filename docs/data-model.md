@@ -8,11 +8,11 @@ Where this explanation differs from a machine-readable schema, controlled vocabu
 
 At the current repository revision, the principal machine-readable surfaces are:
 
-- `rahp.schema.json` for RAHP record structures;
-- `vocabularies.yaml` for controlled values and definitions;
-- `lifecycle.yaml` for the RAHP standards-development lifecycle;
-- `instance.yaml` for identifier namespaces, cross-reference edges, and repository invariants;
-- the root YAML record files for the current DTG instance; and
+- `method/schema/rahp.schema.json` for RAHP record structures;
+- `method/vocabularies.yaml` for controlled values and definitions;
+- `method/lifecycle.yaml` for the RAHP standards-development lifecycle;
+- `data/instance.yaml` for identifier namespaces, cross-reference edges, and repository invariants;
+- the YAML record files under `data/` for the current DTG instance; and
 - `review/spec-review.schema.json` for reproducible specification-review records.
 
 Some existing comments and documentation describe a future or intended `method/`, `data/`, and `tools/` layout. This page describes the repository as it exists now and does not treat those paths as already implemented.
@@ -36,13 +36,13 @@ flowchart TD
 
 The method-level records define how RAHP objects are structured, named, related, and validated.
 
-`rahp.schema.json` defines structural record schemas.
+`method/schema/rahp.schema.json` defines structural record schemas.
 
-`vocabularies.yaml` defines controlled values such as severity, likelihood, standards priority, control type, persona type, and risk-acceptance decision.
+`method/vocabularies.yaml` defines controlled values such as severity, likelihood, standards priority, control type, persona type, and risk-acceptance decision.
 
-`lifecycle.yaml` describes the standards-development lifecycle. It identifies stages, required outputs, evidence expectations, invariants, and known method gaps.
+`method/lifecycle.yaml` describes the standards-development lifecycle. It identifies stages, required outputs, evidence expectations, invariants, and known method gaps.
 
-`instance.yaml` binds the current DTG instance to identifier namespaces and cross-reference rules. It also records invariants that the validator is expected to enforce.
+`data/instance.yaml` binds the current DTG instance to identifier namespaces and cross-reference rules. It also records invariants that the validator is expected to enforce.
 
 These surfaces should be read together. A schema defines shape, a vocabulary constrains meaning, the lifecycle explains method intent, and the instance declaration describes how the current corpus is wired.
 
@@ -54,20 +54,20 @@ The principal record families are:
 
 | Prefix | Record | Current source |
 |---|---|---|
-| `PERSONA` | Persona | `personas.yaml` |
-| `US-*` | User story | `user-stories.yaml` |
-| `SC-*` | Scenario | `scenarios.yaml` |
-| `RK-*` | Risk | `risks.yaml` |
-| `CT-*` | Control | `controls.yaml` |
-| `GR-*` | Guardrail | `guardrails.yaml` |
-| `AT-*` | Assurance test | `assurance-tests.yaml` |
-| `M-*` | Metric | `metrics.yaml` |
-| `EPIC-*` | Capability cluster | `epics.yaml` |
-| `REC-*` | Recommendation | `recommendations.yaml` |
-| `RA-*` | Risk acceptance | `risk-acceptances.yaml` |
-| `GP-*` | Governance precedent | `governance-precedents.yaml` |
+| `PERSONA` | Persona | `data/personas.yaml` |
+| `US-*` | User story | `data/user-stories.yaml` |
+| `SC-*` | Scenario | `data/scenarios.yaml` |
+| `RK-*` | Risk | `data/risks.yaml` |
+| `CT-*` | Control | `data/controls.yaml` |
+| `GR-*` | Guardrail | `data/guardrails.yaml` |
+| `AT-*` | Assurance test | `data/assurance-tests.yaml` |
+| `M-*` | Metric | `data/metrics.yaml` |
+| `EPIC-*` | Capability cluster | `data/epics.yaml` |
+| `REC-*` | Recommendation | `data/recommendations.yaml` |
+| `RA-*` | Risk acceptance | `data/risk-acceptances.yaml` |
+| `GP-*` | Governance precedent | `data/governance-precedents.yaml` |
 
-The cross-reference rules in `instance.yaml` are the clearest machine-readable map of how these families may link.
+The cross-reference rules in `data/instance.yaml` are the clearest machine-readable map of how these families may link.
 
 A useful explanatory view is:
 
@@ -106,7 +106,7 @@ flowchart LR
     GP --> G
 ```
 
-This diagram is explanatory. `instance.yaml` remains authoritative for the actual permitted cross-reference fields.
+This diagram is explanatory. `data/instance.yaml` remains authoritative for the actual permitted cross-reference fields.
 
 ## Core relationships and invariants
 
@@ -134,7 +134,7 @@ The repository distinguishes controls from guardrails. Controls reduce likelihoo
 
 ### Guardrails must be testable
 
-`instance.yaml` declares the invariant:
+`data/instance.yaml` declares the invariant:
 
 > A guardrail without an assurance test is unverifiable.
 
@@ -164,17 +164,17 @@ RAHP distinguishes assurance analysis from governance authority.
 
 ### Risk acceptance
 
-`risk-acceptances.yaml` records residual-risk decisions or pending decisions.
+`data/risk-acceptances.yaml` records residual-risk decisions or pending decisions.
 
 At the current repository state, the seeded records remain `pending` because the task force has not yet established who may accept risk, under what authority, or against what evidence threshold.
 
-This is also represented as `GAP-3.1` in `lifecycle.yaml`.
+This is also represented as `GAP-3.1` in `method/lifecycle.yaml`.
 
 A risk-acceptance record must therefore not be read as an acceptance merely because the record exists.
 
 ### Governance precedent
 
-`governance-precedents.yaml` records why a design or governance decision was made so that future contributors can understand the reasoning and evidence behind it.
+`data/governance-precedents.yaml` records why a design or governance decision was made so that future contributors can understand the reasoning and evidence behind it.
 
 The current precedents are marked `proposed`, not silently treated as ratified authority.
 
@@ -252,10 +252,10 @@ For a reader trying to understand the current model, a practical order is:
 1. `README.md` for repository orientation;
 2. [ADOPTION.md](../ADOPTION.md) for the bounded adoption path;
 3. this page for the record relationship map;
-4. `lifecycle.yaml` for method stages and gaps;
-5. `rahp.schema.json` for record structures;
-6. `vocabularies.yaml` for controlled values;
-7. `instance.yaml` for namespaces, cross-references, and invariants;
+4. `method/lifecycle.yaml` for method stages and gaps;
+5. `method/schema/rahp.schema.json` for record structures;
+6. `method/vocabularies.yaml` for controlled values;
+7. `data/instance.yaml` for namespaces, cross-references, and invariants;
 8. the relevant root YAML records for the current DTG instance;
 9. `docs/pressure-testing-a-spec.md` and `review/spec-review.schema.json` for reproducible specification review.
 

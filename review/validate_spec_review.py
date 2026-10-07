@@ -17,7 +17,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCHEMA_PATH = ROOT / "review" / "spec-review.schema.json"
-RISKS_PATH = ROOT / "risks.yaml"
+RISKS_PATH = ROOT / "data" / "risks.yaml"
 
 
 def load_yaml(path: pathlib.Path):
@@ -55,7 +55,7 @@ def validate_record(record: dict, risks_path: pathlib.Path = RISKS_PATH) -> list
                 seen.add(finding_id)
             for risk_id in finding.get("risks") or []:
                 if risk_id not in known:
-                    errors.append(f"finding {finding_id or '?'}: risk {risk_id} does not resolve in risks.yaml")
+                    errors.append(f"finding {finding_id or '?'}: risk {risk_id} does not resolve in data/risks.yaml")
     return errors
 
 

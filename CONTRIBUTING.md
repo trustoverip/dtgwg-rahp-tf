@@ -23,8 +23,12 @@ data/              The DTG instance. Another working group replaces this.
   risks.yaml  controls.yaml  guardrails.yaml  assurance-tests.yaml
   metrics.yaml  user-stories.yaml  scenarios.yaml  epics.yaml  personas.yaml
   recommendations.yaml  risk-acceptances.yaml  governance-precedents.yaml
-tools/             validate.py · build.py · import_xlsx.py (migration only)
+tools/             validate.py · build.py · import_xlsx.py · verify_migration.py (migration only)
 context/           JSON-LD context
+review/            Specification-review record schema, validator and examples
+docs/              Data model and pressure-testing guide
+tests/             Regression tests (python3 -m unittest discover -s tests)
+archive/           Historical spreadsheets, documents and builds. Read-only.
 build/             Generated. Not committed except on tagged releases.
 ```
 
