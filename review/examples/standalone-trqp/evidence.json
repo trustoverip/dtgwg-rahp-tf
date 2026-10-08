@@ -1,0 +1,157 @@
+{
+  "schema": "trqp-example-evidence/v1",
+  "assessment_id": "SR-001",
+  "target": {
+    "repository": "trustoverip/tswg-trust-registry-protocol",
+    "revision": "6863733878f3657e05f70764bb474a9fb918de9a"
+  },
+  "method_revision": "ab191485b48bca805ea2cc962c2ea9476a65db66",
+  "review_binding": {
+    "path": "review.yaml",
+    "sha256": "2493027beff2d86fb3173fdd61ff2f0f437cbba5d5352077c074e1e61b5e4b10"
+  },
+  "risks_binding": {
+    "path": "risks.yaml",
+    "sha256": "4f6880dc3b05b1e835b7bde3eff9c06cbc153b1e6d77c12cf5fe0f5700980542"
+  },
+  "execution": {
+    "state": "complete",
+    "observations": {
+      "target_commit": "6863733878f3657e05f70764bb474a9fb918de9a",
+      "scope": "retained source and constructed response fixtures only",
+      "source_integrity": "verified",
+      "cases": [
+        {
+          "id": "minimal-required-fields",
+          "schema_valid": true
+        },
+        {
+          "id": "missing-authority-negative-control",
+          "schema_valid": false
+        },
+        {
+          "id": "historical-response-without-provenance",
+          "schema_valid": true
+        }
+      ],
+      "api_example": {
+        "query_time": "2025-06-19T11:30:00Z",
+        "response_time_requested": "2025-06-25T00:42:00Z",
+        "requested_time_matches": false,
+        "schema_valid": true
+      },
+      "https_example": {
+        "requested_time_matches": true,
+        "schema_valid": true
+      },
+      "runtime_authorization": "not-assessed",
+      "authority_history": "not-assessed",
+      "overall_assurance": "review-required"
+    }
+  },
+  "unassessed": {
+    "authority": "not-assessed",
+    "delegation": "not-assessed",
+    "revocation": "not-assessed",
+    "runtime_authorization": "not-assessed"
+  },
+  "evidence": [
+    {
+      "id": "E-001",
+      "kind": "source",
+      "path": "source/spec.md.txt",
+      "sha256": "41688d4111dd1321cc3291414d3863612f76009432aa6e32adf6f84ff8ce0b68"
+    },
+    {
+      "id": "E-002",
+      "kind": "source",
+      "path": "source/trqp_authorization_response.schema.json",
+      "sha256": "ff58be6bbe4b547a51214dcc915d4f292a5b73e4d8bb24278ffacb636080380d"
+    },
+    {
+      "id": "E-003",
+      "kind": "source",
+      "path": "source/api.md.txt",
+      "sha256": "f6872b91d673cac87f683404034973fb5a617f810a21381ab19886680fb6437b"
+    },
+    {
+      "id": "E-004",
+      "kind": "source",
+      "path": "source/https_binding.md.txt",
+      "sha256": "3b4934e23ddba0641a26577b4a35c1ce62678992dbcd4b9ccf605ae2dc714a22"
+    },
+    {
+      "id": "E-005",
+      "kind": "artifact",
+      "path": "cases.json",
+      "sha256": "8b82ccdb5c370a55f1b127c0f9406c1392aa8a2ebad5bc9a88823c751f27e92c"
+    },
+    {
+      "id": "E-006",
+      "kind": "result",
+      "pointer": "/cases/2/schema_valid",
+      "expected": true
+    },
+    {
+      "id": "E-007",
+      "kind": "result",
+      "pointer": "/api_example/requested_time_matches",
+      "expected": false
+    },
+    {
+      "id": "E-008",
+      "kind": "result",
+      "pointer": "/api_example/schema_valid",
+      "expected": true
+    },
+    {
+      "id": "E-009",
+      "kind": "result",
+      "pointer": "/https_example/requested_time_matches",
+      "expected": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "evidence": [
+        "E-001",
+        "E-002",
+        "E-005",
+        "E-006"
+      ],
+      "observation": "A constructed historical response without provenance satisfies the unchanged schema; the source excludes systems of record and implementation code.",
+      "inference": "Response structure alone cannot substantiate current permission or authority history. Deployment evidence may exist separately; this is not a demonstrated protocol defect.",
+      "limitations": [
+        "No live endpoint, governed authority statement, delegation chain or revocation trace was examined.",
+        "Evidence coverage establishes reference integrity, not the correctness of reviewer inference; independent review remains pending."
+      ],
+      "treatment": "Request deployment policy, authority provenance and an action-time decision trace, including a post-revocation negative case. Do not infer mandatory protocol fields or storage design.",
+      "risk_reasoning": {
+        "RK-AU01": "The example tests whether a structural authorization claim is incorrectly treated as proof of authority.",
+        "RK-TM01": "A response about a past moment cannot establish permission at a later action time without additional evidence."
+      }
+    },
+    {
+      "id": "F-002",
+      "evidence": [
+        "E-002",
+        "E-003",
+        "E-004",
+        "E-007",
+        "E-008",
+        "E-009"
+      ],
+      "observation": "The API query requests 2025-06-19T11:30:00Z, but its response time_requested is 2025-06-25T00:42:00Z. The response is schema-valid; the HTTPS example preserves query time.",
+      "inference": "The documentation example can conflate requested applicability with evaluation time. Schema checking alone does not enforce query/response agreement.",
+      "limitations": [
+        "This is a source-example observation, not an observed service failure or full TRQP conformance determination.",
+        "Specification editor review and clarification at a new immutable revision remain outstanding."
+      ],
+      "treatment": "Ask editors to align time_requested with the API query and explain time_evaluated separately; rerun at a new source revision.",
+      "risk_reasoning": {
+        "RK-TM01": "The source-example mismatch demonstrates the specific time-confusion hypothesis; harm in a deployment remains hypothetical."
+      }
+    }
+  ]
+}

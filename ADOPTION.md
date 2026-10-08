@@ -189,3 +189,12 @@ When contributing back to this repository, follow [CONTRIBUTING.md](CONTRIBUTING
 - To understand the review-record format: [review/README.md](review/README.md)
 - To contribute risks, controls, evidence, or related records: [CONTRIBUTING.md](CONTRIBUTING.md)
 - To explore the toolkit and worked DTG instance: [README.md](README.md)
+
+## Replay a retained real specification
+
+After the constructed worked example, use the
+[bounded TRQP examination](review/examples/standalone-trqp/README.md) to verify
+retained specification bytes, reproduce positive and negative observations, and
+inspect an evidence-linked review through the existing review contract.
+It runs without a downstream checkout or live service. The evidence sidecar is
+experimental; execution success does not establish target assurance.

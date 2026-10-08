@@ -16,3 +16,13 @@ RAHP assurance controller, specialist routing, terminal assurance state machine 
 continuous reassessment machinery. A valid review record means that the review is
 well-formed and reproducibly source-pinned; it does not mean that the target has
 passed assurance.
+
+## Evidence-linked retained-source example
+
+[The standalone TRQP walkthrough](examples/standalone-trqp/README.md) adds an
+offline real-source replay and an experimental example-local evidence sidecar.
+`python3 review/examine.py` reruns that bounded evaluator and validates the
+source/review/evidence bindings. It emits `validation: complete` only after all
+checks succeed, while retaining `overall_assurance: review-required`.
+The existing review schema and validator are unchanged. The sidecar is not a
+standardized RAHP evidence contract and adds no members to existing review records.

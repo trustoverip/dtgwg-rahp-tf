@@ -72,3 +72,71 @@ above. Original [license](source/LICENSE.md.txt) and
 The `.txt` suffix preserves source bytes without publishing its Markdown directives
 as RAHP documentation. This examination implies no specification-owner endorsement.
 See [review documentation](../../README.md) for the existing assessment contract.
+
+## Bind observations to the assessment
+
+Increment 2 uses the unchanged upstream [review schema](../../spec-review.schema.json)
+and `validate_spec_review.py::validate_record`. The assessment lives in
+[review.yaml](review.yaml); evidence and reasoning live separately in
+[evidence.json](evidence.json), validated against [evidence.schema.json](evidence.schema.json).
+No undocumented members are added to the review format.
+
+```bash
+python3 review/validate_spec_review.py review/examples/standalone-trqp/review.yaml --risks review/examples/standalone-trqp/risks.yaml
+python3 review/examine.py
+```
+
+The adapter uses the installed TRQP evaluator, never code supplied by an input
+bundle. `--example PATH` accepts another retained TRQP bundle in this same
+experimental layout; it is not a general specification/plugin execution interface.
+All paths resolve inside that bundle with traversal and symlinks rejected.
+
+The result distinguishes `validation: complete` from
+`overall_assurance: review-required`. Missing evidence, malformed records,
+contradictory observations and execution failures produce a nonzero exit and no
+success report. Authority, delegation, revocation and runtime authorization remain
+explicitly `not-assessed`. Findings remain open, with independent review pending.
+
+### Example-local binding contract
+
+| Member | Meaning and check |
+| --- | --- |
+| `assessment_id`, `target`, `method_revision` | Must agree with review identity, retained target and explicit method baseline |
+| `review_binding`, `risks_binding` | Relative paths and SHA-256 bind exact review bytes and selected corpus |
+| `execution` | Must be complete and match a fresh replay and retained expected output |
+| `evidence` | Unique IDs; file paths/digests and optional inclusive 1-based line ranges, or RFC 6901 pointers to fresh replay results with expected values |
+| `findings` | Exactly one entry per review finding, nonempty evidence references, observation, inference, limitations, proposed treatment and reasoning for each selected risk |
+| `unassessed` | Fixed explicit exclusions; cannot relabel absent runtime evidence as verified |
+
+`source` evidence must belong to the verified manifest; `artifact` evidence binds
+constructed inputs; `result` evidence selects an observation from fresh output.
+Every finding must have resolvable references. These checks establish structural
+coverage and consistency, not whether the cited evidence supports the inference.
+Reviewers must challenge the reasoning itself. An attacker rewriting both retained
+bytes and their manifests/digests can construct a consistent bundle; this adapter
+does not authenticate the publisher or provide a trusted signature.
+
+[risks.yaml](risks.yaml) contains **two example-local hypotheses**, selected via
+the existing `--risks` interface. RK-AU01 examines structure mistaken for authority;
+RK-TM01 examines time confusion. These identifiers are local to this example, not
+additions to the canonical DTG corpus, scored risks, accepted risks or demonstrated
+deployment incidents. The sidecar explains each mapping. No downstream CRK
+identifiers, pressure-test statuses or controllers are imported.
+
+F-001 requests deployment policy and authority/revocation evidence; it does not
+infer that TRQP must prescribe storage or add response fields. F-002 requests
+editor clarification of the retained API example at another immutable revision.
+A successful replay cannot close either finding.
+
+The sidecar deliberately remains example-local until a second examination tests
+reuse. Alternatives were extending the strict review schema or importing the
+downstream pressure-test contract; both would expand semantic and compatibility
+scope prematurely. Existing review records and commands remain valid.
+
+When source, review, selected risks or fixtures change, retain the earlier bundle
+and reassess; do not silently reuse the old evidence. Updating digests is an
+explicit new binding, not proof that old conclusions still apply. Capture the
+implementation Git SHA and dependency versions with any exported execution result.
+Increment 3 will consolidate vocabulary/validation; Increment 4 and pending CI
+PR #14 will establish the supported repository CI path. This example adds no
+duplicate workflow and claims no independent adopter qualification.
