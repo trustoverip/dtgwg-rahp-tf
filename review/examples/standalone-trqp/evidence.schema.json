@@ -1,0 +1,282 @@
+{
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "trqp-example-evidence/v1"
+    },
+    "assessment_id": {
+      "type": "string",
+      "pattern": "^SR-[0-9]{3,}$"
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "required": [
+        "repository",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "method_revision": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "review_binding": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "risks_binding": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "complete",
+            "failed",
+            "incomplete"
+          ]
+        },
+        "observations": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "state",
+        "observations"
+      ],
+      "additionalProperties": false
+    },
+    "unassessed": {
+      "type": "object",
+      "properties": {
+        "authority": {
+          "const": "not-assessed"
+        },
+        "delegation": {
+          "const": "not-assessed"
+        },
+        "revocation": {
+          "const": "not-assessed"
+        },
+        "runtime_authorization": {
+          "const": "not-assessed"
+        }
+      },
+      "required": [
+        "authority",
+        "delegation",
+        "revocation",
+        "runtime_authorization"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^E-[0-9]{3}$"
+              },
+              "kind": {
+                "const": "source"
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "lines": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^E-[0-9]{3}$"
+              },
+              "kind": {
+                "const": "artifact"
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "path",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^E-[0-9]{3}$"
+              },
+              "kind": {
+                "const": "result"
+              },
+              "pointer": {
+                "type": "string"
+              },
+              "expected": {}
+            },
+            "required": [
+              "id",
+              "kind",
+              "pointer",
+              "expected"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^F-[0-9]{3,}$"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "observation": {
+            "type": "string",
+            "minLength": 10
+          },
+          "inference": {
+            "type": "string",
+            "minLength": 10
+          },
+          "limitations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 10
+            }
+          },
+          "treatment": {
+            "type": "string",
+            "minLength": 10
+          },
+          "risk_reasoning": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 10
+            }
+          }
+        },
+        "required": [
+          "id",
+          "evidence",
+          "observation",
+          "inference",
+          "limitations",
+          "treatment",
+          "risk_reasoning"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "assessment_id",
+    "target",
+    "method_revision",
+    "review_binding",
+    "risks_binding",
+    "execution",
+    "unassessed",
+    "evidence",
+    "findings"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experimental example-local TRQP evidence sidecar"
+}

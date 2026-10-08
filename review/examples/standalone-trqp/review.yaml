@@ -1,0 +1,25 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-001
+target:
+  repository: trustoverip/tswg-trust-registry-protocol
+  revision: 6863733878f3657e05f70764bb474a9fb918de9a
+  artifact: specification/v2-approved/core
+  version_label: v2-approved source snapshot
+rahp_version: trustoverip/dtgwg-rahp-tf@ab191485b48bca805ea2cc962c2ea9476a65db66
+reviewed_at: '2026-10-08'
+findings:
+- id: F-001
+  summary: Schema-valid authorization does not demonstrate authority history or current
+    permission.
+  risks:
+  - RK-AU01
+  - RK-TM01
+  control_plane: implementation-guidance
+  status: open
+- id: F-002
+  summary: The retained API authorization example does not preserve the queried historical
+    time.
+  risks:
+  - RK-TM01
+  control_plane: specification
+  status: open
