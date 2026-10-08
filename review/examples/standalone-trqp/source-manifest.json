@@ -1,0 +1,55 @@
+{
+  "repository": "trustoverip/tswg-trust-registry-protocol",
+  "specification": "Trust Registry Query Protocol (TRQP)",
+  "version": "v2-approved source snapshot",
+  "commit": "6863733878f3657e05f70764bb474a9fb918de9a",
+  "files": [
+    {
+      "path": "source/spec.md.txt",
+      "upstream_path": "specification/v2-approved/core/spec.md",
+      "git_blob_sha": "a033a4d036995cb75ad60d9d36c44780514e1d7b",
+      "url": "https://github.com/trustoverip/tswg-trust-registry-protocol/blob/6863733878f3657e05f70764bb474a9fb918de9a/specification/v2-approved/core/spec.md",
+      "sha256": "41688d4111dd1321cc3291414d3863612f76009432aa6e32adf6f84ff8ce0b68"
+    },
+    {
+      "path": "source/api.md.txt",
+      "upstream_path": "specification/v2-approved/core/api.md",
+      "git_blob_sha": "9f681181078217a31cda2c8f09e8fad5514fb1e9",
+      "url": "https://github.com/trustoverip/tswg-trust-registry-protocol/blob/6863733878f3657e05f70764bb474a9fb918de9a/specification/v2-approved/core/api.md",
+      "sha256": "f6872b91d673cac87f683404034973fb5a617f810a21381ab19886680fb6437b"
+    },
+    {
+      "path": "source/https_binding.md.txt",
+      "upstream_path": "specification/v2-approved/core/https_binding.md",
+      "git_blob_sha": "424ef8f91d39f72ccabf0bdb9d92ad611604f56d",
+      "url": "https://github.com/trustoverip/tswg-trust-registry-protocol/blob/6863733878f3657e05f70764bb474a9fb918de9a/specification/v2-approved/core/https_binding.md",
+      "sha256": "3b4934e23ddba0641a26577b4a35c1ce62678992dbcd4b9ccf605ae2dc714a22"
+    },
+    {
+      "path": "source/trqp_authorization_response.schema.json",
+      "upstream_path": "specification/v2-approved/core/schema/trqp_authorization_response.schema.json",
+      "git_blob_sha": "ba0701d676bade714c20d214e231130b26cb6225",
+      "url": "https://github.com/trustoverip/tswg-trust-registry-protocol/blob/6863733878f3657e05f70764bb474a9fb918de9a/specification/v2-approved/core/schema/trqp_authorization_response.schema.json",
+      "sha256": "ff58be6bbe4b547a51214dcc915d4f292a5b73e4d8bb24278ffacb636080380d"
+    },
+    {
+      "path": "source/LICENSE.md.txt",
+      "upstream_path": "LICENSE.md",
+      "git_blob_sha": "8056a35aa830c5bdd44ce8cd8ad90baa5e3f42e5",
+      "url": "https://github.com/trustoverip/tswg-trust-registry-protocol/blob/6863733878f3657e05f70764bb474a9fb918de9a/LICENSE.md",
+      "sha256": "8b26ac946e0a158d0dfcc46feaab71e7dd43a69df2e14c1840726c6722d14385"
+    },
+    {
+      "path": "source/COPYRIGHT_POLICY.md.txt",
+      "upstream_path": "COPYRIGHT_POLICY.md",
+      "git_blob_sha": "84070e2d947c59cd42a61100590a0a2a11bcc82c",
+      "url": "https://github.com/trustoverip/tswg-trust-registry-protocol/blob/6863733878f3657e05f70764bb474a9fb918de9a/COPYRIGHT_POLICY.md",
+      "sha256": "0391e92ae883f1b8942102eefa130796d2e72c51aa9db02907a01c293bad1099"
+    }
+  ],
+  "insert_schema": {
+    "upstream_path": "specification/v2/core/schema/trqp_authorization_response.schema.json",
+    "git_blob_sha": "ba0701d676bade714c20d214e231130b26cb6225",
+    "matches_approved_schema": true
+  }
+}

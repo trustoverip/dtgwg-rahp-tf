@@ -1,0 +1,38 @@
+[
+  {
+    "id": "minimal-required-fields",
+    "schema_valid": true,
+    "response": {
+      "entity_id": "did:example:issuer",
+      "authority_id": "did:example:authority",
+      "action": "issue",
+      "resource": "example-license",
+      "authorized": true,
+      "time_evaluated": "2025-06-25T00:42:00Z"
+    }
+  },
+  {
+    "id": "missing-authority-negative-control",
+    "schema_valid": false,
+    "response": {
+      "entity_id": "did:example:issuer",
+      "action": "issue",
+      "resource": "example-license",
+      "authorized": true,
+      "time_evaluated": "2025-06-25T00:42:00Z"
+    }
+  },
+  {
+    "id": "historical-response-without-provenance",
+    "schema_valid": true,
+    "response": {
+      "entity_id": "did:example:issuer",
+      "authority_id": "did:example:authority",
+      "action": "issue",
+      "resource": "example-license",
+      "authorized": true,
+      "time_requested": "2025-06-19T11:30:00Z",
+      "time_evaluated": "2025-06-25T00:42:00Z"
+    }
+  }
+]
