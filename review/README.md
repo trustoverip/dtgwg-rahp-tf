@@ -56,3 +56,17 @@ contract update and a deliberate adjustment to the compatibility check.
 Corpus warnings, review schema failures and unresolved risk references are
 reported by their existing validators; a failure of either component produces
 a nonzero exit status. This is repository validation, not target assurance.
+
+## Fail-closed schema dependency (Increment 4)
+
+The corpus validator now stops with a nonzero exit code if `jsonschema` is not
+installed. Skipping required schema validation is not a successful integrity
+check. Install `requirements.txt` and rerun the full validation suite.
+A dedicated negative regression test uses an isolated interpreter to simulate
+that missing dependency. This change does not alter the warning policy for
+ordinary corpus content or provide any target assurance conclusion.
+
+The proposed CI implementation is [PR #14](https://github.com/trustoverip/dtgwg-rahp-tf/pull/14),
+which owns workflow integration, execution provenance and retained artifact
+outputs. This increment does not create a parallel workflow; once #14 is
+accepted, its regression test step must execute the new test and retain results.
