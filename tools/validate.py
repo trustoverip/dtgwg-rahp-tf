@@ -39,9 +39,8 @@ except ImportError:  # pragma: no cover
 
 try:
     from jsonschema import Draft202012Validator
-    HAVE_JSONSCHEMA = True
 except ImportError:  # pragma: no cover
-    HAVE_JSONSCHEMA = False
+    sys.exit("ERROR: schema validation unavailable: install jsonschema with pip install -r requirements.txt")
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
@@ -96,11 +95,6 @@ def load_records(data_dir: pathlib.Path, instance: dict):
 # ---------------------------------------------------------------------------
 
 def check_schema(by_type, rep: Report):
-    if not HAVE_JSONSCHEMA:
-        rep.warn("jsonschema not installed — schema validation skipped "
-                 "(pip install -r requirements.txt)")
-        rep.check("schema", True, "skipped")
-        return
     schema_path = ROOT / "method" / "schema" / "rahp.schema.json"
     schema = json.loads(schema_path.read_text(encoding="utf-8"))
     defs = schema["$defs"]
