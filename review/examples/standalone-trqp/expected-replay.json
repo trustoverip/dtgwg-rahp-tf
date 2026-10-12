@@ -1,0 +1,32 @@
+{
+  "target_commit": "6863733878f3657e05f70764bb474a9fb918de9a",
+  "scope": "retained source and constructed response fixtures only",
+  "source_integrity": "verified",
+  "cases": [
+    {
+      "id": "minimal-required-fields",
+      "schema_valid": true
+    },
+    {
+      "id": "missing-authority-negative-control",
+      "schema_valid": false
+    },
+    {
+      "id": "historical-response-without-provenance",
+      "schema_valid": true
+    }
+  ],
+  "api_example": {
+    "query_time": "2025-06-19T11:30:00Z",
+    "response_time_requested": "2025-06-25T00:42:00Z",
+    "requested_time_matches": false,
+    "schema_valid": true
+  },
+  "https_example": {
+    "requested_time_matches": true,
+    "schema_valid": true
+  },
+  "runtime_authorization": "not-assessed",
+  "authority_history": "not-assessed",
+  "overall_assurance": "review-required"
+}
