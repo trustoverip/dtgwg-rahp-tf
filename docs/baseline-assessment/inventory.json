@@ -1,0 +1,361 @@
+{
+  "issue": "https://github.com/trustoverip/dtgwg-rahp-tf/issues/17",
+  "assessment_state": "maintainer-decisions-pending",
+  "inventory_scope": "Eight bounded candidate groups; not an exhaustive downstream audit.",
+  "sources": {
+    "upstream": "ab191485b48bca805ea2cc962c2ea9476a65db66",
+    "downstream": "af58247e83d0aff4d47650d929bfc6280d9e41d3"
+  },
+  "candidates": [
+    {
+      "id": "C1",
+      "title": "Bounded real-specification replay",
+      "classification": "reusable-test-fixture",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "examples/standalone-trqp/replay.py",
+          "sha256": "3cb4bce86404c7be141a2eaa203e437a1074f75aa51e4544529f971ebe90f277",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/examples/standalone-trqp/replay.py"
+        },
+        {
+          "path": "examples/standalone-trqp/source-manifest.json",
+          "sha256": "932c685e8ada766bc9bd2f21793e4fbf13add8c0c28ed9e288055a2c57f36f2c",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/examples/standalone-trqp/source-manifest.json"
+        },
+        {
+          "path": "examples/standalone-trqp/cases.json",
+          "sha256": "8b82ccdb5c370a55f1b127c0f9406c1392aa8a2ebad5bc9a88823c751f27e92c",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/examples/standalone-trqp/cases.json"
+        },
+        {
+          "path": "examples/standalone-trqp/expected-replay.json",
+          "sha256": "004aee54a245ccf612c6a0807b09ab08fc0d6a4724212a5aab234bbeb1e47052",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/examples/standalone-trqp/expected-replay.json"
+        },
+        {
+          "path": "examples/standalone-trqp/pressure-test.yaml",
+          "sha256": "39ea161b9f55ee0b59320be91e3fd29b58cd0b9188ccd7be7320d1f617d5ba69",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/examples/standalone-trqp/pressure-test.yaml"
+        },
+        {
+          "path": "tests/test_standalone_trqp.py",
+          "sha256": "6a670dc686a54e7185fab4b65f38396b11a44f73b97ca20efaa62f46a8d25834",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_standalone_trqp.py"
+        }
+      ],
+      "interface_dependencies_consumers": "Retained source, manifest, response fixtures -> integrity/schema/time-binding results; Python stdlib + jsonschema; README and regression test consume the replay.",
+      "upstream_overlap": "review/examples/worked-adoption; tests/test_worked_adoption.py",
+      "evidence": "trqp-tests; trqp-replay",
+      "disposition": "redesign-with-maintainers",
+      "rationale_and_maintenance": "Adapt observations to the existing upstream review record; retain attribution and source hashes. Do not copy downstream catalogue identifiers or generated Pages navigation.",
+      "maturity_and_limits": "Source-only; no live authorization, revocation or historical authority verification. Three focused tests passed; no unfamiliar-adopter trial.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C2",
+      "title": "Pressure-test record validator",
+      "classification": "implementation-machinery",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "tools/validate_pressure_tests.py",
+          "sha256": "9f982e1d70d1dc985f1f2f351986ec8b76a109667cf4934838dc90397c27883a",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/validate_pressure_tests.py"
+        },
+        {
+          "path": "tools/portable_catalogue.py",
+          "sha256": "2565d3032217874551c7e2f20cdef45587213b8211a0e1e766fcf953c4ccecec",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/portable_catalogue.py"
+        },
+        {
+          "path": "method/vocabularies.yaml",
+          "sha256": "207bb11a36beca23c659411d65b76fb55f104c57dce1e3c801ca8aaa995a6b3d",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/vocabularies.yaml"
+        },
+        {
+          "path": "method/scenario-patterns.yaml",
+          "sha256": "852345cb169f6505fcf8ce76e885932e8e29af3437200997b65cd5be4fc71ee3",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/scenario-patterns.yaml"
+        }
+      ],
+      "interface_dependencies_consumers": "examples/**/pressure-test.yaml + data/ + instances/*/data/ + corpora/ + method/catalogue -> errors/count; PyYAML, renderer subprocess and repository-relative paths; worked examples consume it.",
+      "upstream_overlap": "review/spec-review.schema.json; review/validate_spec_review.py",
+      "evidence": "Inspected only; no execution claim",
+      "disposition": "redesign-with-maintainers",
+      "rationale_and_maintenance": "Different disposition/status values and discovery rules make a direct transfer unsafe; preserve upstream contract authority pending consolidation decision.",
+      "maturity_and_limits": "No upstream compatibility proof; imports and directory scanning expand maintenance beyond a single validator.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C3",
+      "title": "Engine result contract and negative fixtures",
+      "classification": "portable-method-contract",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "method/engine-contract.yaml",
+          "sha256": "eb8cd32d6301a09d10e930bdf923e847118e22559bca5fa55e0a42043f7838f6",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/engine-contract.yaml"
+        },
+        {
+          "path": "method/schema/rahp-result.schema.json",
+          "sha256": "7d628122c0c6cf28e885befb5bc43601d940ab5f8cb75765561013c2415c8cd8",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/schema/rahp-result.schema.json"
+        },
+        {
+          "path": "method/evidence-retention.yaml",
+          "sha256": "65c7e9aa7a3cc597749d038db59250f29cf9ba9f09555074d489ead84d86bc5f",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/evidence-retention.yaml"
+        },
+        {
+          "path": "tools/engine_contract.py",
+          "sha256": "8c9f892238c9e82fb5947fc5f08ae524e5ec94fd898bdb342c65ff53e29e96e5",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/engine_contract.py"
+        },
+        {
+          "path": "tests/test_engine_contract.py",
+          "sha256": "a4cf675712f1a92fb4b66389135069b847ff4251446dd83e51fcb182672d7480",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_engine_contract.py"
+        },
+        {
+          "path": "tests/conformance/engine/invalid-missing-revision/result.json",
+          "sha256": "c15168217560a0e63e958b511cb106d6737d395a62f87e5bbdfd73f1e343fdcc",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/conformance/engine/invalid-missing-revision/result.json"
+        },
+        {
+          "path": "tests/conformance/engine/invalid-referenced-evidence-no-hash/result.json",
+          "sha256": "bd127e7dbc09a70e1c85ed713060dceea92437cba7e969153a0be45ca2500b92",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/conformance/engine/invalid-referenced-evidence-no-hash/result.json"
+        }
+      ],
+      "interface_dependencies_consumers": "Result JSON + schema + retention YAML -> structural/semantic errors and retention plan; PyYAML/jsonschema; engine adapter and conformance tests consume it.",
+      "upstream_overlap": "review/spec-review.schema.json; method/lifecycle.yaml",
+      "evidence": "engine-tests",
+      "disposition": "defer",
+      "rationale_and_maintenance": "Useful falsification ideas, but the full engine contract adds assessment lifecycle, evaluation and terminal semantics outside the agreed review baseline.",
+      "maturity_and_limits": "Downstream declares stable contract revision 1.3; four focused tests passed, not the complete conformance suite or language-neutral interop.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C4",
+      "title": "Evidence provenance, freshness and delta",
+      "classification": "portable-method-contract",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "method/schema/evidence-manifest.schema.json",
+          "sha256": "2997d9e5ff7e8847dc13ee116e5b1ba0d37f1911e0125af824ba826e5fe8bee6",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/schema/evidence-manifest.schema.json"
+        },
+        {
+          "path": "method/schema/assurance-freshness.schema.json",
+          "sha256": "fb0aad383b41bca8dfd8dc212c09b94bf8a73be4a1e0585f3d2c975b1bce7683",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/schema/assurance-freshness.schema.json"
+        },
+        {
+          "path": "method/schema/assurance-delta.schema.json",
+          "sha256": "f8012b65c1c86ff1764403e10cb0da2127470bcf4df024b5f6a1677050a62a15",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/schema/assurance-delta.schema.json"
+        },
+        {
+          "path": "tools/validate_evidence_freshness_delta.py",
+          "sha256": "7eedc57d9697b7d0fbcddac19d327af5011542452344c911b1fe03bc02a4864d",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/validate_evidence_freshness_delta.py"
+        },
+        {
+          "path": "tools/assurance_state.py",
+          "sha256": "b670d6864f1e8e678350a415732f727777c5d514dff2c71a6f8f3461f9347bd2",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/assurance_state.py"
+        },
+        {
+          "path": "tests/test_evidence_freshness_delta.py",
+          "sha256": "63e37a3f8ecb63546bbe677009009f4c7e32e10e23210f4e0c259a947299c16e",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_evidence_freshness_delta.py"
+        }
+      ],
+      "interface_dependencies_consumers": "Evidence/freshness/delta records -> schema and cross-record consistency checks; PyYAML/jsonschema + assurance_state; assurance-lineage examples consume these contracts.",
+      "upstream_overlap": "review/examples/worked-adoption/reassessed-review.yaml; docs/pressure-testing-a-spec.md",
+      "evidence": "freshness-tests",
+      "disposition": "defer",
+      "rationale_and_maintenance": "Reassessment concepts are valuable; importing result states or lineage schemas before agreeing upstream ownership would create a second conclusion model.",
+      "maturity_and_limits": "Six pure-function tests passed; schema/CLI validator not run here; policy and time-based live freshness not established.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C5",
+      "title": "Portable harm-to-evidence catalogue",
+      "classification": "portable-method-contract",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "method/catalogue/harm-patterns.yaml",
+          "sha256": "b97f3945f9f90880c4f077b4582268bab03934190aa414cd11356ca13ad71b06",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/catalogue/harm-patterns.yaml"
+        },
+        {
+          "path": "method/catalogue/risk-patterns.yaml",
+          "sha256": "43debca27263be3b6bae791dcbf60ccd17ccbd51245e11b68cf8d23aa2ff5328",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/catalogue/risk-patterns.yaml"
+        },
+        {
+          "path": "method/catalogue/control-patterns.yaml",
+          "sha256": "cde65bf0e174764b0c18745f89cbbf5bf60de594f35116000e56b5c47b3aa996",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/catalogue/control-patterns.yaml"
+        },
+        {
+          "path": "method/catalogue/guardrail-patterns.yaml",
+          "sha256": "f4b09a8a48b31a2639e3df120aa156785686f373e9b1fd920e5af5d31786738c",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/catalogue/guardrail-patterns.yaml"
+        },
+        {
+          "path": "method/catalogue/assurance-patterns.yaml",
+          "sha256": "3b7b3b60df65c97f2e7b2e48e5db1658fcbca5c15832dfd4fc748259481501ea",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/catalogue/assurance-patterns.yaml"
+        },
+        {
+          "path": "method/catalogue/evidence-patterns.yaml",
+          "sha256": "fde94de846e23816cc737aa0fe63753b161831cc019796391ef451f0a3c1159a",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/method/catalogue/evidence-patterns.yaml"
+        },
+        {
+          "path": "tools/portable_catalogue.py",
+          "sha256": "2565d3032217874551c7e2f20cdef45587213b8211a0e1e766fcf953c4ccecec",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/portable_catalogue.py"
+        },
+        {
+          "path": "tests/test_portable_catalogue_cache.py",
+          "sha256": "8156939d1cee876040fb0e5e55b302251c6658973c6f6f86722451484905215b",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_portable_catalogue_cache.py"
+        }
+      ],
+      "interface_dependencies_consumers": "Six pattern layers + portable_assurance references -> identifier validation; PyYAML; pressure-test validator consumes indexes.",
+      "upstream_overlap": "method/schema/rahp.schema.json; data/risks.yaml; data/instance.yaml",
+      "evidence": "Inspected loader and consumer; tests located, not run",
+      "disposition": "defer",
+      "rationale_and_maintenance": "Could reduce DTG coupling, but pattern identifiers and links require an explicit mapping to the upstream RK/CT/GR/AT model and maintenance owner.",
+      "maturity_and_limits": "Cache tests do not prove domain portability; full catalogue quality and external adoption not assessed.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C6",
+      "title": "Finite assessment and autonomous controllers",
+      "classification": "orchestration-integration",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "tools/assessment_controller.py",
+          "sha256": "166d85a62a33ad12da099edabd9e6d46b57b3cd48535de1d5abc053606bf32e6",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/assessment_controller.py"
+        },
+        {
+          "path": "tools/autonomous_assurance_controller.py",
+          "sha256": "acbbcf3bcb0b4bce2d1a0f89eac70c36a2c9728efec26fd8515c1915bb1a6d77",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/autonomous_assurance_controller.py"
+        },
+        {
+          "path": "tools/execution_telemetry.py",
+          "sha256": "275f7784544a144d3bf33ff9707f59958ed43c1a215f136f5c8a44bc45366d6e",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/execution_telemetry.py"
+        },
+        {
+          "path": "tests/test_assessment_controller_resilience.py",
+          "sha256": "d0a7b5900e7ec83806b811526a4393a94413bfe0770ffb59ee6e8ac02fed3a1e",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_assessment_controller_resilience.py"
+        },
+        {
+          "path": "tests/test_assessment_controller_telemetry.py",
+          "sha256": "6f92eb1ee0e0e6ed936aafc644a8a3ffd0d25d5342866ccc47c802e1641073c0",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_assessment_controller_telemetry.py"
+        }
+      ],
+      "interface_dependencies_consumers": "Lifecycle records and policy inputs -> transitions/terminal outcomes and telemetry; execution_telemetry and controller integration; downstream assurance automation consumers.",
+      "upstream_overlap": "method/lifecycle.yaml (method stages, not engine queue states)",
+      "evidence": "Controller interfaces inspected; tests located, not run",
+      "disposition": "retain-downstream",
+      "rationale_and_maintenance": "Terminal PASS/FAIL/INDETERMINATE, resilience and specialist execution are outside this issue; transferring them would materially enlarge upstream operational responsibility.",
+      "maturity_and_limits": "No controller execution or external dependencies validated by this assessment.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C7",
+      "title": "Portfolio routing and DTG instance policy",
+      "classification": "orchestration-integration",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "tools/dtg_portfolio_routing.py",
+          "sha256": "fd39d1afe54e1002d792e1e5865499e4af5834f6cb14a9a3bde13bd9f918a101",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/dtg_portfolio_routing.py"
+        },
+        {
+          "path": "tools/finding_model.py",
+          "sha256": "1aea2f2541e489b81d85ccce7fe4d80fe504eff9a8700fd70117c89ceaa7a696",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/finding_model.py"
+        },
+        {
+          "path": "instances/dtg/assurance-routing.yaml",
+          "sha256": "2fbfb85f64a51e46d0d19cbe0688acd2973e219c3659df91e45f1d1cdcbeeee2",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/instances/dtg/assurance-routing.yaml"
+        },
+        {
+          "path": "tests/test_dtg_portfolio_routing.py",
+          "sha256": "a9f162344fdcf37081f23f672835336063e60bda44b2331f8e9a1d4e2d47719c",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tests/test_dtg_portfolio_routing.py"
+        }
+      ],
+      "interface_dependencies_consumers": "Portfolio findings + instance routing policy -> assurance dispositions; finding_model, PyYAML and repository policy; DTG portfolio workflow consumer.",
+      "upstream_overlap": "data/instance.yaml (instance configuration, not portfolio integration)",
+      "evidence": "Router interfaces and self-test inspected; not run",
+      "disposition": "retain-downstream",
+      "rationale_and_maintenance": "Repository targeting and DPIP/Interop-related routing are toolkit/instance responsibilities, not requirements for a bounded source review.",
+      "maturity_and_limits": "No live repository routing or external orchestration tested.",
+      "decision_status": "proposed-not-accepted"
+    },
+    {
+      "id": "C8",
+      "title": "Expanded instance corpus and build machinery",
+      "classification": "upstream-instance-data",
+      "source_revision": "af58247e83d0aff4d47650d929bfc6280d9e41d3",
+      "assets": [
+        {
+          "path": "data/risks.yaml",
+          "sha256": "93e6d70b47ddb192faf8a7fbdee9031eaea9b22a2a9903bba9e1cc6ae3041614",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/data/risks.yaml"
+        },
+        {
+          "path": "data/controls.yaml",
+          "sha256": "c3607abf6ebe25af3ef4302bfcf302c5e373e8b20830e00c1a460b0102b7907b",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/data/controls.yaml"
+        },
+        {
+          "path": "data/assurance-tests.yaml",
+          "sha256": "04fdc2d82ae0d50b41994828560923685ca245f83b2e4608363ca282047d8561",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/data/assurance-tests.yaml"
+        },
+        {
+          "path": "data/instance.yaml",
+          "sha256": "fc193472499741c2470a7713c217796e14e04fb74d1f3459d1a89eb16827da04",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/data/instance.yaml"
+        },
+        {
+          "path": "tools/validate.py",
+          "sha256": "bcaee52809417e5f87aeb969668103300cd1bb9b1c90b75e980e7632393b8dc4",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/validate.py"
+        },
+        {
+          "path": "tools/build.py",
+          "sha256": "cd568ca208f376a41352d71bff817a2dc60ede490433c61503d99bb2bcf2ebe4",
+          "url": "https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/af58247e83d0aff4d47650d929bfc6280d9e41d3/tools/build.py"
+        }
+      ],
+      "interface_dependencies_consumers": "Instance records + method schemas/vocabularies -> corpus report and derived outputs; PyYAML/jsonschema; downstream corpus/build consumers.",
+      "upstream_overlap": "data/; tools/validate.py; tools/build.py; context/rahp.jsonld",
+      "evidence": "Upstream corpus/build executed; downstream implementation inspected only",
+      "disposition": "reject",
+      "rationale_and_maintenance": "Reject a bulk replacement as a baseline-transfer candidate: upstream already owns its corpus and validator/build pair. Particular methods or tests may be proposed separately after semantic mapping.",
+      "maturity_and_limits": "No downstream full-corpus/build run or equivalence proof; reject applies to bulk transfer, not individual justified contributions.",
+      "decision_status": "proposed-not-accepted"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "observed_at": "2026-10-08",
+  "claim_boundary": "Assessment evidence; not target assurance, independent review or transfer approval.",
+  "python": "3.12.14",
+  "dependencies": {
+    "PyYAML": "6.0.3",
+    "jsonschema": "4.26.0",
+    "openpyxl": "3.1.5"
+  },
+  "sources": {
+    "upstream": "ab191485b48bca805ea2cc962c2ea9476a65db66",
+    "downstream": "af58247e83d0aff4d47650d929bfc6280d9e41d3"
+  },
+  "checks": [
+    {
+      "id": "corpus",
+      "repository": "upstream",
+      "command": [
+        "python3",
+        "tools/validate.py",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"ok\": true,\n  \"counts\": {\n    \"RK\": 43,\n    \"CT\": 66,\n    \"GR\": 21,\n    \"AT\": 21,\n    \"M\": 37,\n    \"US\": 36,\n    \"SC\": 33,\n    \"EPIC\": 21,\n    \"PERSONA\": 16,\n    \"REC\": 9,\n    \"RA\": 3,\n    \"GP\": 3\n  },\n  \"errors\": [],\n  \"warnings\": [\n    \"symm    risk/RK-SC03 cites GR-06, but guardrail/GR-06.risks_addressed does not cite it back\",\n    \"symm    risk/RK-SC03 cites GR-09, but guardrail/GR-09.risks_addressed does not cite it back\",\n    \"symm    risk/RK-CR04 cites GR-03, but guardrail/GR-03.risks_addressed does not cite it back\",\n    \"symm    risk/RK-G05 cites GR-01, but guardrail/GR-01.risks_addressed does not cite it back\",\n    \"symm    risk/RK-G05 cites GR-02, but guardrail/GR-02.risks_addressed does not cite it back\",\n    \"symm    risk/RK-HX05 cites GR-08, but guardrail/GR-08.risks_addressed does not cite it back\",\n    \"symm    risk/RK-HX06 cites GR-08, but guardrail/GR-08.risks_addressed does not cite it back\",\n    \"symm    risk/RK-HX06 cites GR-19, but guardrail/GR-19.risks_addressed does not cite it back\",\n    \"symm    risk/RK-ID06 cites GR-06, but guardrail/GR-06.risks_addressed does not cite it back\",\n    \"symm    risk/RK-EX04 cites GR-05, but guardrail/GR-05.risks_addressed does not cite it back\",\n    \"symm    risk/RK-EX04 cites GR-06, but guardrail/GR-06.risks_addressed does not cite it back\",\n    \"symm    risk/RK-EX04 cites GR-07, but guardrail/GR-07.risks_addressed does not cite it back\",\n    \"symm    risk/RK-EX06 cites GR-05, but guardrail/GR-05.risks_addressed does not cite it back\",\n    \"symm    risk/RK-HX06 cites CT-60, but control/CT-60.linked_risks does not cite it back\",\n    \"symm    risk/RK-ID06 cites CT-16, but control/CT-16.linked_risks does not cite it back\",\n    \"symm    risk/RK-ID06 cites CT-17, but control/CT-17.linked_risks does not cite it back\",\n    \"symm    risk/RK-EX04 cites CT-27, but control/CT-27.linked_risks does not cite it back\",\n    \"symm    risk/RK-EX04 cites CT-28, but control/CT-28.linked_risks does not cite it back\",\n    \"symm    risk/RK-EX04 cites CT-33, but control/CT-33.linked_risks does not cite it back\",\n    \"symm    risk/RK-EX06 cites CT-13, but control/CT-13.linked_risks does not cite it back\",\n    \"symm    risk/RK-SC05 cites CT-58, but control/CT-58.linked_risks does not cite it back\",\n    \"symm    risk/RK-SC05 cites CT-60, but control/CT-60.linked_risks does not cite it back\",\n    \"symm    risk/RK-SC05 cites CT-66, but control/CT-66.linked_risks does not cite it back\",\n    \"symm    guardrail/GR-03 cites CT-05, but control/CT-05.guardrails does not cite it back\",\n    \"symm    guardrail/GR-04 cites CT-08, but control/CT-08.guardrails does not cite it back\",\n    \"symm    guardrail/GR-06 cites CT-15, but control/CT-15.guardrails does not cite it back\",\n    \"symm    guardrail/GR-08 cites CT-25, but control/CT-25.guardrails does not cite it back\",\n    \"symm    guardrail/GR-12 cites CT-31, but control/CT-31.guardrails does not cite it back\",\n    \"symm    guardrail/GR-20 cites CT-27, but control/CT-27.guardrails does not cite it back\",\n    \"symm    guardrail/GR-20 cites CT-28, but control/CT-28.guardrails does not cite it back\",\n    \"symm    guardrail/GR-21 cites CT-56, but control/CT-56.guardrails does not cite it back\",\n    \"orphan  CT: 3 identifier(s) defined but never referenced: CT-51, CT-52, CT-53\"\n  ],\n  \"stats\": {\n    \"counts\": {\n      \"RK\": 43,\n      \"CT\": 66,\n      \"GR\": 21,\n      \"AT\": 21,\n      \"M\": 37,\n      \"US\": 36,\n      \"SC\": 33,\n      \"EPIC\": 21,\n      \"PERSONA\": 16,\n      \"REC\": 9,\n      \"RA\": 3,\n      \"GP\": 3\n    },\n    \"invariant_failures\": {},\n    \"orphans\": {\n      \"CT\": [\n        \"CT-51\",\n        \"CT-52\",\n        \"CT-53\"\n      ]\n    },\n    \"triage\": {\n      \"controls_unassigned_status\": 66,\n      \"guardrails_unassigned_status\": 21,\n      \"risks_must_address\": 28,\n      \"risks_critical\": 1,\n      \"acceptances_pending\": 3,\n      \"metrics_without_monitoring\": 37\n    }\n  }\n}\n",
+      "stderr": ""
+    },
+    {
+      "id": "review-tests",
+      "repository": "upstream",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_duplicate_finding_id_is_rejected (test_spec_review.SpecReviewValidationTests.test_duplicate_finding_id_is_rejected) ... ok\ntest_invalid_control_plane_is_rejected (test_spec_review.SpecReviewValidationTests.test_invalid_control_plane_is_rejected) ... ok\ntest_invalid_mutable_revision_fixture_is_rejected (test_spec_review.SpecReviewValidationTests.test_invalid_mutable_revision_fixture_is_rejected) ... ok\ntest_invalid_resolved_fixture_is_rejected (test_spec_review.SpecReviewValidationTests.test_invalid_resolved_fixture_is_rejected) ... ok\ntest_invalid_unknown_risk_fixture_is_rejected (test_spec_review.SpecReviewValidationTests.test_invalid_unknown_risk_fixture_is_rejected) ... ok\ntest_minimal_example_is_valid (test_spec_review.SpecReviewValidationTests.test_minimal_example_is_valid) ... ok\ntest_missing_revision_is_rejected (test_spec_review.SpecReviewValidationTests.test_missing_revision_is_rejected) ... ok\ntest_mutable_branch_name_is_rejected_as_revision (test_spec_review.SpecReviewValidationTests.test_mutable_branch_name_is_rejected_as_revision) ... ok\ntest_resolved_finding_requires_resolution (test_spec_review.SpecReviewValidationTests.test_resolved_finding_requires_resolution) ... ok\ntest_risk_acceptance_requires_reference (test_spec_review.SpecReviewValidationTests.test_risk_acceptance_requires_reference) ... ok\ntest_unknown_risk_is_rejected (test_spec_review.SpecReviewValidationTests.test_unknown_risk_is_rejected) ... ok\ntest_published_review_examples_conform_to_the_existing_contract (test_worked_adoption.WorkedAdoptionTests.test_published_review_examples_conform_to_the_existing_contract) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.838s\n\nOK\n"
+    },
+    {
+      "id": "minimal-review",
+      "repository": "upstream",
+      "command": [
+        "python3",
+        "review/validate_spec_review.py",
+        "review/examples/minimal-review.yaml"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: review/examples/minimal-review.yaml\n",
+      "stderr": ""
+    },
+    {
+      "id": "build",
+      "repository": "upstream",
+      "command": [
+        "python3",
+        "tools/build.py",
+        "--out",
+        "<workspace>/assessment-build"
+      ],
+      "exit_code": 0,
+      "stdout": "Built:\n  <workspace>/assessment-build/rahp.json\n  <workspace>/assessment-build/jsonld/ (12 files)\n  <workspace>/assessment-build/derived/\n  <workspace>/assessment-build/site/ (6 pages)\n  <workspace>/assessment-build/rahp-toolkit.html\n  <workspace>/assessment-build/normative.md\n  43 risk \u00b7 66 control \u00b7 21 guardrail \u00b7 21 assurance_test \u00b7 37 metric \u00b7 36 user_story \u00b7 33 scenario \u00b7 21 epic \u00b7 16 persona \u00b7 9 recommendation \u00b7 3 risk_acceptance \u00b7 3 governance_precedent\n",
+      "stderr": ""
+    },
+    {
+      "id": "trqp-tests",
+      "repository": "downstream",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_standalone_trqp.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_negative_control_cannot_silently_become_valid (test_standalone_trqp.StandaloneTRQPTests.test_negative_control_cannot_silently_become_valid) ... ok\ntest_retained_result_and_semantic_counterexample (test_standalone_trqp.StandaloneTRQPTests.test_retained_result_and_semantic_counterexample) ... ok\ntest_source_tampering_is_rejected (test_standalone_trqp.StandaloneTRQPTests.test_source_tampering_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.011s\n\nOK\n"
+    },
+    {
+      "id": "engine-tests",
+      "repository": "downstream",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_engine_contract.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_durable_is_committed_ephemeral_is_not (test_engine_contract.EngineContractTests.test_durable_is_committed_ephemeral_is_not) ... ok\ntest_missing_revision_invalid (test_engine_contract.EngineContractTests.test_missing_revision_invalid) ... ok\ntest_referenced_evidence_requires_integrity_metadata (test_engine_contract.EngineContractTests.test_referenced_evidence_requires_integrity_metadata) ... ok\ntest_valid_fixture (test_engine_contract.EngineContractTests.test_valid_fixture) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "id": "freshness-tests",
+      "repository": "downstream",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_evidence_freshness_delta.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_invalidating_is_stale (test_evidence_freshness_delta.EvidenceFreshnessDeltaTests.test_invalidating_is_stale) ... ok\ntest_regression_transition (test_evidence_freshness_delta.EvidenceFreshnessDeltaTests.test_regression_transition) ... ok\ntest_requires_retest_dominates_potential (test_evidence_freshness_delta.EvidenceFreshnessDeltaTests.test_requires_retest_dominates_potential) ... ok\ntest_resolution_transition (test_evidence_freshness_delta.EvidenceFreshnessDeltaTests.test_resolution_transition) ... ok\ntest_unchanged_transition (test_evidence_freshness_delta.EvidenceFreshnessDeltaTests.test_unchanged_transition) ... ok\ntest_unknown_preserves_uncertainty (test_evidence_freshness_delta.EvidenceFreshnessDeltaTests.test_unknown_preserves_uncertainty) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n"
+    },
+    {
+      "id": "trqp-replay",
+      "repository": "downstream",
+      "command": [
+        "python3",
+        "examples/standalone-trqp/replay.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"target_commit\": \"6863733878f3657e05f70764bb474a9fb918de9a\",\n  \"scope\": \"retained source and constructed response fixtures only\",\n  \"source_integrity\": \"verified\",\n  \"cases\": [\n    {\n      \"id\": \"minimal-required-fields\",\n      \"schema_valid\": true\n    },\n    {\n      \"id\": \"missing-authority-negative-control\",\n      \"schema_valid\": false\n    },\n    {\n      \"id\": \"historical-response-without-provenance\",\n      \"schema_valid\": true\n    }\n  ],\n  \"api_example\": {\n    \"query_time\": \"2025-06-19T11:30:00Z\",\n    \"response_time_requested\": \"2025-06-25T00:42:00Z\",\n    \"requested_time_matches\": false,\n    \"schema_valid\": true\n  },\n  \"https_example\": {\n    \"requested_time_matches\": true,\n    \"schema_valid\": true\n  },\n  \"runtime_authorization\": \"not-assessed\",\n  \"authority_history\": \"not-assessed\",\n  \"overall_assurance\": \"review-required\"\n}\n",
+      "stderr": ""
+    }
+  ]
+}
