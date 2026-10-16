@@ -47,6 +47,13 @@ review was based on.
 - **CI workflow, issue templates, PR template, CONTRIBUTING.md, this file.**
 - **Two new generated views**: a standards pipeline page showing what is awaiting
   triage, and a governance page showing acceptances and precedents.
+- **Review vocabularies in `method/vocabularies.yaml`.** `control_plane`,
+  `finding_status` and `resolution_type`, used by specification review records
+  under `review/`, now live with the other method vocabularies, and every value
+  has a definition. The values are unchanged, so existing review records still
+  validate. `review/validate_spec_review.py` fails if the enums in
+  `review/spec-review.schema.json` drift from the vocabulary file. This was
+  agreed at the RAHP TF meeting on 14 Oct 2026.
 
 ### Changed
 

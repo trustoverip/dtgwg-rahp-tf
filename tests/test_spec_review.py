@@ -1,5 +1,6 @@
 import importlib.util
 import pathlib
+import tempfile
 import unittest
 import yaml
 
@@ -73,6 +74,39 @@ class SpecReviewValidationTests(unittest.TestCase):
     def test_invalid_resolved_fixture_is_rejected(self):
         record = yaml.safe_load((ROOT / "review" / "examples" / "invalid-resolved-without-resolution.yaml").read_text())
         self.assertTrue(any("resolution" in e for e in self.errors(record)))
+
+
+    def test_review_vocabulary_matches_method_vocabularies(self):
+        schema = mod.json.loads(mod.SCHEMA_PATH.read_text(encoding="utf-8"))
+        self.assertEqual([], mod.check_vocabulary(schema))
+
+    def test_every_review_vocabulary_value_has_a_definition(self):
+        vocab = yaml.safe_load(mod.VOCAB_PATH.read_text(encoding="utf-8"))
+        for name in mod.REVIEW_VOCABULARIES.values():
+            for value in vocab[name]["values"]:
+                self.assertTrue(value.get("definition"), f"{name}: {value.get('value')} has no definition")
+
+    def test_schema_enum_drift_is_rejected(self):
+        schema = mod.json.loads(mod.SCHEMA_PATH.read_text(encoding="utf-8"))
+        schema["properties"]["findings"]["items"]["properties"]["control_plane"]["enum"].append("vibes")
+        errors = mod.check_vocabulary(schema)
+        self.assertTrue(any("control_plane" in e and "vibes" in e for e in errors))
+
+    def test_vocabulary_value_missing_from_schema_is_rejected(self):
+        schema = mod.json.loads(mod.SCHEMA_PATH.read_text(encoding="utf-8"))
+        schema["properties"]["findings"]["items"]["properties"]["status"]["enum"].remove("superseded")
+        errors = mod.check_vocabulary(schema)
+        self.assertTrue(any("finding_status" in e and "superseded" in e for e in errors))
+
+    def test_missing_vocabulary_is_rejected(self):
+        vocab = yaml.safe_load(mod.VOCAB_PATH.read_text(encoding="utf-8"))
+        del vocab["resolution_type"]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "vocabularies.yaml"
+            path.write_text(yaml.safe_dump(vocab), encoding="utf-8")
+            schema = mod.json.loads(mod.SCHEMA_PATH.read_text(encoding="utf-8"))
+            errors = mod.check_vocabulary(schema, path)
+        self.assertTrue(any("resolution_type" in e and "missing" in e for e in errors))
 
 
 if __name__ == "__main__":

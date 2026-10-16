@@ -5,6 +5,10 @@
 #
 # Changing a vocabulary is a breaking change: run tools/validate.py afterwards
 # and record the change in CHANGELOG.md.
+#
+# The review vocabularies at the end of this file are also enumerated in
+# review/spec-review.schema.json. review/validate_spec_review.py fails if the
+# two drift apart, so change both together.
 
 severity:
   description: >-
@@ -75,3 +79,102 @@ risk_acceptance_decision:
 
 governance_precedent_status:
   values: [proposed, active, superseded, reversed]
+
+# ---------------------------------------------------------------------------
+# Review vocabulary (specification pressure-test records, review/)
+# ---------------------------------------------------------------------------
+
+control_plane:
+  description: >-
+    Where treatment of a review finding belongs: the layer of the trust system
+    whose owner is best placed to control the risk. It says nothing about what
+    has happened to the finding (see finding_status). It is also different from
+    control_type: control_type says what kind of control something is, while
+    control_plane says where it should live. A finding is not a defect of the
+    specification under review just because RAHP raised it there.
+  values:
+    - {value: specification, definition: "The specification under review. Treatment
+                    needs normative text in that specification (new or changed requirements,
+                    or clarifying text that changes how it is implemented)."}
+    - {value: companion-specification, definition: "Another specification that the target
+                    depends on, profiles or is used alongside (for example a protocol
+                    binding, a profile or a related ToIP specification), and not the one under review."}
+    - {value: governance, definition: "A governance framework or the decisions of a
+                    governing body: rules, roles, accountability, authority, conformance
+                    and dispute or redress mechanisms that apply across an ecosystem."}
+    - {value: implementation-guidance, definition: "Non-normative guidance to implementers,
+                    such as implementation guides, worked examples or security
+                    considerations. Treatment depends on implementers following it
+                    rather than on a MUST."}
+    - {value: runtime-control, definition: "Technical enforcement in deployed systems while
+                    they run, such as checks, monitoring, revocation, rate limits and
+                    authorisation decisions, rather than text in any document."}
+    - {value: operational-policy, definition: "The policies and procedures of an individual
+                    operator or participant, such as onboarding, support, incident response
+                    and terms of use. Unlike governance, it is set by each operator, not
+                    by the ecosystem."}
+    - {value: none, definition: "No layer needs to own treatment. Use it only when the
+                    finding turns out not to describe a risk, or to describe one that
+                    does not apply. It is not a way to leave a finding unassigned."}
+    # Not yet enforced by the validator (follow-up): block `none` on open/in_progress findings.
+
+finding_status:
+  description: >-
+    What has happened to a review finding so far. It is separate from
+    control_plane: a governance finding can stay open, and a specification
+    finding can be resolved. Every status except open and in_progress is
+    terminal and needs a structured resolution explaining what closed it.
+  values:
+    - {value: open, definition: "Raised and not yet acted on. The default for a new finding."}
+    - {value: in_progress, definition: "Someone is working on treatment, such as a proposed
+                    specification change or a governance discussion, but it has not landed.
+                    No resolution is recorded yet."}
+    - {value: resolved, definition: "Treatment is in place, or the risk was already
+                    addressed. The resolution must say what closed it and, where possible,
+                    reference it (for example a merged change)."}
+    - {value: risk_accepted, definition: "An authorised body has accepted the residual
+                    risk as it stands. The resolution must have type risk-acceptance and
+                    reference a risk-acceptance record whose decision is accepted or
+                    accepted_with_conditions. A risk of severity Critical may never be
+                    risk-accepted. Until Q3/Q4 settle who may accept risk, no finding in
+                    the DTG instance can have this status."}
+    - {value: out_of_scope, definition: "The finding falls outside the boundary of this
+                    review (for example the wrong target, a layer not being assessed, or
+                    not a harm RAHP addresses). The rationale must say why. It is not a
+                    judgement that the risk is acceptable."}
+    - {value: superseded, definition: "Replaced by a later finding or a later review, for
+                    example after the target specification materially changed. The prior
+                    finding stays on record as evidence of what was assessed."}
+    # Not yet enforced by the validator (follow-up): risk_accepted must reference an RA-nnn
+    #   record with an accepted decision, and must not cite a Critical risk.
+
+resolution_type:
+  description: >-
+    How a finding with a terminal status was closed. Most types mirror a
+    control_plane value and describe a change made in that layer. A resolution
+    on a different plane from the finding's control_plane is allowed, but the
+    rationale should explain why.
+  values:
+    - {value: specification-change, definition: "Normative change to the specification
+                    under review."}
+    - {value: companion-specification-change, definition: "Change to a companion
+                    specification."}
+    - {value: governance-action, definition: "A governance decision or a change to a
+                    governance framework."}
+    - {value: implementation-guidance, definition: "New or changed non-normative guidance
+                    for implementers."}
+    - {value: runtime-control, definition: "A technical control deployed and enforced at
+                    runtime."}
+    - {value: operational-policy, definition: "New or changed operator policy or procedure."}
+    - {value: risk-acceptance, definition: "Residual risk formally accepted. Required for,
+                    and only used with, status risk_accepted. The reference must point to
+                    the acceptance record."}
+    - {value: already-addressed, definition: "Existing material already treats the risk.
+                    Nothing needed to change. The reference should point to where it is
+                    treated."}
+    - {value: no-action, definition: "A deliberate decision that no treatment is needed,
+                    for example because the observation is not a risk. The rationale must
+                    say why. It is not a deferral: use open for that."}
+    - {value: superseded, definition: "Closed because a later finding or review replaced
+                    it. The reference should point to the successor."}
+    # Not yet enforced by the validator (follow-up): status superseded requires resolution type superseded.
