@@ -1,7 +1,7 @@
 # DTG RAHP Toolkit
 
 **Risk Assessment & Harms Prevention Task Force · Decentralised Trust Graph Working Group**
-Working Draft · toolkit v0.3-dev · CC-BY 4.0
+Working Draft · toolkit v0.3-dev · Code: Apache 2.0 · Content: CC-BY 4.0
 
 ---
 
@@ -141,7 +141,18 @@ metric carries a `monitoring: null` hook.
 See `CONTRIBUTING.md`. In short: `data/` is canonical, `build/` is generated, every
 record needs provenance, and `python3 tools/validate.py` must exit 0.
 
+## Licensing
+
+- **Source code** (`tools/`, `review/*.py`, `tests/`, `.github/workflows/`, schemas
+  and other machine-readable tooling) is licensed under the
+  [Apache License 2.0](LICENSE).
+- **Documentation and content** (the method, `data/`, and the Markdown documents)
+  is licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- Third-party material keeps its own licence. For example, the TRQP source
+  snapshot in `review/examples/standalone-trqp/source/` stays under the Trust over
+  IP licences it was retrieved with.
+
 ---
 
 *Maintained by the Risk Assessment & Harms Prevention Task Force, DTGWG.*
-*CC-BY 4.0 — reuse with attribution.*
+*Code: Apache 2.0 · Content: CC-BY 4.0 — reuse with attribution.*
