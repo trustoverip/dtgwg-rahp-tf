@@ -71,7 +71,8 @@ def validate(data: pathlib.Path, reviews: list[pathlib.Path],
     for record in reviews:
         print(f"CHECK: review {record}", flush=True)
         cmd = [sys.executable, str(ROOT / "review" / "validate_spec_review.py"),
-               str(record), "--risks", str(risks or (data / "risks.yaml"))]
+               str(record), "--risks", str(risks or (data / "risks.yaml")),
+               "--acceptances", str(data / "risk-acceptances.yaml")]
         result = subprocess.run(cmd, check=False, cwd=ROOT)
         failed |= result.returncode != 0
 
