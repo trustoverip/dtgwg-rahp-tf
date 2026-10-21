@@ -1,0 +1,17 @@
+records:
+- id: RK-AU01
+  description: 'Example hypothesis: schema validity is mistaken for substantiated
+    authorization.'
+  status: example-local-hypothesis
+  provenance:
+    source: Retained TRQP source and constructed response cases
+    triggered_by: 'upstream issue #17 Increment 2'
+    contributor: sankarshanmukhopadhyay (AI-assisted)
+- id: RK-TM01
+  description: 'Example hypothesis: requested historical time is confused with evaluation
+    time.'
+  status: example-local-hypothesis
+  provenance:
+    source: Retained TRQP API and HTTPS examples
+    triggered_by: 'upstream issue #17 Increment 2'
+    contributor: sankarshanmukhopadhyay (AI-assisted)

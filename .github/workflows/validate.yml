@@ -1,0 +1,128 @@
+name: RAHP validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+      - name: Prepare evidence directory
+        run: |
+          mkdir -p "$RUNNER_TEMP/rahp-validation"
+          printf 'EVIDENCE_DIR=%s/rahp-validation\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
+          printf 'BUILD_DIR=%s/rahp-build\n' "$RUNNER_TEMP" >> "$GITHUB_ENV"
+      - name: Install repository dependencies
+        id: dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Record execution provenance
+        run: |
+          python3 - <<'PY'
+          import importlib.metadata
+          import json
+          import os
+          import pathlib
+          import platform
+          import subprocess
+          record = {
+              'checked_out_revision': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
+              'event': os.environ['GITHUB_EVENT_NAME'],
+              'run_id': os.environ['GITHUB_RUN_ID'],
+              'run_attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+              'python': platform.python_version(),
+              'dependencies': {name: importlib.metadata.version(name) for name in ['PyYAML', 'jsonschema', 'openpyxl']},
+              'claim_boundary': 'Repository integrity and reproduction checks; not target assurance or independent human review.',
+          }
+          destination = pathlib.Path(os.environ['EVIDENCE_DIR']) / 'execution.json'
+          destination.write_text(json.dumps(record, indent=2) + '\n')
+          PY
+      - name: Validate canonical corpus
+        id: corpus
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python3 tools/validate.py --json > "$EVIDENCE_DIR/corpus-validation.json"
+      - name: Run repository and review regressions
+        id: tests
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        shell: bash
+        run: python3 -m unittest discover -s tests -v 2>&1 | tee "$EVIDENCE_DIR/tests.log"
+      - name: Validate worked review record
+        id: review
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        shell: bash
+        run: python3 review/validate_spec_review.py review/examples/minimal-review.yaml 2>&1 | tee "$EVIDENCE_DIR/review.log"
+      - name: Build derived views in temporary output
+        id: build
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        shell: bash
+        run: python3 tools/build.py --out "$BUILD_DIR" 2>&1 | tee "$EVIDENCE_DIR/build.log"
+      - name: Bind generated files to execution evidence
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          root = pathlib.Path(os.environ['BUILD_DIR'])
+          files = {str(p.relative_to(root)): 'sha256:' + hashlib.sha256(p.read_bytes()).hexdigest()
+                   for p in sorted(root.rglob('*')) if p.is_file()}
+          destination = pathlib.Path(os.environ['EVIDENCE_DIR']) / 'generated-files.json'
+          destination.write_text(json.dumps(files, indent=2) + '\n')
+          PY
+          git diff --exit-code
+      - name: Summarize observed results
+        if: ${{ always() }}
+        env:
+          CORPUS_OUTCOME: ${{ steps.corpus.outcome }}
+          TEST_OUTCOME: ${{ steps.tests.outcome }}
+          REVIEW_OUTCOME: ${{ steps.review.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import pathlib
+          lines = ['## RAHP repository validation', '',
+                   'Execution checks do not establish target assurance or independent human review.', '',
+                   '| Check | Outcome |', '|---|---|']
+          for label, key in [('Corpus', 'CORPUS_OUTCOME'), ('Regressions', 'TEST_OUTCOME'),
+                             ('Review record', 'REVIEW_OUTCOME'), ('Build', 'BUILD_OUTCOME')]:
+              lines.append(f'| {label} | {os.environ.get(key) or "not executed"} |')
+          report = pathlib.Path(os.environ['EVIDENCE_DIR']) / 'corpus-validation.json'
+          if report.exists():
+              try:
+                  data = json.loads(report.read_text())
+                  lines += ['', f'Corpus: {len(data["errors"])} errors; {len(data["warnings"])} warnings.']
+                  lines += ['', '### Retained warnings', ''] + [f'- {warning}' for warning in data['warnings']]
+              except (ValueError, KeyError):
+                  lines += ['', 'Corpus report unavailable or incomplete; no successful validation is inferred.']
+          else:
+              lines += ['', 'Corpus report absent; no successful validation is inferred.']
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as destination:
+              destination.write('\n'.join(lines) + '\n')
+          PY
+      - name: Preserve validation evidence and generated bundle
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rahp-validation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ env.EVIDENCE_DIR }}
+            ${{ env.BUILD_DIR }}
+          if-no-files-found: error
+          retention-days: 14
