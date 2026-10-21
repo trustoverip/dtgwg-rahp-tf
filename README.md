@@ -35,6 +35,8 @@ The repository separates the two things that were previously entangled:
 
 For a reader-facing map of the current record families, cross-references, review records, and authority boundaries, see [RAHP data model](docs/data-model.md).
 
+For the assurance progression used by the #17 convergence work, including the separation between source preparation, evidence generation, RAHP assessment and assurance interpretation, see [How RAHP Builds Assurance Incrementally](docs/how-rahp-builds-assurance-incrementally.md).
+
 To apply RAHP to a different specification: fork, keep `method/` and `tools/`,
 empty `data/` except `instance.yaml`, and start at lifecycle stage `STAGE-1`.
 
