@@ -1,0 +1,80 @@
+{
+  "schema": "vrc-example-evidence/v1",
+  "assessment_id": "SR-201",
+  "target": {
+    "repository": "trustoverip/dtgwg-cred-tf",
+    "revision": "62bbd8a19d598078f50560948ca71ec0e034a6fc"
+  },
+  "source_manifest": "baseline/source-manifest.json",
+  "review_binding": {
+    "path": "baseline-review.yaml",
+    "sha256": "5eb39d9655a6c37d437732f72dd0868c74a3cb593d2cdeef5a649b5acb47b22a"
+  },
+  "risks_binding": {
+    "path": "data/risks.yaml",
+    "sha256": "68a701afe5ed5163ee9fb377edff188f79d5305c91592e25d2ae663ceb2d089b"
+  },
+  "execution": {
+    "state": "complete",
+    "observations": {
+      "general_vrc_zkp_requires_shared_community_evidence": true,
+      "pairwise_zkp_section": false,
+      "explicit_no_shared_membership_precondition": false,
+      "mdid_bootstrapping_residual": true
+    }
+  },
+  "evidence": [
+    {
+      "id": "E-001",
+      "source": "baseline/source/dtg.md.txt",
+      "section": "#### Zero-Knowledge Proof Requirements",
+      "contains": [
+        "2. Possession of the underlying VMC (proving membership in the community)",
+        "3. The VRC issuer possesses a VMC from the *same* C-DID"
+      ]
+    },
+    {
+      "id": "E-002",
+      "source": "baseline/source/dtg.md.txt",
+      "section": "### Privacy Considerations",
+      "contains": [
+        "**M-DID reuse:** Allowed for bootstrapping",
+        "Migration from M-DID-based to R-DID-based edges recommended post-bootstrapping for enhanced privacy."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "evidence": [
+        "E-001"
+      ],
+      "observation": "The general VRC zero-knowledge proof subsection requires an underlying VMC and a VMC from the same C-DID.",
+      "inference": "The text can make shared-community membership appear necessary for proving any VRC relationship, creating an interpretation gap between credential semantics and proof guidance.",
+      "limitations": [
+        "This review reconstructs the authoritative task-force main revision available when historical RAHP PR #6 was created; #6 did not retain the exact bytes uploaded to its AI session.",
+        "No implementation, deployed verifier, ZKP circuit or runtime conformance behavior was examined."
+      ],
+      "treatment": "Separate pairwise VRC proof from the optional community-anchored construction and state explicitly that shared VTC membership is not a precondition for a VRC.",
+      "risk_reasoning": {
+        "RK-SC02": "Ambiguous VRC/VMC proof semantics can lead implementations to interpret valid relationship proofs inconsistently, matching the maintained credential-schema ambiguity risk."
+      }
+    },
+    {
+      "id": "F-002",
+      "evidence": [
+        "E-002"
+      ],
+      "observation": "The privacy text permits M-DID reuse during bootstrapping and only recommends later migration to R-DIDs.",
+      "inference": "Without a normative migration trigger, early relationship identifiers can remain reusable and linkable beyond the intended bootstrapping period.",
+      "limitations": [
+        "The source describes specification guidance only; no deployed registry, migration process or observed correlation event was examined."
+      ],
+      "treatment": "Define a normative or governance-bound migration trigger for ending M-DID-based relationship bootstrapping, while preserving the specification/governance boundary.",
+      "risk_reasoning": {
+        "RK-ID05": "The maintained risk specifically identifies cross-VTC M-DID linkability and the residual bootstrapping window left by non-normative migration guidance."
+      }
+    }
+  ],
+  "method_revision": "8c6bda78f477b109d07acf62c38599c4887f6d38"
+}
