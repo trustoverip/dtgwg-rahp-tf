@@ -28,7 +28,7 @@ The existing review schema and validator are unchanged. The sidecar is not a
 standardized RAHP evidence contract and adds no members to existing review records.
 
 
-## Combined validation (Increment 3; proposed)
+## Combined validation (Increment 3)
 
 Use `python3 tools/validate_all.py` for corpus integrity and vocabulary
 consistency. A review is **not** implicitly selected: add `--review` once per
@@ -48,12 +48,25 @@ evidence of a successful examination. Review records, risk IDs and the
 existing standalone `tools/validate.py` and `review/validate_spec_review.py`
 commands remain supported.
 
-Review vocabulary authority is now in `method/vocabularies.yaml` (#27).
-This composed validator checks all defined vocabulary lists for structural
-validity and duplicate values. The dedicated review validator enforces
-schema parity for each explicitly selected review. The lifecycle and
-risk-acceptance semantics in #26 remain separate follow-up work.
-
+Review vocabulary authority is in `method/vocabularies.yaml`. The composed
+validator checks method vocabulary structure; the dedicated review validator
+enforces schema parity for explicitly selected review records. Semantic changes
+remain deliberate contract changes rather than implementation-side inference.
 Corpus warnings, review schema failures and unresolved risk references are
 reported by their existing validators; a failure of either component produces
 a nonzero exit status. This is repository validation, not target assurance.
+
+## Fail-closed schema dependency (Increment 4)
+
+The corpus validator now stops with a nonzero exit code if `jsonschema` is not
+installed. Skipping required schema validation is not a successful integrity
+check. Install `requirements.txt` and rerun the full validation suite.
+A dedicated negative regression test uses an isolated interpreter to simulate
+that missing dependency. This change does not alter the warning policy for
+ordinary corpus content or provide any target assurance conclusion.
+
+The repository's accepted validation workflow from #14 owns CI execution
+provenance and retained artifacts. It runs the negative regression suite, the
+composed corpus/review path and the retained-source TRQP examination. The workflow
+summary keeps repository integrity, review validation and target assurance
+separate, and the evidence artifact retains the corresponding logs.
