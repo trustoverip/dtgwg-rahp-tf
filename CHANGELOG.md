@@ -57,6 +57,7 @@ review was based on.
 
 ### Changed
 
+- **Specification review accountability and example-local identifiers.** Review records now require a non-empty `reviewer` identity. This is an accountability field, not risk-acceptance authority. Example-local risk hypotheses use `EX-RK-*` identifiers so they cannot be mistaken for canonical `RK-*` corpus records. Existing repository review examples have been migrated. This is a compatibility-significant change for consumers validating review records without `reviewer`.
 - **`Critical` is now a distinct severity class**, not a higher number. Critical
   risks carry no numeric score, must be gated by a guardrail, and may not be
   risk-accepted. Enforced by invariant `INV-3`. Affects `RK-EX04`.
