@@ -133,6 +133,20 @@ The validator enforces this.
 
 ## Review expectations
 
-A PR is ready when: `validate.py` exits 0, every new record has provenance, and
-the description says what triggered the change. A PR that changes a risk score
-should say what evidence moved it.
+A substantive PR should be independently reviewable: another competent contributor
+who did not author the change should be able to understand the proposition, inspect
+the evidence and reproduce the material validation without relying on private author
+context. The PR description should state what changed, why, how it was checked,
+what compatibility or limitations remain, and which judgment the change does not
+establish.
+
+Validation is proportional to the contribution. Corpus changes still require
+`validate.py` to exit 0, provenance on every new or materially changed canonical
+record, and a clear statement of what triggered the change. A PR that changes a
+risk score should say what evidence moved it. Method, review-contract, tooling,
+documentation and governance contributions should use the repository PR template
+to identify the relevant evidence and reproduction path rather than inventing
+corpus artefact IDs.
+
+Independent reviewability improves GAP-5.1 contribution handling, but it does not
+by itself define triage authority, final acceptance authority or release governance.
