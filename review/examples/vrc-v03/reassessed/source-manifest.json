@@ -1,0 +1,20 @@
+{
+  "repository": "trustoverip/dtgwg-cred-tf",
+  "specification": "Decentralized Trust Graph Credentials - Core Specification",
+  "version": "Early Draft v0.3 after ZKP clarification PR #33",
+  "commit": "200acbaa47a422b173652ed2c3dc961c4fbc9e7a",
+  "files": [
+    {
+      "path": "source/dtg.md.txt",
+      "upstream_path": "dtg.md",
+      "git_blob_sha": "e949c510eacf79b0c7f40b9bf39799e26cc9d0fb",
+      "url": "https://github.com/trustoverip/dtgwg-cred-tf/blob/200acbaa47a422b173652ed2c3dc961c4fbc9e7a/dtg.md",
+      "sha256": "57e55316168f335b57bc1560547eb9674594cdee1bd995255c6e69cd228598d1"
+    }
+  ],
+  "provenance": {
+    "change": "trustoverip/dtgwg-cred-tf#33",
+    "merged_at": "2026-05-08T08:36:46Z",
+    "base_commit": "62bbd8a19d598078f50560948ca71ec0e034a6fc"
+  }
+}
