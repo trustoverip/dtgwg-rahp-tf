@@ -63,6 +63,108 @@ class SpecReviewValidationTests(unittest.TestCase):
         }
         self.assertTrue(any("reference" in e for e in self.errors(record)))
 
+    # Rules from the review vocabulary definitions (#26).
+
+    def accepted_finding(self, record, risk_id, reference="RA-901"):
+        finding = record["findings"][0]
+        finding.update({
+            "risks": [risk_id],
+            "control_plane": "governance",
+            "status": "risk_accepted",
+            "resolution": {
+                "type": "risk-acceptance",
+                "reference": reference,
+                "rationale": "The competent authority accepted the bounded residual risk.",
+            },
+        })
+        return finding
+
+    def acceptance_errors(self, record, decision="accepted", risk_id="RK-ID01"):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp) / "risk-acceptances.yaml"
+            path.write_text(yaml.safe_dump({"records": [
+                {"id": "RA-901", "risk_id": risk_id, "decision": decision}]}), encoding="utf-8")
+            return mod.validate_record(record, self.risks, acceptances_path=path)
+
+    def test_control_plane_none_is_rejected_on_open_finding(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0]["control_plane"] = "none"
+        self.assertTrue(any("control_plane none" in e for e in self.errors(record)))
+
+    def test_control_plane_none_is_rejected_on_in_progress_finding(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0]["control_plane"] = "none"
+        record["findings"][0]["status"] = "in_progress"
+        self.assertTrue(any("control_plane none" in e for e in self.errors(record)))
+
+    def test_control_plane_none_is_allowed_on_no_action_finding(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "control_plane": "none",
+            "status": "resolved",
+            "resolution": {"type": "no-action", "rationale": "The observation does not describe a risk."},
+        })
+        self.assertEqual([], self.errors(record))
+
+    def test_out_of_scope_finding_keeps_its_control_plane(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "control_plane": "governance",
+            "status": "out_of_scope",
+            "resolution": {"type": "no-action", "rationale": "Treatment belongs to the ecosystem governance review."},
+        })
+        self.assertEqual([], self.errors(record))
+
+    def test_superseded_status_requires_superseded_resolution(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "status": "superseded",
+            "resolution": {"type": "no-action", "rationale": "Replaced by a later review of the new revision."},
+        })
+        self.assertTrue(any("superseded" in e for e in self.errors(record)))
+
+    def test_superseded_status_with_superseded_resolution_is_valid(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "status": "superseded",
+            "resolution": {"type": "superseded", "reference": "SR-002#F-001",
+                           "rationale": "Replaced by a later review of the new revision."},
+        })
+        self.assertEqual([], self.errors(record))
+
+    def test_risk_acceptance_of_critical_risk_is_rejected(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-EX04")
+        errors = self.acceptance_errors(record, risk_id="RK-EX04")
+        self.assertTrue(any("Critical" in e for e in errors))
+
+    def test_risk_acceptance_must_resolve(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-ID01", reference="RA-999")
+        self.assertTrue(any("RA-999 does not resolve" in e for e in self.acceptance_errors(record)))
+
+    def test_pending_risk_acceptance_is_rejected(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-ID01")
+        errors = self.acceptance_errors(record, decision="pending")
+        self.assertTrue(any("decision pending" in e for e in errors))
+
+    def test_risk_acceptance_for_another_risk_is_rejected(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-ID01")
+        errors = self.acceptance_errors(record, risk_id="RK-G05")
+        self.assertTrue(any("does not cite" in e for e in errors))
+
+    def test_accepted_risk_acceptance_is_valid(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-ID01")
+        self.assertEqual([], self.acceptance_errors(record, decision="accepted_with_conditions"))
+
+    def test_current_dtg_acceptances_cannot_yet_be_cited(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-G05", reference="RA-001")
+        self.assertTrue(any("decision pending" in e for e in self.errors(record)))
+
     def test_invalid_mutable_revision_fixture_is_rejected(self):
         record = yaml.safe_load((ROOT / "review" / "examples" / "invalid-mutable-revision.yaml").read_text())
         self.assertTrue(any("does not match" in e for e in self.errors(record)))

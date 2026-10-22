@@ -116,7 +116,6 @@ control_plane:
     - {value: none, definition: "No layer needs to own treatment. Use it only when the
                     finding turns out not to describe a risk, or to describe one that
                     does not apply. It is not a way to leave a finding unassigned."}
-    # Not yet enforced by the validator (follow-up): block `none` on open/in_progress findings.
 
 finding_status:
   description: >-
@@ -145,8 +144,6 @@ finding_status:
     - {value: superseded, definition: "Replaced by a later finding or a later review, for
                     example after the target specification materially changed. The prior
                     finding stays on record as evidence of what was assessed."}
-    # Not yet enforced by the validator (follow-up): risk_accepted must reference an RA-nnn
-    #   record with an accepted decision, and must not cite a Critical risk.
 
 resolution_type:
   description: >-
@@ -177,4 +174,3 @@ resolution_type:
                     say why. It is not a deferral: use open for that."}
     - {value: superseded, definition: "Closed because a later finding or review replaced
                     it. The reference should point to the successor."}
-    # Not yet enforced by the validator (follow-up): status superseded requires resolution type superseded.
