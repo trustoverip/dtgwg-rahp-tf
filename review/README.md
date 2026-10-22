@@ -27,6 +27,18 @@ checks succeed, while retaining `overall_assurance: review-required`.
 The existing review schema and validator are unchanged. The sidecar is not a
 standardized RAHP evidence contract and adds no members to existing review records.
 
+## Second real-source examination: VRC v0.3
+
+[The VRC v0.3 examination](examples/vrc-v03/README.md) retains the authoritative
+task-force source contemporaneous with historical review #6 and a real subsequent
+source revision. It demonstrates source-pinned reassessment: one documentary finding
+closes after the source changes while a separate residual finding remains open.
+
+The VRC evidence sidecar is also example-local. The
+[TRQP × VRC generality checkpoint](examples/vrc-v03/generality.md) identifies the
+common evidence-envelope invariants demonstrated by both examples and records why a
+shared sidecar schema is still deferred rather than inferred from example mechanics.
+
 
 ## Combined validation (Increment 3)
 

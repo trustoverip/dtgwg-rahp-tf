@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Experimental example-local VRC evidence sidecar",
+  "type": "object",
+  "required": [
+    "schema",
+    "assessment_id",
+    "target",
+    "method_revision",
+    "source_manifest",
+    "review_binding",
+    "risks_binding",
+    "execution",
+    "evidence",
+    "findings"
+  ],
+  "properties": {
+    "schema": {
+      "const": "vrc-example-evidence/v1"
+    },
+    "assessment_id": {
+      "type": "string",
+      "pattern": "^SR-[0-9]{3,}$"
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "repository",
+        "revision"
+      ],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_manifest": {
+      "type": "string",
+      "minLength": 1
+    },
+    "review_binding": {
+      "$ref": "#/$defs/binding"
+    },
+    "risks_binding": {
+      "$ref": "#/$defs/binding"
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "state",
+        "observations"
+      ],
+      "properties": {
+        "state": {
+          "const": "complete"
+        },
+        "observations": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source",
+          "section",
+          "contains"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^E-[0-9]{3}$"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "section": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contains": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "evidence",
+          "observation",
+          "inference",
+          "limitations",
+          "treatment",
+          "risk_reasoning"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^F-[0-9]{3,}$"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^E-[0-9]{3}$"
+            }
+          },
+          "observation": {
+            "type": "string",
+            "minLength": 10
+          },
+          "inference": {
+            "type": "string",
+            "minLength": 10
+          },
+          "limitations": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 10
+            }
+          },
+          "treatment": {
+            "type": "string",
+            "minLength": 10
+          },
+          "risk_reasoning": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 10
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "method_revision": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    }
+  },
+  "$defs": {
+    "binding": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
