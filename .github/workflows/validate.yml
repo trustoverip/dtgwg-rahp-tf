@@ -65,6 +65,16 @@ jobs:
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         shell: bash
         run: python3 review/validate_spec_review.py review/examples/minimal-review.yaml 2>&1 | tee "$EVIDENCE_DIR/review.log"
+      - name: Validate composed corpus and review path
+        id: composed
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        shell: bash
+        run: python3 tools/validate_all.py --review review/examples/minimal-review.yaml 2>&1 | tee "$EVIDENCE_DIR/composed-validation.log"
+      - name: Reproduce retained-source TRQP examination
+        id: trqp
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        shell: bash
+        run: python3 review/examine.py 2>&1 | tee "$EVIDENCE_DIR/trqp-examination.log"
       - name: Build derived views in temporary output
         id: build
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
@@ -91,6 +101,8 @@ jobs:
           CORPUS_OUTCOME: ${{ steps.corpus.outcome }}
           TEST_OUTCOME: ${{ steps.tests.outcome }}
           REVIEW_OUTCOME: ${{ steps.review.outcome }}
+          COMPOSED_OUTCOME: ${{ steps.composed.outcome }}
+          TRQP_OUTCOME: ${{ steps.trqp.outcome }}
           BUILD_OUTCOME: ${{ steps.build.outcome }}
         run: |
           python3 - <<'PY'
@@ -101,7 +113,8 @@ jobs:
                    'Execution checks do not establish target assurance or independent human review.', '',
                    '| Check | Outcome |', '|---|---|']
           for label, key in [('Corpus', 'CORPUS_OUTCOME'), ('Regressions', 'TEST_OUTCOME'),
-                             ('Review record', 'REVIEW_OUTCOME'), ('Build', 'BUILD_OUTCOME')]:
+                             ('Review record', 'REVIEW_OUTCOME'), ('Composed validation', 'COMPOSED_OUTCOME'),
+                             ('TRQP examination', 'TRQP_OUTCOME'), ('Build', 'BUILD_OUTCOME')]:
               lines.append(f'| {label} | {os.environ.get(key) or "not executed"} |')
           report = pathlib.Path(os.environ['EVIDENCE_DIR']) / 'corpus-validation.json'
           if report.exists():
