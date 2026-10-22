@@ -8,7 +8,7 @@
   "source_manifest": "reassessed/source-manifest.json",
   "review_binding": {
     "path": "reassessed-review.yaml",
-    "sha256": "b156cc51a358c36872358ae740b5ddfc0d84560cebb46161fe9e5c80425fb777"
+    "sha256": "89a4d35f728d46896c79fcdff06a34f188d4d8cdd1c95a26943c7028c3232f6e"
   },
   "risks_binding": {
     "path": "data/risks.yaml",

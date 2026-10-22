@@ -8,7 +8,7 @@
   "source_manifest": "baseline/source-manifest.json",
   "review_binding": {
     "path": "baseline-review.yaml",
-    "sha256": "5eb39d9655a6c37d437732f72dd0868c74a3cb593d2cdeef5a649b5acb47b22a"
+    "sha256": "6cac12d159c8db5ad69886960f22b76bb3c3853470683967a393fdde77ab40f8"
   },
   "risks_binding": {
     "path": "data/risks.yaml",
