@@ -1,4 +1,5 @@
 schema: rahp-spec-review/v1
+reviewer: sankarshanmukhopadhyay
 assessment_id: SR-202
 target:
   repository: trustoverip/dtgwg-cred-tf

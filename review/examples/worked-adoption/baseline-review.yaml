@@ -1,4 +1,5 @@
 schema: rahp-spec-review/v1
+reviewer: example-reviewer
 assessment_id: SR-101
 target:
   repository: https://github.com/trustoverip/dtgwg-rahp-tf

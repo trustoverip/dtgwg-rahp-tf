@@ -1,4 +1,5 @@
 schema: rahp-spec-review/v1
+reviewer: sankarshanmukhopadhyay
 assessment_id: SR-001
 target:
   repository: trustoverip/tswg-trust-registry-protocol
@@ -12,14 +13,14 @@ findings:
   summary: Schema-valid authorization does not demonstrate authority history or current
     permission.
   risks:
-  - RK-AU01
-  - RK-TM01
+  - EX-RK-AU01
+  - EX-RK-TM01
   control_plane: implementation-guidance
   status: open
 - id: F-002
   summary: The retained API authorization example does not preserve the queried historical
     time.
   risks:
-  - RK-TM01
+  - EX-RK-TM01
   control_plane: specification
   status: open
