@@ -32,3 +32,14 @@ Confirm which body can authorize residual-risk acceptance for the *DTG instance*
 ### GAP-3.1 closure threshold
 
 After competent task-force adoption, validate the agreed authority model against a real decision workflow (including a rejection or deferral), document the reviewer and decision record, and demonstrate the gate fails closed. Only then change `method/lifecycle.yaml` from **blocking** to a resolved disposition. Until then GAP-3.1 remains open and existing pending acceptances are not altered.
+
+## Advisory check execution
+
+The check operates on a single proposed decision packet **outside the canonical risk-acceptances corpus** and derives severity from an explicitly selected authoritative risk corpus, not a value supplied by the requester. This prevents a Critical risk from being relabeled as Low through command arguments.
+
+```sh
+python3 review/check_risk_acceptance_documentation.py proposed-decision.yaml --risks data/risks.yaml
+python3 -m unittest discover -s tests -p 'test_risk_acceptance_documentation.py' -v
+```
+
+A `documentary_ready: true` result is only local field/syntax readiness and **never** authenticated authorization. An unresolved `risk_id`, absent risk corpus, missing mandate reference, missing participants, absent evidence or expired decision window prevents documentary readiness. The gate does not silently convert a pending decision into an acceptance. The proposal is advisory until its semantics are approved under competent upstream governance.
