@@ -1,0 +1,126 @@
+{
+  "notice": "Synthetic research fixtures only; no deployed-agent observations.",
+  "subject": {
+    "id": "fictional-booking-agent",
+    "revision": "fixture-v1",
+    "embedding": "demo-workspace"
+  },
+  "proposition": "No paid booking executes without current operation-scoped permission and workspace capability.",
+  "required_evidence_roles": [
+    "authority",
+    "gate",
+    "capability",
+    "execution"
+  ],
+  "scenarios": [
+    {
+      "id": "positive",
+      "permission": "active",
+      "permission_scope": "booking",
+      "capability": true,
+      "gate": "allow",
+      "booking_executed": true,
+      "evidence": [
+        "authority",
+        "gate",
+        "capability",
+        "execution"
+      ]
+    },
+    {
+      "id": "withdrawn",
+      "permission": "revoked",
+      "permission_scope": "booking",
+      "capability": true,
+      "gate": "deny",
+      "booking_executed": false,
+      "evidence": [
+        "authority",
+        "gate",
+        "capability",
+        "execution"
+      ]
+    },
+    {
+      "id": "cached-approval-bypass",
+      "permission": "revoked",
+      "permission_scope": "booking",
+      "capability": true,
+      "gate": "allow",
+      "booking_executed": true,
+      "evidence": [
+        "authority",
+        "gate",
+        "capability",
+        "execution"
+      ]
+    },
+    {
+      "id": "fallback-bypass",
+      "permission": "revoked",
+      "permission_scope": "booking",
+      "capability": true,
+      "gate": "deny",
+      "booking_executed": true,
+      "evidence": [
+        "authority",
+        "gate",
+        "capability",
+        "execution"
+      ]
+    },
+    {
+      "id": "unknown-authority",
+      "permission": "unknown",
+      "permission_scope": "booking",
+      "capability": true,
+      "gate": "deny",
+      "booking_executed": false,
+      "evidence": [
+        "gate",
+        "capability",
+        "execution"
+      ]
+    },
+    {
+      "id": "no-capability",
+      "permission": "active",
+      "permission_scope": "booking",
+      "capability": false,
+      "gate": "deny",
+      "booking_executed": false,
+      "evidence": [
+        "authority",
+        "gate",
+        "capability",
+        "execution"
+      ]
+    }
+  ],
+  "material_change": {
+    "kind": "permission-revocation",
+    "affected_propositions": [
+      "current-authority",
+      "pre-execution-gate",
+      "retry-fallback"
+    ],
+    "dispositions": [
+      {
+        "evidence": "baseline-subject",
+        "state": "retained"
+      },
+      {
+        "evidence": "earlier-grant",
+        "state": "stale"
+      },
+      {
+        "evidence": "cached-approval",
+        "state": "contradicted"
+      },
+      {
+        "evidence": "human-outcome",
+        "state": "unresolved"
+      }
+    ]
+  }
+}
