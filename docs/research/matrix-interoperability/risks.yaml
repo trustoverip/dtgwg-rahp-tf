@@ -1,0 +1,15 @@
+records:
+- id: RK-AU01
+  description: 'Example-local hypothesis: a semantically lossy Matrix to RAHP transformation is mistaken for proven native interchange.'
+  status: example-local-hypothesis
+  provenance:
+    source: trustoverip/aimwg-agent-fiduciary-duties@140b558791bab5bacdbe5245df0aada93d2b27bd Assurance Matrix/README.md
+    triggered_by: upstream RAHP issue 39
+    contributor: sankarshanmukhopadhyay (AI-assisted)
+- id: RK-AU02
+  description: 'Example-local hypothesis: an illustrative permission-withdrawal scenario is mistaken for measured enforcement in a live deployment.'
+  status: example-local-hypothesis
+  provenance:
+    source: trustoverip/aimwg-agent-fiduciary-duties@140b558791bab5bacdbe5245df0aada93d2b27bd Assurance Matrix/README.md
+    triggered_by: upstream RAHP issue 39
+    contributor: sankarshanmukhopadhyay (AI-assisted)
