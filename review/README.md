@@ -40,7 +40,7 @@ common evidence-envelope invariants demonstrated by both examples and records wh
 shared sidecar schema is still deferred rather than inferred from example mechanics.
 
 
-## Combined validation (Increment 3; proposed)
+## Combined validation (Increment 3)
 
 Use `python3 tools/validate_all.py` for corpus integrity and vocabulary
 consistency. A review is **not** implicitly selected: add `--review` once per
@@ -60,12 +60,41 @@ evidence of a successful examination. Review records, risk IDs and the
 existing standalone `tools/validate.py` and `review/validate_spec_review.py`
 commands remain supported.
 
-Review vocabulary authority is now in `method/vocabularies.yaml` (#27).
-This composed validator checks all defined vocabulary lists for structural
-validity and duplicate values. The dedicated review validator enforces
-schema parity for each explicitly selected review. The lifecycle and
-risk-acceptance semantics in #26 remain separate follow-up work.
+Review vocabulary authority is in `method/vocabularies.yaml`. The composed
+validator checks method vocabulary structure; the dedicated review validator
+enforces schema parity for explicitly selected review records, and the rules
+from the vocabulary definitions that the schema cannot express (#26):
 
+- `control_plane: none` is only allowed on a closed finding with status
+  `out_of_scope` or `superseded`, or with a `no-action` resolution. It is not
+  allowed on `open` or `in_progress`, or with `risk_accepted`. It is not required
+  for `out_of_scope`: a risk that applies but is treated outside this review keeps
+  the plane where treatment belongs.
+- Status `superseded` needs resolution type `superseded`.
+- A `risk_accepted` finding may not cite a Critical risk.
+- A `risk_accepted` finding's reference must resolve to a record in
+  `data/risk-acceptances.yaml` (or `--acceptances`) for one of the finding's
+  risks, with decision `accepted` or `accepted_with_conditions`. Every record
+  there is `pending` until Q3/Q4 are settled, so no finding can be
+  risk-accepted yet.
+
+Semantic changes remain deliberate contract changes rather than
+implementation-side inference.
 Corpus warnings, review schema failures and unresolved risk references are
 reported by their existing validators; a failure of either component produces
 a nonzero exit status. This is repository validation, not target assurance.
+
+## Fail-closed schema dependency (Increment 4)
+
+The corpus validator now stops with a nonzero exit code if `jsonschema` is not
+installed. Skipping required schema validation is not a successful integrity
+check. Install `requirements.txt` and rerun the full validation suite.
+A dedicated negative regression test uses an isolated interpreter to simulate
+that missing dependency. This change does not alter the warning policy for
+ordinary corpus content or provide any target assurance conclusion.
+
+The repository's accepted validation workflow from #14 owns CI execution
+provenance and retained artifacts. It runs the negative regression suite, the
+composed corpus/review path and the retained-source TRQP examination. The workflow
+summary keeps repository integrity, review validation and target assurance
+separate, and the evidence artifact retains the corresponding logs.
