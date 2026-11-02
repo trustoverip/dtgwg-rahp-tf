@@ -1,0 +1,48 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-003
+target:
+  repository: trustoverip/aimwg-trust-enabled-agents
+  revision: 7a53ecf3300dd6fb1bd4d6bcfab967475866e082
+  artifact: spec/clauses.md
+  version_label: v0.2 Draft source snapshot
+rahp_version: trustoverip/dtgwg-rahp-tf@9efba2820532603171c6af6c5fb855f81cfadfb9
+reviewed_at: '2026-11-03'
+findings:
+- id: F-001
+  summary: Authenticated TEA identity must not substitute for capability-chain authorization.
+  risks:
+  - RK-AU01
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: already-addressed
+    reference: source/clauses.md.txt
+    rationale: The retained source requires presentation and verification of the capability chain after TSP authentication and binds authority to the presented chain.
+- id: F-002
+  summary: Re-delegation and invocation must not broaden effective authority beyond source capabilities.
+  risks:
+  - RK-AU02
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: already-addressed
+    reference: source/clauses.md.txt
+    rationale: The retained source defines capability meet, strict attenuation and per-exercise confirmation against effective capability.
+- id: F-003
+  summary: Post-gate obligation breach must remain distinct from authorization already exercised.
+  risks:
+  - RK-AC01
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: already-addressed
+    reference: source/clauses.md.txt
+    rationale: The retained source states that obligations do not enter authorization and non-performance never invalidates authority already exercised.
+- id: F-004
+  summary: Runtime enforcement of delegated authority and post-gate accountability remains unassessed by this source-only example.
+  risks:
+  - RK-AU01
+  - RK-AU02
+  - RK-AC01
+  control_plane: runtime-control
+  status: open
