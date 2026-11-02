@@ -27,6 +27,7 @@ def run(review: pathlib.Path, risks: pathlib.Path, repeat: int = 2,
     fixed = {
         "review": review, "risks": risks,
         "schema": ROOT / "review/spec-review.schema.json",
+        "acceptances": ROOT / "data/risk-acceptances.yaml",
         "vocabulary": ROOT / "method/vocabularies.yaml",
         "validator": ROOT / "review/validate_spec_review.py",
     }
@@ -56,7 +57,7 @@ def run(review: pathlib.Path, risks: pathlib.Path, repeat: int = 2,
         "machine_results_identical": same,
         "observed_result": observations[0],
         "interpretation": "Machine validation repeatability only; no source authenticity or target assurance",
-        "status": "repeatable" if same else "unstable",
+        "status": ("accepted-repeatable" if valid else "rejected-repeatable") if same else "unstable",
     }
 
 
