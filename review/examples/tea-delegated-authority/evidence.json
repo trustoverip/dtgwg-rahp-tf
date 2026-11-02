@@ -1,0 +1,258 @@
+{
+  "schema": "tea-example-evidence/v1",
+  "assessment_id": "SR-003",
+  "target": {
+    "repository": "trustoverip/aimwg-trust-enabled-agents",
+    "revision": "7a53ecf3300dd6fb1bd4d6bcfab967475866e082"
+  },
+  "method_revision": "9efba2820532603171c6af6c5fb855f81cfadfb9",
+  "review_binding": {
+    "path": "review.yaml",
+    "sha256": "e444e6fa23f96f3851945a2975774a35835d3d3319c6b473e3a95c3573fa2e83"
+  },
+  "risks_binding": {
+    "path": "risks.yaml",
+    "sha256": "6764a364caa95f3d080e66c6fa76c4515167670eb14d587ac6fa14b72f9b2bdd"
+  },
+  "execution": {
+    "state": "complete",
+    "observations": {
+      "target_commit": "7a53ecf3300dd6fb1bd4d6bcfab967475866e082",
+      "scope": "retained TEA v0.2 Draft source and constructed capability fixtures only",
+      "source_integrity": "verified",
+      "source_propositions": {
+        "capability_triple": true,
+        "authorization_from_capability_only": true,
+        "strict_attenuation": true,
+        "obligations_post_gate": true,
+        "exercise_rechecked": true,
+        "nonperformance_not_retroactive": true
+      },
+      "cases": [
+        {
+          "id": "within-authority",
+          "restriction_conformant": true,
+          "authorized": true,
+          "reason": "within-capability",
+          "effective": {
+            "resource": "/accounts/123",
+            "abilities": [
+              "transfer"
+            ],
+            "max_amount": 250
+          },
+          "post_gate_breach": false
+        },
+        {
+          "id": "ability-not-delegated",
+          "restriction_conformant": true,
+          "authorized": false,
+          "reason": "exceeds-capability",
+          "effective": {
+            "resource": "/accounts/123",
+            "abilities": [
+              "read"
+            ],
+            "max_amount": null
+          },
+          "post_gate_breach": false
+        },
+        {
+          "id": "attenuated-redelegation",
+          "restriction_conformant": true,
+          "authorized": true,
+          "reason": "within-capability",
+          "effective": {
+            "resource": "/accounts/123",
+            "abilities": [
+              "transfer"
+            ],
+            "max_amount": 250
+          },
+          "post_gate_breach": false
+        },
+        {
+          "id": "attempted-broadening",
+          "restriction_conformant": false,
+          "authorized": false,
+          "reason": "invalid-redelegation",
+          "effective": {
+            "resource": "/accounts/123",
+            "abilities": [
+              "read"
+            ],
+            "max_amount": null
+          },
+          "post_gate_breach": false
+        },
+        {
+          "id": "authenticated-without-capability",
+          "restriction_conformant": true,
+          "authorized": false,
+          "reason": "no-capability",
+          "effective": null,
+          "post_gate_breach": false
+        },
+        {
+          "id": "authorized-then-obligation-breach",
+          "restriction_conformant": true,
+          "authorized": true,
+          "reason": "within-capability",
+          "effective": {
+            "resource": "/accounts/123",
+            "abilities": [
+              "transfer"
+            ],
+            "max_amount": 500
+          },
+          "post_gate_breach": true
+        }
+      ],
+      "unassessed": {
+        "tsp_transport": "not-assessed",
+        "vid_resolution": "not-assessed",
+        "revocation": "not-assessed",
+        "live_service": "not-assessed",
+        "full_tea_conformance": "not-assessed"
+      },
+      "overall_assurance": "review-required"
+    }
+  },
+  "unassessed": {
+    "tsp_transport": "not-assessed",
+    "vid_resolution": "not-assessed",
+    "revocation": "not-assessed",
+    "live_service": "not-assessed",
+    "full_tea_conformance": "not-assessed"
+  },
+  "evidence": [
+    {
+      "id": "E-001",
+      "kind": "source",
+      "path": "source/clauses.md.txt",
+      "sha256": "bebc41ec84f548cc2f7f2d060d33ff509a7bb70cf8be40aefd165f8d8cf9c788"
+    },
+    {
+      "id": "E-002",
+      "kind": "source",
+      "path": "source/terms_and_definitions.md.txt",
+      "sha256": "518d454aa62e317ee4064fd48f386d14ba43aecfee7b39801a2e16e61690c8ff"
+    },
+    {
+      "id": "E-003",
+      "kind": "artifact",
+      "path": "cases.json",
+      "sha256": "a6db9938fb1bbf9407349655c2887cf7efb3b53f0ee3ff71a64b3feff59944d9"
+    },
+    {
+      "id": "E-004",
+      "kind": "result",
+      "pointer": "/cases/4/authorized",
+      "expected": false
+    },
+    {
+      "id": "E-005",
+      "kind": "result",
+      "pointer": "/cases/3/restriction_conformant",
+      "expected": false
+    },
+    {
+      "id": "E-006",
+      "kind": "result",
+      "pointer": "/cases/5/authorized",
+      "expected": true
+    },
+    {
+      "id": "E-007",
+      "kind": "result",
+      "pointer": "/cases/5/post_gate_breach",
+      "expected": true
+    },
+    {
+      "id": "E-008",
+      "kind": "result",
+      "pointer": "/source_propositions/strict_attenuation",
+      "expected": true
+    },
+    {
+      "id": "E-009",
+      "kind": "result",
+      "pointer": "/source_propositions/nonperformance_not_retroactive",
+      "expected": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "evidence": [
+        "E-001",
+        "E-004"
+      ],
+      "observation": "An authenticated constructed holder with no capability is denied by the bounded replay, while the retained source requires capability presentation and verification after TSP authentication.",
+      "inference": "Authentication and delegated authorization are separate assurance steps in the bounded TEA source.",
+      "limitations": [
+        "The example does not execute TSP authentication, VID resolution, signatures or a live Present/Bind exchange."
+      ],
+      "treatment": "Preserve explicit capability-chain verification in implementations and assess holder binding with runtime evidence separately.",
+      "risk_reasoning": {
+        "RK-AU01": "The hypothesis tests whether authenticated identity is incorrectly promoted into evidence of applicable delegated authority."
+      }
+    },
+    {
+      "id": "F-002",
+      "evidence": [
+        "E-001",
+        "E-003",
+        "E-005",
+        "E-008"
+      ],
+      "observation": "The attempted broadening fixture is nonconformant as a restriction and its effective ability set does not acquire the undelegated write ability.",
+      "inference": "The retained strict-attenuation and meet propositions prevent this constructed chain from establishing broader effective authority.",
+      "limitations": [
+        "The fixture uses a deliberately small resource hierarchy, ability vocabulary and one bounded-scalar limitation; it is not a general TEA namespace or container validator."
+      ],
+      "treatment": "Keep re-delegation restriction-only and require independent verification of concrete namespace and container semantics in any implementation assessment.",
+      "risk_reasoning": {
+        "RK-AU02": "The hypothesis tests whether a downstream delegation or invocation can exceed authority supplied by its source capability chain."
+      }
+    },
+    {
+      "id": "F-003",
+      "evidence": [
+        "E-001",
+        "E-002",
+        "E-006",
+        "E-007",
+        "E-009"
+      ],
+      "observation": "The constructed exercise remains authorized within capability while an unmet report obligation is recorded as a post-gate breach.",
+      "inference": "Authorization validity and later accountability are distinct in the retained TEA source; obligation non-performance does not retroactively invalidate authority already exercised.",
+      "limitations": [
+        "No actual obligation trigger, discharge Container, audit trail or enforcement action is executed."
+      ],
+      "treatment": "Assess obligation discharge and accountability evidence as a separate runtime concern rather than feeding post-gate breach back into the prior authorization decision.",
+      "risk_reasoning": {
+        "RK-AC01": "The hypothesis tests the source boundary between capability authorization and post-action obligation accountability."
+      }
+    },
+    {
+      "id": "F-004",
+      "evidence": [
+        "E-001",
+        "E-002",
+        "E-003"
+      ],
+      "observation": "The retained source and deterministic fixtures establish only documentary propositions and constructed observations.",
+      "inference": "The worked example does not establish that a TEA implementation enforces delegation, freshness, revocation or accountability correctly at runtime.",
+      "limitations": [
+        "TSP transport, VID resolution, revocation, live service behavior and full TEA conformance are explicitly unassessed."
+      ],
+      "treatment": "Obtain implementation traces and independently reproducible runtime evidence before making deployment or conformance claims.",
+      "risk_reasoning": {
+        "RK-AU01": "Runtime holder authentication and authorization remain unassessed.",
+        "RK-AU02": "Runtime attenuation and per-exercise enforcement remain unassessed.",
+        "RK-AC01": "Runtime obligation discharge and accountability remain unassessed."
+      }
+    }
+  ]
+}
