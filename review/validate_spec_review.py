@@ -26,6 +26,8 @@ ACCEPTANCES_PATH = ROOT / "data" / "risk-acceptances.yaml"
 
 # Statuses that are not terminal: treatment is still owed by some control plane.
 NON_TERMINAL_STATUSES = {"open", "in_progress"}
+# Closed statuses that can use control_plane none with any resolution type (#26).
+NONE_ALLOWED_STATUSES = {"out_of_scope", "superseded"}
 # Risk-acceptance decisions that actually accept the risk (see risk_acceptance_decision).
 ACCEPTING_DECISIONS = {"accepted", "accepted_with_conditions"}
 
@@ -64,11 +66,17 @@ def check_finding_semantics(finding: dict, risks: dict[str, dict],
     resolution = finding.get("resolution") if isinstance(finding.get("resolution"), dict) else {}
 
     # control_plane none means no layer owns treatment, so it cannot leave a finding unassigned.
-    # It is not required for out_of_scope: an applicable risk treated outside this review
-    # should still name the plane where its treatment belongs.
-    if finding.get("control_plane") == "none" and status in NON_TERMINAL_STATUSES:
-        errors.append(f"finding {finding_id}: control_plane none is only allowed on a closed finding,"
-                      f" not status {status}")
+    # A closed finding can only use it where no treatment is owed. It is not required for
+    # out_of_scope: an applicable risk treated outside this review should still name the
+    # plane where its treatment belongs.
+    if finding.get("control_plane") == "none":
+        if status in NON_TERMINAL_STATUSES:
+            errors.append(f"finding {finding_id}: control_plane none is only allowed on a closed finding,"
+                          f" not status {status}")
+        elif status not in NONE_ALLOWED_STATUSES and resolution.get("type") != "no-action":
+            errors.append(f"finding {finding_id}: control_plane none needs status out_of_scope or superseded,"
+                          f" or a no-action resolution, not status {status} with resolution type"
+                          f" {resolution.get('type')}")
 
     if status == "superseded" and resolution.get("type") != "superseded":
         errors.append(f"finding {finding_id}: status superseded needs resolution type superseded")

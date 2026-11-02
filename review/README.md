@@ -66,9 +66,11 @@ validity and duplicate values. The dedicated review validator enforces
 schema parity for each explicitly selected review, and the rules from the
 vocabulary definitions that the schema cannot express (#26):
 
-- `control_plane: none` is only allowed on a closed finding, not on `open`
-  or `in_progress`. It is not required for `out_of_scope`: a risk that applies
-  but is treated outside this review keeps the plane where treatment belongs.
+- `control_plane: none` is only allowed on a closed finding with status
+  `out_of_scope` or `superseded`, or with a `no-action` resolution. It is not
+  allowed on `open` or `in_progress`, or with `risk_accepted`. It is not required
+  for `out_of_scope`: a risk that applies but is treated outside this review keeps
+  the plane where treatment belongs.
 - Status `superseded` needs resolution type `superseded`.
 - A `risk_accepted` finding may not cite a Critical risk.
 - A `risk_accepted` finding's reference must resolve to a record in

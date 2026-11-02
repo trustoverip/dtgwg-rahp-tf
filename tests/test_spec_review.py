@@ -106,6 +106,48 @@ class SpecReviewValidationTests(unittest.TestCase):
         })
         self.assertEqual([], self.errors(record))
 
+    def test_control_plane_none_is_rejected_on_open_finding_with_no_action(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "control_plane": "none",
+            "resolution": {"type": "no-action", "rationale": "The observation does not describe a risk."},
+        })
+        self.assertTrue(any("control_plane none" in e for e in self.errors(record)))
+
+    def test_control_plane_none_is_rejected_on_risk_accepted_finding(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        self.accepted_finding(record, "RK-ID01")["control_plane"] = "none"
+        self.assertTrue(any("control_plane none" in e for e in self.acceptance_errors(record)))
+
+    def test_control_plane_none_is_rejected_on_specification_change(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "control_plane": "none",
+            "status": "resolved",
+            "resolution": {"type": "specification-change", "reference": "PR-1",
+                           "rationale": "The specification now treats the risk."},
+        })
+        self.assertTrue(any("control_plane none" in e for e in self.errors(record)))
+
+    def test_control_plane_none_is_allowed_on_out_of_scope_finding(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "control_plane": "none",
+            "status": "out_of_scope",
+            "resolution": {"type": "no-action", "rationale": "The review target is not the one assessed."},
+        })
+        self.assertEqual([], self.errors(record))
+
+    def test_control_plane_none_is_allowed_on_superseded_finding(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["findings"][0].update({
+            "control_plane": "none",
+            "status": "superseded",
+            "resolution": {"type": "superseded", "reference": "SR-002#F-001",
+                           "rationale": "Replaced by a later review of the new revision."},
+        })
+        self.assertEqual([], self.errors(record))
+
     def test_out_of_scope_finding_keeps_its_control_plane(self):
         record = yaml.safe_load(yaml.safe_dump(self.valid))
         record["findings"][0].update({
