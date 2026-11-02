@@ -172,6 +172,8 @@ This is also represented as `GAP-3.1` in `method/lifecycle.yaml`.
 
 A risk-acceptance record must therefore not be read as an acceptance merely because the record exists.
 
+A record with decision `accepted` or `accepted_with_conditions` must fill in the fields listed at the top of that file, which the validator enforces as invariant `INV-6`. That shows the record is complete. It does not show that the named authority is genuine.
+
 ### Governance precedent
 
 `data/governance-precedents.yaml` records why a design or governance decision was made so that future contributors can understand the reasoning and evidence behind it.

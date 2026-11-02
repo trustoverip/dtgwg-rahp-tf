@@ -242,6 +242,20 @@ def check_symmetry(by_type, rep: Report):
     rep.check("symmetry", asym == 0, f"{asym} asymmetric link(s)")
 
 
+# What a real acceptance must record (see the header of data/risk-acceptances.yaml).
+# This checks that the fields are filled in, not that the authority is genuine.
+ACCEPTANCE_REQUIRED_FIELDS = ("authority", "decided_by", "decision_date", "rationale",
+                              "residual_risk", "review_date", "evidence")
+
+
+def has_value(value) -> bool:
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, list):
+        return any(has_value(item) for item in value)
+    return value is not None
+
+
 def check_invariants(by_type, instance, rep: Report):
     risks = by_type.get("risk", {})
     controls = by_type.get("control", {})
@@ -286,6 +300,18 @@ def check_invariants(by_type, instance, rep: Report):
                 if not (r.get("guardrails") or []) and rid not in accepted_ids:
                     emit("must_address_risk_is_covered",
                          f"{rid} is must_address with neither a guardrail nor an acceptance record")
+
+    if "accepted_risk_has_required_fields" in sev_by_rule:
+        for aid, a in acceptances.items():
+            decision = a.get("decision") or ""
+            if decision.startswith("accepted"):
+                required = list(ACCEPTANCE_REQUIRED_FIELDS)
+                if decision == "accepted_with_conditions":
+                    required.append("conditions")
+                missing = [f for f in required if not has_value(a.get(f))]
+                if missing:
+                    emit("accepted_risk_has_required_fields",
+                         f"{aid} is {decision} but is missing: {', '.join(missing)}")
 
     rep.stats["invariant_failures"] = dict(failures)
     rep.check("invariants", not any(

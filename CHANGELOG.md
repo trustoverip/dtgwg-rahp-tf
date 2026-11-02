@@ -60,6 +60,10 @@ review was based on.
 - **`Critical` is now a distinct severity class**, not a higher number. Critical
   risks carry no numeric score, must be gated by a guardrail, and may not be
   risk-accepted. Enforced by invariant `INV-3`. Affects `RK-EX04`.
+- **An accepted risk must now be complete.** A risk acceptance with decision `accepted` or
+  `accepted_with_conditions` must fill in its authority, deciders, dates, rationale, residual
+  risk and evidence, plus conditions where they apply. Enforced by invariant `INV-6`. This
+  doesn't settle who may accept a risk (`GAP-3.1`).
 - **Persona cross-references are now computed**, not stored. `data/personas.yaml`
   carries narrative and evidence only; links to user stories, scenarios, EPICs,
   metrics and risks are derived at build time.

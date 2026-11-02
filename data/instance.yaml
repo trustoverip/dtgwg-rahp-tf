@@ -73,6 +73,12 @@ invariants:
     rule: critical_risk_has_guardrail
     message: A Critical-severity risk must be gated by at least one guardrail; it may not be risk-accepted.
     severity: error
+  - id: INV-6
+    rule: accepted_risk_has_required_fields
+    message: >-
+      An accepted risk must name its authority, deciders, dates, rationale, residual risk and evidence.
+      This checks that the fields are filled in, not that the authority is genuine.
+    severity: error
   - id: INV-4
     rule: must_address_risk_is_covered
     message: >-

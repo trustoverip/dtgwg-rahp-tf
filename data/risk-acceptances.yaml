@@ -23,6 +23,8 @@
 #   residual_risk    — severity remaining after controls
 #   review_date      — when this acceptance expires and must be revisited
 #   evidence         — the artefact the decision was based on
+# accepted_with_conditions also requires conditions. The validator enforces that
+# these are filled in (INV-6). It cannot tell whether the authority is genuine.
 
 record_type: risk_acceptance
 records:
