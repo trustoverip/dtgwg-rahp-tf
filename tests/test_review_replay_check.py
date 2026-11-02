@@ -18,6 +18,8 @@ class RepeatabilityChecks(unittest.TestCase):
         self.assertTrue(result["validation_accepted"])
         self.assertTrue(result["machine_results_identical"])
         self.assertEqual(result["repeat"], 2)
+        self.assertIn("acceptances", result["inputs_sha256"])
+        self.assertEqual(result["status"], "accepted-repeatable")
 
     def test_invalid_review_is_stably_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -26,6 +28,7 @@ class RepeatabilityChecks(unittest.TestCase):
             result = m.run(path, RISKS)
             self.assertFalse(result["validation_accepted"])
             self.assertTrue(result["machine_results_identical"])
+            self.assertEqual(result["status"], "rejected-repeatable")
 
     def test_missing_source_is_not_implicitly_accepted(self):
         with tempfile.TemporaryDirectory() as temp:
