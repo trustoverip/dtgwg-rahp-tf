@@ -1,0 +1,22 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-201
+target:
+  repository: trustoverip/dtgwg-cred-tf
+  revision: 62bbd8a19d598078f50560948ca71ec0e034a6fc
+  artifact: dtg.md
+  version_label: Early Draft v0.3 at historical RAHP #6 assessment
+rahp_version: trustoverip/dtgwg-rahp-tf@8c6bda78f477b109d07acf62c38599c4887f6d38
+reviewed_at: '2026-10-21'
+findings:
+- id: F-001
+  summary: General VRC ZKP guidance couples relationship proof to shared-community membership evidence.
+  risks:
+  - RK-SC02
+  control_plane: specification
+  status: open
+- id: F-002
+  summary: M-DID bootstrapping leaves a residual cross-community linkability window without a normative migration trigger.
+  risks:
+  - RK-ID05
+  control_plane: specification
+  status: open

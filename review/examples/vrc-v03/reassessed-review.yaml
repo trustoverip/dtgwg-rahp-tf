@@ -1,0 +1,26 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-202
+target:
+  repository: trustoverip/dtgwg-cred-tf
+  revision: 200acbaa47a422b173652ed2c3dc961c4fbc9e7a
+  artifact: dtg.md
+  version_label: Early Draft v0.3 after ZKP clarification PR #33
+rahp_version: trustoverip/dtgwg-rahp-tf@8c6bda78f477b109d07acf62c38599c4887f6d38
+reviewed_at: '2026-10-21'
+findings:
+- id: F-001
+  summary: Pairwise and community-anchored ZKP paths are separated, resolving the shared-community interpretation gap.
+  risks:
+  - RK-SC02
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: specification-change
+    reference: https://github.com/trustoverip/dtgwg-cred-tf/commit/200acbaa47a422b173652ed2c3dc961c4fbc9e7a
+    rationale: The revised source explicitly supports pairwise VRC proofs without shared VTC membership and separates community-anchored proofs.
+- id: F-002
+  summary: M-DID bootstrapping still leaves a residual cross-community linkability window without a normative migration trigger.
+  risks:
+  - RK-ID05
+  control_plane: specification
+  status: open
