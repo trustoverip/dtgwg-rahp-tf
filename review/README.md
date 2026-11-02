@@ -62,8 +62,24 @@ commands remain supported.
 
 Review vocabulary authority is in `method/vocabularies.yaml`. The composed
 validator checks method vocabulary structure; the dedicated review validator
-enforces schema parity for explicitly selected review records. Semantic changes
-remain deliberate contract changes rather than implementation-side inference.
+enforces schema parity for explicitly selected review records, and the rules
+from the vocabulary definitions that the schema cannot express (#26):
+
+- `control_plane: none` is only allowed on a closed finding with status
+  `out_of_scope` or `superseded`, or with a `no-action` resolution. It is not
+  allowed on `open` or `in_progress`, or with `risk_accepted`. It is not required
+  for `out_of_scope`: a risk that applies but is treated outside this review keeps
+  the plane where treatment belongs.
+- Status `superseded` needs resolution type `superseded`.
+- A `risk_accepted` finding may not cite a Critical risk.
+- A `risk_accepted` finding's reference must resolve to a record in
+  `data/risk-acceptances.yaml` (or `--acceptances`) for one of the finding's
+  risks, with decision `accepted` or `accepted_with_conditions`. Every record
+  there is `pending` until Q3/Q4 are settled, so no finding can be
+  risk-accepted yet.
+
+Semantic changes remain deliberate contract changes rather than
+implementation-side inference.
 Corpus warnings, review schema failures and unresolved risk references are
 reported by their existing validators; a failure of either component produces
 a nonzero exit status. This is repository validation, not target assurance.
