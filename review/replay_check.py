@@ -21,13 +21,14 @@ def digest(path: pathlib.Path) -> str:
 
 
 def run(review: pathlib.Path, risks: pathlib.Path, repeat: int = 2,
-        source: pathlib.Path | None = None) -> dict:
+        source: pathlib.Path | None = None,
+        acceptances: pathlib.Path | None = None) -> dict:
     if repeat < 2 or repeat > 20:
         raise ValueError("repeat must be between 2 and 20")
     fixed = {
         "review": review, "risks": risks,
         "schema": ROOT / "review/spec-review.schema.json",
-        "acceptances": ROOT / "data/risk-acceptances.yaml",
+        "acceptances": acceptances or (ROOT / "data/risk-acceptances.yaml"),
         "vocabulary": ROOT / "method/vocabularies.yaml",
         "validator": ROOT / "review/validate_spec_review.py",
     }
@@ -37,7 +38,8 @@ def run(review: pathlib.Path, risks: pathlib.Path, repeat: int = 2,
         if not path.is_file():
             raise FileNotFoundError(f"Required input {name} missing: {path}")
     hashes = {name: digest(path) for name, path in fixed.items()}
-    cmd = [sys.executable, str(fixed["validator"]), str(review), "--risks", str(risks)]
+    cmd = [sys.executable, str(fixed["validator"]), str(review), "--risks", str(risks),
+           "--acceptances", str(fixed["acceptances"])]
     observations = []
     for _ in range(repeat):
         result = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True,
@@ -67,11 +69,13 @@ def main() -> int:
     parser.add_argument("--risks", required=True, type=pathlib.Path)
     parser.add_argument("--source", type=pathlib.Path,
                         help="Optional local source file to digest; not verified against Git revision")
+    parser.add_argument("--acceptances", type=pathlib.Path)
     parser.add_argument("--repeat", type=int, default=2)
     parser.add_argument("--output", type=pathlib.Path)
     args = parser.parse_args()
     report = run(args.review.resolve(), args.risks.resolve(), args.repeat,
-                 args.source.resolve() if args.source else None)
+                 args.source.resolve() if args.source else None,
+                 args.acceptances.resolve() if args.acceptances else None)
     rendered = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.write_text(rendered, encoding="utf-8")
