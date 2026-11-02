@@ -16,6 +16,9 @@ ACCEPTED = {
     "review_date": "2027-01-01", "evidence": "example/assessment@sha",
     "rationale": "A constructed demonstration with accountable review and scoped exposure.",
     "residual_risk": "Low",
+    "affected_people": ["Credential holders"],
+    "alternatives_considered": ["Mitigate", "Reject the exception"],
+    "conflicts_of_interest": [],
 }
 
 
@@ -38,13 +41,32 @@ class AdvisoryRiskAcceptanceTests(unittest.TestCase):
         record = {**ACCEPTED, "decided_by": []}
         self.assertTrue(module.inspect(record, "High"))
 
-    def test_expired_window_rejected(self):
+    def test_review_window_order_rejected(self):
         record = {**ACCEPTED, "review_date": "2026-09-01"}
         self.assertIn("review_date must follow decision_date", module.inspect(record, "High"))
 
     def test_conditional_requires_conditions(self):
         record = {**ACCEPTED, "decision": "accepted_with_conditions", "conditions": []}
         self.assertIn("conditional acceptance lacks conditions", module.inspect(record, "High"))
+
+    def test_missing_affected_people_rejected(self):
+        record = {**ACCEPTED, "affected_people": []}
+        self.assertTrue(any("affected_people" in e for e in module.inspect(record, "High")))
+
+    def test_missing_alternatives_rejected(self):
+        record = {**ACCEPTED, "alternatives_considered": []}
+        self.assertTrue(any("alternatives_considered" in e for e in module.inspect(record, "High")))
+
+    def test_conflicts_must_be_explicit(self):
+        record = {**ACCEPTED}
+        del record["conflicts_of_interest"]
+        self.assertIn("conflicts_of_interest must be an explicit list",
+                      module.inspect(record, "High"))
+
+    def test_residual_risk_is_bounded(self):
+        record = {**ACCEPTED, "residual_risk": "banana"}
+        self.assertIn("residual_risk must be High, Medium or Low",
+                      module.inspect(record, "High"))
 
     def test_pending_is_not_accepted(self):
         self.assertEqual(module.inspect({"decision": "pending", "risk_id": "RK-G05"}, "High"), [])
