@@ -16,6 +16,10 @@ Run every command from the repository root after installing the dependencies:
 python3 -m pip install -r requirements.txt
 ```
 
+**Expected result:** dependency installation exits 0. Exact installer output varies by
+environment and is not retained assurance evidence. If installation fails, stop and
+repair the environment before interpreting any RAHP command.
+
 The retained files under this directory are the source of truth for the worked
 example. Output excerpts below are representative and are mechanically checked
 against the current example so that the tutorial does not silently drift.
