@@ -15,7 +15,7 @@
 
 The current upstream `data/risk-acceptances.yaml` holds RA-001 to RA-003 as `pending`; they **must remain pending** until actual authorized decisions. The existing schema is structural and does not establish who may accept risk. This proposal adds a **standalone advisory gate** for proposed decision records. It does not extend canonical method/schema, grant authority, modify severity rules or turn an upstream review's `risk_accepted` status into evidence of a valid underlying authority decision.
 
-For an actual acceptance, at minimum require: `risk_id`, status, `authority`, `authority_reference`, `decided_by`, `decision_date`, `review_date`, `rationale`, `residual_risk`, and a resolvable `evidence` reference. Use a structured provenance packet, not a claim of verification of the external signatory. The advisory helper deliberately only checks local documentary completeness; a competent reviewer must authenticate the authority mandate and cited evidence externally.
+For the **advisory decision packet used by this proposal**, at minimum require: `risk_id`, decision, `authority`, `authority_reference`, `decided_by`, `decision_date`, `review_date`, `rationale`, `residual_risk`, `affected_people`, `alternatives_considered`, explicit `conflicts_of_interest`, and a non-empty `evidence` reference. This packet is not the canonical `risk_acceptance` schema: fields such as `authority_reference` and the advisory `deferred` disposition are proposal-local until the task force decides whether and how they map into the canonical contract. The helper checks local documentary shape only; a competent reviewer must authenticate the mandate and determine whether the cited evidence actually resolves and is adequate.
 
 ## Negative controls
 
@@ -35,11 +35,11 @@ After competent task-force adoption, validate the agreed authority model against
 
 ## Advisory check execution
 
-The check operates on a single proposed decision packet **outside the canonical risk-acceptances corpus** and derives severity from an explicitly selected authoritative risk corpus, not a value supplied by the requester. This prevents a Critical risk from being relabeled as Low through command arguments.
+The check operates on a single proposed decision packet **outside the canonical risk-acceptances corpus** and derives severity from the risk corpus supplied with `--risks`, rather than from a severity value inside the decision packet. The checker does **not** authenticate that the selected corpus is authoritative; that selection must be established by the review/governance context. Passing an altered corpus can therefore change the result and must not be represented as protection against a malicious caller-controlled corpus.
 
 ```sh
 python3 review/check_risk_acceptance_documentation.py proposed-decision.yaml --risks data/risks.yaml
 python3 -m unittest discover -s tests -p 'test_risk_acceptance_documentation.py' -v
 ```
 
-A `documentary_ready: true` result is only local field/syntax readiness and **never** authenticated authorization. An unresolved `risk_id`, absent risk corpus, missing mandate reference, missing participants, absent evidence or expired decision window prevents documentary readiness. The gate does not silently convert a pending decision into an acceptance. The proposal is advisory until its semantics are approved under competent upstream governance.
+A `documentary_ready: true` result is only local field/syntax readiness and **never** authenticated authorization. An unresolved `risk_id`, absent risk corpus, missing mandate reference, missing participants, missing affected-people/alternatives context, absent evidence text, invalid date syntax, or a review date that does not follow the decision date prevents documentary readiness. The helper does not determine whether a review date has expired relative to today's date and does not resolve external evidence references. The gate does not silently convert a pending decision into an acceptance. The proposal is advisory until its semantics are approved under competent upstream governance.
