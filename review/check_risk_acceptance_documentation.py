@@ -11,7 +11,7 @@ import yaml
 
 REQUIRED = ("authority", "authority_reference", "decided_by",
             "decision_date", "review_date", "evidence", "rationale",
-            "residual_risk")
+            "residual_risk", "affected_people", "alternatives_considered")
 
 
 def inspect(record: dict, severity: str) -> list[str]:
@@ -47,6 +47,17 @@ def inspect(record: dict, severity: str) -> list[str]:
                 failures.append("review_date must follow decision_date")
         except ValueError:
             pass
+    if record.get("residual_risk") not in {"High", "Medium", "Low"}:
+        failures.append("residual_risk must be High, Medium or Low")
+    for name in ("affected_people", "alternatives_considered"):
+        value = record.get(name)
+        if not isinstance(value, list) or not value or not all(
+                isinstance(item, str) and item.strip() for item in value):
+            failures.append(f"{name} must be a nonempty list")
+    conflicts = record.get("conflicts_of_interest")
+    if not isinstance(conflicts, list) or not all(
+            isinstance(item, str) and item.strip() for item in conflicts):
+        failures.append("conflicts_of_interest must be an explicit list")
     if decision == "accepted_with_conditions" and not record.get("conditions"):
         failures.append("conditional acceptance lacks conditions")
     return failures
