@@ -40,6 +40,21 @@ common evidence-envelope invariants demonstrated by both examples and records wh
 shared sidecar schema is still deferred rather than inferred from example mechanics.
 
 
+## Second assurance shape: TEA delegated authority
+
+[The TEA delegated-authority worked example](examples/tea-delegated-authority/README.md)
+pins the v0.2 Draft TEA source and examines a different assurance shape from TRQP:
+whether constructed invocation remains within effective capability as authority is
+re-delegated. It also demonstrates that authenticated identity is not itself
+delegated authority and that post-gate obligation breach is distinct from the
+authorization decision already made.
+
+The evaluator is intentionally fixture-local. It does not implement TEA, TSP, VID
+resolution, revocation or a general policy engine. The example uses the existing
+`rahp-spec-review/v1` record and an example-local evidence sidecar. Its
+[step-by-step tutorial](examples/tea-delegated-authority/TUTORIAL.md) shows the
+commands, expected observations and interpretation boundaries.
+
 ## Combined validation (Increment 3)
 
 Use `python3 tools/validate_all.py` for corpus integrity and vocabulary
