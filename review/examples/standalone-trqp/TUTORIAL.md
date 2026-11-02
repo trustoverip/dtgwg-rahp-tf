@@ -134,7 +134,10 @@ only when the review needs a hypothesis that is not part of the canonical instan
 
 **Goal:** reproduce the source and fixture checks before reading the conclusions.
 
-Run:
+**Input:** the retained source manifest, retained TRQP source files, constructed
+response fixtures and `expected-replay.json` in this directory.
+
+**Command:**
 
 ```bash
 python3 review/examples/standalone-trqp/replay.py --check
@@ -189,6 +192,14 @@ differs from that file.
 
 The third case is intentionally important: a **PASS at the schema layer** can still
 leave the assurance proposition unresolved.
+
+**Common failure:** a missing or changed retained source file, malformed fixture or
+result that differs from `expected-replay.json` causes a nonzero exit. Do not update
+the expected file merely to make the command green; first establish why the
+observation changed.
+
+**Next step:** inspect which retained source observation produced the result before
+forming a finding.
 
 ## 6. Inspect the real source observation
 
@@ -311,7 +322,10 @@ the underlying observation.
 **Goal:** verify that the review is structurally valid and that its selected risk
 references resolve in the intended local source.
 
-Run:
+**Input:** `review.yaml`, the upstream review schema/vocabularies, and the explicit
+example-local risk source `risks.yaml`.
+
+**Command:**
 
 ```bash
 python3 review/validate_spec_review.py review/examples/standalone-trqp/review.yaml --risks review/examples/standalone-trqp/risks.yaml
@@ -329,12 +343,22 @@ risk source.
 
 It does **not** mean that the findings are correct or resolved.
 
+**Common failure:** an unresolved risk identifier, mutable target revision, invalid
+review vocabulary or inconsistent terminal disposition causes a nonzero result.
+Do not remove the failing reference unless the review proposition itself changed.
+
+**Next step:** validate the evidence bindings and fresh replay as one composed
+examination.
+
 ## 10. Validate the composed examination
 
 **Goal:** rerun the retained observations and validate their bindings to the review
 and evidence sidecar.
 
-Run:
+**Input:** the retained TRQP bundle, `review.yaml`, `risks.yaml`, `evidence.json`
+and the retained expected replay.
+
+**Command:**
 
 ```bash
 python3 review/examine.py
@@ -369,15 +393,23 @@ That is not contradictory. The first describes the integrity of this bounded
 examination package. The second says the target assurance question still has open
 findings and unassessed behavior.
 
+**Common failure:** digest disagreement, unresolved evidence, contradictory fresh
+observations or incomplete execution causes a nonzero result and no successful
+validation report.
+
+**Next step:** exercise an intentional rejection so the fail-closed boundary is
+visible, not merely asserted.
+
 ## 11. Exercise a fail-closed case
 
 **Goal:** see what rejection looks like rather than learning only the successful
 path.
 
-The repository retains an intentionally invalid review whose target revision is
-`main` instead of an immutable commit.
+**Input:** the repository's intentionally invalid
+`review/examples/invalid-mutable-revision.yaml`, whose target revision is `main`
+instead of an immutable commit.
 
-Run:
+**Command:**
 
 ```bash
 python3 review/validate_spec_review.py review/examples/invalid-mutable-revision.yaml
@@ -397,6 +429,12 @@ Other failures in this example are also fail-closed: missing retained source,
 digest disagreement, malformed evidence bindings, unresolved selected risks or a
 fresh replay that differs from the retained expected output all prevent a successful
 examination result.
+
+**Common failure:** treating this expected nonzero command as a broken tutorial.
+The failure is the evidence that a mutable review boundary is rejected.
+
+**Next step:** interpret the complete exercise by separating what was mechanically
+established from what remains unassessed.
 
 ## 12. Interpret the completed exercise
 
