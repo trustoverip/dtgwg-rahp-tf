@@ -30,6 +30,7 @@ import json
 import pathlib
 import re
 import sys
+from datetime import date
 from collections import defaultdict
 
 try:
@@ -242,7 +243,72 @@ def check_symmetry(by_type, rep: Report):
     rep.check("symmetry", asym == 0, f"{asym} asymmetric link(s)")
 
 
-def check_invariants(by_type, instance, rep: Report):
+
+# Documentary completeness is a prerequisite for a record that claims acceptance.
+# The invariant does not establish that its authority, signatories or evidence are genuine.
+ACCEPTANCE_REQUIRED_FIELDS = (
+    "authority", "decided_by", "decision_date", "rationale",
+    "residual_risk", "review_date", "evidence",
+)
+
+
+def risk_acceptance_errors(record: dict, vocab: dict | None = None) -> list[str]:
+    """Return documentary/semantic errors for a risk-acceptance claim."""
+    decision = record.get("decision")
+    if decision not in {"accepted", "accepted_with_conditions"}:
+        return []
+
+    if vocab is None:
+        vocab = load_yaml(ROOT / "method" / "vocabularies.yaml")
+    allowed = {
+        entry["value"] for entry in vocab["severity"]["values"]
+        if isinstance(entry, dict)
+        and not entry.get("absolute", False)
+        and entry["value"] != "Critical"
+    }
+
+    errors = []
+    for field in ACCEPTANCE_REQUIRED_FIELDS:
+        value = record.get(field)
+        if field in {"decided_by", "residual_risk", "decision_date", "review_date"}:
+            continue  # validated below with a more precise single diagnostic
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"missing {field}")
+
+    deciders = record.get("decided_by")
+    if not isinstance(deciders, list) or not deciders or not all(
+            isinstance(name, str) and name.strip() for name in deciders):
+        errors.append("decided_by must be a nonempty list of named participants")
+
+    residual = record.get("residual_risk")
+    if residual not in allowed:
+        errors.append(f"residual_risk must be one of: {', '.join(sorted(allowed))}")
+
+    if decision == "accepted_with_conditions":
+        conditions = record.get("conditions")
+        if not isinstance(conditions, list) or not conditions or not all(
+                isinstance(condition, str) and condition.strip()
+                for condition in conditions):
+            errors.append("accepted_with_conditions requires nonempty named conditions")
+
+    parsed = {}
+    for field in ("decision_date", "review_date"):
+        value = record.get(field)
+        if not isinstance(value, str) or not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}", value):
+            errors.append(f"invalid or missing {field} (expected YYYY-MM-DD)")
+            continue
+        try:
+            parsed[field] = date.fromisoformat(value)
+        except ValueError:
+            errors.append(f"invalid or missing {field} (expected YYYY-MM-DD)")
+    if parsed.get("decision_date") and parsed.get("review_date"):
+        if parsed["review_date"] <= parsed["decision_date"]:
+            errors.append("review_date must follow decision_date")
+
+    return errors
+
+
+def check_invariants(by_type, instance, rep: Report, vocab: dict | None = None):
     risks = by_type.get("risk", {})
     controls = by_type.get("control", {})
     guardrails = by_type.get("guardrail", {})
@@ -286,6 +352,11 @@ def check_invariants(by_type, instance, rep: Report):
                 if not (r.get("guardrails") or []) and rid not in accepted_ids:
                     emit("must_address_risk_is_covered",
                          f"{rid} is must_address with neither a guardrail nor an acceptance record")
+
+    if "accepted_risk_has_required_fields" in sev_by_rule:
+        for aid, acceptance in acceptances.items():
+            for error in risk_acceptance_errors(acceptance, vocab):
+                emit("accepted_risk_has_required_fields", f"{aid}: {error}")
 
     rep.stats["invariant_failures"] = dict(failures)
     rep.check("invariants", not any(
@@ -381,7 +452,7 @@ def main():
     check_vocabularies(by_type, vocab, rep)
     referenced = check_references(by_type, instance, rep)
     check_symmetry(by_type, rep)
-    check_invariants(by_type, instance, rep)
+    check_invariants(by_type, instance, rep, vocab)
     check_orphans(by_type, instance, referenced, rep)
     check_readme_counts(counts, rep)
     check_coverage_stats(by_type, rep)

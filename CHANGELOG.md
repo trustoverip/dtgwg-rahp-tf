@@ -67,6 +67,14 @@ review was based on.
 
 ### Fixed
 
+- **Accepted-risk documentary integrity (`INV-6`).** Canonical validation now
+  rejects incomplete `accepted` and `accepted_with_conditions` records,
+  malformed or unordered ISO dates and residual severities outside the non-Critical
+  governed vocabulary. Existing pending records remain unchanged. This establishes
+  documentary completeness only, not the legitimacy of an authority or acceptance
+  decision (`GAP-3.1` remains open).
+
+
 - **Metric namespace desynchronisation.** The Risk Register v5 defined M-01–M-18
   and M-31–M-37 while the User Stories Framework v6 defined M-01–M-37. The two
   workbooks disagreed about the shared identifier space they were supposed to
