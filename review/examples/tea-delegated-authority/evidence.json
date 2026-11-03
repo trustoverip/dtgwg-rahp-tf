@@ -8,7 +8,7 @@
   "method_revision": "9efba2820532603171c6af6c5fb855f81cfadfb9",
   "review_binding": {
     "path": "review.yaml",
-    "sha256": "e444e6fa23f96f3851945a2975774a35835d3d3319c6b473e3a95c3573fa2e83"
+    "sha256": "a6d0c16231f728521681bcb457e303e9f545a21bb1762207b13ba12e94daf334"
   },
   "risks_binding": {
     "path": "risks.yaml",
