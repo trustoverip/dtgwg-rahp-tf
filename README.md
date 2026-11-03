@@ -158,3 +158,7 @@ record needs provenance, and `python3 tools/validate.py` must exit 0.
 
 *Maintained by the Risk Assessment & Harms Prevention Task Force, DTGWG.*
 *Code: Apache 2.0 · Content: CC-BY 4.0 — reuse with attribution.*
+
+## Reproducibility and functional sufficiency
+
+For a first-use, source-pinned review protocol, quantitative rerun checks, negative controls and a precise separation between machine validation and reviewer judgment, see [Functional sufficiency and repeatability](docs/functional-sufficiency-and-repeatability.md). The helper `review/replay_check.py` repeats the explicitly selected review validation and records input hashes. A repeatable validation result is **not** proof of source authenticity, target assurance or independent analytical agreement.

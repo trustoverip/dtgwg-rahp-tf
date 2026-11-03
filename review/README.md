@@ -11,6 +11,16 @@ specification pressure-testing.
 Start with [`docs/pressure-testing-a-spec.md`](../docs/pressure-testing-a-spec.md)
 for the review workflow.
 
+Every valid review record names a `reviewer`: the accountable assessor identity
+for that review. This records accountability for the assessment; it does not confer
+authority to accept residual risk. Risk-acceptance authority remains a separate
+governance concern.
+
+Canonical corpus risks use `RK-*` identifiers. Example-local hypotheses use the
+distinct `EX-RK-*` form and only validate when they resolve in the explicitly
+selected risk source. Example-local identifiers are not additions to the canonical
+DTG corpus.
+
 This capability is intentionally bounded. It does not implement the downstream
 RAHP assurance controller, specialist routing, terminal assurance state machine or
 continuous reassessment machinery. A valid review record means that the review is
