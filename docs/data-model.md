@@ -172,6 +172,17 @@ This is also represented as `GAP-3.1` in `method/lifecycle.yaml`.
 
 A risk-acceptance record must therefore not be read as an acceptance merely because the record exists.
 
+For the DTG instance, invariant `INV-6` requires records marked `accepted` or
+`accepted_with_conditions` to carry complete decision documentation, named deciders,
+an eligible non-Critical residual severity and ordered ISO decision/review dates.
+The invariant validates documentary and semantic completeness, **not** actual
+decision authority, signatory authenticity or evidentiary sufficiency. It does not
+close `GAP-3.1` or authorize any risk acceptance.
+
+The instance declaration determines whether `INV-6` is enforced for an adopter.
+Removing it reduces validation coverage and must not be presented as evidence
+of method-level legitimacy or as a valid risk-acceptance authorization.
+
 ### Governance precedent
 
 `data/governance-precedents.yaml` records why a design or governance decision was made so that future contributors can understand the reasoning and evidence behind it.
