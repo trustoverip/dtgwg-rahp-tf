@@ -8,8 +8,11 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.metadata
 import json
 import pathlib
+import platform
+import re
 import subprocess
 import sys
 
@@ -18,6 +21,32 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 
 def digest(path: pathlib.Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def runtime_environment() -> dict:
+    """Record the runtime relevant to the specification-review validator."""
+    packages = {}
+    for name in ("PyYAML", "jsonschema"):
+        try:
+            packages[name] = importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            packages[name] = "not-installed"
+    return {
+        "python_implementation": platform.python_implementation(),
+        "python_version": platform.python_version(),
+        "packages": packages,
+    }
+
+
+def portable_output(value: str, paths: dict[str, pathlib.Path]) -> str:
+    """Remove local paths from retained evidence, never from raw comparison."""
+    for name, path in sorted(paths.items(), key=lambda item: len(str(item[1])), reverse=True):
+        value = value.replace(str(path.resolve()), f"<input:{name}>")
+    # A validator may mention a path that was not one of the selected inputs.
+    # Fail closed for disclosure by removing remaining Unix/Windows absolute paths.
+    value = re.sub(r"(?<![A-Za-z0-9:/])/(?:[^\s'\"<>]+)", "<local-path>", value)
+    value = re.sub(r"(?<![A-Za-z0-9])[A-Za-z]:\\[^\s'\"<>]+", "<local-path>", value)
+    return value
 
 
 def run(review: pathlib.Path, risks: pathlib.Path, repeat: int = 2,
@@ -49,15 +78,27 @@ def run(review: pathlib.Path, risks: pathlib.Path, repeat: int = 2,
         for name, path in fixed.items():
             if digest(path) != hashes[name]:
                 raise RuntimeError(f"Input changed during replay: {name}")
+    # Compare raw observations first: redaction must never hide instability.
     same = all(item == observations[0] for item in observations[1:])
     valid = observations[0]["exit_code"] == 0
+    raw = observations[0]
+    portable = {
+        "exit_code": raw["exit_code"],
+        "stdout": portable_output(raw["stdout"], fixed),
+        "stderr": portable_output(raw["stderr"], fixed),
+    }
     return {
-        "schema": "rahp-review-replay-check/v1",
+        "schema": "rahp-review-replay-check/v2",
+        "environment": runtime_environment(),
+        "observed_result_raw_sha256": {
+            "stdout": hashlib.sha256(raw["stdout"].encode("utf-8")).hexdigest(),
+            "stderr": hashlib.sha256(raw["stderr"].encode("utf-8")).hexdigest(),
+        },
         "repeat": repeat,
         "inputs_sha256": hashes,
         "validation_accepted": valid,
         "machine_results_identical": same,
-        "observed_result": observations[0],
+        "observed_result": portable,
         "interpretation": "Machine validation repeatability only; no source authenticity or target assurance",
         "status": ("accepted-repeatable" if valid else "rejected-repeatable") if same else "unstable",
     }
