@@ -22,6 +22,26 @@ class SpecReviewValidationTests(unittest.TestCase):
     def test_minimal_example_is_valid(self):
         self.assertEqual([], self.errors(self.valid))
 
+    def test_missing_reviewer_is_rejected(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        del record["reviewer"]
+        self.assertTrue(any("reviewer" in e for e in self.errors(record)))
+
+    def test_blank_reviewer_is_rejected(self):
+        record = yaml.safe_load(yaml.safe_dump(self.valid))
+        record["reviewer"] = "   "
+        self.assertTrue(any("reviewer" in e for e in self.errors(record)))
+
+    def test_example_local_risk_id_is_valid_when_explicitly_selected(self):
+        record = yaml.safe_load((ROOT / "review" / "examples" / "standalone-trqp" / "review.yaml").read_text())
+        risks = ROOT / "review" / "examples" / "standalone-trqp" / "risks.yaml"
+        self.assertEqual([], mod.validate_record(record, risks))
+
+    def test_example_local_risk_id_is_rejected_against_unselected_corpus(self):
+        record = yaml.safe_load((ROOT / "review" / "examples" / "standalone-trqp" / "review.yaml").read_text())
+        errors = mod.validate_record(record, self.risks)
+        self.assertTrue(any("EX-RK-" in e and "does not resolve" in e for e in errors))
+
     def test_missing_revision_is_rejected(self):
         record = yaml.safe_load(yaml.safe_dump(self.valid))
         del record["target"]["revision"]

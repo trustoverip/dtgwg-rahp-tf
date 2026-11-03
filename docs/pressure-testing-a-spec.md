@@ -31,11 +31,16 @@ but it does not replace the immutable revision.
 
 ## 2. Establish the RAHP context
 
-Record the RAHP method/toolkit version used for the review:
+Record the accountable reviewer and the RAHP method/toolkit version used for the review:
 
 ```yaml
+reviewer: Example Working Group reviewer
 rahp_version: v0.3-dev
 ```
+
+`reviewer` identifies the person accountable for the assessment record. It does
+not establish authority to accept residual risk. The value must contain at least
+one non-whitespace character.
 
 The version identifies the risk corpus and method context against which the target
 was assessed. A later review against a changed target or changed RAHP context should
@@ -43,11 +48,15 @@ use a new review record while preserving the prior record as historical evidence
 
 ## 3. Reuse risks before creating new ones
 
-Start from the current RAHP risk corpus. Each finding MUST reference at least one
-existing `RK-*` identifier. The validator rejects unknown risk references.
+Start from the risk corpus explicitly selected for the review. Findings that reuse
+canonical corpus risks reference their existing `RK-*` identifiers. A bounded
+review may also define example-local hypotheses using the `EX-RK-*` namespace,
+but those identifiers must resolve in the explicitly selected risk source passed
+to the validator. The validator rejects unknown risk references.
 
-The purpose is to keep specification review connected to the maintained risks and
-harms model rather than creating an ungoverned parallel issue vocabulary.
+The purpose is to keep specification review connected to an explicit risks and
+harms model while preventing example-local hypotheses from being mistaken for
+canonical corpus records.
 
 ## 4. Record findings
 
@@ -126,8 +135,10 @@ python3 review/validate_spec_review.py review/examples/minimal-review.yaml
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-The validator checks the JSON Schema, immutable source pinning, finding identifier
-uniqueness and resolution of risk references against `data/risks.yaml`.
+The validator checks the JSON Schema, reviewer presence, immutable source pinning,
+finding identifier uniqueness and resolution of risk references against the
+selected risk source. The default source is `data/risks.yaml`; use `--risks`
+when validating a bounded review with its own explicit risk corpus.
 
 ## 8. Reassess after material change
 
