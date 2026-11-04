@@ -54,7 +54,7 @@ def inspect(record: dict, severity: str,
     if not isinstance(record.get("risk_id"), str) or not record["risk_id"].strip():
         failures.append("missing risk_id")
     decision = record.get("decision")
-    if decision not in DECISIONS:
+    if not isinstance(decision, str) or decision not in DECISIONS:
         failures.append("unknown decision")
         return failures
     if decision == "pending":
@@ -93,7 +93,7 @@ def inspect(record: dict, severity: str,
         failures.append("review_date must follow decision_date")
     if allowed_residual is None:
         allowed_residual = permitted_residual_severities()
-    if record.get("residual_risk") not in allowed_residual:
+    if not isinstance(record.get("residual_risk"), str) or record["residual_risk"] not in allowed_residual:
         failures.append("residual_risk must be a non-Critical method severity")
     for field in ("affected_people", "alternatives_considered"):
         value = record.get(field)
