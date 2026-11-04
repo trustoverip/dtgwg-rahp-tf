@@ -18,7 +18,7 @@ findings:
   resolution:
     type: already-addressed
     reference: source/clauses.md.txt
-    rationale: The retained source requires presentation and verification of the capability chain after TSP authentication and binds authority to the presented chain.
+    rationale: Retained Invocation Exchange / Presentation, clauses 1-3 (source/clauses.md.txt lines 279-283), requires capability-chain verification after TSP authentication.
 - id: F-002
   summary: Re-delegation and invocation must not broaden effective authority beyond source capabilities.
   risks:
@@ -28,7 +28,7 @@ findings:
   resolution:
     type: already-addressed
     reference: source/clauses.md.txt
-    rationale: The retained source defines capability meet, strict attenuation and per-exercise confirmation against effective capability.
+    rationale: Retained Attenuated re-delegation (source/clauses.md.txt lines 193-205) and Invocation Exchange / Exercise, clauses 4-5 (lines 285-288), constrain effective authority.
 - id: F-003
   summary: Post-gate obligation breach must remain distinct from authorization already exercised.
   risks:
@@ -38,7 +38,7 @@ findings:
   resolution:
     type: already-addressed
     reference: source/clauses.md.txt
-    rationale: The retained source states that obligations do not enter authorization and non-performance never invalidates authority already exercised.
+    rationale: Retained Delegation Exchange / What a delegation states (source/clauses.md.txt lines 143-154) and Obligations (from line 228) separate post-gate duties from capability authorization.
 - id: F-004
   summary: Runtime enforcement of delegated authority and post-gate accountability remains unassessed by this source-only example.
   risks:
