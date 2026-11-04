@@ -57,6 +57,7 @@ review was based on.
 
 ### Changed
 
+- **Specification review accountability and example-local identifiers.** Review records now require a non-empty `reviewer` identity. This is an accountability field, not risk-acceptance authority. Example-local risk hypotheses use `EX-RK-*` identifiers so they cannot be mistaken for canonical `RK-*` corpus records. Existing repository review examples have been migrated. This is a compatibility-significant change for consumers validating review records without `reviewer`.
 - **`Critical` is now a distinct severity class**, not a higher number. Critical
   risks carry no numeric score, must be gated by a guardrail, and may not be
   risk-accepted. Enforced by invariant `INV-3`. Affects `RK-EX04`.
@@ -66,6 +67,14 @@ review was based on.
 - **Filenames no longer carry version numbers.** Git tags carry versions.
 
 ### Fixed
+
+- **Accepted-risk documentary integrity (`INV-6`).** Canonical validation now
+  rejects incomplete `accepted` and `accepted_with_conditions` records,
+  malformed or unordered ISO dates and residual severities outside the non-Critical
+  governed vocabulary. Existing pending records remain unchanged. This establishes
+  documentary completeness only, not the legitimacy of an authority or acceptance
+  decision (`GAP-3.1` remains open).
+
 
 - **Metric namespace desynchronisation.** The Risk Register v5 defined M-01–M-18
   and M-31–M-37 while the User Stories Framework v6 defined M-01–M-37. The two

@@ -33,6 +33,14 @@ class VRCReassessmentTests(unittest.TestCase):
         self.assertEqual("open->resolved", result["finding_transitions"]["F-001"])
         self.assertEqual("open->open", result["finding_transitions"]["F-002"])
 
+    def test_missing_reviewer_fails_closed(self):
+        path = self.root / "baseline-review.yaml"
+        record = yaml.safe_load(path.read_text())
+        record.pop("reviewer")
+        path.write_text(yaml.safe_dump(record, sort_keys=False))
+        with self.assertRaisesRegex(ValueError, "reviewer"):
+            mod.evaluate(self.root)
+
     def test_retained_source_mutation_fails_closed(self):
         path = self.root / "baseline" / "source" / "dtg.md.txt"
         path.write_text(path.read_text() + "\nmutated\n")
