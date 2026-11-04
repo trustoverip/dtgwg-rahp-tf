@@ -152,6 +152,37 @@ class AdvisoryRiskAcceptanceTests(unittest.TestCase):
                 self.assertEqual(module.main([str(record_file), "--risks", str(risks_file)]), 1)
             self.assertFalse(json.loads(output.getvalue())["documentary_ready"])
 
+    def test_malformed_scalar_values_fail_closed(self):
+        for invalid in ([], {}, 7):
+            self.assertIn("unknown decision", module.inspect(
+                {**ACCEPTED, "decision": invalid}, "High"))
+            self.assertIn("residual_risk must be a non-Critical method severity",
+                          module.inspect({**ACCEPTED, "residual_risk": invalid}, "High"))
+
+    def test_non_acceptance_cli_exits_zero_without_readiness(self):
+        import contextlib
+        import io
+        import json
+        import tempfile
+        import yaml
+        with tempfile.TemporaryDirectory() as temp:
+            record_path = Path(temp) / "record.yaml"
+            corpus_path = Path(temp) / "risks.yaml"
+            corpus_path.write_text(yaml.safe_dump({"records": [
+                {"id": "RK-G05", "severity": "High"}]}), encoding="utf-8")
+            for decision in ("rejected", "deferred"):
+                record = {**ACCEPTED, "decision": decision}
+                if decision == "deferred":
+                    record["deferral_reason"] = "Awaiting evidence"
+                record_path.write_text(yaml.safe_dump(record), encoding="utf-8")
+                out = io.StringIO()
+                with contextlib.redirect_stdout(out):
+                    self.assertEqual(module.main([
+                        str(record_path), "--risks", str(corpus_path)]), 0)
+                result = json.loads(out.getvalue())
+                self.assertTrue(result["documentary_valid"])
+                self.assertFalse(result["documentary_ready"])
+
     def test_pending_is_not_accepted(self):
         self.assertEqual(module.inspect({"decision": "pending", "risk_id": "RK-G05"}, "High"), [])
 
