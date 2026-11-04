@@ -173,7 +173,9 @@ If those questions cannot be answered from the records, the assessment is not ye
 
 ## Try a worked review
 
-The [bounded membership-lifecycle exercise](review/examples/worked-adoption/README.md) shows two immutable fictional source versions, reused RAHP risks, evidence and interpretation, different control planes, structured resolution and a separately retained open finding. It uses the existing review contract and does not claim real-world assurance.
+For a first end-to-end specification review, use [Hello RAHP: examine a specification step by step](review/examples/standalone-trqp/TUTORIAL.md). It starts from a bounded assurance question, identifies affected contexts and plausible harm, pins retained TRQP source, selects example-local risk hypotheses, reproduces positive and negative observations, constructs the review and evidence bindings, validates the result, exercises a fail-closed case and explains reassessment. Each executable step shows representative output and states what the result does not establish.
+
+The [bounded membership-lifecycle exercise](review/examples/worked-adoption/README.md) then shows two immutable fictional source versions, reused RAHP risks, evidence and interpretation, different control planes, structured resolution and a separately retained open finding. It uses the existing review contract and does not claim real-world assurance.
 
 ## Contribution and governance boundary
 
@@ -185,6 +187,7 @@ When contributing back to this repository, follow [CONTRIBUTING.md](CONTRIBUTING
 
 ## Next steps
 
+- To learn the complete first-use sequence: [Hello RAHP: examine a specification step by step](review/examples/standalone-trqp/TUTORIAL.md)
 - To review a specification: [Pressure-testing a specification](docs/pressure-testing-a-spec.md)
 - To understand the review-record format: [review/README.md](review/README.md)
 - To contribute risks, controls, evidence, or related records: [CONTRIBUTING.md](CONTRIBUTING.md)
