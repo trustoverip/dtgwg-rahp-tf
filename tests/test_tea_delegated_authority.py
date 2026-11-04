@@ -37,9 +37,10 @@ class TeaDelegatedAuthorityTests(unittest.TestCase):
             {risk for finding in review["findings"] for risk in finding["risks"]},
             identifiers,
         )
+        evidence_by_id = {item["id"]: item for item in evidence["findings"]}
         for finding in review["findings"]:
             self.assertEqual(
-                set(evidence["findings"][finding["id"]]["risk_reasoning"]),
+                set(evidence_by_id[finding["id"]]["risk_reasoning"]),
                 set(finding["risks"]),
             )
         tutorial = (self.root / "TUTORIAL.md").read_text()
