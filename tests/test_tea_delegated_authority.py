@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +25,35 @@ class TeaDelegatedAuthorityTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / "example"
         shutil.copytree(EXAMPLE, self.root)
+
+    def test_example_local_identifiers_and_accountable_review(self):
+        risks = yaml.safe_load((self.root / "risks.yaml").read_text())
+        review = yaml.safe_load((self.root / "review.yaml").read_text())
+        evidence = json.loads((self.root / "evidence.json").read_text())
+        identifiers = {item["id"] for item in risks["records"]}
+        self.assertEqual(identifiers, {"EX-RK-DA01", "EX-RK-DA02", "EX-RK-OB01"})
+        self.assertEqual(review["reviewer"], "sankarshanmukhopadhyay")
+        self.assertEqual(
+            {risk for finding in review["findings"] for risk in finding["risks"]},
+            identifiers,
+        )
+        for finding in review["findings"]:
+            self.assertEqual(
+                set(evidence["findings"][finding["id"]]["risk_reasoning"]),
+                set(finding["risks"]),
+            )
+        tutorial = (self.root / "TUTORIAL.md").read_text()
+        for identifier in identifiers:
+            self.assertIn(identifier, tutorial)
+        self.assertNotIn("example-reviewer", tutorial)
+        self.assertIn("did not prepare", tutorial)
+
+    def test_old_local_risk_references_fail_closed(self):
+        review_path = self.root / "review.yaml"
+        content = review_path.read_text().replace("EX-RK-DA01", "RK-AU01")
+        review_path.write_text(content)
+        with self.assertRaises(ValueError):
+            tea_examine.examine(self.root)
 
     def test_replay_preserves_bounded_authority_distinctions(self):
         result = tea_examine.replay(self.root)
