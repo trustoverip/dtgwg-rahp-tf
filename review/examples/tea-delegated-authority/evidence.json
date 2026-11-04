@@ -5,14 +5,14 @@
     "repository": "trustoverip/aimwg-trust-enabled-agents",
     "revision": "7a53ecf3300dd6fb1bd4d6bcfab967475866e082"
   },
-  "method_revision": "9efba2820532603171c6af6c5fb855f81cfadfb9",
+  "method_revision": "0481ab15dc6a926b024745b07674a5e130915d44",
   "review_binding": {
     "path": "review.yaml",
-    "sha256": "a6d0c16231f728521681bcb457e303e9f545a21bb1762207b13ba12e94daf334"
+    "sha256": "ecbe22f65406282ddfb7d69b70d441e360ca1727ef3e4f305e58c98c88352142"
   },
   "risks_binding": {
     "path": "risks.yaml",
-    "sha256": "6764a364caa95f3d080e66c6fa76c4515167670eb14d587ac6fa14b72f9b2bdd"
+    "sha256": "4c412d0bd90f756d88f793a26b39173498626ac09085d95dceca3f662e1b489a"
   },
   "execution": {
     "state": "complete",
@@ -195,7 +195,7 @@
       ],
       "treatment": "Preserve explicit capability-chain verification in implementations and assess holder binding with runtime evidence separately.",
       "risk_reasoning": {
-        "RK-AU01": "The hypothesis tests whether authenticated identity is incorrectly promoted into evidence of applicable delegated authority."
+        "EX-RK-DA01": "The hypothesis tests whether authenticated identity is incorrectly promoted into evidence of applicable delegated authority."
       }
     },
     {
@@ -213,7 +213,7 @@
       ],
       "treatment": "Keep re-delegation restriction-only and require independent verification of concrete namespace and container semantics in any implementation assessment.",
       "risk_reasoning": {
-        "RK-AU02": "The hypothesis tests whether a downstream delegation or invocation can exceed authority supplied by its source capability chain."
+        "EX-RK-DA02": "The hypothesis tests whether a downstream delegation or invocation can exceed authority supplied by its source capability chain."
       }
     },
     {
@@ -232,7 +232,7 @@
       ],
       "treatment": "Assess obligation discharge and accountability evidence as a separate runtime concern rather than feeding post-gate breach back into the prior authorization decision.",
       "risk_reasoning": {
-        "RK-AC01": "The hypothesis tests the source boundary between capability authorization and post-action obligation accountability."
+        "EX-RK-OB01": "The hypothesis tests the source boundary between capability authorization and post-action obligation accountability."
       }
     },
     {
@@ -249,9 +249,9 @@
       ],
       "treatment": "Obtain implementation traces and independently reproducible runtime evidence before making deployment or conformance claims.",
       "risk_reasoning": {
-        "RK-AU01": "Runtime holder authentication and authorization remain unassessed.",
-        "RK-AU02": "Runtime attenuation and per-exercise enforcement remain unassessed.",
-        "RK-AC01": "Runtime obligation discharge and accountability remain unassessed."
+        "EX-RK-DA01": "Runtime holder authentication and authorization remain unassessed.",
+        "EX-RK-DA02": "Runtime attenuation and per-exercise enforcement remain unassessed.",
+        "EX-RK-OB01": "Runtime obligation discharge and accountability remain unassessed."
       }
     }
   ]
