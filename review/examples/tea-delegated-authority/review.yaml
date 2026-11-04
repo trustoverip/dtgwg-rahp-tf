@@ -1,18 +1,18 @@
 schema: rahp-spec-review/v1
-reviewer: example-reviewer
+reviewer: sankarshanmukhopadhyay
 assessment_id: SR-003
 target:
   repository: trustoverip/aimwg-trust-enabled-agents
   revision: 7a53ecf3300dd6fb1bd4d6bcfab967475866e082
   artifact: spec/clauses.md
   version_label: v0.2 Draft source snapshot
-rahp_version: trustoverip/dtgwg-rahp-tf@9efba2820532603171c6af6c5fb855f81cfadfb9
+rahp_version: trustoverip/dtgwg-rahp-tf@0481ab15dc6a926b024745b07674a5e130915d44
 reviewed_at: '2026-11-03'
 findings:
 - id: F-001
   summary: Authenticated TEA identity must not substitute for capability-chain authorization.
   risks:
-  - RK-AU01
+  - EX-RK-DA01
   control_plane: specification
   status: resolved
   resolution:
@@ -22,7 +22,7 @@ findings:
 - id: F-002
   summary: Re-delegation and invocation must not broaden effective authority beyond source capabilities.
   risks:
-  - RK-AU02
+  - EX-RK-DA02
   control_plane: specification
   status: resolved
   resolution:
@@ -32,7 +32,7 @@ findings:
 - id: F-003
   summary: Post-gate obligation breach must remain distinct from authorization already exercised.
   risks:
-  - RK-AC01
+  - EX-RK-OB01
   control_plane: specification
   status: resolved
   resolution:
@@ -42,8 +42,8 @@ findings:
 - id: F-004
   summary: Runtime enforcement of delegated authority and post-gate accountability remains unassessed by this source-only example.
   risks:
-  - RK-AU01
-  - RK-AU02
-  - RK-AC01
+  - EX-RK-DA01
+  - EX-RK-DA02
+  - EX-RK-OB01
   control_plane: runtime-control
   status: open
