@@ -47,7 +47,7 @@ class FirstUseTutorialTests(unittest.TestCase):
         identifiers = {record["id"] for record in source["records"]}
         self.assertTrue(identifiers)
         self.assertTrue(all(identifier.startswith("EX-RK-") for identifier in identifiers))
-        tutorial_ids = set(re.findall(r"\\b(?:EX-)?RK-[A-Z]+[0-9]+\\b", self.text))
+        tutorial_ids = set(re.findall(r"\b(?:EX-)?RK-[A-Z]+[0-9]+\b", self.text))
         self.assertEqual(tutorial_ids, identifiers)
         referenced = {risk for finding in review["findings"] for risk in finding["risks"]}
         self.assertEqual(referenced, identifiers)
