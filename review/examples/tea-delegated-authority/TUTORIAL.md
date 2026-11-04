@@ -61,6 +61,13 @@ it was never delegated, when a re-delegation broadens authority, or when later
 accountability evidence is confused with the authorization decision made at the
 gate.
 
+For example, a principal's customers or a third party whose records are accessed
+by a delegated agent may suffer an over-broad transfer without being a party to
+the delegation. Those people may have neither visibility into the capability
+chain nor a direct way to dispute the action. Record these affected-party and
+contestability assumptions alongside the assessment narrative; they are not
+extra fields in the closed review schema.
+
 These are hypotheses for the worked example, not observed incidents.
 
 ## 3. Pin the TEA source
@@ -92,12 +99,12 @@ not publisher authenticity or later TEA revisions.
 
 [risks.yaml](risks.yaml) defines three hypotheses:
 
-- `RK-AU01`: authentication mistaken for delegated authorization;
-- `RK-AU02`: re-delegation or invocation broadens authority;
-- `RK-AC01`: later obligation breach is treated as retroactively invalidating
+- `EX-RK-DA01`: authentication mistaken for delegated authorization;
+- `EX-RK-DA02`: re-delegation or invocation broadens authority;
+- `EX-RK-OB01`: later obligation breach is treated as retroactively invalidating
   authorization.
 
-They are local to this example and do not modify `data/risks.yaml`.
+The `EX-RK-` namespace keeps these local hypotheses distinct from the DTG corpus and from the TRQP example. They are local to this example and do not modify `data/risks.yaml`.
 
 ## 5. Understand the tiny capability vocabulary
 
@@ -231,7 +238,9 @@ exercised.
 
 ## 8. Read the RAHP review record
 
-Open [review.yaml](review.yaml).
+Open [review.yaml](review.yaml). Its `reviewer: sankarshanmukhopadhyay`
+identifies the contributor accountable for this assessment, not an independent
+reviewer and not a body with risk-acceptance authority.
 
 It uses the existing upstream `rahp-spec-review/v1` contract. No TEA-specific
 members were added.
@@ -248,8 +257,17 @@ status: open
 That open finding records the missing implementation evidence rather than inventing
 a source defect.
 
-This demonstrates that a worked RAHP examination does not need to manufacture a
-problem in the target specification.
+The source-level rationale can be checked at retained
+[Invocation Exchange / Presentation](source/clauses.md.txt) (lines 279–283),
+[Attenuated re-delegation](source/clauses.md.txt) (lines 193–205), and
+[Delegation Exchange / obligations](source/clauses.md.txt) (lines 143–154 and
+228 onward). These are pinpoint locations within the retained source, not
+new authoritative TEA interpretations.
+
+These are the assessment author's `already-addressed` judgments. They remain
+subject to independent checking against the pinned clauses; a validator cannot
+establish that the judgment is sound. A worked RAHP examination need not
+manufacture a problem in the target specification.
 
 ## 9. Validate the review
 
@@ -360,7 +378,20 @@ nonzero.
 **Interpretation:** neither authority escalation nor evidence drift is converted
 into a successful result.
 
-## 13. Interpret the completed exercise
+## 13. Obtain independent examination
+
+A reviewer who did not prepare the TEA assessment should inspect the pinned
+source and evidence, especially each of F-001–F-003's `already-addressed`
+judgments. Record that person's identity, reviewed commit, source-clause
+observations, disagreement and disposition in the PR or linked issue. Do not
+present author inference or AI-assisted self-review as independent approval.
+
+**Status:** this tutorial describes the required examination; it does not
+claim that it has occurred. Until it does, the three resolved source findings
+remain author-assessed rather than independently corroborated, and the
+open runtime-control finding stays open.
+
+## 14. Interpret the completed exercise
 
 Mechanically established:
 
@@ -389,7 +420,7 @@ full TEA conformance
 deployment assurance
 ```
 
-## 14. Reassess when TEA changes
+## 15. Reassess when TEA changes
 
 TEA is a v0.2 Draft. A later material revision should produce a new source-pinned
 review rather than editing this one to point at a moving target.
@@ -412,7 +443,7 @@ If later source changes the capability lattice, attenuation rules, invocation
 checks or post-gate semantics, retain this assessment as evidence about revision A
 and create a new record.
 
-## 15. What this example says about RAHP
+## 16. What this example says about RAHP
 
 This example uses the same upstream review contract as the retained TRQP and VRC
 work while examining a different assurance shape: delegated authority rather than
