@@ -7,6 +7,7 @@ import re
 import subprocess
 import sys
 import unittest
+import yaml
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,6 +40,22 @@ class FirstUseTutorialTests(unittest.TestCase):
         for target in local_targets:
             with self.subTest(target=target):
                 self.assertTrue((TUTORIAL.parent / target).resolve().exists())
+
+    def test_tutorial_identifiers_match_selected_source_and_review(self):
+        source = yaml.safe_load((EXAMPLE / "risks.yaml").read_text(encoding="utf-8"))
+        review = yaml.safe_load((EXAMPLE / "review.yaml").read_text(encoding="utf-8"))
+        identifiers = {record["id"] for record in source["records"]}
+        self.assertTrue(identifiers)
+        self.assertTrue(all(identifier.startswith("EX-RK-") for identifier in identifiers))
+        tutorial_ids = set(re.findall(r"\\b(?:EX-)?RK-[A-Z]+[0-9]+\\b", self.text))
+        self.assertEqual(tutorial_ids, identifiers)
+        referenced = {risk for finding in review["findings"] for risk in finding["risks"]}
+        self.assertEqual(referenced, identifiers)
+        self.assertIn(f'reviewer: {review["reviewer"]}', self.text)
+
+    def test_independent_review_not_asserted_as_completed(self):
+        self.assertIn("did not prepare this assessment", self.text)
+        self.assertIn("No independent review is claimed", self.text)
 
     def test_documented_success_commands_execute(self):
         commands = [
