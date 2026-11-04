@@ -65,7 +65,7 @@ class AdvisoryRiskAcceptanceTests(unittest.TestCase):
 
     def test_residual_risk_is_bounded(self):
         record = {**ACCEPTED, "residual_risk": "banana"}
-        self.assertIn("residual_risk must be High, Medium or Low",
+        self.assertIn("residual_risk must be a non-Critical method severity",
                       module.inspect(record, "High"))
 
 
