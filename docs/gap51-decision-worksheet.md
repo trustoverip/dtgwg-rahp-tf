@@ -21,8 +21,4 @@ A recorded GitHub merge proves integration into a branch, not the scope of deleg
 
 The task force agreed to keep progress moving through reciprocal review and merging of one another's contributions while concentrating on the V2 baseline. Treat that as an **interim integration practice**, not as a final assignment of normative acceptance or release authority. PRs merged under that practice are integrated repository state; endorsement scope remains governed by whatever authority decision the task force records here.
 
-## Current examples
-
-- PR #22 is now merged. It is an example of integrated fail-closed validation, not evidence that GitHub merge alone establishes broader task-force authority.
-- PR #32 is under independent review and remains the bounded reviewability contribution associated with #30.
-- #43 remains the decision record for the authority questions represented in this worksheet.
+Live contribution examples and their disposition are tracked in issue #43; this worksheet deliberately does not mirror changing PR states.
