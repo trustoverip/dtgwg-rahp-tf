@@ -1,0 +1,148 @@
+{
+  "schema": "rahp-control-consequence-research/v1",
+  "status": "research-fixtures-not-canonical-records",
+  "upstream_revision": "0481ab15dc6a926b024745b07674a5e130915d44",
+  "downstream_evidence_revision": "f7f3902215782fb7eaaf91c265c4ef8419d09461",
+  "provenance": "Downstream issue #1089 and merged PR #1108; upstream issue #38; hypotheses reinterpreted against upstream DTG corpus",
+  "dispositions": [
+    "existing_coverage",
+    "context_dependent_residual",
+    "candidate_distinct_reusable_risk",
+    "insufficient_evidence"
+  ],
+  "cases": [
+    {
+      "id": "UCCA-001",
+      "source_case": "CCA-001",
+      "control_class": "renewal and continuation checks",
+      "target_mitigation": {
+        "actor": "relying party",
+        "hypothesis": "More current evidence reduces reliance on expired or stale continuation authority",
+        "upstream_risks": [
+          "RK-CR02"
+        ]
+      },
+      "affected_actors": [
+        {
+          "actor": "relying party",
+          "change": "potential reduction",
+          "effect": "Stale-authority reliance may decrease where renewal is verified"
+        },
+        {
+          "actor": "holder",
+          "change": "potential increase",
+          "effect": "Repeated proofing and renewal demands may exclude members or reveal lifecycle timing"
+        }
+      ],
+      "consequence_risk_candidates": [
+        "RK-CR02",
+        "RK-NM01"
+      ],
+      "disposition": "context_dependent_residual",
+      "evidence_state": "context_specific_evidence_missing",
+      "assurance_implication": "review_required",
+      "rationale": "RK-CR02 already describes loss of access from inaccessible renewal; RK-NM01 concerns usability. Neither establishes this particular control's actual proofing frequency or privacy impact. Retain the trade-off in review evidence rather than add a risk ID."
+    },
+    {
+      "id": "UCCA-002",
+      "source_case": "CCA-002",
+      "control_class": "uniqueness and identity proofing",
+      "target_mitigation": {
+        "actor": "community governance",
+        "hypothesis": "Uniqueness controls can reduce multi-identity manipulation",
+        "upstream_risks": [
+          "RK-ID01"
+        ]
+      },
+      "affected_actors": [
+        {
+          "actor": "community governance",
+          "change": "potential reduction",
+          "effect": "Sybil participation and distorted voting may decline"
+        },
+        {
+          "actor": "applicant without institutional proof",
+          "change": "potential increase",
+          "effect": "Additional identity proofing can create participation barriers"
+        },
+        {
+          "actor": "privacy subject",
+          "change": "potential increase",
+          "effect": "Persistent proofing identifiers may link participation contexts"
+        }
+      ],
+      "consequence_risk_candidates": [
+        "RK-ID02",
+        "RK-ID05"
+      ],
+      "disposition": "existing_coverage",
+      "evidence_state": "catalogue_mapping_only",
+      "assurance_implication": "review_required",
+      "rationale": "RK-ID02 covers structural exclusion and RK-ID05 covers cross-community linkability. These are candidate existing-catalogue mappings, not proof that a concrete uniqueness implementation produces either consequence."
+    },
+    {
+      "id": "UCCA-003",
+      "source_case": "CCA-004",
+      "control_class": "revocation propagation",
+      "target_mitigation": {
+        "actor": "principal and community",
+        "hypothesis": "Timely propagation can reduce exercise by an agent after the operator's authority is revoked",
+        "upstream_risks": [
+          "RK-AI02"
+        ]
+      },
+      "affected_actors": [
+        {
+          "actor": "principal",
+          "change": "potential reduction",
+          "effect": "Post-revocation agent operations may decrease"
+        },
+        {
+          "actor": "member in another community",
+          "change": "potential increase",
+          "effect": "Overbroad propagation may trigger cross-community consequences or privacy disclosure"
+        }
+      ],
+      "consequence_risk_candidates": [
+        "RK-CR03"
+      ],
+      "disposition": "context_dependent_residual",
+      "evidence_state": "context_specific_evidence_missing",
+      "assurance_implication": "review_required",
+      "rationale": "RK-CR03 already concerns cross-VTC revocation cascade. Whether it applies depends on delegation topology, status boundaries, scope and review paths; the source fixture does not prove deployment harm."
+    },
+    {
+      "id": "UCCA-004",
+      "source_case": "CCA-005",
+      "control_class": "human intent checkpoint",
+      "target_mitigation": {
+        "actor": "principal",
+        "hypothesis": "Human confirmation may constrain unauthorized agent actions",
+        "upstream_risks": [
+          "RK-AI01"
+        ]
+      },
+      "affected_actors": [
+        {
+          "actor": "principal",
+          "change": "unknown",
+          "effect": "Inaccessible or frequent prompts could create fatigue, inability to act or coercive participation"
+        },
+        {
+          "actor": "system operator",
+          "change": "unknown",
+          "effect": "Ambiguous failure and alternative paths may affect operational continuity"
+        }
+      ],
+      "consequence_risk_candidates": [
+        "RK-HX04",
+        "RK-NM01"
+      ],
+      "disposition": "insufficient_evidence",
+      "evidence_state": "missing_accessibility_prompt_frequency_and_alternative_path_evidence",
+      "assurance_implication": "indeterminate",
+      "control_credit": "withheld",
+      "rationale": "The upstream risks indicate possible affected interests but no observation of prompt accessibility, frequency, coercion or recovery. No overall control PASS or new catalogue risk is justified."
+    }
+  ]
+}

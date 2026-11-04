@@ -79,7 +79,16 @@ records:
   stations:
   - {id: STAGE-2-1, name: Propose,  note: "Design choice stated with the personas it affects and the objectives it serves or constrains."}
   - {id: STAGE-2-2, name: Assess,   note: "Three questions: does it affect existing risks, introduce new ones, or affect a guardrail?"}
-  - {id: STAGE-2-3, name: Control,  note: "Every accepted control links to at least one metric — a control without a metric is unmonitorable. Every new guardrail has an assurance test — a guardrail without a test is unverifiable."}
+  - id: STAGE-2-3
+    name: Control
+    note: >-
+      Every accepted control links to at least one metric — a control without a metric
+      is unmonitorable. Every new guardrail has an assurance test — a guardrail
+      without a test is unverifiable. Assessment of a candidate control also
+      considers material risks or harms it may introduce, amplify, transfer or
+      redistribute among affected people. Record consequences and evidence gaps
+      separately from its intended mitigation; a mitigated target risk alone
+      does not establish overall control adequacy or residual-risk acceptance.
   - {id: STAGE-2-4, name: Document, note: "Audit trail and contribution back to the toolkit are the same action, not two steps."}
   invariants:
   - Every control MUST link to at least one metric.
