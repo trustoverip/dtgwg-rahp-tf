@@ -70,13 +70,19 @@ a general namespace implementation.
 
 ## Findings and assurance boundary
 
-The review records three source propositions as already addressed in the pinned
-draft:
+The contributor's review records three source propositions as already addressed
+in the pinned draft, citing specific retained source sections:
 
 1. authentication does not replace capability-chain authorization;
 2. delegated authority is strictly attenuating; and
 3. obligation non-performance does not retroactively invalidate authority already
    exercised.
+
+These are source-based author judgments, not independently accepted assurance.
+The retained clause locations are shown in the [tutorial](TUTORIAL.md);
+a person who did not prepare the assessment must corroborate or challenge
+the conclusions and record that judgment before this example supports
+evidence claims in #35.
 
 A fourth finding remains open because runtime enforcement, holder binding,
 revocation and accountability evidence are not examined.
