@@ -75,6 +75,14 @@ For this example, plausible harm is a false trust decision: an action could be
 allowed because a schema-valid response is treated as proof of authority that the
 response structure itself does not establish.
 
+Here the relying party is the direct consumer, while an issuer and people relying
+on that issuer's representations may bear the consequences of an erroneous
+decision. Those affected people may never see the authorization response or
+its evaluation time and may therefore be least able to detect or contest a
+false permission decision. Stale evidence could support an action outside the
+relevant authority window. Record this reasoning in the assessment's linked
+narrative or issue, not as undeclared fields in the closed review schema.
+
 This is a **hypothesis about a bounded scenario**, not evidence that such harm has
 occurred in a deployment.
 
@@ -112,10 +120,10 @@ the truth of any statement in those files.
 
 This example uses two local hypotheses in [risks.yaml](risks.yaml):
 
-- `RK-AU01`: structure can be mistaken for authority;
-- `RK-TM01`: time semantics can be confused across requested and action time.
+- `EX-RK-AU01`: structure can be mistaken for authority;
+- `EX-RK-TM01`: time semantics can be confused across requested and action time.
 
-These identifiers belong to this example-local risk source. They are not additions
+The `EX-RK-` prefix distinguishes example-local hypotheses from canonical `RK-` risks, preventing a local example from being mistaken for a DTG corpus finding or another example's hypothesis. These identifiers belong to this example-local risk source. They are not additions
 to the canonical `data/risks.yaml` corpus and do not represent accepted risk
 scores or demonstrated incidents.
 
@@ -124,10 +132,10 @@ The hypotheses follow from the assurance question:
 ```text
 schema-valid response
         |
-        +--> does structure prove authority?       RK-AU01
+        +--> does structure prove authority?       EX-RK-AU01
         |
         +--> does a time-labelled response prove
-             authority at the relevant moment?     RK-TM01
+             authority at the relevant moment?     EX-RK-TM01
 ```
 
 **Do not infer:** that every review must create new risks. Reuse an existing risk
@@ -250,21 +258,24 @@ reviewer.
 **Goal:** see how the bounded findings are represented in the upstream review
 contract.
 
-Open [review.yaml](review.yaml). The two findings are:
+Open [review.yaml](review.yaml). It begins with `reviewer: sankarshanmukhopadhyay`,
+identifying the person accountable for preparing the assessment. This is not
+delegation of risk-acceptance authority or evidence of independent review.
+The two findings are:
 
 ```yaml
 - id: F-001
   summary: Schema-valid authorization does not demonstrate authority history or current permission.
   risks:
-  - RK-AU01
-  - RK-TM01
+  - EX-RK-AU01
+  - EX-RK-TM01
   control_plane: implementation-guidance
   status: open
 
 - id: F-002
   summary: The retained API authorization example does not preserve the queried historical time.
   risks:
-  - RK-TM01
+  - EX-RK-TM01
   control_plane: specification
   status: open
 ```
@@ -440,7 +451,23 @@ The failure is the evidence that a mutable review boundary is rejected.
 **Next step:** interpret the complete exercise by separating what was mechanically
 established from what remains unassessed.
 
-## 12. Interpret the completed exercise
+## 12. Arrange independent examination of the assessment
+
+**Goal:** have a person who did not prepare this assessment inspect the retained
+source, the two findings, their selected local risks and the evidence references.
+The independent reviewer should attempt to falsify each material inference,
+including whether a source clause actually supports the reported conclusion.
+Record their identity, reviewed revision, conclusions and any disagreement in
+the PR or linked issue. A disagreement stays visible and is not converted into
+approval merely because the mechanical checks pass.
+
+**What this establishes:** a review procedure and a place to retain its outcome.
+No independent review is claimed for this tutorial by the existence of this step.
+
+**Next step:** interpret the mechanically established state separately from any
+human review judgment.
+
+## 13. Interpret the completed exercise
 
 At this point the mechanically established state is:
 
@@ -472,7 +499,7 @@ TRQP failed RAHP
 
 Neither statement is supported by the bounded evidence.
 
-## 13. Reassess after material change
+## 14. Reassess after material change
 
 **Goal:** preserve historical evidence instead of silently moving the assessment
 boundary.
@@ -527,8 +554,9 @@ When replacing TRQP with another target, preserve the sequence:
 8. bind evidence
 9. validate structure and references
 10. exercise important failure behavior
-11. interpret what remains unknown
-12. reassess after material change
+11. seek independent examination and record disagreements
+12. interpret what remains unknown
+13. reassess after material change
 ```
 
 The objective is not to maximize the number of RAHP records. It is to make a
@@ -540,6 +568,7 @@ bounded assurance argument reproducible, falsifiable and reviewable.
 - [Specification pressure-testing workflow](../../../docs/pressure-testing-a-spec.md)
 - [Review-record contract](../../README.md)
 - [Adopting RAHP](../../../ADOPTION.md)
+- [Functional sufficiency and repeatability](../../../docs/functional-sufficiency-and-repeatability.md), including the Increment 7 adopter trial and reproducibility criteria
 
 AI-assisted documentation preparation. The commands and retained outputs are
 mechanically checked; methodological interpretation and acceptance remain subject
