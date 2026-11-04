@@ -7,7 +7,7 @@
 1. Submit an issue/PR describing the problem, affected target (method, DTG instance, exemplar, validator, tooling, documentation, or governance), evidence, version impact and reproduction commands. An issue may be used for a decision that does not require code. Stage-5 maintenance triggers, including periodic extreme-user review and reports raised outside GitHub, must enter the same triage record once the task force identifies an accessible intake route; absence of a GitHub account must not silently exclude a harm report.
 2. Classify the change. Upstream owns method/schema/vocabulary and generic adoption requirements. The DTG instance corpus in `data/` has its own acceptance and risk-decision questions, tracked in the #43 decision worksheet; repository write access alone does not establish those authorities. A target's own working group owns its specification and risk decisions; downstream controllers, routing and deployment controls are not automatically upstream components.
 3. Associate the contribution with a tracked issue, identify dependencies and distinguish accepted upstream contracts from proposals. Do not build on an unmerged branch without explicitly recording that dependency.
-4. Include the proportional reviewability information requested by #30/#32. If #32 is not merged, its proposed PR template is **not** the operative template.
+4. Use the repository's current [pull request template](../.github/pull_request_template.md) for proportional reviewability information (see #30 and merged #32).
 
 ## Review and dispositions
 
@@ -40,9 +40,9 @@ For substantive method/governance decisions, link the issue/PR and accepted deci
 Current contribution examples and their changing repository state are tracked in #43 and the decision worksheet rather than frozen into this durable procedure.
 
 - A method change with missing sign-off or no authority evidence must not be declared accepted.
-- A corpus risk scoring change without provenance/competent review must be returned for further evidence.
+- A corpus risk scoring change without provenance/review by someone qualified must be returned for further evidence.
 - A validated working-group exemplar can be accepted as an example while making **no** target assurance or normative adoption claim.
 
 ## GAP-5.1 closure gate
 
-Require (a) competent task-force confirmation of who has final method/corpus/release decision authority or explicit mapping to pre-existing rules, (b) documented intake/triage and rejection/escalation routes, (c) reviewable evidence and compatible integration criteria, and (d) a real contribution walked through those steps with recorded acceptance. Until then, the gap remains **blocking**, despite this proposed procedure. The existing #32 contribution should be dispositioned independently.
+Require (a) confirmation by the Task Force of who has final method/corpus/release decision authority or explicit mapping to pre-existing rules, (b) documented intake/triage and rejection/escalation routes, (c) reviewable evidence and compatible integration criteria, and (d) a real contribution walked through those steps with recorded acceptance. Until then, the gap remains **blocking**, despite this proposed procedure. The existing #32 contribution should be dispositioned independently.
