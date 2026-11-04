@@ -45,4 +45,4 @@ Current contribution examples and their changing repository state are tracked in
 
 ## GAP-5.1 closure gate
 
-Require (a) confirmation by the Task Force of who has final method/corpus/release decision authority or explicit mapping to pre-existing rules, (b) documented intake/triage and rejection/escalation routes, (c) reviewable evidence and compatible integration criteria, and (d) a real contribution walked through those steps with recorded acceptance. Until then, the gap remains **blocking**, despite this proposed procedure. The existing #32 contribution should be dispositioned independently.
+Require (a) confirmation by the Task Force of who has final method/corpus/release decision authority or explicit mapping to pre-existing rules, (b) documented intake/triage and rejection/escalation routes, (c) reviewable evidence and compatible integration criteria, and (d) a real contribution walked through those steps with recorded acceptance. Until then, the gap remains **blocking**, despite this proposed procedure. The merged #32 PR template is operative repository guidance; its integration does not itself settle GAP-5.1 governance authority.
