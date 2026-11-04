@@ -1,6 +1,6 @@
 # Risk acceptance governance protocol — GAP-3.1 proposal
 
-**Status: proposed for adoption. No risk is accepted by this document.** RAHP can constrain the completeness and provenance of an acceptance record; it cannot designate itself or a GitHub contributor as a risk owner. A competent authority must be established by the adopting working group's own mandate.
+**Status: proposed for adoption. No risk is accepted by this document.** RAHP can constrain the completeness and provenance of an acceptance record; it cannot designate itself or a GitHub contributor as a risk owner. A the body authorized to decide must be established by the adopting working group's own mandate.
 
 ## Preconditions and accountable decision
 
@@ -13,9 +13,13 @@
 
 ## Contract boundary
 
-The current upstream `data/risk-acceptances.yaml` holds RA-001 to RA-003 as `pending`; they **must remain pending** until actual authorized decisions. The existing schema is structural and does not establish who may accept risk. This proposal adds a **standalone advisory gate** for proposed decision records. It does not extend canonical method/schema, grant authority, modify severity rules or turn an upstream review's `risk_accepted` status into evidence of a valid underlying authority decision.
+The current upstream `data/risk-acceptances.yaml` holds RA-001 to RA-003 as `pending`; they **must remain pending** until actual authorized decisions. The canonical validator now uses `INV-6` (merged PR #48) to enforce documentary completeness for declared acceptance; it cannot authenticate who may accept risk. This proposal adds a **standalone advisory gate** for proposed decision records. It does not extend canonical method/schema, grant authority, modify severity rules or turn an upstream review's `risk_accepted` status into evidence of a valid underlying authority decision.
 
-For the **advisory decision packet used by this proposal**, at minimum require: `risk_id`, decision, `authority`, `authority_reference`, `decided_by`, `decision_date`, `review_date`, `rationale`, `residual_risk`, `affected_people`, `alternatives_considered`, explicit `conflicts_of_interest`, and a non-empty `evidence` reference. This packet is not the canonical `risk_acceptance` schema: fields such as `authority_reference` and the advisory `deferred` disposition are proposal-local until the task force decides whether and how they map into the canonical contract. The helper checks local documentary shape only; a competent reviewer must authenticate the mandate and determine whether the cited evidence actually resolves and is adequate.
+For an **advisory acceptance packet**, at minimum require: `risk_id`, decision, `authority`, `authority_reference`, `decided_by`, `decision_date`, `review_date`, `rationale`, `residual_risk`, `affected_people`, `alternatives_considered`, explicit `conflicts_of_interest`, and a non-empty `evidence` reference. This packet is not the canonical `risk_acceptance` schema: fields such as `authority_reference` and the advisory `deferred` disposition are proposal-local until the task force decides whether and how they map into the canonical contract. The helper checks local documentary shape only; a authorized reviewer must authenticate the mandate and determine whether the cited evidence actually resolves and is adequate.
+
+For an advisory **rejection**, the checker requires `authority`, `authority_reference`, named `decided_by` participants, `decision_date`, `rationale`, and `risk_id`. A formal advisory **deferral** also requires `deferral_reason` and `review_date` or `review_trigger`. Neither is an acceptance. A `pending` packet records no completed decision and may remain incomplete.
+
+The checker returns distinct `documentary_valid` and `documentary_ready` outcomes. Documentary validity means the locally required fields were checked for the chosen disposition. Documentary readiness is restricted to accepted/conditionally accepted packets. Neither authenticates mandate, evidence, or governance approval. The advisory and canonical records use different schemas; `deferred` and `authority_reference` are proposal-local. Both the advisory checker and canonical `INV-6` derive non-Critical residual severity values from the governed method vocabulary, rather than maintaining duplicate enumerations.
 
 ## Negative controls
 
@@ -31,7 +35,7 @@ Confirm which body can authorize residual-risk acceptance for the *DTG instance*
 
 ### GAP-3.1 closure threshold
 
-After competent task-force adoption, validate the agreed authority model against a real decision workflow (including a rejection or deferral), document the reviewer and decision record, and demonstrate the gate fails closed. Only then change `method/lifecycle.yaml` from **blocking** to a resolved disposition. Until then GAP-3.1 remains open and existing pending acceptances are not altered.
+After task-force adoption, validate the agreed authority model against a real decision workflow (including a rejection or deferral), document the reviewer and decision record, and demonstrate the gate fails closed. Only then change `method/lifecycle.yaml` from **blocking** to a resolved disposition. Until then GAP-3.1 remains open and existing pending acceptances are not altered.
 
 ## Advisory check execution
 
