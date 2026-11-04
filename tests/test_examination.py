@@ -117,7 +117,7 @@ class ExaminationTests(unittest.TestCase):
         self.reject('lines do not resolve')
 
     def test_finding_risk_reasoning_required_and_unknown_risk_rejected(self):
-        self.update(lambda s: s['findings'][0]['risk_reasoning'].pop('RK-AU01'))
+        self.update(lambda s: s['findings'][0]['risk_reasoning'].pop('EX-RK-AU01'))
         self.reject('risk reasoning')
         record = yaml.safe_load((self.root / 'review.yaml').read_text())
         record['findings'][0]['risks'] = ['RK-ZZ99']
