@@ -786,7 +786,7 @@ if EXDIR:
 <div><h4>Reviewer's lens</h4><p>{E(meta['reviewer_persona'])}, an honest contributor joining from Jakarta. Threat: {E(meta['threat_persona'])}. See <a href="index.html#ways-in">the toolkit personas</a>.</p></div>
 <div><h4>People from the catalogue</h4><ul>{peeps}</ul></div>
 </div>
-{sec('What was reviewed', '<p>Three draft specifications, each pinned to an exact commit, one review record each:</p><ul>' + reviewed + '</ul><p class="flag">All three records pass the toolkit\'s checks. ' + CHECK_NOTE + '</p>')}
+{sec('What was reviewed', '<p>Three draft specifications, each reported against an exact commit, one review record each:</p><ul>' + reviewed + '</ul><p class="flag">The underlying review records and their validation evidence are not retained in this repository. The reported checks cannot be independently reproduced from this public site. ' + CHECK_NOTE + '</p>')}
 {sec('Who did what', whodid(mlx.get('steps', [])))}
 {sec('What the specifications do', '<p class="lead" style="margin:0 0 .8rem">57 findings, labelled by what each specification does about the issue. Labels use shapes and words.</p>' + ctab)}
 {sec('Ten themes across the specifications', '<p class="lead" style="margin:0 0 1rem">A review record holds one specification, so these themes sit outside the format. They are AI-drafted too.</p><div class="themes">' + themes + '</div>', 'themes')}
@@ -830,7 +830,7 @@ out.textContent='Showing '+n+' of '+it.length+' findings.';});});})();</script>'
 <div><h4>The people</h4><ul>{am_people}</ul></div>
 <div><h4>Situations</h4><ul>{am_sc}</ul></div>
 </div>
-<p class="flag">The record passes the toolkit's checks. {CHECK_NOTE}</p>
+<p class="flag">The source review record and evidence are private. Its preparer reports that the record passed RAHP validation, but this public example cannot independently reproduce that result. {CHECK_NOTE}</p>
 {sec('Who did what', '<p class="lead" style="margin:0 0 .8rem">This review started from people, not from code: the route a non-technical, human-focused reviewer would take.</p>' + whodid(am_steps))}
 {sec('Findings, by where the fix belongs', '<p class="lead" style="margin:0 0 .5rem">Eight findings across all five places a fix can belong.</p>' + plane_groups(am['findings'], amplane, amf), 'findings')}
 {sec('What this example teaches about the toolkit', ul(['The record format strains to hold an implementation review: a record holds one repository, but this stack has three, and there are no fields for evidence, the person affected or who must act.', 'The toolkit has no place yet for fixes in user experience, so two findings had to be filed as implementation guidance.', 'Two findings rest on proposed risks that are not in the catalogue yet: coercion by someone close, and abuse of delegated authority.', 'Protection can create risk: a second notice recipient protects Arthur, but could expose someone under coercive control.']))}
