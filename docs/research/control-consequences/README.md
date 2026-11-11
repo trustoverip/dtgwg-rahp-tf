@@ -18,7 +18,7 @@ The downstream implementation already uses `introduces_or_amplifies_risks`, `CTP
 
 ## Cross-domain examination
 
-The [four cases](cases.json) adapt downstream CCA-001, CCA-002, CCA-004 and CCA-005 to the upstream corpus, with distinct control types and explicit actors. Each records intended mitigation, separate exposures, *candidate* existing risk links, evidence state, disposition and assurance implication:
+The [five cases](cases.json) include four adaptations of downstream CCA-001, CCA-002, CCA-004 and CCA-005 plus a constructed HTX #22 secondary-notification counterexample, with distinct control types and explicit actors. Each records intended mitigation, separate exposures, *candidate* existing risk links, evidence state, disposition and assurance implication:
 
 | Case | Benefit / burden | Risk reuse | Bounded disposition |
 | --- | --- | --- | --- |
@@ -26,14 +26,15 @@ The [four cases](cases.json) adapt downstream CCA-001, CCA-002, CCA-004 and CCA-
 | UCCA-002 uniqueness | Integrity / applicant exclusion and correlation | RK-ID01, RK-ID02, RK-ID05 | Existing catalogue coverage of *hypotheses*, not implementation assurance |
 | UCCA-003 revocation | Withdrawal enforcement / collateral cross-community impact | RK-AI02, RK-CR03 | Context-specific residual; verify propagation topology |
 | UCCA-004 human checkpoint | Principal intent / accessibility and fatigue | RK-AI01, RK-HX04, RK-NM01 | **Insufficient evidence: indeterminate; control credit withheld** |
+| UCCA-005 secondary notification | Supported decision-making / interpersonal coercion and disclosure | RK-HX04, RK-HX05; partial analogies RK-ID05, RK-HX01 | **Candidate distinct mechanism only; no canonical risk or control credit without HTX and affected-participant evidence** |
 
-The fifth downstream case on contestability/retention remains relevant but is not needed to establish cross-domain variation. It can be examined if a reviewer identifies an actual representation gap.
+The separate downstream contestability/retention case remains relevant but is not needed for this review. UCCA-005 is not a downstream fixture adaptation: it is a new research hypothesis prompted by HTX #22. The corpus lacks an exact analogue for coercion by a person close to the holder; RK-EX01 concerns state coercion and must not be reinterpreted. Whether a reusable risk mechanism is warranted is unresolved.
 
 ## Portable assessment sequence (proposed)
 
 1. **Identify mitigation:** the specific target risk and the actor for whom a benefit is expected.
 2. **Look for control consequences:** introduced, transferred, amplified or redistributed harm, including exclusion, autonomy, privacy, security and operational effects.
-3. **Separate actor interests:** never offset an affected person's exposure solely because another actor gains assurance.
+3. **Separate actor interests:** never offset an affected person's exposure solely because another actor gains assurance. Examine vulnerable or less visible affected groups explicitly, and record why a plausible consequence is judged immaterial rather than excluding it silently.
 4. **Reuse existing risks first:** cite applicable canonical risk mechanisms without changing their meanings or implying that linkage proves a particular deployment effect.
 5. **Record disposition:** existing catalogue coverage; context-dependent residual/trade-off; candidate new reusable mechanism (with proof of insufficiency of existing coverage); or insufficient evidence.
 6. **Retain evidence and non-findings:** put contextual reasoning and unverified consequences in accompanying review material. A material gap remains an open finding where appropriate; it cannot silently become PASS. No `INDETERMINATE` value is added to the upstream review schema.
@@ -49,7 +50,7 @@ The fifth downstream case on contestability/retention remains relevant but is no
 | New relationship in `data/instance.yaml` | Not justified: no canonical instance records require a new relationship, and its semantics and migration would need governance |
 | Portable schema/enum extension | Not justified by four hypothesis cases; would introduce validation, compatibility and migration obligations without demonstrated enforcement need |
 
-The bounded proposal changes only the description of STAGE-2-3: a selected control's target mitigation is not an overall adequacy conclusion; material consequence and uncertainty must remain separately reviewable. It does not mandate a new ID for each effect or assert how conflicting interests should be governed.
+The bounded proposal changes only the description of STAGE-2-3: a selected control is also a design choice subject to STAGE-2-2, and target mitigation is not an overall adequacy conclusion. Materiality is a contextual and reviewable judgment, not a threshold that may silently discard small or vulnerable groups. Harm to one group cannot be offset by benefit to another. Consequence and uncertainty remain separately reviewable, including whether remediation belongs in specification, implementation or governance. It does not mandate a new ID for each effect or assert how conflicting interests should be governed.
 
 **Limits:** The fixtures are constructed source-based analyses, not observed field effects. Their `evidence_state`, `disposition` and `assurance_implication` belong to an **example-local research format**; they are not shared RAHP schema members or validated risk-acceptance decisions. The four dispositions are analytical labels, not new controlled vocabulary. No risk scores, authority, policy optimization or conformance result is supplied.
 
@@ -63,7 +64,7 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 python3 tools/validate.py
 ```
 
-Read `cases.json` against the pinned `data/risks.yaml`, `method/lifecycle.yaml`, `review/spec-review.schema.json`, and downstream [CCA fixtures](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/f7f3902215782fb7eaaf91c265c4ef8419d09461/examples/control-consequence-assurance/cases.yaml). Challenge each actor attribution, existing-risk mapping and missing evidence. Automated tests check fixture coherence and fail-closed *example-local* state; they cannot verify the truth of harms, constitute independent methodological review, or certify an upstream governance decision.
+Read `cases.json` against the pinned `data/risks.yaml`, `method/lifecycle.yaml`, `review/spec-review.schema.json`, and downstream [CCA fixtures](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/f7f3902215782fb7eaaf91c265c4ef8419d09461/examples/control-consequence-assurance/cases.yaml). Challenge each actor attribution, existing-risk mapping and missing evidence. In particular, UCCA-005 requires independent HTX and affected-participant scrutiny of notification recipients, consent, coercion, available alternative channels, and which consequences cannot be addressed by specification text alone. The fifth case is not evidence of actual harm or justification for a new canonical risk. The UCCA-001 RK-CR02 reference intentionally appears on both sides: the mechanism of preventing stale authority may also cause renewal-related exclusion; this is a contextual trade-off, not an accidental duplicate. Discussion #53 (value and benefits) is complementary: expected benefits should be recorded alongside burdens for each affected group, without reducing them to a net score or presuming the discussion has already established a shared machine contract. Automated tests check fixture coherence and fail-closed *example-local* state; they cannot verify the truth of harms, constitute independent methodological review, or certify an upstream governance decision.
 
 ## Disposition of issue #38
 

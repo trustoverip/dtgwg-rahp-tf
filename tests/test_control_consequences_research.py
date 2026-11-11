@@ -17,14 +17,14 @@ LIFECYCLE = yaml.safe_load((ROOT / "method/lifecycle.yaml").read_text(encoding="
 
 
 class ControlConsequenceResearch(unittest.TestCase):
-    def test_four_distinct_cross_domain_cases_and_pinned_evidence(self):
-        self.assertEqual(len(CASES["cases"]), 4)
-        self.assertEqual(len({c["control_class"] for c in CASES["cases"]}), 4)
-        self.assertEqual(len({c["id"] for c in CASES["cases"]}), 4)
+    def test_five_distinct_control_consequence_cases_and_pinned_evidence(self):
+        self.assertEqual(len(CASES["cases"]), 5)
+        self.assertEqual(len({c["control_class"] for c in CASES["cases"]}), 5)
+        self.assertEqual(len({c["id"] for c in CASES["cases"]}), 5)
         for key in ("upstream_revision", "downstream_evidence_revision"):
             self.assertRegex(CASES[key], r"^[0-9a-f]{40}$")
         self.assertEqual({c["source_case"] for c in CASES["cases"]},
-                         {"CCA-001", "CCA-002", "CCA-004", "CCA-005"})
+                         {"CCA-001", "CCA-002", "CCA-004", "CCA-005", "HTX-22-secondary-notification"})
 
     def test_all_risk_candidates_exist_in_canonical_upstream_instance(self):
         known = {r["id"] for r in RISKS["records"]}
@@ -54,6 +54,14 @@ class ControlConsequenceResearch(unittest.TestCase):
             if candidate["evidence_state"].startswith("missing_"):
                 self.assertNotEqual(candidate["assurance_implication"], "pass")
 
+    def test_secondary_notification_retains_harm_and_evidence_boundary(self):
+        case = next(c for c in CASES["cases"] if c["id"] == "UCCA-005")
+        self.assertEqual(case["disposition"], "candidate_distinct_reusable_risk")
+        self.assertEqual(case["control_credit"], "withheld")
+        self.assertNotEqual(case["assurance_implication"], "pass")
+        self.assertIn("coercive control", case["affected_actors"][1]["actor"])
+        self.assertIn("cannot cancel", case["rationale"])
+
     def test_fixture_dispositions_are_bounded_and_not_schema_claims(self):
         allowed = set(CASES["dispositions"])
         self.assertEqual(len(allowed), 4)
@@ -68,6 +76,9 @@ class ControlConsequenceResearch(unittest.TestCase):
         self.assertIn("assurance test", note)
         self.assertIn("redistribute", note)
         self.assertIn("does not establish overall control adequacy", note)
+        self.assertIn("not offset", note)
+        self.assertIn("STAGE-2-2", note)
+        self.assertIn("vulnerable", note)
 
 
 if __name__ == "__main__":

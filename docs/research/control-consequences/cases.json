@@ -143,6 +143,40 @@
       "assurance_implication": "indeterminate",
       "control_credit": "withheld",
       "rationale": "The upstream risks indicate possible affected interests but no observation of prompt accessibility, frequency, coercion or recovery. No overall control PASS or new catalogue risk is justified."
+    },
+    {
+      "id": "UCCA-005",
+      "source_case": "HTX-22-secondary-notification",
+      "control_class": "secondary notification for supported decision-making",
+      "target_mitigation": {
+        "actor": "person losing decision-making capacity",
+        "hypothesis": "An explicitly authorized secondary recipient could receive time-sensitive renewal and appeal notices that the holder cannot act on alone",
+        "upstream_risks": [
+          "RK-HX04",
+          "RK-HX05"
+        ]
+      },
+      "affected_actors": [
+        {
+          "actor": "person requiring supported decision-making",
+          "change": "potential reduction",
+          "effect": "Accessible notice to an authorized supporter may preserve participation and appeal opportunities"
+        },
+        {
+          "actor": "person subject to coercive control",
+          "change": "potential increase",
+          "effect": "Notification to a controlling household member or purported supporter may expose membership, whereabouts or decisions and enable interference"
+        }
+      ],
+      "consequence_risk_candidates": [
+        "RK-ID05",
+        "RK-HX01"
+      ],
+      "disposition": "candidate_distinct_reusable_risk",
+      "evidence_state": "missing_participatory_validation_and_coercion_safeguard_evidence",
+      "assurance_implication": "review_required",
+      "control_credit": "withheld",
+      "rationale": "The existing HX04/HX05 risks describe unsupported decision-making and the missing secondary recipient mechanism. ID05/HX01 are partial privacy and chilling-effect analogies, not an exact risk for interpersonal coercion through notification delegation; EX01 addresses state coercion and must not be repurposed. The candidate mechanism requires HTX and affected-participant review before proposing any new canonical risk, schema field or assurance conclusion. Benefits for one vulnerable group cannot cancel exposure of another."
     }
   ]
 }
