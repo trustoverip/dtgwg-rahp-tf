@@ -22,6 +22,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
@@ -35,6 +36,10 @@ jobs:
           python-version: '3.12'  # build_pages.py uses 3.12 f-string syntax
       - name: Install repository dependencies
         run: python3 -m pip install -r requirements.txt
+      - name: Verify repository assurance prerequisites
+        run: |
+          python3 tools/validate.py --summary
+          python3 -m unittest discover -s tests -v
       - name: Build the pages
         run: python3 tools/build_pages.py --out _site
       - name: Check links, anchors, titles and language
@@ -47,13 +52,15 @@ jobs:
           path: _site
           retention-days: 14
       - name: Upload the Pages artifact
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: _site
 
   deploy:
-    if: github.event_name != 'pull_request'
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
