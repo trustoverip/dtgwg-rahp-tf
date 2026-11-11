@@ -1,0 +1,76 @@
+name: Build and deploy the toolkit pages
+
+# Builds the GitHub Pages site from data/, method/, review/examples/ and site/
+# with tools/build_pages.py, then checks it with tools/check_pages.py.
+# Pull requests: build and check only; the built site is kept as a downloadable
+# artifact so reviewers can look at it before merge. Nothing is published.
+# Push to main (or a manual run): build, check and deploy to GitHub Pages.
+# One-time setting (a repository admin): Settings > Pages > Source: GitHub Actions.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'  # build_pages.py uses 3.12 f-string syntax
+      - name: Install repository dependencies
+        run: python3 -m pip install -r requirements.txt
+      - name: Verify repository assurance prerequisites
+        run: |
+          python3 tools/validate.py --summary
+          python3 -m unittest discover -s tests -v
+      - name: Build the pages
+        run: python3 tools/build_pages.py --out _site
+      - name: Check links, anchors, titles and language
+        run: python3 tools/check_pages.py _site
+      - name: Keep the built site for review (pull requests)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pages-preview
+          path: _site
+          retention-days: 14
+      - name: Upload the Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
