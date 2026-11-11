@@ -1,0 +1,22 @@
+records:
+- id: EX-RK-DA01
+  description: 'Example hypothesis: authenticated agent identity is mistaken for evidence that the agent holds authority applicable to the requested exercise.'
+  status: example-local-hypothesis
+  provenance:
+    source: Retained TEA v0.2 Draft source
+    triggered_by: upstream issue #51
+    contributor: sankarshanmukhopadhyay (AI-assisted)
+- id: EX-RK-DA02
+  description: 'Example hypothesis: re-delegation or invocation can broaden effective authority beyond the capability supplied by its source chain.'
+  status: example-local-hypothesis
+  provenance:
+    source: Retained TEA v0.2 Draft source and constructed capability fixtures
+    triggered_by: upstream issue #51
+    contributor: sankarshanmukhopadhyay (AI-assisted)
+- id: EX-RK-OB01
+  description: 'Example hypothesis: post-gate obligation non-performance is incorrectly treated as retroactively invalidating an authorization that was within capability when exercised.'
+  status: example-local-hypothesis
+  provenance:
+    source: Retained TEA v0.2 Draft source and constructed obligation fixture
+    triggered_by: upstream issue #51
+    contributor: sankarshanmukhopadhyay (AI-assisted)

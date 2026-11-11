@@ -1,0 +1,49 @@
+schema: rahp-spec-review/v1
+reviewer: sankarshanmukhopadhyay
+assessment_id: SR-003
+target:
+  repository: trustoverip/aimwg-trust-enabled-agents
+  revision: 7a53ecf3300dd6fb1bd4d6bcfab967475866e082
+  artifact: spec/clauses.md
+  version_label: v0.2 Draft source snapshot
+rahp_version: trustoverip/dtgwg-rahp-tf@0481ab15dc6a926b024745b07674a5e130915d44
+reviewed_at: '2026-11-03'
+findings:
+- id: F-001
+  summary: Authenticated TEA identity must not substitute for capability-chain authorization.
+  risks:
+  - EX-RK-DA01
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: already-addressed
+    reference: source/clauses.md.txt
+    rationale: Retained Invocation Exchange / Presentation, clauses 1-3 (source/clauses.md.txt lines 279-283), requires capability-chain verification after TSP authentication.
+- id: F-002
+  summary: Re-delegation and invocation must not broaden effective authority beyond source capabilities.
+  risks:
+  - EX-RK-DA02
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: already-addressed
+    reference: source/clauses.md.txt
+    rationale: Retained Attenuated re-delegation (source/clauses.md.txt lines 193-205) and Invocation Exchange / Exercise, clauses 4-5 (lines 285-288), constrain effective authority.
+- id: F-003
+  summary: Post-gate obligation breach must remain distinct from authorization already exercised.
+  risks:
+  - EX-RK-OB01
+  control_plane: specification
+  status: resolved
+  resolution:
+    type: already-addressed
+    reference: source/clauses.md.txt
+    rationale: Retained Delegation Exchange / What a delegation states (source/clauses.md.txt lines 143-154) and Obligations (from line 228) separate post-gate duties from capability authorization.
+- id: F-004
+  summary: Runtime enforcement of delegated authority and post-gate accountability remains unassessed by this source-only example.
+  risks:
+  - EX-RK-DA01
+  - EX-RK-DA02
+  - EX-RK-OB01
+  control_plane: runtime-control
+  status: open
