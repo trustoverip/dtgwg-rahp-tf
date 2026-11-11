@@ -1,0 +1,20 @@
+slug: standalone-trqp
+title: "TRQP: what does a schema-valid authorization response establish?"
+question: >-
+  What does a schema-valid Trust Registry Query Protocol (TRQP) authorization response establish, and what
+  remains to be demonstrated before relying on authority or time?
+source: "Upstream worked example review/examples/standalone-trqp"
+toolkit_personas: ["Spec-first technical reviewer"]
+catalogue_personas: []
+records:
+  - {review: review/examples/standalone-trqp/review.yaml, evidence: review/examples/standalone-trqp/evidence.json, name: TRQP v2}
+risks: review/examples/standalone-trqp/risks.yaml
+state: human-checked
+state_note: "Author-assessed (AI-assisted); findings open; independent review pending."
+steps:
+  - {step: "State one bounded assurance question", who: H, done: yes}
+  - {step: "Pin and retain the source", who: M, done: yes}
+  - {step: "Replay retained observations", who: M, done: yes}
+  - {step: "Record findings and bind evidence", who: "H+AI, M", done: yes}
+  - {step: "Validate", who: M, done: yes}
+  - {step: "Independent examination", who: "H*", done: "no"}

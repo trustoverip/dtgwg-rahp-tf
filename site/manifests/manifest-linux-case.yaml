@@ -1,0 +1,25 @@
+slug: linux-case
+title: "Linux case study: Dewi and Kestrel against three DTG specifications"
+question: >-
+  The Linux kernel maintainers run a Verifiable Trust Community. Maintainer rights need a personhood
+  credential and two vouches. Do Trust Tasks, Credentials and ZKP protect an honest contributor joining
+  from far away (Dewi), and stop a patient insider like XZ's "Jia Tan" (Kestrel)? What about AI agents?
+source: First Person Project White Paper V2.0, Part Eight (Linux Foundation case study)
+toolkit_personas: ["Dewi Kartika (TP-16): reviewer's lens, honest contributor", "Kestrel (TP-12): patient insider"]
+catalogue_personas: [D3, B1, M1, M2]
+# The three review records (SR-301 to SR-303), their evidence and the combined risks are not in this
+# repository yet. The site uses only the themes and findings in site/examples/linux-case/findings.json.
+themes: site/examples/linux-case/findings.json
+state: ai-draft
+steps:
+  - {step: "Choose a way in and frame the question", who: H+AI, done: yes}
+  - {step: "Pin each specification to a commit", who: M, done: yes}
+  - {step: "Read each specification with the personas' eyes", who: AI, done: yes}
+  - {step: "Draft findings, risks and where fixes belong", who: AI, done: yes}
+  - {step: "Spot-check citations (quotes only)", who: AI, done: yes}
+  - {step: "Review the findings as the personas' advocate", who: "H*", done: "no"}
+  - {step: "Build and validate the review records", who: M, done: yes}
+  - {step: "Bind evidence to each finding", who: "M/AI, H checks", done: "drafted"}
+  - {step: "Independent examination by someone else", who: "H*", done: "no"}
+  - {step: "Interpret and decide (TF)", who: "H*", done: "no"}
+state_note: "Findings drafted by AI agents (one per specification); citations spot-checked; not yet reviewed by Nicky Hickman."

@@ -1,0 +1,159 @@
+{
+ "example": "arthur-margaret",
+ "title": "Arthur and Margaret: a persona-led review of an implementation",
+ "target": "an open-source trust-community implementation stack (not named)",
+ "state": "Checked by a person",
+ "state_detail": "Nicky Hickman confirmed the findings on 11 Nov 2026. She has not re-checked the code evidence, and no independent examination has been done.",
+ "record": {
+  "assessment_id": "SR-401",
+  "note": "The review record and its evidence file pin three repositories to exact commits. They are kept privately so the stack is not named."
+ },
+ "rahp_version": "dtgwg-rahp-tf main 879e6f7",
+ "reviewed": "2026-11-10 to 2026-11-11",
+ "people": {
+  "EC2a": "Arthur Kowalczyk, 74, early-stage vascular dementia; has capacity now",
+  "EC2b": "Margaret Kowalczyk, 72, his partner and carer; holds registered lasting powers of attorney"
+ },
+ "scenarios": [
+  "SC-28 LPA pre-registration",
+  "SC-29 Capacity loss and death"
+ ],
+ "findings": [
+  {
+   "id": "F-001",
+   "title": "No way to represent a legal attorney",
+   "plane": "Technical standards",
+   "control_plane": "specification",
+   "risks": [
+    "RK-HX05",
+    "RK-SC05"
+   ],
+   "finding": "The stack has no way to represent a legal attorney (lasting power of attorney or deputyship), so it cannot tell Margaret acting lawfully for Arthur from an account takeover.",
+   "evidence": "Searches of the code and documentation for attorney, power of attorney, guardian, carer and incapacity found nothing.",
+   "limits": [
+    "Absence is from term searches only; the concept could exist under other names."
+   ],
+   "who": "Authors of the DTG credential and system specifications",
+   "next_step": "A scoped, auditable legal-delegation credential (RAHP control CT-59)."
+  },
+  {
+   "id": "F-002",
+   "title": "Margaret can only act through a generic role or Arthur's unlock code",
+   "plane": "Technical implementation",
+   "control_plane": "implementation-guidance",
+   "risks": [
+    "RK-HX04",
+    "RK-HX05"
+   ],
+   "finding": "Margaret can act for Arthur only through a generic access role or by using his unlock code. Neither records that she acts as his attorney, limits what she can do, or shows it to the community.",
+   "evidence": "The access-control design has a handful of generic roles, from full administration to read-only, scoped by context. None expresses acting on behalf of another person.",
+   "limits": [
+    "Not tested on a running system.",
+    "That Margaret would in practice use Arthur's unlock code is a judgement, not an observation."
+   ],
+   "who": "The implementers, then the community's governance",
+   "next_step": "A delegation role with limited scope, visible to the community."
+  },
+  {
+   "id": "F-003",
+   "title": "Co-approval exists, but is switched off by default",
+   "plane": "Configuration for an instance",
+   "control_plane": "runtime-control",
+   "risks": [
+    "RK-HX04"
+   ],
+   "finding": "Co-approval (\"a second person must agree\") could support Arthur's own decisions while he has capacity. But approval rules are off by default, so on a default installation they protect no one. A good basis for supported decision-making, with the wrong default.",
+   "evidence": "The documentation says approval rules are opt-in and not enforced unless an operator turns them on. Rules can require named approvers and exclude the person asking.",
+   "limits": [
+    "Checked in the documentation only, not on a running installation."
+   ],
+   "who": "The implementers (the default), operators, and the community's governance (require it)",
+   "next_step": "Make supported decision-making available by default, or require it in community rules."
+  },
+  {
+   "id": "F-004",
+   "title": "Notices go only to the member",
+   "plane": "Technical standards",
+   "control_plane": "specification",
+   "risks": [
+    "RK-HX05"
+   ],
+   "finding": "Governance notices, including removal, go only to the member. There is no second recipient, so Arthur's right to respond or appeal is lost once he cannot use his account. Any fix must be Arthur's own choice while he has capacity, and withdrawable, because a second recipient can also expose someone under coercive control.",
+   "evidence": "The removal notice is a best-effort message to the member only. No second recipient appears anywhere.",
+   "limits": [
+    "Only the removal notice was traced; other notices were not."
+   ],
+   "who": "Specification authors and implementers",
+   "next_step": "Secondary notification recipients, chosen and withdrawable by the member (RAHP control CT-60)."
+  },
+  {
+   "id": "F-005",
+   "title": "No pathway for closing an identity on death",
+   "plane": "Governance",
+   "control_plane": "governance",
+   "risks": [
+    "RK-HX06"
+   ],
+   "finding": "There is no pathway for closing a member's identity on death or permanent incapacity. The nearest is \"member leaves\", which Margaret could trigger only by acting as Arthur. He stays a \"ghost\" member.",
+   "evidence": "The only exit is a member choosing to leave.",
+   "limits": [
+    "The leave flow was not re-read in code for this review."
+   ],
+   "who": "The community's governance and operators",
+   "next_step": "A governed closure pathway with a tamper-evident record (RAHP control CT-61)."
+  },
+  {
+   "id": "F-006",
+   "title": "No accessibility for cognitive differences",
+   "plane": "User experience",
+   "control_plane": "implementation-guidance",
+   "risks": [
+    "RK-HX04"
+   ],
+   "finding": "Ceremonies have no accessibility profile for people with cognitive differences, and nothing has been tested with users like Arthur. The member app works by keyboard only.",
+   "evidence": "No accessibility profile or testing was found.",
+   "limits": [
+    "No user testing was done.",
+    "RAHP has no UX control plane, so the record files this as implementation guidance."
+   ],
+   "who": "Implementers and UX designers",
+   "next_step": "An accessible ceremony profile, tested with users (RAHP control CT-58)."
+  },
+  {
+   "id": "F-007",
+   "title": "No oversight of whoever acts for Arthur",
+   "plane": "Governance",
+   "control_plane": "governance",
+   "risks": [
+    "EX-RK-HX09",
+    "RK-HX05"
+   ],
+   "finding": "Nothing lets Arthur, or a supervisory body, see what Margaret or another delegate did, take control back while he has capacity, or raise a concern. So he is protected from neither a careless nor an abusive attorney.",
+   "evidence": "Actions are logged, but nothing found shows that log to the member.",
+   "limits": [
+    "A judgement; not checked in code beyond the access-control design.",
+    "Rests on a proposed risk (abuse of delegated authority, RAHP issue #58) that is not yet in the catalogue."
+   ],
+   "who": "The community's governance and implementers",
+   "next_step": "An audit view for the member, revocation while capable, and a route for concerns."
+  },
+  {
+   "id": "F-008",
+   "title": "No safe way to decline under pressure",
+   "plane": "User experience",
+   "control_plane": "implementation-guidance",
+   "risks": [
+    "EX-RK-HX08",
+    "RK-HX04"
+   ],
+   "finding": "Confirmations and approvals offer no duress signal or quiet refusal for someone pressured by a person in the room. Arthur, whose capacity comes and goes, is especially exposed.",
+   "evidence": "No duress or safe-decline feature was found.",
+   "limits": [
+    "Based on term searches and an earlier review; the interfaces were not walked through.",
+    "Rests on a proposed risk (coercion by someone close, RAHP issue #58) that is not yet in the catalogue."
+   ],
+   "who": "Implementers and UX designers",
+   "next_step": "A duress signal or safe way to decline."
+  }
+ ]
+}

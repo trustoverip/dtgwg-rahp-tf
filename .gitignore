@@ -4,3 +4,5 @@ __pycache__/
 .DS_Store
 # build/ is generated; commit it only on tagged releases
 build/
+# Pages build output (tools/build_pages.py)
+_site/
