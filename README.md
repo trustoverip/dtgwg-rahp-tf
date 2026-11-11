@@ -114,6 +114,11 @@ resolve under `https://trustoverip.github.io/dtgwg-rahp-tf/id/`.
 **Using an AI assistant** — `RAHP_AI_Assisted_Process.md`, and the provenance rules
 in `CONTRIBUTING.md`.
 
+**First technical RAHP examination (start here)** — [Hello RAHP: examine a
+specification step by step](review/examples/standalone-trqp/TUTORIAL.md).
+This walks through a bounded review, its reproducible checks, and the human
+examination that the checks cannot replace.
+
 **Pressure-testing a specification** — `docs/pressure-testing-a-spec.md`. Reviews
 are pinned to immutable source revisions, findings reference the RAHP risk corpus,
 and control-plane classification is kept separate from finding status and resolution.

@@ -1,24 +1,47 @@
 # Hello RAHP: examine a specification step by step
 
-This tutorial shows how to complete one bounded RAHP specification examination from
-start to finish using only the upstream repository. It uses the retained-source
-[TRQP example](README.md), but the sequence is intended to teach the method rather
-than TRQP itself.
+This is the **technical first-use path** for a bounded RAHP specification
+examination. RAHP (Risk Assessment & Harms Prevention) is a human-led method,
+a catalogue of risks and affected contexts, and a set of validation tools in
+this repository; there is no separate RAHP application to install. You will
+reproduce a source-pinned example and learn how to prepare a review record
+with findings and linked evidence, not a certification or risk-acceptance decision.
+
+The walkthrough uses the retained-source [TRQP example](README.md), but
+the sequence teaches the method rather than TRQP itself. It assumes basic
+command-line use; [Adopting RAHP](../../../ADOPTION.md) gives the wider context.
 
 The example is deliberately not an assurance certification. A successful run means
 that the retained source, review record, selected risks and evidence bindings are
 internally reproducible. It does **not** establish that a live TRQP deployment is
 authorized, secure, conformant or acceptable.
 
-Run every command from the repository root after installing the dependencies:
+## Set up the technical walkthrough
+
+Clone or download this repository and open a terminal in its root directory
+(the folder containing `requirements.txt`). Use a Python virtual environment
+so installation does not modify the system-managed Python installation.
+On Linux or macOS:
 
 ```bash
-python3 -m pip install -r requirements.txt
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-**Expected result:** dependency installation exits 0. Exact installer output varies by
-environment and is not retained assurance evidence. If installation fails, stop and
-repair the environment before interpreting any RAHP command.
+If `python3 -m venv .venv` fails on Ubuntu because the venv module is missing,
+install the matching distribution package (often `python3-venv`, using your
+system's package manager and required permissions), then retry. Some Ubuntu
+installations also lack a system `pip`; using a virtual environment avoids
+system-wide pip installation and externally-managed-environment errors.
+On Windows, the environment activation command differs; see Python's
+`venv` documentation.
+
+**Expected result:** dependency installation exits 0 inside the virtual
+environment. Exact installer output varies by environment and is not retained
+assurance evidence. If installation fails, stop and repair the environment
+before interpreting any RAHP command. Keep the environment activated when
+running the commands below.
 
 The retained files under this directory are the source of truth for the worked
 example. Output excerpts below are representative and are mechanically checked
@@ -104,6 +127,12 @@ target:
 
 The [source manifest](source-manifest.json) records the retained files, their
 upstream paths, Git blob identifiers and SHA-256 digests.
+
+A **commit ID** (also called a commit SHA) identifies a specific snapshot
+of the repository. To find one on GitHub, open the target repository, select
+**Commits** from its code view, open the relevant commit and copy its full
+40-character SHA (not merely the short label shown in the list). Record the
+commit for the *target being reviewed*, not this RAHP tutorial repository.
 
 Do not replace the full revision with a mutable branch such as `main`. A branch
 name cannot identify the exact source state that was reviewed.

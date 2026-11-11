@@ -41,6 +41,18 @@ class FirstUseTutorialTests(unittest.TestCase):
             with self.subTest(target=target):
                 self.assertTrue((TUTORIAL.parent / target).resolve().exists())
 
+    def test_first_use_entry_and_setup_are_discoverable(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("review/examples/standalone-trqp/TUTORIAL.md", readme)
+        self.assertIn("First technical RAHP examination (start here)", readme)
+        self.assertIn("technical first-use path", self.text)
+        self.assertIn("review record", self.text)
+        self.assertIn("python3 -m venv .venv", self.text)
+        self.assertIn("python -m pip install -r requirements.txt", self.text)
+        self.assertIn("python3-venv", self.text)
+        self.assertIn("commit ID", self.text)
+        self.assertIn("40-character SHA", self.text)
+
     def test_tutorial_identifiers_match_selected_source_and_review(self):
         source = yaml.safe_load((EXAMPLE / "risks.yaml").read_text(encoding="utf-8"))
         review = yaml.safe_load((EXAMPLE / "review.yaml").read_text(encoding="utf-8"))
