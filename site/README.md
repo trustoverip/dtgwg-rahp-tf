@@ -13,6 +13,8 @@ source and build again.
 
 ## Build and check locally
 
+Needs Python 3.12 or later.
+
 ```bash
 pip install -r requirements.txt
 python3 tools/build_pages.py          # writes _site/
