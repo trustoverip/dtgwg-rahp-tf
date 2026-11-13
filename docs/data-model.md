@@ -15,8 +15,6 @@ At the current repository revision, the principal machine-readable surfaces are:
 - the YAML record files under `data/` for the current DTG instance; and
 - `review/spec-review.schema.json` for reproducible specification-review records.
 
-Some existing comments and documentation describe a future or intended `method/`, `data/`, and `tools/` layout. This page describes the repository as it exists now and does not treat those paths as already implemented.
-
 ## Three connected views
 
 RAHP is easier to read as three connected views rather than as one monolithic object.
