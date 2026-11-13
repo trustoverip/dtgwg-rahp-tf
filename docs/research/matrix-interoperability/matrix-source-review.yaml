@@ -1,0 +1,22 @@
+schema: rahp-spec-review/v1
+assessment_id: SR-390
+target:
+  repository: trustoverip/aimwg-agent-fiduciary-duties
+  revision: 140b558791bab5bacdbe5245df0aada93d2b27bd
+  artifact: Assurance Matrix/README.md
+  version_label: Matrix README at pinned research revision
+rahp_version: trustoverip/dtgwg-rahp-tf@448e2ff4ca7f747ca899e0e845adfe45f750f094
+reviewed_at: '2026-10-25'
+findings:
+- id: F-001
+  summary: Matrix expressly excludes validated native RAHP schema compatibility; direct interchange requires transformation and evidence-loss review.
+  risks:
+  - RK-AU01
+  control_plane: implementation-guidance
+  status: open
+- id: F-002
+  summary: Permission-withdrawal scenario is a documented proposed test, not deployment evidence of revocation enforcement.
+  risks:
+  - RK-AU02
+  control_plane: runtime-control
+  status: open

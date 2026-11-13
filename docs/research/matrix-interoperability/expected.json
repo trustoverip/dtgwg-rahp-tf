@@ -1,0 +1,65 @@
+{
+  "fixture_validation": "complete",
+  "target_assurance": "not-assessed",
+  "human_review": "required",
+  "results": [
+    {
+      "id": "positive",
+      "outcome": "PASS",
+      "missing_roles": []
+    },
+    {
+      "id": "withdrawn",
+      "outcome": "PASS",
+      "missing_roles": []
+    },
+    {
+      "id": "cached-approval-bypass",
+      "outcome": "FAIL",
+      "missing_roles": []
+    },
+    {
+      "id": "fallback-bypass",
+      "outcome": "FAIL",
+      "missing_roles": []
+    },
+    {
+      "id": "unknown-authority",
+      "outcome": "INDETERMINATE",
+      "missing_roles": [
+        "authority"
+      ]
+    },
+    {
+      "id": "no-capability",
+      "outcome": "PASS",
+      "missing_roles": []
+    }
+  ],
+  "material_change": {
+    "kind": "permission-revocation",
+    "affected_propositions": [
+      "current-authority",
+      "pre-execution-gate",
+      "retry-fallback"
+    ],
+    "dispositions": [
+      {
+        "evidence": "baseline-subject",
+        "state": "retained"
+      },
+      {
+        "evidence": "earlier-grant",
+        "state": "stale"
+      },
+      {
+        "evidence": "cached-approval",
+        "state": "contradicted"
+      },
+      {
+        "evidence": "human-outcome",
+        "state": "unresolved"
+      }
+    ]
+  }
+}
