@@ -3,6 +3,8 @@
 **Risk Assessment & Harms Prevention Task Force · Decentralised Trust Graph Working Group**
 Working Draft · toolkit v0.3-dev · Code: Apache 2.0 · Content: CC-BY 4.0
 
+**Website:** <https://trustoverip.github.io/dtgwg-rahp-tf/> · **Task force:** meets every two weeks on Wednesdays, 14:00 UTC. Meeting notes are on the [ToIP wiki](https://lf-toip.atlassian.net/wiki/spaces/HOME/pages/363331586/Meetings+RAHP+Task+Force).
+
 ---
 
 The RAHP Toolkit is a method for embedding human harm prevention into the design of
@@ -42,12 +44,18 @@ empty `data/` except `instance.yaml`, and start at lifecycle stage `STAGE-1`.
 
 ## Quick start
 
+Needs Python 3.11 or later (3.12 or later to build the GitHub Pages site).
+
 ```bash
 pip install -r requirements.txt
 python3 tools/validate.py      # integrity check — exits 0 on a clean repo
-python3 tools/build.py         # regenerate the site, JSON-LD and exports
+python3 tools/build.py         # regenerate the analyst views, JSON-LD and exports
 open build/site/index.html
+python3 tools/build_pages.py   # build the published website into _site/
 ```
+
+The published website at <https://trustoverip.github.io/dtgwg-rahp-tf/> is built from
+`tools/build_pages.py` and the sources in `site/`. See [site/README.md](site/README.md).
 
 ## What is in the DTG instance
 
