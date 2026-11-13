@@ -1,0 +1,10 @@
+.git
+.github
+archive
+build
+evaluation-runs
+__pycache__
+*.pyc
+*.log
+.env
+.env.*

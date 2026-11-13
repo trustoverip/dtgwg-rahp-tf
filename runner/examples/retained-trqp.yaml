@@ -1,0 +1,7 @@
+# Offline upstream-supported evaluation, not a live portfolio target.
+schema: rahp-evaluation-runner/v1alpha1
+targets:
+  - id: retained-trqp
+    repository: trustoverip/tswg-trust-registry-protocol
+    evaluator: upstream-retained-trqp
+    source_revision: 6863733878f3657e05f70764bb474a9fb918de9a

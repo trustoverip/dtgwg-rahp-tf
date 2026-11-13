@@ -1,0 +1,18 @@
+[Unit]
+Description=RAHP scheduled documentary evaluation
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=rahp
+Group=rahp
+WorkingDirectory=/opt/rahp
+ExecStart=/usr/bin/python3 -m runner.service run-all --config runner/examples/dtg-service.yaml --output /var/lib/rahp/evaluations
+StateDirectory=rahp
+PrivateTmp=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/rahp
+TimeoutStartSec=900

@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly RAHP scheduled evaluation
+
+[Timer]
+OnCalendar=Mon *-*-* 03:00:00 UTC
+Persistent=true
+Unit=rahp-evaluation.service
+
+[Install]
+WantedBy=timers.target
