@@ -4,6 +4,11 @@ This bounded exercise asks: what does a schema-valid TRQP authorization response
 establish, and what remains to be demonstrated before relying on authority or time?
 It runs offline after dependency installation, using this repository alone.
 
+If this is your first RAHP specification review, start with
+[Hello RAHP: examine a specification step by step](TUTORIAL.md). The tutorial
+uses this same retained bundle but explains the sequence, representative output,
+interpretation boundaries and fail-closed behavior before this technical reference.
+
 ## Source and method identity
 
 Target: `trustoverip/tswg-trust-registry-protocol` at
@@ -75,7 +80,7 @@ See [review documentation](../../README.md) for the existing assessment contract
 
 ## Bind observations to the assessment
 
-Increment 2 uses the unchanged upstream [review schema](../../spec-review.schema.json)
+The example uses the upstream [review schema](../../spec-review.schema.json)
 and `validate_spec_review.py::validate_record`. The assessment lives in
 [review.yaml](review.yaml); evidence and reasoning live separately in
 [evidence.json](evidence.json), validated against [evidence.schema.json](evidence.schema.json).
@@ -137,6 +142,6 @@ When source, review, selected risks or fixtures change, retain the earlier bundl
 and reassess; do not silently reuse the old evidence. Updating digests is an
 explicit new binding, not proof that old conclusions still apply. Capture the
 implementation Git SHA and dependency versions with any exported execution result.
-Increment 3 will consolidate vocabulary/validation; Increment 4 and pending CI
-PR #14 will establish the supported repository CI path. This example adds no
-duplicate workflow and claims no independent adopter qualification.
+The repository validation workflow exercises the retained-source examination and
+preserves validation evidence. This example adds no duplicate workflow and claims
+no independent adopter qualification.
