@@ -73,7 +73,7 @@ At the RAHP Task Force meeting on 14 October 2026, the task force agreed that re
 
 Reviewer identity does not by itself establish risk-acceptance authority.
 
-This distinction becomes especially important for statuses such as `risk_accepted`. PR #28 proposes validator enforcement that a `risk_accepted` finding references a real accepted record in `data/risk-acceptances.yaml`; that enforcement remains under review until #28 is merged.
+This distinction becomes especially important for statuses such as `risk_accepted`. Since PR #28 (merged 2 November 2026), the validator enforces that a `risk_accepted` finding references a real accepted record in `data/risk-acceptances.yaml`.
 
 ## Vocabulary as method, not implementation detail
 
@@ -81,7 +81,7 @@ Review vocabulary shapes how findings are interpreted. Terms such as `control_pl
 
 The task force agreed this direction on 14 October 2026. PR #27 subsequently moved the review vocabularies and their definitions into `method/vocabularies.yaml`, and PR #21 removed the duplicated hard-coded review-enum copy from the combined validation path. The repository now has one governed source for these definitions and validation checks that detect schema drift.
 
-PR #28, currently under review, adds further semantic checks derived from those definitions. Until it is merged, those proposed checks should not be treated as current repository behavior.
+PR #28 (merged 2 November 2026) added further semantic checks derived from those definitions, so they are now current repository behavior.
 
 ## Local hypotheses, corpus risks and examples
 
@@ -128,4 +128,4 @@ Each convergence pull request should answer the following questions in its descr
 
 Answering these questions should make future reviews easier for human reviewers, tool-assisted reviewers and adopting working groups.
 
-These questions also expose a broader contribution-governance need: the repository pull-request template should support method, tooling and convergence changes rather than only corpus-record changes. That change belongs in a separate GAP-5.1 contribution-governance tranche so that the repository-wide merge policy can be reviewed independently.
+These questions also exposed a broader contribution-governance need: the pull-request template should support method, tooling and convergence changes, not only corpus-record changes. PR #32 (merged 3 November 2026) made that change in [`.github/pull_request_template.md`](../.github/pull_request_template.md). The wider contribution procedure is still a GAP-5.1 question, tracked in #43.
