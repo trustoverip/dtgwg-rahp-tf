@@ -42,6 +42,6 @@ The validator and build commands run from `tools/`; canonical instance data is u
 
 ## Execution boundary
 
-The workflow has read-only repository permissions, uses commit-pinned actions, does not persist checkout credentials, and does not deploy, create releases, merge PRs or modify repository settings. This contribution does not make its check a required branch-protection rule; upstream maintainers own that policy decision.
+The workflow has read-only repository permissions, uses commit-pinned actions, does not persist checkout credentials, and does not deploy, create releases, merge PRs or modify repository settings. `validate` is now a required check on `main`, alongside `EasyCLA` and `DCO`. The ruleset is recorded in [`.github/rulesets/`](../.github/rulesets/README.md) (#57).
 
 This contribution was reconciled onto current `main` after the layout restoration in #16. Its workflow and reproduction commands use the canonical `tools/`, `data/`, `method/`, and `context/` layout.
