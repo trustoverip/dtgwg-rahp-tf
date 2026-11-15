@@ -14,6 +14,34 @@ review was based on.
 
 ### Added
 
+- **Specification pressure-test records** under `review/`: a review record
+  schema, validator and examples for reproducible, source-pinned reviews of a
+  specification ([#10](https://github.com/trustoverip/dtgwg-rahp-tf/pull/10)).
+- **Adoption guidance**: a guided adoption path in `ADOPTION.md` ([#11](https://github.com/trustoverip/dtgwg-rahp-tf/pull/11)), a
+  reader-facing data model map in `docs/data-model.md` ([#12](https://github.com/trustoverip/dtgwg-rahp-tf/pull/12)), and a worked
+  review and reassessment example ([#15](https://github.com/trustoverip/dtgwg-rahp-tf/pull/15)).
+- **Upstream convergence increments (#17)**, bringing the downstream toolkit's
+  assurance testing upstream:
+  - Increment 1: retained-source TRQP replay ([#19](https://github.com/trustoverip/dtgwg-rahp-tf/pull/19)).
+  - Increment 2: examination evidence bound to review records ([#20](https://github.com/trustoverip/dtgwg-rahp-tf/pull/20)).
+  - Increment 3: composed review checks with the shared vocabulary,
+    `tools/validate_all.py` ([#21](https://github.com/trustoverip/dtgwg-rahp-tf/pull/21)).
+  - Increment 4: fail closed when a schema dependency is missing ([#22](https://github.com/trustoverip/dtgwg-rahp-tf/pull/22)).
+  - Increment 5: source-pinned VRC reassessment ([#33](https://github.com/trustoverip/dtgwg-rahp-tf/pull/33)).
+  - Functional sufficiency and repeatable reviews, with `replay_check.py` ([#40](https://github.com/trustoverip/dtgwg-rahp-tf/pull/40)).
+- **Validation workflow** (`.github/workflows/validate.yml`) running corpus,
+  regression, specification-review and build checks, with preserved evidence
+  ([#14](https://github.com/trustoverip/dtgwg-rahp-tf/pull/14)). `validate` is now a required check on `main`; the ruleset is
+  recorded in `.github/rulesets/` ([#57](https://github.com/trustoverip/dtgwg-rahp-tf/pull/57)).
+- **Review vocabulary rules enforced** by the validator, including
+  `risk_accepted` findings referencing a real accepted record ([#28](https://github.com/trustoverip/dtgwg-rahp-tf/pull/28)).
+- **Assurance model note**: `docs/how-rahp-builds-assurance-incrementally.md` ([#23](https://github.com/trustoverip/dtgwg-rahp-tf/pull/23)).
+- **Pull request template** that makes method, tooling and convergence changes
+  independently reviewable ([#32](https://github.com/trustoverip/dtgwg-rahp-tf/pull/32)).
+- **TEA delegated-authority worked example** ([#52](https://github.com/trustoverip/dtgwg-rahp-tf/pull/52)).
+- **GitHub Pages website** built by `tools/build_pages.py` from `site/` and
+  deployed by `.github/workflows/pages.yml`, with `tools/check_pages.py` ([#60](https://github.com/trustoverip/dtgwg-rahp-tf/pull/60)).
+- **Licence**: Apache 2.0 for source code, alongside CC-BY 4.0 for content ([#25](https://github.com/trustoverip/dtgwg-rahp-tf/pull/25)).
 - **Canonical YAML data model** under `data/`. Nine artefact types migrated from
   `DTG_RAHP_Risk_Register_v5.xlsx` and `DTG_RAHP_User_Stories_Framework_v6.xlsx`
   with no content loss: 43 risks, 66 controls, 21 guardrails, 21 assurance tests,
@@ -57,6 +85,8 @@ review was based on.
 
 ### Changed
 
+- **Repository layout restored** to the intended `method/`, `data/` and `tools/`
+  directories ([#16](https://github.com/trustoverip/dtgwg-rahp-tf/pull/16)).
 - **Specification review accountability and example-local identifiers.** Review records now require a non-empty `reviewer` identity. This is an accountability field, not risk-acceptance authority. Example-local risk hypotheses use `EX-RK-*` identifiers so they cannot be mistaken for canonical `RK-*` corpus records. Existing repository review examples have been migrated. This is a compatibility-significant change for consumers validating review records without `reviewer`.
 - **`Critical` is now a distinct severity class**, not a higher number. Critical
   risks carry no numeric score, must be gated by a guardrail, and may not be
@@ -68,6 +98,8 @@ review was based on.
 
 ### Fixed
 
+- **Replay evidence privacy and failure paths**: relative paths in evidence, the
+  environment recorded, and failing reviews tested ([#55](https://github.com/trustoverip/dtgwg-rahp-tf/pull/55)).
 - **Accepted-risk documentary integrity (`INV-6`).** Canonical validation now
   rejects incomplete `accepted` and `accepted_with_conditions` records,
   malformed or unordered ISO dates and residual severities outside the non-Critical

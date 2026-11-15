@@ -1,0 +1,101 @@
+{
+  "target_commit": "7a53ecf3300dd6fb1bd4d6bcfab967475866e082",
+  "scope": "retained TEA v0.2 Draft source and constructed capability fixtures only",
+  "source_integrity": "verified",
+  "source_propositions": {
+    "capability_triple": true,
+    "authorization_from_capability_only": true,
+    "strict_attenuation": true,
+    "obligations_post_gate": true,
+    "exercise_rechecked": true,
+    "nonperformance_not_retroactive": true
+  },
+  "cases": [
+    {
+      "id": "within-authority",
+      "restriction_conformant": true,
+      "authorized": true,
+      "reason": "within-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "max_amount": 250
+      },
+      "post_gate_breach": false
+    },
+    {
+      "id": "ability-not-delegated",
+      "restriction_conformant": true,
+      "authorized": false,
+      "reason": "exceeds-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read"
+        ],
+        "max_amount": null
+      },
+      "post_gate_breach": false
+    },
+    {
+      "id": "attenuated-redelegation",
+      "restriction_conformant": true,
+      "authorized": true,
+      "reason": "within-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "max_amount": 250
+      },
+      "post_gate_breach": false
+    },
+    {
+      "id": "attempted-broadening",
+      "restriction_conformant": false,
+      "authorized": false,
+      "reason": "invalid-redelegation",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read"
+        ],
+        "max_amount": null
+      },
+      "post_gate_breach": false
+    },
+    {
+      "id": "authenticated-without-capability",
+      "restriction_conformant": true,
+      "authorized": false,
+      "reason": "no-capability",
+      "effective": null,
+      "post_gate_breach": false
+    },
+    {
+      "id": "authorized-then-obligation-breach",
+      "restriction_conformant": true,
+      "authorized": true,
+      "reason": "within-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "max_amount": 500
+      },
+      "post_gate_breach": true
+    }
+  ],
+  "unassessed": {
+    "tsp_transport": "not-assessed",
+    "vid_resolution": "not-assessed",
+    "revocation": "not-assessed",
+    "live_service": "not-assessed",
+    "full_tea_conformance": "not-assessed"
+  },
+  "overall_assurance": "review-required"
+}
