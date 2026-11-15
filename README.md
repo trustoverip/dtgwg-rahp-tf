@@ -138,6 +138,15 @@ operational intake. The runtime governance layer — metric thresholds, triage
 workflows, revocation SLAs — is scoped for v0.4 and deliberately unpopulated: every
 metric carries a `monitoring: null` hook.
 
+## Optional configured evaluation runner
+
+The experimental [RAHP Evaluation Runner](runner/README.md) provides a bounded,
+configuration-driven invocation of the **installed retained-source TRQP examination**
+with per-run JSON and Markdown reports. It does not discover live targets, perform
+runtime monitoring, evaluate arbitrary specifications, or establish target assurance.
+The independent DTG Portfolio Monitor supplies a small, attributed **advisory
+selection example**, not an executable upstream evaluation profile.
+
 ## Contributing
 
 See `CONTRIBUTING.md`. In short: `data/` is canonical, `build/` is generated, every

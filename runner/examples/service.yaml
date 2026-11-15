@@ -1,0 +1,29 @@
+# Two actual upstream review records at distinct source revisions.
+# This demonstrates configured source acquisition, per-run reports and comparison.
+# This is documentary review validation, not source-semantic assurance testing.
+schema: rahp-evaluation-runner/v1alpha2
+targets:
+  - id: trqp-reference
+    repository: trustoverip/tswg-trust-registry-protocol
+    revision: 6863733878f3657e05f70764bb474a9fb918de9a
+    assessment: upstream-review-validation
+    review: repo://review/examples/standalone-trqp/review.yaml
+    risks: repo://review/examples/standalone-trqp/risks.yaml
+    artifact: specification/v2-approved/core/spec.md
+    artifact_sha256: 41688d4111dd1321cc3291414d3863612f76009432aa6e32adf6f84ff8ce0b68
+  - id: vrc-baseline
+    series: vrc-review
+    repository: trustoverip/dtgwg-cred-tf
+    revision: 62bbd8a19d598078f50560948ca71ec0e034a6fc
+    assessment: upstream-review-validation
+    review: repo://review/examples/vrc-v03/baseline-review.yaml
+    risks: repo://data/risks.yaml
+    artifact: dtg.md
+  - id: vrc-reassessed
+    series: vrc-review
+    repository: trustoverip/dtgwg-cred-tf
+    revision: 200acbaa47a422b173652ed2c3dc961c4fbc9e7a
+    assessment: upstream-review-validation
+    review: repo://review/examples/vrc-v03/reassessed-review.yaml
+    risks: repo://data/risks.yaml
+    artifact: dtg.md
