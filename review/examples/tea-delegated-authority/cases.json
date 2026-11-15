@@ -1,0 +1,216 @@
+[
+  {
+    "id": "within-authority",
+    "authenticated": true,
+    "chain": [
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read",
+          "transfer"
+        ],
+        "limitations": {
+          "max_amount": 1000
+        }
+      },
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "limitations": {
+          "max_amount": 250
+        }
+      }
+    ],
+    "exercise": {
+      "resource": "/accounts/123",
+      "ability": "transfer",
+      "amount": 200
+    },
+    "obligation_state": {},
+    "expected": {
+      "restriction_conformant": true,
+      "authorized": true,
+      "reason": "within-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "max_amount": 250
+      },
+      "post_gate_breach": false
+    }
+  },
+  {
+    "id": "ability-not-delegated",
+    "authenticated": true,
+    "chain": [
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read"
+        ],
+        "limitations": {}
+      }
+    ],
+    "exercise": {
+      "resource": "/accounts/123",
+      "ability": "write"
+    },
+    "obligation_state": {},
+    "expected": {
+      "restriction_conformant": true,
+      "authorized": false,
+      "reason": "exceeds-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read"
+        ],
+        "max_amount": null
+      },
+      "post_gate_breach": false
+    }
+  },
+  {
+    "id": "attenuated-redelegation",
+    "authenticated": true,
+    "chain": [
+      {
+        "resource": "/accounts",
+        "abilities": [
+          "read",
+          "transfer"
+        ],
+        "limitations": {
+          "max_amount": 1000
+        }
+      },
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "limitations": {
+          "max_amount": 250
+        }
+      }
+    ],
+    "exercise": {
+      "resource": "/accounts/123",
+      "ability": "transfer",
+      "amount": 250
+    },
+    "obligation_state": {},
+    "expected": {
+      "restriction_conformant": true,
+      "authorized": true,
+      "reason": "within-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "max_amount": 250
+      },
+      "post_gate_breach": false
+    }
+  },
+  {
+    "id": "attempted-broadening",
+    "authenticated": true,
+    "chain": [
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read"
+        ],
+        "limitations": {}
+      },
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read",
+          "write"
+        ],
+        "limitations": {}
+      }
+    ],
+    "exercise": {
+      "resource": "/accounts/123",
+      "ability": "write"
+    },
+    "obligation_state": {},
+    "expected": {
+      "restriction_conformant": false,
+      "authorized": false,
+      "reason": "invalid-redelegation",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "read"
+        ],
+        "max_amount": null
+      },
+      "post_gate_breach": false
+    }
+  },
+  {
+    "id": "authenticated-without-capability",
+    "authenticated": true,
+    "chain": [],
+    "exercise": {
+      "resource": "/accounts/123",
+      "ability": "read"
+    },
+    "obligation_state": {},
+    "expected": {
+      "restriction_conformant": true,
+      "authorized": false,
+      "reason": "no-capability",
+      "effective": null,
+      "post_gate_breach": false
+    }
+  },
+  {
+    "id": "authorized-then-obligation-breach",
+    "authenticated": true,
+    "chain": [
+      {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "limitations": {
+          "max_amount": 500
+        },
+        "obligations": [
+          "report-result"
+        ]
+      }
+    ],
+    "exercise": {
+      "resource": "/accounts/123",
+      "ability": "transfer",
+      "amount": 100
+    },
+    "obligation_state": {
+      "report-result": "unmet"
+    },
+    "expected": {
+      "restriction_conformant": true,
+      "authorized": true,
+      "reason": "within-capability",
+      "effective": {
+        "resource": "/accounts/123",
+        "abilities": [
+          "transfer"
+        ],
+        "max_amount": 500
+      },
+      "post_gate_breach": true
+    }
+  }
+]
