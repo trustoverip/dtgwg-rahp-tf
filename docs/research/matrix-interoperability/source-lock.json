@@ -1,0 +1,8 @@
+{
+  "issue": "https://github.com/trustoverip/dtgwg-rahp-tf/issues/39",
+  "sources": [
+    {"repository": "trustoverip/dtgwg-rahp-tf", "commit": "448e2ff4ca7f747ca899e0e845adfe45f750f094", "paths": ["review/spec-review.schema.json", "review/README.md", "review/examples/vrc-v03/README.md", "review/examples/vrc-v03/evaluate.py", "review/examples/standalone-trqp/README.md"]},
+    {"repository": "trustoverip/aimwg-agent-fiduciary-duties", "commit": "140b558791bab5bacdbe5245df0aada93d2b27bd", "paths": ["Assurance Matrix/README.md"]}
+  ],
+  "validation": {"source_tree_digest_verified": false, "workbook_rows_verified": false, "wla_full_text_verified": false, "independent_review": false}
+}
