@@ -1,0 +1,1303 @@
+{
+ "scenario": "SC-LX",
+ "findings": [
+  {
+   "id": "TT-01",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "Any VID can be a party. Personhood, uniqueness and Sybil resistance are left to an unnamed consumer trust framework",
+   "evidence": "`verifiable_identifier.md:3`; `body.md:271`; absent \"personhood\", \"sybil\"",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-ID01",
+    "RK-AI03"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials / VTI TF; VTC",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-02",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "Identity and proof validation are not authorization, and ceremony membership grants nothing",
+   "evidence": "`:902`, `:551`, `:1007`",
+   "status_label": "SAYS",
+   "status_note": "SAYS (positive)",
+   "risks": [
+    "RK-SY01",
+    "RK-CR04",
+    "RK-G05"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "VTC must use it",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-03",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "No shared component may default a quorum, but the two-voucher rule must still be set by the community",
+   "evidence": "`:850`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-SY02",
+    "RK-G01",
+    "RK-CR04"
+   ],
+   "control_plane_raw": "specification + governance",
+   "control_plane": "specification",
+   "bucket": "technical standards / governance",
+   "who_must_act": "VTC; registry authors",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-04",
+   "spec": "Trust Tasks",
+   "path": "A, B",
+   "finding": "Vouch meaning isn't defined here; the spec only proves which exchange happened and that it completed",
+   "evidence": "`:386`, `:388`, `:473`, `:478`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-CR04",
+    "RK-SC02",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF; registry",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-05",
+   "spec": "Trust Tasks",
+   "path": "A, B",
+   "finding": "Multi-party onboarding is only linked bilateral tasks; the ceremony vocabulary is out of scope",
+   "evidence": "`trust_task.md:3`; `:866`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-SC02",
+    "RK-G05",
+    "RK-SY03"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Trust Tasks TF",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-06",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "Nothing requires or prevents in-person vouching. Exclusion would be written into uncovered layers, so no inclusion check exists",
+   "evidence": "`intro.md:12`; `:866`, `:1639`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-ID02",
+    "RK-HX02",
+    "RK-HX01"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance / UX",
+   "who_must_act": "VTC; RAHP",
+   "confidence": "medium"
+  },
+  {
+   "id": "TT-07",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "Signed, durable role-change records give a forensic trail of how privilege was acquired",
+   "evidence": "`:58`; `appendix.md:21`, `:25`",
+   "status_label": "SAYS",
+   "status_note": "SAYS (positive)",
+   "risks": [
+    "RK-SY01",
+    "RK-CR04"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "registry",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-08",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "Revocation, cascade and consequences for honest vouchers are absent; task control only stops in-flight work",
+   "evidence": "`:1506`, `:1536`, `:1538`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR03",
+    "RK-CR01",
+    "RK-ID03"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards / governance",
+   "who_must_act": "Credentials TF; VTC",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-09",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "Status is re-checked before each irreversible effect, so a revoked insider's queued actions stop",
+   "evidence": "`:904`",
+   "status_label": "SAYS",
+   "status_note": "SAYS (positive)",
+   "risks": [
+    "RK-AI02",
+    "RK-CR03"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "implementation",
+   "who_must_act": "implementers",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-10",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "No due-process path, and tightly bounded errors limit what a refused person learns",
+   "evidence": "`appendix.md:21`; `:1156`, `:1162`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR01",
+    "RK-HX03"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance / UX",
+   "who_must_act": "VTC; RAHP",
+   "confidence": "medium"
+  },
+  {
+   "id": "TT-11",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "A community VID counts as `public` and makes documents joinable; pairwise is only a SHOULD",
+   "evidence": "`:1625`, `:972`, `:974`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID05",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "specification + implementation-guidance",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Trust Tasks TF; VTI TF",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-12",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "Outcome evidence discloses whole documents; unlinkability goes to VTI, and ZK isn't referenced",
+   "evidence": "`:1617`, `:480`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED (VTI)",
+   "risks": [
+    "RK-ID05",
+    "RK-SC03",
+    "RK-CY01"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "VTI TF; ZKP TF",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-13",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "Minimisation is a SHOULD in an informative section; nothing binds a vouching task to withholding nationality, employer or location",
+   "evidence": "`:1610`, `:1612`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-SC01",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Trust Tasks TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "TT-14",
+   "spec": "Trust Tasks",
+   "path": "C",
+   "finding": "No envelope member binds an agent's action to a principal or mandate",
+   "evidence": "`:913`, `:1512`; `party.md:3`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-AI01",
+    "RK-AI02",
+    "RK-AI03"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "Trust Tasks TF; VTI TF",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-15",
+   "spec": "Trust Tasks",
+   "path": "C",
+   "finding": "Task specs may not declare that human approval is required, so human review of agent work lives only in each consumer's policy",
+   "evidence": "`:996`, `:1644`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED (consumer policy)",
+   "risks": [
+    "RK-AI01",
+    "RK-AI04",
+    "RK-G04"
+   ],
+   "control_plane_raw": "governance + runtime-control",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC; implementers",
+   "confidence": "medium"
+  },
+  {
+   "id": "TT-16",
+   "spec": "Trust Tasks",
+   "path": "B",
+   "finding": "Nothing addresses slow trust accumulation, pressure campaigns or coordinated behaviour; minimised correlators also limit cluster detection",
+   "evidence": "absent \"pressure\", \"anomal\", \"collusion\"; `:1627`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-SY02",
+    "RK-AI04",
+    "RK-SY01",
+    "EX-RK-SY04"
+   ],
+   "control_plane_raw": "runtime-control + governance",
+   "control_plane": "runtime-control",
+   "bucket": "governance / implementation",
+   "who_must_act": "VTC; RAHP",
+   "confidence": "medium"
+  },
+  {
+   "id": "TT-17",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "Language tagging and accessibility are deferred, and the dense normative prose is hard to translate. Proposed EX-RK \"Normative Text Inaccessible in Translation\"",
+   "evidence": "`:1653`, `:1659`, `:1001`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-HX01",
+    "RK-NM01",
+    "EX-RK-HX10"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "UX",
+   "who_must_act": "Trust Tasks TF",
+   "confidence": "high"
+  },
+  {
+   "id": "TT-18",
+   "spec": "Trust Tasks",
+   "path": "A",
+   "finding": "\"Portable\" means across implementations, not reputation",
+   "evidence": "`intro.md:7`, `:9`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-SC02",
+    "RK-ID05"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF; VTI TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "TT-19",
+   "spec": "Trust Tasks",
+   "path": "all",
+   "finding": "Security and Privacy Considerations are mostly informative, and there's no conformance suite yet",
+   "evidence": "`:1570`, `:1610`, `:1679`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-SY03",
+    "RK-CY01"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "implementation",
+   "who_must_act": "Trust Tasks TF",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-01",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "PHC uniqueness is per issuer and enforced only by governance, so sock puppets can each carry a PHC from a different VTC",
+   "evidence": "`:1250-1257`; `personhood_credential.md:3`; absent \"sybil\", \"sock\"",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-ID01",
+    "RK-AI03",
+    "RK-G03"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC/VTN governance",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-02",
+   "spec": "DTG Credentials",
+   "path": "A, B",
+   "finding": "A VRC carries no semantics: not how the parties met, strength, scope or expiry; `validUntil` is optional",
+   "evidence": "`:315-319`, `:193`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-SC02",
+    "RK-HX02",
+    "RK-CR04"
+   ],
+   "control_plane_raw": "specification / companion-specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-03",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "VRCs need no membership or personhood, so sock puppets can mint a dense VRC web; only a verifier's anchor set filters it",
+   "evidence": "`:449`, `:357`, `:645`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID01",
+    "RK-SY01"
+   ],
+   "control_plane_raw": "runtime-control / governance",
+   "control_plane": "runtime-control",
+   "bucket": "implementation",
+   "who_must_act": "verifiers; VTC",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-04",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "Any VRC counterparty can endorse, with weight left to the community, so endorsement laundering is open",
+   "evidence": "`:841-843`, `:801-802`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-CR04",
+    "RK-SY02",
+    "RK-AI03"
+   ],
+   "control_plane_raw": "governance / companion-spec",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC; VSC registry",
+   "confidence": "medium"
+  },
+  {
+   "id": "CR-05",
+   "spec": "DTG Credentials",
+   "path": "A, B",
+   "finding": "No path to retract a vouch: status exists only for VDC and VAC, the VMC lifecycle is deferred, and a vetter withdraws by telling the community",
+   "evidence": "`:186-199`, `:537`, `:1048`, `:445`, `:1012`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-CR04",
+    "RK-CR02"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials + Trust Tasks TFs",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-06",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "Role is kept apart from relationship: maintainer rights belong in a time-limited VAC, never inferred from vouches",
+   "evidence": "`:1030`, `:1197`, `:698`, `:1047`, `:1110`",
+   "status_label": "SAYS",
+   "status_note": "SAYS (positive)",
+   "risks": [
+    "RK-SY01",
+    "RK-CR04"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "VTC must use it",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-07",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "Nothing detects slow trust accumulation, pressure campaigns or vouch collusion. Proposed EX-RK \"Patient-insider trust-to-privilege conversion\"",
+   "evidence": "`:963`, `:833`; absent \"coerc\", \"pressure\", \"collu\"",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-SY01",
+    "RK-SY02",
+    "RK-AI04",
+    "RK-G04",
+    "EX-RK-SY04"
+   ],
+   "control_plane_raw": "governance / operational-policy",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC; RAHP",
+   "confidence": "medium"
+  },
+  {
+   "id": "CR-08",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "After discovery only the VAC tree cascades. The insider's VRCs, VECs, VWCs and VICs stay verifiable, and there is no \"issuer disqualified\" signal",
+   "evidence": "`:1173`, `:1177`, `:1331`, `:670`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR03",
+    "RK-CR01",
+    "RK-HX03"
+   ],
+   "control_plane_raw": "companion-specification / governance",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards + governance",
+   "who_must_act": "Trust Tasks TF; VTC",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-09",
+   "spec": "DTG Credentials",
+   "path": "A, B",
+   "finding": "No due process (reasons, notice, appeal) for revocation or exclusion",
+   "evidence": "absent \"appeal\", \"due process\", \"redress\", \"contest\"",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR01",
+    "RK-HX03",
+    "RK-HX01"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC/VTN; RAHP",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-10",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "ZK minimum disclosure is a requirement, not a construction; holders present whole credentials today",
+   "evidence": "`:1305`, `:1320`, `:658`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED (ZKP TF)",
+   "risks": [
+    "RK-CY01",
+    "RK-SC01",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-11",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "DTG schemas carry no nationality, but the spec's own community example discloses `issuingCountry`, with no guidance limiting such attributes",
+   "evidence": "`:930`, `:958`, `:1016-1022`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-SC01",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "specification (guidance)",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "CR-12",
+   "spec": "DTG Credentials",
+   "path": "A, B",
+   "finding": "Pairwise identifiers plus ZK by default also hide sock-puppet clusters, and this is never discussed. Proposed EX-RK \"Privacy-shielded Sybil cluster\"",
+   "evidence": "`:340`, `:353`, `:465`, `:1375`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-ID01",
+    "RK-ID05",
+    "RK-AI03",
+    "EX-RK-ID07"
+   ],
+   "control_plane_raw": "specification / governance",
+   "control_plane": "specification",
+   "bucket": "technical standards + governance",
+   "who_must_act": "Credentials TF; ZKP TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "CR-13",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "Reputation is deliberately local, which contradicts the white paper's \"100% portable\"",
+   "evidence": "`:781`, `:647`, `:1014`, `:151`, `:1368`",
+   "status_label": "CONTRADICTS",
+   "status_note": "CONTRADICTS (white paper)",
+   "risks": [
+    "RK-ID05",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance + UX",
+   "who_must_act": "FPP authors; VTN recognition policy",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-14",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "`taskContext` and its digest are durable correlators, even under ZK",
+   "evidence": "`:1232`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID05"
+   ],
+   "control_plane_raw": "companion-specification",
+   "control_plane": "companion-specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials + ZKP TFs",
+   "confidence": "medium"
+  },
+  {
+   "id": "CR-15",
+   "spec": "DTG Credentials",
+   "path": "C",
+   "finding": "Agent acts are attributable, but nothing marks a subject as an agent rather than a human, and a lent key looks like the person",
+   "evidence": "`:1193`, `:1349`, `:1085`; absent \"nodeType\", \"isHuman\"",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-AI01",
+    "RK-AI03",
+    "RK-ID01"
+   ],
+   "control_plane_raw": "specification / companion-spec",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-16",
+   "spec": "DTG Credentials",
+   "path": "C",
+   "finding": "Revoking a principal's VAC withdraws every agent attenuation beneath it; `any` never includes `modelTraining`",
+   "evidence": "`:1177`, `:1179`, `:1147`",
+   "status_label": "SAYS",
+   "status_note": "SAYS (positive)",
+   "risks": [
+    "RK-AI02",
+    "RK-AI01"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "—",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-17",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "Internationalisation and accessibility are deferred; human-readable values need no language tag",
+   "evidence": "`:1407`, `:1413`, `:791`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-NM01",
+    "RK-HX01",
+    "RK-SC02"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "UX",
+   "who_must_act": "Credentials TF",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-18",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "Normative force is unclear: Security Considerations is informative but made binding by Conformance; RFC 8174 is not cited; two items are numbered 8",
+   "evidence": "`:1324`, `:1425`, `:1335`, `:1339`",
+   "status_label": "CONTRADICTS",
+   "status_note": "CONTRADICTS",
+   "risks": [
+    "RK-SC02",
+    "EX-RK-HX10"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF editors",
+   "confidence": "high"
+  },
+  {
+   "id": "CR-19",
+   "spec": "DTG Credentials",
+   "path": "A",
+   "finding": "No in-person requirement, but invitations and \"several from distinct vetters\" favour the well-connected, with no inclusion guidance",
+   "evidence": "`:957`, `:954`, `:670`, `:874`, `:1393`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID02",
+    "RK-HX02"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance + UX",
+   "who_must_act": "VTC; RAHP",
+   "confidence": "medium"
+  },
+  {
+   "id": "CR-20",
+   "spec": "DTG Credentials",
+   "path": "B",
+   "finding": "The editor's note calls Trust Tasks outcome evidence \"not yet released\", but Trust Tasks defines it, so the minimum version is unstated",
+   "evidence": "`:1220-1222`; Trust Tasks `appendix.md:200-204`",
+   "status_label": "CONTRADICTS",
+   "status_note": "CONTRADICTS (cross-spec, editorial)",
+   "risks": [
+    "RK-SC02",
+    "RK-SY03"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "Credentials TF editors",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-01",
+   "spec": "DTG ZKP",
+   "path": "B",
+   "finding": "Admission via 023/024 hides vouchers and vetters, so after discovery the VTC can't learn who vouched for or vetted the insider. There is no escrow or threshold-reveal option",
+   "evidence": "`body.md:2668`, `:2678`, `:2704`; absent \"escrow\", \"deanonym\", \"accountab\"",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR04",
+    "RK-G03",
+    "RK-SY01",
+    "EX-RK-ZK01"
+   ],
+   "control_plane_raw": "specification + governance",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF; VTC governance",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-02",
+   "spec": "DTG ZKP",
+   "path": "B",
+   "finding": "Record 023 checks only the voucher's membership, never the VRC's own revocation, so a retracted vouch still counts. Record 010 does check the VRC",
+   "evidence": "`:2488`, `:2471`; cf. `:1468`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR04",
+    "RK-CR02"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-03",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "No construction proves a unique person, so Sybil resistance rests entirely on the PHC issuer and the VTC",
+   "evidence": "`:384`, `:409`, `:789`, `:2505`, `:2664`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-ID01",
+    "RK-AI03"
+   ],
+   "control_plane_raw": "governance + companion-specification",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC; Credentials TF",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-04",
+   "spec": "DTG ZKP",
+   "path": "B",
+   "finding": "Self-vouching is not excluded inside the proof: 023 has no clause, and 024's Groth16 route lacks the built clause",
+   "evidence": "`:2504`, `:2666`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID01",
+    "RK-SY01"
+   ],
+   "control_plane_raw": "specification + implementation-guidance",
+   "control_plane": "specification",
+   "bucket": "implementation",
+   "who_must_act": "ZKP TF; implementers",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-05",
+   "spec": "DTG ZKP",
+   "path": "B",
+   "finding": "Record 024 tokens can be pooled across vetters, and neither cap profile limits the number of distinct people",
+   "evidence": "`:2665`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-G03",
+    "RK-SY01",
+    "RK-CR04"
+   ],
+   "control_plane_raw": "specification + governance",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF; VTC",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-06",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "The privacy that protects members also hides sock-puppet clusters, and no third party can audit admission. The trade-off is never stated",
+   "evidence": "`:2668`, `:2678`; absent \"sybil\", \"cluster\", \"sock\"",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-G03",
+    "RK-SY01",
+    "RK-SY02",
+    "RK-ID01",
+    "EX-RK-ID07"
+   ],
+   "control_plane_raw": "specification + governance",
+   "control_plane": "specification",
+   "bucket": "governance",
+   "who_must_act": "ZKP TF; VTC",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-07",
+   "spec": "DTG ZKP",
+   "path": "C",
+   "finding": "Record 020 hides the principal, with no path to identify them after misuse, and doesn't establish authorisation of the act",
+   "evidence": "`:2009`, `:2046`, `:2050`",
+   "status_label": "CONTRADICTS",
+   "status_note": "CONTRADICTS (scenario need)",
+   "risks": [
+    "RK-AI01",
+    "RK-AI02",
+    "RK-AI03"
+   ],
+   "control_plane_raw": "specification + companion-specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF; Trust Tasks TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-08",
+   "spec": "DTG ZKP",
+   "path": "C",
+   "finding": "An agent holding a person's secret satisfies every clause, so agent and human acts can't be told apart",
+   "evidence": "`:1775`, `:669-670`",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-AI01",
+    "RK-AI03",
+    "RK-AI04"
+   ],
+   "control_plane_raw": "companion-specification + runtime-control",
+   "control_plane": "companion-specification",
+   "bucket": "implementation",
+   "who_must_act": "Credentials / Trust Tasks; implementers",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-09",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "VRC meaning (whether it's a vouch, how the parties met, competence scope) lies outside the proof",
+   "evidence": "`:2502`, `:2508`; absent \"in-person\", \"competen\"",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-SC02",
+    "RK-CR04",
+    "RK-HX02"
+   ],
+   "control_plane_raw": "companion-specification + governance",
+   "control_plane": "companion-specification",
+   "bucket": "governance",
+   "who_must_act": "Credentials TF; VTC",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-10",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "The Linux admission statement (023 or 024) is undecided (WG-16). The two give very different evidence and set very different barriers for Dewi",
+   "evidence": "`appendix.md:68`, `intro.md:92`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-SY03",
+    "RK-ID02"
+   ],
+   "control_plane_raw": "governance",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "ZKP TF + FPP/LF",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-11",
+   "spec": "DTG ZKP",
+   "path": "A",
+   "finding": "Event-mode vetting narrows anonymity and, in my assessment, favours conference attendees",
+   "evidence": "`:2673`, `:2685`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID02",
+    "RK-HX02",
+    "RK-ID05"
+   ],
+   "control_plane_raw": "operational-policy + governance",
+   "control_plane": "operational-policy",
+   "bucket": "UX",
+   "who_must_act": "VTC",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-12",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "The Linux PCS route is an unaudited research artifact and nothing has been reproduced. It isn't post-quantum safe",
+   "evidence": "`header.md:5`, `body.md:2689-2690`, `:2704`",
+   "status_label": "SAYS",
+   "status_note": "SAYS (disclosed)",
+   "risks": [
+    "RK-CY01",
+    "RK-CY02"
+   ],
+   "control_plane_raw": "implementation-guidance",
+   "control_plane": "implementation-guidance",
+   "bucket": "implementation",
+   "who_must_act": "LF integration; ZKP TF",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-13",
+   "spec": "DTG ZKP",
+   "path": "B",
+   "finding": "The revocation delay bound is a MUST in an informative section and is left unset",
+   "evidence": "`:3264`, `:3269`, `:914`",
+   "status_label": "DEFERRED",
+   "status_note": "DEFERRED",
+   "risks": [
+    "RK-CR02",
+    "RK-CR03"
+   ],
+   "control_plane_raw": "governance + operational-policy",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "Trust Registry TF; VTC",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-14",
+   "spec": "DTG ZKP",
+   "path": "A",
+   "finding": "MUSTs appear in informative sections; records are dense and English-only, with no language tags",
+   "evidence": "`intro.md:71`, `body.md:3173`, `:3266`, `:3276`",
+   "status_label": "CONTRADICTS",
+   "status_note": "CONTRADICTS (editorial)",
+   "risks": [
+    "RK-SC02",
+    "RK-NM01",
+    "EX-RK-HX10"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "UX",
+   "who_must_act": "ZKP TF editors",
+   "confidence": "high"
+  },
+  {
+   "id": "ZK-15",
+   "spec": "DTG ZKP",
+   "path": "B",
+   "finding": "Revocation cascade covers only authority chains. Nothing re-examines members a discovered insider vouched for",
+   "evidence": "`:2188`; absent \"retract\"",
+   "status_label": "MISSING",
+   "status_note": "MISSING",
+   "risks": [
+    "RK-CR03",
+    "RK-CR01"
+   ],
+   "control_plane_raw": "governance + specification",
+   "control_plane": "governance",
+   "bucket": "governance",
+   "who_must_act": "VTC; ZKP TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-16",
+   "spec": "DTG ZKP",
+   "path": "A",
+   "finding": "Portability is holder-chosen linkage proving only existence and non-revocation. Reputation is absent",
+   "evidence": "`:1742`, `:1778`, `integration.md:72`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID05",
+    "RK-SC03"
+   ],
+   "control_plane_raw": "specification + companion-specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF; Credentials TF",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-17",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "An admission proof can be counted twice unless the community mints a per-applicant challenge, and that is only a \"should\"",
+   "evidence": "`:2552`",
+   "status_label": "PARTIAL",
+   "status_note": "PARTIAL",
+   "risks": [
+    "RK-ID01"
+   ],
+   "control_plane_raw": "implementation-guidance",
+   "control_plane": "implementation-guidance",
+   "bucket": "implementation",
+   "who_must_act": "VTC implementers",
+   "confidence": "medium"
+  },
+  {
+   "id": "ZK-18",
+   "spec": "DTG ZKP",
+   "path": "A, B",
+   "finding": "Editorial: record 013 is called \"still requested\" but is at `specified`",
+   "evidence": "`intro.md:82`, `body.md:1855`",
+   "status_label": "CONTRADICTS",
+   "status_note": "CONTRADICTS (editorial)",
+   "risks": [
+    "RK-SY03"
+   ],
+   "control_plane_raw": "specification",
+   "control_plane": "specification",
+   "bucket": "technical standards",
+   "who_must_act": "ZKP TF editors",
+   "confidence": "high"
+  }
+ ],
+ "local_risks": [
+  {
+   "id": "EX-RK-ZK01",
+   "description": "Vouch accountability loss under hidden admission: privacy-preserving admission leaves no way to learn who vouched for or vetted a member after an incident.",
+   "raised_by": "ZK-01"
+  },
+  {
+   "id": "EX-RK-SY04",
+   "description": "Patient-insider trust-to-privilege conversion: genuine relationships built over years are converted into privileged roles, then abused.",
+   "raised_by": "CR-07, TT-16"
+  },
+  {
+   "id": "EX-RK-ID07",
+   "description": "Privacy-shielded Sybil cluster: pairwise identifiers and ZK presentation hide coordinated sock-puppet clusters from the community.",
+   "raised_by": "CR-12, ZK-06"
+  },
+  {
+   "id": "EX-RK-HX10",
+   "description": "Normative text inaccessible in translation: dense or ambiguous normative language is misread by implementers using machine translation.",
+   "raised_by": "TT-17, ZK-14, CR-18"
+  }
+ ],
+ "themes": [
+  {
+   "id": "T1",
+   "title": "Who stops sock puppets?",
+   "question": "Personhood and uniqueness",
+   "verdict": "Nobody, in the specs",
+   "pattern": "deferred-everywhere",
+   "summary": "All three specs defer personhood and uniqueness: Trust Tasks to an unnamed consumer trust framework, Credentials to each PHC issuer's governance (uniqueness only \"in the scope of the PHC issuer\"), ZKP to issuers (\"personhood is never inferred\"). Sock puppets with PHCs from different or lax communities pass every check. The Jia Tan defence rests entirely on VTC governance.",
+   "findings": [
+    "TT-01",
+    "CR-01",
+    "CR-03",
+    "ZK-03",
+    "ZK-04",
+    "ZK-05",
+    "ZK-17"
+   ],
+   "persona": "Kestrel",
+   "owner_gap": "Governance (no spec owns it)"
+  },
+  {
+   "id": "T2",
+   "title": "What does a vouch mean, and can it be taken back?",
+   "question": "Vouching semantics and retraction",
+   "verdict": "Circular deferral",
+   "pattern": "circular",
+   "summary": "Trust Tasks proves which exchange happened but leaves vouch meaning to Credentials. A Credentials VRC carries only a subject id, and its lifecycle (withdrawal, revocation) is deferred to the planned DTG Core Trust Task Protocols, which don't exist yet. ZKP record 023 counts a vouch without checking the VRC's own revocation. A retracted vouch can still count.",
+   "findings": [
+    "TT-04",
+    "TT-05",
+    "CR-02",
+    "CR-05",
+    "ZK-02",
+    "ZK-09"
+   ],
+   "persona": "Kestrel, Dewi",
+   "owner_gap": "Unpublished DTG Core Trust Task Protocols"
+  },
+  {
+   "id": "T3",
+   "title": "Knowing someone is not the same as holding maintainer rights",
+   "question": "Role versus relationship",
+   "verdict": "Strongest shared positive",
+   "pattern": "agreed",
+   "summary": "All three specs separate who a person is, and who knows them, from what they may do. Trust Tasks: validation \"MUST NOT, by itself\" be authorization; Credentials: a VAC, not vouches, confers authority, and must expire; ZKP: authority and membership stay separate credentials. This blocks the \"enough vouches = maintainer\" shortcut, if the kernel community actually uses it.",
+   "findings": [
+    "TT-02",
+    "TT-03",
+    "TT-07",
+    "CR-06",
+    "ZK-12"
+   ],
+   "persona": "Kestrel",
+   "owner_gap": "VTC must adopt it"
+  },
+  {
+   "id": "T4",
+   "title": "After discovery: who vouched for Kestrel, and what happens to his vouches?",
+   "question": "Revocation, cascade, forensics, due process",
+   "verdict": "Missing, and privacy makes it harder",
+   "pattern": "gap-between",
+   "summary": "Only authority (VAC) revocation cascades. The vouches, endorsements and invitations Kestrel issued stay verifiable; there is no \"issuer disqualified\" signal. Under hidden-voucher admission (ZKP 023/024) the community can't learn who vouched for or vetted him. No spec offers due process for anyone wrongly accused. Trust Tasks does stop his queued actions.",
+   "findings": [
+    "TT-08",
+    "TT-09",
+    "TT-10",
+    "CR-08",
+    "CR-09",
+    "ZK-01",
+    "ZK-13",
+    "ZK-15"
+   ],
+   "persona": "Kestrel (and honest vouchers)",
+   "owner_gap": "Between Credentials, Trust Tasks and governance"
+  },
+  {
+   "id": "T5",
+   "title": "Privacy that protects Dewi also hides sock-puppet clusters",
+   "question": "Privacy versus Sybil detection",
+   "verdict": "Unacknowledged trade-off",
+   "pattern": "tension",
+   "summary": "Pairwise identifiers, fresh correlators and ZK presentation protect Dewi from being tracked across projects. The same features hide coordinated clusters and stop third parties auditing admission. None of the three specs names the trade-off or says who decides the balance.",
+   "findings": [
+    "TT-11",
+    "TT-12",
+    "TT-13",
+    "TT-16",
+    "CR-07",
+    "CR-10",
+    "CR-11",
+    "CR-12",
+    "CR-14",
+    "ZK-06",
+    "ZK-16"
+   ],
+   "persona": "Dewi vs Kestrel",
+   "owner_gap": "No one"
+  },
+  {
+   "id": "T6",
+   "title": "Can Dewi get in from Jakarta?",
+   "question": "Entry without in-person access",
+   "verdict": "Not blocked by the specs; exclusion would be built in governance",
+   "pattern": "gap-between",
+   "summary": "No spec requires in-person meeting; video, prior acquaintance and even paper transport are allowed. But who may invite, how many vouchers, and which method counts are all community governance, with no inclusion guidance. ZKP 023 needs two member VRCs (a network-position barrier); 024 does not, and Linux has not chosen between them. Event-mode vetting favours conference-goers.",
+   "findings": [
+    "TT-06",
+    "CR-19",
+    "ZK-10",
+    "ZK-11"
+   ],
+   "persona": "Dewi",
+   "owner_gap": "VTC governance; RAHP guidance"
+  },
+  {
+   "id": "T7",
+   "title": "Whose agent wrote this patch?",
+   "question": "AI agent contributions",
+   "verdict": "Partly; accountability after misuse is missing",
+   "pattern": "gap-between",
+   "summary": "Credentials has the best model: an agent acting under a VAC acts as itself with a traceable chain, and revocation cascades to agents. But nothing marks a subject as an agent rather than a human; a lent key looks like the person; ZKP 020 deliberately hides the principal with no route back after misuse; and Trust Tasks bars specs from requiring human approval.",
+   "findings": [
+    "TT-14",
+    "TT-15",
+    "CR-15",
+    "CR-16",
+    "ZK-07",
+    "ZK-08"
+   ],
+   "persona": "Agents",
+   "owner_gap": "Between Credentials, Trust Tasks and ZKP"
+  },
+  {
+   "id": "T8",
+   "title": "\"100% portable\" reputation",
+   "question": "Portability",
+   "verdict": "Contradicts the white paper",
+   "pattern": "contradiction",
+   "summary": "The white paper promises a personal trust graph that is \"100% portable\" across projects. In the specs, reputation is deliberately local: each verifier configures what it accepts, vetting is scoped to one community, and carrying reputation means choosing to be linkable. Coherent and privacy-protective, but not what the case study claims.",
+   "findings": [
+    "TT-18",
+    "CR-13",
+    "ZK-16"
+   ],
+   "persona": "Dewi",
+   "owner_gap": "White paper authors; recognition policy"
+  },
+  {
+   "id": "T9",
+   "title": "Can Dewi tell what MUST means?",
+   "question": "Language, accessibility, normative clarity",
+   "verdict": "Deferred in all three, with contradictions",
+   "pattern": "deferred-everywhere",
+   "summary": "Language tagging, internationalisation and accessibility are deferred in all three. Two specs put binding MUSTs in sections marked informative. Dense normative prose is hard to machine-translate. For an implementer reading in translation, it is unclear which requirements bind.",
+   "findings": [
+    "TT-17",
+    "TT-19",
+    "CR-17",
+    "CR-18",
+    "ZK-14"
+   ],
+   "persona": "Dewi",
+   "owner_gap": "All three editor groups"
+  },
+  {
+   "id": "T10",
+   "title": "The specs out of step with each other",
+   "question": "Cross-spec version and reference skew",
+   "verdict": "Editorial, but telling",
+   "pattern": "contradiction",
+   "summary": "Credentials says Trust Tasks outcome evidence is \"not yet released\", but Trust Tasks defines it. Trust Tasks never references the ZKP spec. ZKP's own reading guide is out of date. Each relies on the others for parts of the scenario, without pinning versions.",
+   "findings": [
+    "CR-20",
+    "ZK-18",
+    "CR-04"
+   ],
+   "persona": "All",
+   "owner_gap": "All three editor groups"
+  }
+ ],
+ "meta": {
+  "scenario": "SC-LX: Linux kernel maintainers as a Verifiable Trust Community",
+  "source": "First Person Project White Paper V2.0, Part Eight",
+  "reviewer_persona": "Dewi Kartika (TP-16)",
+  "threat_persona": "Kestrel (TP-12), like RAHP B1 Viktor",
+  "specs": [
+   {
+    "name": "Trust Tasks",
+    "commit": "bdf2cdd",
+    "status": "Working Draft 0.7.0",
+    "review": "SR-301"
+   },
+   {
+    "name": "DTG Credentials",
+    "commit": "bd4396f",
+    "status": "Working Draft 0.6.0",
+    "review": "SR-302"
+   },
+   {
+    "name": "DTG ZKP",
+    "commit": "6c2b8e9",
+    "status": "Working Draft 0.1.0",
+    "review": "SR-303"
+   }
+  ],
+  "rahp": "dtgwg-rahp-tf main 879e6f7",
+  "date": "2026-11-11",
+  "method": "One AI subagent per spec, read-only, citing path:line; main session spot-checked 27 cited lines; all matched. Findings are AI-drafted and await Nicky's review.",
+  "status_labels": {
+   "SAYS": "spec addresses it",
+   "PARTIAL": "partly addressed",
+   "MISSING": "not addressed",
+   "DEFERRED": "explicitly handed elsewhere",
+   "CONTRADICTS": "conflicts with the scenario, the white paper or itself"
+  },
+  "reviewer_status": "AI draft, not yet reviewed by Nicky Hickman"
+ }
+}
