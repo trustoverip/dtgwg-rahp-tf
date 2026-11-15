@@ -1,0 +1,50 @@
+{
+  "repository": "trustoverip/aimwg-trust-enabled-agents",
+  "specification": "Trust-Enabled Agents (TEA)",
+  "version": "v0.2 Draft source snapshot",
+  "commit": "7a53ecf3300dd6fb1bd4d6bcfab967475866e082",
+  "files": [
+    {
+      "path": "source/title.md.txt",
+      "upstream_path": "spec/title.md",
+      "git_blob_sha": "5fa8d499ed14ab7e019de093160fabb191d96962",
+      "sha256": "95bc2584532e08a30a7716e19e4681220653ba2035df10a9a4186c579d27852e",
+      "url": "https://github.com/trustoverip/aimwg-trust-enabled-agents/blob/7a53ecf3300dd6fb1bd4d6bcfab967475866e082/spec/title.md"
+    },
+    {
+      "path": "source/scope.md.txt",
+      "upstream_path": "spec/scope.md",
+      "git_blob_sha": "42db4a92b17a4af56c2c798e15ac47ebba3a2d6a",
+      "sha256": "273d481dddd62fab23560d575213a588ca7293308a05578a641c753ae6a29795",
+      "url": "https://github.com/trustoverip/aimwg-trust-enabled-agents/blob/7a53ecf3300dd6fb1bd4d6bcfab967475866e082/spec/scope.md"
+    },
+    {
+      "path": "source/clauses.md.txt",
+      "upstream_path": "spec/clauses.md",
+      "git_blob_sha": "91ff0acc3a42d37c8339ac3f933e329a56b6293c",
+      "sha256": "bebc41ec84f548cc2f7f2d060d33ff509a7bb70cf8be40aefd165f8d8cf9c788",
+      "url": "https://github.com/trustoverip/aimwg-trust-enabled-agents/blob/7a53ecf3300dd6fb1bd4d6bcfab967475866e082/spec/clauses.md"
+    },
+    {
+      "path": "source/terms_and_definitions.md.txt",
+      "upstream_path": "spec/terms_and_definitions.md",
+      "git_blob_sha": "f4866c30296e1b25950a95717f0c677d92f6d90b",
+      "sha256": "518d454aa62e317ee4064fd48f386d14ba43aecfee7b39801a2e16e61690c8ff",
+      "url": "https://github.com/trustoverip/aimwg-trust-enabled-agents/blob/7a53ecf3300dd6fb1bd4d6bcfab967475866e082/spec/terms_and_definitions.md"
+    },
+    {
+      "path": "source/revision_history.md.txt",
+      "upstream_path": "spec/revision_history.md",
+      "git_blob_sha": "40ee5e309e31124d33121bb7f17fc50979786e36",
+      "sha256": "46d31fbb38fdde7cfc3ca845b3f6331e1df7ffe1bcd24ddb2fc4fbeacc1a7207",
+      "url": "https://github.com/trustoverip/aimwg-trust-enabled-agents/blob/7a53ecf3300dd6fb1bd4d6bcfab967475866e082/spec/revision_history.md"
+    },
+    {
+      "path": "source/LICENSE.md.txt",
+      "upstream_path": "LICENSE.md",
+      "git_blob_sha": "07f31d449341317eb6554ce7c038aa8434c9534e",
+      "sha256": "baa4e051ea492d45b9fb873188afcef8357ee99c78ce47cff396bc50c29dd1de",
+      "url": "https://github.com/trustoverip/aimwg-trust-enabled-agents/blob/7a53ecf3300dd6fb1bd4d6bcfab967475866e082/LICENSE.md"
+    }
+  ]
+}

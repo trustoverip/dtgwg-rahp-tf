@@ -11,6 +11,16 @@ specification pressure-testing.
 Start with [`docs/pressure-testing-a-spec.md`](../docs/pressure-testing-a-spec.md)
 for the review workflow.
 
+Every valid review record names a `reviewer`: the accountable assessor identity
+for that review. This records accountability for the assessment; it does not confer
+authority to accept residual risk. Risk-acceptance authority remains a separate
+governance concern.
+
+Canonical corpus risks use `RK-*` identifiers. Example-local hypotheses use the
+distinct `EX-RK-*` form and only validate when they resolve in the explicitly
+selected risk source. Example-local identifiers are not additions to the canonical
+DTG corpus.
+
 This capability is intentionally bounded. It does not implement the downstream
 RAHP assurance controller, specialist routing, terminal assurance state machine or
 continuous reassessment machinery. A valid review record means that the review is
@@ -39,6 +49,21 @@ The VRC evidence sidecar is also example-local. The
 common evidence-envelope invariants demonstrated by both examples and records why a
 shared sidecar schema is still deferred rather than inferred from example mechanics.
 
+
+## Second assurance shape: TEA delegated authority
+
+[The TEA delegated-authority worked example](examples/tea-delegated-authority/README.md)
+pins the v0.2 Draft TEA source and examines a different assurance shape from TRQP:
+whether constructed invocation remains within effective capability as authority is
+re-delegated. It also demonstrates that authenticated identity is not itself
+delegated authority and that post-gate obligation breach is distinct from the
+authorization decision already made.
+
+The evaluator is intentionally fixture-local. It does not implement TEA, TSP, VID
+resolution, revocation or a general policy engine. The example uses the existing
+`rahp-spec-review/v1` record and an example-local evidence sidecar. Its
+[step-by-step tutorial](examples/tea-delegated-authority/TUTORIAL.md) shows the
+commands, expected observations and interpretation boundaries.
 
 ## Combined validation (Increment 3)
 

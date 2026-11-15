@@ -1,0 +1,23 @@
+slug: tea-delegated-authority
+title: "TEA delegated authority: does an agent's action stay within what it was delegated?"
+question: >-
+  Can an invocation be shown to remain within the effective authority delegated through a Trust-Enabled
+  Agents (TEA) v0.2 capability chain, without confusing authenticated identity, successful execution or
+  post-action accountability with authorization?
+source: "Upstream worked example review/examples/tea-delegated-authority (merged 11 Nov 2026, #52)"
+toolkit_personas: ["Spec-first technical reviewer"]
+catalogue_personas: [M1]
+records:
+  - {review: review/examples/tea-delegated-authority/review.yaml, evidence: review/examples/tea-delegated-authority/evidence.json, name: TEA v0.2 Draft}
+risks: review/examples/tea-delegated-authority/risks.yaml
+state: human-checked
+state_note: "Author-assessed (AI-assisted) and approved as an example by a second TF member; independent examination of the three 'already addressed' findings (tutorial step 13) still pending."
+steps:
+  - {step: "Bound the assurance question; identify affected actors", who: H+AI, done: yes}
+  - {step: "Pin and retain the TEA source", who: M, done: yes}
+  - {step: "State example-local risk hypotheses", who: H+AI, done: yes}
+  - {step: "Replay constructed cases", who: M, done: yes}
+  - {step: "Record findings and bind evidence", who: "H+AI, M", done: yes}
+  - {step: "Validate the record and the composed examination", who: M, done: yes}
+  - {step: "Fail-closed check", who: M, done: yes}
+  - {step: "Independent examination", who: "H*", done: "no"}

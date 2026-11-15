@@ -198,3 +198,7 @@ retained specification bytes, reproduce positive and negative observations, and
 inspect an evidence-linked review through the existing review contract.
 It runs without a downstream checkout or live service. The evidence sidecar is
 experimental; execution success does not establish target assurance.
+
+## Reproducibility and functional sufficiency
+
+For a first-use, source-pinned review protocol, quantitative rerun checks, negative controls and a precise separation between machine validation and reviewer judgment, see [Functional sufficiency and repeatability](docs/functional-sufficiency-and-repeatability.md). The helper `review/replay_check.py` repeats the explicitly selected review validation and records input hashes. A repeatable validation result is **not** proof of source authenticity, target assurance or independent analytical agreement.

@@ -15,8 +15,6 @@ At the current repository revision, the principal machine-readable surfaces are:
 - the YAML record files under `data/` for the current DTG instance; and
 - `review/spec-review.schema.json` for reproducible specification-review records.
 
-Some existing comments and documentation describe a future or intended `method/`, `data/`, and `tools/` layout. This page describes the repository as it exists now and does not treat those paths as already implemented.
-
 ## Three connected views
 
 RAHP is easier to read as three connected views rather than as one monolithic object.
@@ -171,6 +169,17 @@ At the current repository state, the seeded records remain `pending` because the
 This is also represented as `GAP-3.1` in `method/lifecycle.yaml`.
 
 A risk-acceptance record must therefore not be read as an acceptance merely because the record exists.
+
+For the DTG instance, invariant `INV-6` requires records marked `accepted` or
+`accepted_with_conditions` to carry complete decision documentation, named deciders,
+an eligible non-Critical residual severity and ordered ISO decision/review dates.
+The invariant validates documentary and semantic completeness, **not** actual
+decision authority, signatory authenticity or evidentiary sufficiency. It does not
+close `GAP-3.1` or authorize any risk acceptance.
+
+The instance declaration determines whether `INV-6` is enforced for an adopter.
+Removing it reduces validation coverage and must not be presented as evidence
+of method-level legitimacy or as a valid risk-acceptance authorization.
 
 ### Governance precedent
 

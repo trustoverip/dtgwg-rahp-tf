@@ -1,0 +1,1014 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RAHP Toolkit Home</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a white, airy Trust over IP page; light uppercase section titles over bold caps labels (as in the brand manual);
+   one quiet hero with a three-peers diagram, then a grid of "ways in", then reference bands. Codes hidden behind "details". */
+:root{
+  /* Trust over IP palette (Brand Design Manual, Elanica): Celestial Blue, Midnight Blue, Frosted Mint; Princeton Orange and Vermillion for status */
+  --bg:#ffffff;
+  --surface:#f4f8fc;          /* blue-biased neutral, not mid-grey */
+  --surface-2:#e8f1f9;
+  --line:#d5dde6;
+  --fg:#1d1f20;               /* ToIP grey neutral, dark */
+  --muted:#4f5a66;
+  --brand:#1445ca;            /* logo dark blue */
+  --brand-strong:#002cb1;
+  --mid:#0b8bd7;              /* logo mid blue */
+  --mint:#a3e8e8;             /* logo light tone */
+  --mint-soft:#e3fafa;
+  --draft:#a34d00;            /* Princeton Orange, darkened for text contrast */
+  --draft-bg:#fff1e4;
+  --alert:#cc2910;            /* Vermillion dark */
+  --ok:#1b6e45;
+  --ok-bg:#e4f4ea;
+  --on-brand:#ffffff;
+  --plate:#ffffff;            /* logos always sit on white, in both themes */
+  --focus:#e77710;
+
+  --font-display:"Montserrat","Gentona","Helvetica Neue",Arial,sans-serif;  /* stands in for Gentona / Canaro */
+  --font-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;       /* chosen for legibility and translation */
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+
+  --measure:68ch;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0f24; --surface:#121935; --surface-2:#18214a; --line:#2a3563;
+    --fg:#e8ecf3; --muted:#aab4c6;
+    --brand:#6f96ff; --brand-strong:#9fb9ff; --mid:#3ca2df; --mint:#a3e8e8; --mint-soft:#11313a;
+    --draft:#ffb070; --draft-bg:#3a2410; --alert:#ff7a5c; --ok:#7fd6a6; --ok-bg:#12301f;
+    --on-brand:#0b0f24; --focus:#fb8b24;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0f24; --surface:#121935; --surface-2:#18214a; --line:#2a3563;
+  --fg:#e8ecf3; --muted:#aab4c6;
+  --brand:#6f96ff; --brand-strong:#9fb9ff; --mid:#3ca2df; --mint:#a3e8e8; --mint-soft:#11313a;
+  --draft:#ffb070; --draft-bg:#3a2410; --alert:#ff7a5c; --ok:#7fd6a6; --ok-bg:#12301f;
+  --on-brand:#0b0f24; --focus:#fb8b24;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:var(--brand);text-underline-offset:3px}
+a:hover{color:var(--brand-strong)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;background:var(--bg);padding:8px 12px;z-index:20}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0}
+.label{font-family:var(--font-display);font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+.section-title{font-weight:300;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.06em;text-transform:uppercase;color:var(--fg)}
+.lead{max-width:var(--measure);color:var(--muted);margin:.6rem 0 0}
+code,.mono{font-family:var(--font-mono);font-size:.88em}
+
+/* Status strip */
+.status{background:var(--draft-bg);color:var(--fg);border-bottom:1px solid var(--line)}
+.status .wrap{display:flex;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;padding-block:.55rem;font-size:.92rem}
+.pill{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--font-display);font-weight:800;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:999px;padding:.15rem .6rem;white-space:nowrap}
+.pill.draft{color:var(--draft)}
+.pill.ok{color:var(--ok)}
+.pill.todo{color:var(--muted)}
+.pill.alert{color:var(--alert)}
+.pill::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:currentColor}
+.pill.todo::before{background:transparent;border:1.5px solid currentColor}
+.pill{max-width:100%}
+.pill::before{flex:none}
+.example .pill{align-self:flex-start;white-space:normal;line-height:1.3;padding:.25rem .7rem}
+
+/* Header */
+header.site{border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem}
+.mark{display:flex;align-items:center;gap:1rem;line-height:1.15;text-decoration:none;color:var(--fg)}
+.mark .plate{background:var(--plate);border-radius:6px;padding:4px 8px;display:flex}
+.mark .plate img{height:46px;width:auto;display:block}
+.mark .words{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:1rem}
+.partners{display:flex;flex-wrap:wrap;gap:1rem;align-items:stretch}
+.partner{background:var(--plate);border:1px solid var(--line);border-radius:var(--radius);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:center;flex:1 1 200px;min-height:96px}
+.partner:hover{border-color:var(--mid);box-shadow:0 0 0 2px var(--mint)}
+.partner img{max-height:56px;max-width:100%;width:auto;display:block}
+.partner.wide img{max-height:44px}
+.mark .org{font-family:var(--font-display);font-size:.78rem;letter-spacing:.08em;color:var(--muted)}
+.mark .org b{font-weight:800;color:var(--brand)}
+.mark .name{font-family:var(--font-display);font-size:1.35rem}
+.mark .name b{font-weight:800}
+.mark .name span{font-weight:300}
+nav.main ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem}
+nav.main a{display:block;padding:.45rem .7rem;border-radius:var(--radius);text-decoration:none;color:var(--fg);font-family:var(--font-display);font-weight:600;font-size:.88rem}
+nav.main a:hover{background:var(--surface-2);color:var(--brand)}
+nav.main a[aria-current="page"]{color:var(--brand);box-shadow:inset 0 -3px 0 var(--mid)}
+
+/* Hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:center;padding-block:clamp(2.2rem,5vw,4rem)}
+.hero h1{font-weight:300;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.12;letter-spacing:-.005em}
+.hero h1 strong{font-weight:800;color:var(--brand)}
+.hero p{max-width:60ch}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-display);font-weight:800;font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;border-radius:var(--radius);padding:.85rem 1.15rem;text-decoration:none;border:2px solid var(--brand);cursor:pointer;line-height:1.1}
+.btn.primary{background:var(--brand);color:var(--on-brand)}
+.btn.primary:hover{background:var(--brand-strong);border-color:var(--brand-strong);color:var(--on-brand)}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn.ghost:hover{background:var(--surface-2)}
+.listen{margin-top:1.4rem;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1rem;font-size:.95rem;color:var(--muted)}
+.listen button{font:inherit;font-family:var(--font-display);font-weight:600;font-size:.88rem;background:var(--mint-soft);color:var(--fg);border:1.5px solid var(--mid);border-radius:999px;padding:.45rem 1rem;cursor:pointer}
+.listen button[aria-pressed="true"]{background:var(--mid);color:#fff}
+.peers figure{margin:0}
+.peers svg{width:100%;height:auto;max-width:440px;display:block;margin-inline:auto}
+.peers figcaption{font-size:.9rem;color:var(--muted);text-align:center;max-width:44ch;margin:.5rem auto 0}
+
+/* Bands */
+section.band{padding-block:clamp(2.5rem,5vw,4rem);border-top:1px solid var(--line)}
+section.band.tint{background:var(--surface)}
+.band-head{display:grid;gap:.3rem;margin-bottom:1.8rem}
+.band-head .label{color:var(--mid)}
+
+/* Ways in */
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:1rem}
+.group-label{color:var(--muted);margin:1.6rem 0 .7rem}
+.group-label:first-of-type{margin-top:0}
+.way{display:flex;flex-direction:column;gap:.7rem;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem 1.25rem 1.1rem;min-width:0}
+.way header{display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem}
+.way h3{font-size:1.18rem;font-weight:800;line-height:1.25}
+.way .for{font-size:.92rem;color:var(--muted);margin:0}
+.way ol{margin:0;padding-left:1.25rem;display:grid;gap:.2rem;font-size:.97rem}
+.way .need{margin-top:auto;padding-top:.7rem;border-top:1px dashed var(--line);font-size:.9rem;color:var(--muted)}
+.way .need b{color:var(--fg)}
+.way .go{font-family:var(--font-display);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.tag{font-family:var(--font-display);font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:4px;white-space:nowrap}
+.tag.nocode{background:var(--mint-soft);color:var(--fg);border:1px solid var(--mint)}
+.tag.code{background:var(--surface-2);color:var(--brand)}
+details.more{font-size:.86rem;color:var(--muted)}
+details.more summary{cursor:pointer;color:var(--brand);font-weight:700}
+details.more p{margin:.35rem 0 0}
+
+/* AI / no AI */
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.panel{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;min-width:0}
+.panel h3{font-size:1.25rem;font-weight:800;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.panel h4{font-family:var(--font-display);font-weight:800;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin:1.2rem 0 .4rem}
+.steps{counter-reset:s;list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.55rem}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.6rem;align-items:start}
+.steps li::before{content:counter(s);font-family:var(--font-display);font-weight:800;font-size:.85rem;color:var(--brand);background:var(--surface-2);border-radius:50%;width:2rem;height:2rem;display:grid;place-items:center}
+.panel ul{margin:0;padding-left:1.2rem;display:grid;gap:.25rem}
+.note{background:var(--surface);border-left:4px solid var(--mid);padding:.75rem 1rem;margin-top:1rem;font-size:.95rem}
+.note.warn{border-left-color:var(--draft);background:var(--draft-bg)}
+
+/* Kit */
+.kit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:1.25rem}
+.kit .panel p{margin:.5rem 0 0}
+.counts{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem;margin-top:1rem}
+.count{background:var(--surface);border-radius:var(--radius);padding:.7rem .8rem}
+.count b{display:block;font-family:var(--font-display);font-weight:800;font-size:1.6rem;color:var(--brand);font-variant-numeric:tabular-nums;line-height:1.1}
+.count span{font-size:.88rem;color:var(--muted)}
+.chain{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.8rem 0 .2rem;padding:0;list-style:none}
+.chain li{background:var(--mint-soft);border:1px solid var(--mint);border-radius:999px;padding:.3rem .8rem;font-size:.92rem}
+.chain li+li::before{content:"\2192";margin-right:.55rem;color:var(--mid);font-weight:700}
+.chain li+li{background:none;border:none;padding:0}
+.chain li+li span{display:inline-block;background:var(--mint-soft);border:1px solid var(--mint);border-radius:999px;padding:.3rem .8rem}
+
+/* Planes */
+.planes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem}
+.plane{border-top:4px solid var(--mid);background:var(--bg);border-radius:0 0 var(--radius) var(--radius);padding:1rem;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.plane:nth-child(1){border-top-color:var(--brand)}
+.plane:nth-child(2){border-top-color:var(--mid)}
+.plane:nth-child(3){border-top-color:var(--mint)}
+.plane:nth-child(4){border-top-color:var(--brand-strong)}
+.plane:nth-child(5){border-top-color:var(--draft)}
+.plane h3{font-size:1rem;font-weight:800}
+.plane .who{font-size:.85rem;color:var(--muted);margin:.3rem 0 .6rem}
+.plane .eg{font-size:.93rem;margin:0}
+.plane .eg::before{content:"Example: ";font-weight:700}
+
+/* Examples + share */
+.examples{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:1rem}
+.example{border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem;display:flex;flex-direction:column;gap:.5rem;background:var(--bg);min-width:0}
+.example h3{font-size:1.05rem;font-weight:800}
+.example p{margin:0;font-size:.95rem}
+.routes{width:100%;border-collapse:collapse;font-size:.95rem}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg)}
+.routes th,.routes td{text-align:left;padding:.7rem .9rem;border-bottom:1px solid var(--line);vertical-align:top}
+.routes th{font-family:var(--font-display);font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+.routes tr:last-child td{border-bottom:none}
+.routes td:first-child{font-weight:700;min-width:12rem}
+
+footer.site{border-top:1px solid var(--line);background:var(--surface);font-size:.9rem;color:var(--muted)}
+footer.site .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1.5rem;padding-block:2rem}
+footer.site p{margin:.3rem 0}
+
+
+
+/* Horizontal swimlane flow */
+.scroll-hint{font-size:.88rem;color:var(--muted);margin:0 0 .5rem}
+.flow-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);-webkit-overflow-scrolling:touch}
+.flow-wrap:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+#flow{display:block}
+#flow text{font-family:var(--font-body)}
+#flow .lane-bg{fill:var(--bg)}
+#flow .lane-bg.alt{fill:var(--surface)}
+#flow .lane-line{stroke:var(--line);stroke-width:1}
+#flow .lane-label{font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:1.4px;fill:var(--muted)}
+#flow .lane-sub{font-size:11px;fill:var(--muted)}
+#flow .phase-bg{fill:var(--surface-2)}
+#flow .phase-bg.learn{fill:var(--mint-soft)}
+#flow .phase-t{font-family:var(--font-display);font-weight:600;font-size:11px;letter-spacing:1.4px;fill:var(--fg)}
+#flow .step-num{font-family:var(--font-display);font-weight:800;font-size:12px;fill:var(--brand)}
+#flow .step-t{font-weight:700;font-size:12px;fill:var(--fg)}
+#flow .n-h rect{fill:var(--brand)}
+#flow .n-h text{fill:var(--on-brand);font-size:11.5px}
+#flow .n-r rect{fill:var(--fg)}
+#flow .n-r text{fill:var(--bg);font-size:11.5px}
+#flow .n-r .tag{font-family:var(--font-display);font-weight:800;font-size:9px;letter-spacing:1.2px}
+#flow .n-ai rect{fill:var(--bg);stroke:var(--mid);stroke-width:2;stroke-dasharray:5 3}
+#flow .n-ai text{fill:var(--fg);font-size:11.5px}
+#flow .n-ai .dia{fill:var(--bg);stroke:var(--mid);stroke-width:2}
+#flow .n-m rect.box{fill:url(#hatch);stroke:var(--muted);stroke-width:1.5}
+#flow .n-m rect.txtbg{fill:var(--bg);opacity:.92}
+#flow .n-m text{fill:var(--fg);font-size:11.5px}
+#flow .hatch-line{stroke:var(--line);stroke-width:2}
+#flow .arrow{fill:none;stroke:var(--muted);stroke-width:1.6}
+#flow .arrow.loop{stroke:var(--mid);stroke-dasharray:6 4}
+#flow .arrowhead{fill:var(--muted)}
+#flow .arrowhead.loop{fill:var(--mid)}
+#flow .loop-t{font-size:11px;fill:var(--mid);font-weight:700}
+#flow .slow{font-family:var(--font-display);font-weight:800;font-size:9px;letter-spacing:1px;fill:var(--draft)}
+#flow .tr-t{font-size:10.5px;fill:var(--fg)}
+#flow .tr-chip.done{fill:var(--ok-bg)}
+#flow .tr-chip.partly,#flow .tr-chip.after{fill:var(--draft-bg)}
+#flow .tr-chip.notyet,#flow .tr-chip.pending,#flow .tr-chip.needed{fill:var(--bg);stroke:var(--alert);stroke-dasharray:3 2}
+#flow .tr-chip.na{fill:var(--bg);stroke:var(--line)}
+.hsteps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:.9rem}
+.hstep{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);padding:1rem 1.1rem;display:grid;gap:.45rem;min-width:0}
+.hstep.rule{border-left:6px solid var(--fg)}
+.hstep .top{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
+.hstep .n{font-family:var(--font-display);font-weight:800;font-size:.8rem;color:var(--brand);background:var(--surface-2);border-radius:50%;width:1.9rem;height:1.9rem;display:grid;place-items:center;flex:none}
+.hstep h4{font-family:var(--font-display);font-weight:800;font-size:1rem;margin:0;flex:1 1 auto;min-width:0}
+.hstep p{margin:0;font-size:.95rem}
+.hstep .why{color:var(--muted);font-size:.9rem}
+.hstep .why b{color:var(--fg)}
+.hstep .trials{display:none;font-size:.86rem;border-top:1px dashed var(--line);padding-top:.45rem;gap:.25rem}
+body.show-trials .hstep .trials{display:grid}
+
+/* Journey spine */
+.legend{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin:0 0 1.2rem;padding:0;list-style:none;font-size:.93rem}
+.legend li{display:flex;align-items:center;gap:.5rem}
+.controls{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;margin-bottom:1.4rem}
+.seg{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:.6rem}
+.seg legend{font-family:var(--font-display);font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:.4rem;float:left}
+.seg .opts{display:inline-flex;border:2px solid var(--brand);border-radius:var(--radius);overflow:hidden}
+.seg input{position:absolute;opacity:0;width:1px;height:1px}
+.seg label{font-family:var(--font-display);font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:.55rem .95rem;cursor:pointer;color:var(--brand);background:var(--bg)}
+.seg input:checked+label{background:var(--brand);color:var(--on-brand)}
+.seg input:focus-visible+label{outline:3px solid var(--focus);outline-offset:-3px}
+.check{display:flex;align-items:center;gap:.55rem;font-weight:700;cursor:pointer}
+.check input{width:1.15rem;height:1.15rem;accent-color:var(--brand)}
+.mk{display:inline-block;flex:none;width:1rem;height:1rem;vertical-align:middle}
+.mk.h{border-radius:50%;background:var(--brand)}
+.mk.r{width:1.5rem;height:.7rem;background:var(--fg);border-radius:2px}
+.mk.ai{width:.8rem;height:.8rem;border:2.5px solid var(--mid);transform:rotate(45deg);margin:0 .12rem}
+.mk.m{border:2px solid var(--muted);background:repeating-linear-gradient(45deg,var(--muted) 0 2px,transparent 2px 5px);border-radius:2px}
+.spine{border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);overflow:hidden}
+.lanes,.step{display:grid;grid-template-columns:minmax(0,1.25fr) repeat(3,minmax(0,1fr));gap:0}
+.lanes{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:2}
+.lanes div{padding:.65rem .9rem;font-family:var(--font-display);font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.phase{padding:.9rem .9rem .5rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem 1rem;background:var(--bg)}
+.phase:first-of-type{border-top:0}
+.phase h3{font-weight:300;font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase}
+.phase p{margin:0;font-size:.9rem;color:var(--muted)}
+.phase.learn{background:var(--mint-soft)}
+.step{border-top:1px solid var(--line)}
+.step>div{padding:.7rem .9rem;min-width:0}
+.step .name{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.55rem;align-items:start}
+.step .num{font-family:var(--font-display);font-weight:800;font-size:.8rem;color:var(--brand);background:var(--surface-2);border-radius:50%;width:2rem;height:2rem;display:grid;place-items:center}
+.step .title{font-weight:700;line-height:1.3}
+.step .gate{display:inline-block;margin-top:.35rem;font-family:var(--font-display);font-weight:800;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;background:var(--fg);color:var(--bg);padding:.2rem .5rem;border-radius:3px}
+.step.rule{background:var(--surface);box-shadow:inset 6px 0 0 var(--fg)}
+.act{display:flex;gap:.55rem;align-items:flex-start;font-size:.93rem;line-height:1.4}
+.act .mk{margin-top:.2rem}
+.act.none{color:var(--muted);font-size:.85rem}
+.lane-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.slower{display:inline-block;margin-left:.3rem;font-family:var(--font-display);font-weight:800;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--draft);border:1.5px solid var(--draft);border-radius:3px;padding:.05rem .35rem;vertical-align:1px}
+.trial{grid-column:1 / -1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,3fr);gap:0;background:var(--surface);border-top:1px dashed var(--line);font-size:.88rem}
+.trial>div{padding:.55rem .9rem}
+.trial .t-label{color:var(--muted);font-weight:700;padding-left:3.45rem}
+.trial ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem 1rem}
+.trial li{display:flex;flex-direction:column;gap:.2rem}
+.trial b{font-size:.82rem}
+.st{align-self:flex-start;font-family:var(--font-display);font-weight:800;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:.12rem .45rem;border:1.5px solid currentColor}
+.st.done{color:var(--ok)}
+.st.partly,.st.after{color:var(--draft)}
+.st.notyet,.st.pending,.st.needed{color:var(--alert);border-style:dashed}
+.st.na{color:var(--muted);border-style:dotted}
+body:not(.show-trials) .trial{display:none}
+.spine-foot{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center;margin-top:1rem}
+.table-alt table{width:100%;border-collapse:collapse;font-size:.88rem}
+.table-alt th,.table-alt td{text-align:left;vertical-align:top;padding:.5rem .6rem;border-bottom:1px solid var(--line)}
+.table-alt th{font-family:var(--font-display);font-weight:800;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* Review states */
+.states{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;list-style:none;margin:0;padding:0;counter-reset:st}
+.states>li{counter-increment:st;position:relative;padding:1rem 1rem 1.1rem;border-top:6px solid var(--line);min-width:0}
+.states>li.reached{border-top-color:var(--brand)}
+.states>li h3{font-size:1rem;font-weight:800;display:flex;gap:.5rem;align-items:baseline}
+.states>li h3::before{content:counter(st);font-family:var(--font-display);font-weight:800;color:var(--brand)}
+.states>li p{margin:.35rem 0 0;font-size:.92rem;color:var(--muted)}
+.here{display:flex;flex-direction:column;gap:.35rem;margin-top:.7rem}
+.here span{display:inline-flex;align-items:center;gap:.45rem;font-weight:700;font-size:.9rem;background:var(--mint-soft);border:1.5px solid var(--mid);border-radius:999px;padding:.2rem .7rem;align-self:flex-start}
+.here span::before{content:"";width:0;height:0;border-left:.4rem solid transparent;border-right:.4rem solid transparent;border-top:.55rem solid var(--mid)}
+.empty{font-size:.88rem;color:var(--muted);font-style:italic}
+.joins{font-size:.88rem;margin:0}
+.joins b{font-family:var(--font-display);font-weight:800;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-right:.3rem}
+@media (max-width:760px){
+  .lanes{display:none}
+  .step{grid-template-columns:minmax(0,1fr)}
+  .step>div{padding:.45rem .9rem}
+  .step .name{padding-top:.8rem}
+  .act{padding-left:3.45rem !important}
+  .act .lane-name{position:static;width:auto;height:auto;clip:auto;font-family:var(--font-display);font-weight:800;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:4.5rem;margin-top:.15rem}
+  .act.none{display:none}
+  .trial{grid-template-columns:minmax(0,1fr)}
+  .trial .t-label{padding-left:.9rem}
+  .trial ul{grid-template-columns:minmax(0,1fr)}
+  .states{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:440px){ .states{grid-template-columns:minmax(0,1fr)} }
+
+@media (max-width:980px){
+  .planes{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plane:last-child{grid-column:1 / -1}
+}
+@media (max-width:820px){
+  .hero .wrap,.split,.kit,footer.site .wrap{grid-template-columns:minmax(0,1fr)}
+  .peers{order:-1}
+  .peers svg{max-width:300px}
+}
+@media (max-width:520px){
+  .planes{grid-template-columns:minmax(0,1fr)}
+  body{font-size:16px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .peers .bond{stroke-dasharray:6 6;animation:flow 6s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-48}}
+}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to the main content</a>
+
+<div class="status" role="note" aria-label="Page status">
+  <div class="wrap">
+    <span class="pill draft">Draft</span>
+    <span>Front door for review by the RAHP Task Force. Not an official Trust over IP Foundation page until approved. Version 0.1, 11 November 2026.</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="RAHP Toolkit home">
+      <span class="plate"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIGlkPSJMYXllcl8xIiB4PSIwIiB5PSIwIgogICAgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTg0LjcgNDA1LjYiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDk4NC43IDQwNS42Ij4KICAgIDxzdHlsZT4KICAgICAgICAuc3QwIHsKICAgICAgICAgICAgZmlsbDogIzMwNDk5ZgogICAgICAgIH0KCiAgICAgICAgLnN0MSB7CiAgICAgICAgICAgIGZpbGw6ICNhOWRkZTAKICAgICAgICB9CgogICAgICAgIC5zdDIgewogICAgICAgICAgICBmaWxsOiAjMjU4OWNhCiAgICAgICAgfQoKICAgICAgICAuc3QzIHsKICAgICAgICAgICAgZmlsbDogIzM2NTNhNAogICAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8cGF0aAogICAgICAgIGQ9Ik01NDEuNSAxNDkuOUg1MTZ2LTgwaC0zNC41VjQ3LjFINTc2djIyLjhoLTM0LjV6TTYyMi41IDEyMC40aC0xMC43djI5LjVoLTI1LjRWNDcuMWMxMC42LS40IDI3LjItLjkgNDEuMy0uOSAyNi42IDAgNDMuMiAxMi43IDQzLjIgMzYuNiAwIDEzLjgtNi42IDI0LjgtMTcuOCAzMS4xbDI0LjYgMzZoLTMwLjJsLTE4LjktMjkuNWgtNi4xem01LjYtMjEuNWMxMC40IDAgMTcuNC02LjUgMTcuNC0xNS45IDAtMTAuMy03LTE1LTE4LjQtMTUtNC43IDAtMTAuMS4yLTE1LjMuMnYzMC43aDE2LjN6TTc4MS43IDEwMy41YzAgMzAuNS0xOC42IDQ4LjctNDguMiA0OC43LTI5LjUgMC00Ny45LTE4LjEtNDcuOS00OC43VjQ3LjFoMjUuN3Y1Ni40YzAgMTUuNyA4LjYgMjQuOCAyMi4yIDI0LjhzMjIuNS05LjEgMjIuNS0yNC44VjQ3LjFoMjUuN3Y1Ni40ek04NzUuNyA3NC42Yy0xNC40LTQuNC0yNy4yLTYuOC0zNi02LjgtOC45IDAtMTQuNCAyLjctMTQuNCA5LjEgMCA2LjkgOC4zIDguMiAyMi44IDExLjIgMjEuMiA0LjUgMzUuMiAxMS4yIDM1LjIgMzEgMCAyMS45LTE3LjEgMzMuMS00Mi45IDMzLjEtMTMuMiAwLTI5LjgtMi45LTQ1LjgtOC45bDUuNy0yMi41YzE2LjUgNi4yIDI5LjkgOC42IDM5IDguOCAxMC45LjIgMTYuNi0yLjkgMTYuNi04LjggMC04LjMtMTEuNi05LjctMjQuNi0xMi40LTIzLTQuOC0zMy43LTEyLjItMzMuNy0zMC4yIDAtMjAuMyAxNi4yLTMyLjUgNDEuOS0zMi41IDE0LjIgMCAzMC44IDMuMiA0MS42IDdsLTUuNCAyMS45ek05NDkuMyAxNDkuOWgtMjUuNnYtODBoLTM0LjRWNDcuMWg5NC40djIyLjhoLTM0LjR6TTU4OC42IDIzNC43YzAgMzIuMi0yMi4xIDUzLjctNTQuMSA1My43cy01NC0yMS41LTU0LTUzLjcgMjEuOS01My43IDU0LTUzLjdjMzIgMCA1NC4xIDIxLjUgNTQuMSA1My43bS0xMS4yIDBjMC0yNi4xLTE3LjUtNDMuNS00Mi45LTQzLjUtMjUuMiAwLTQyLjggMTcuNC00Mi44IDQzLjVzMTcuNSA0My43IDQyLjggNDMuN2MyNS40IDAgNDIuOS0xNy42IDQyLjktNDMuN002MzIuNiAyODYuMWwtMzIuNy02OS45aDExLjVsMjYuOCA1Ny44IDI2LjYtNTcuOGgxMS4zbC0zMi41IDY5Ljl6TTc1MC45IDI0Ny4xYzAgMy41LS4yIDQuNy0uNiA4aC01OC4yYzEuNyAxNC40IDExLjYgMjMuOSAyNy4xIDIzLjkgOC45IDAgMTYuMi0xLjUgMjUuNy0zLjlsMS43IDguNWMtOS4xIDIuNy0xNi45IDQuOC0yNy43IDQuOC0yMy45IDAtMzcuOC0xNS42LTM3LjgtMzcuMyAwLTIyLjQgMTUuMS0zNyAzNi4zLTM3IDE5LjYtLjEgMzMuNCAxMi42IDMzLjUgMzNtLTU5LjEtLjJoNDkuNmMtLjItMTUuMy05LjctMjQuNS0yMy43LTI0LjUtMTUgMC0yNC43IDkuNy0yNS45IDI0LjVNODA3LjYgMjI0LjdjLTEwLjEgMC0xOC4zLjMtMjguNiAxLjV2NTkuOWgtMTAuNHYtNjcuOWMxMi43LTIuMyAyNS44LTMuNiAzOS0zLjZ2MTAuMXpNODU0LjkgMTgzLjNoMjUuNXYxMDIuOGgtMjUuNXpNOTg0LjcgMjIwYzAgMjMuNC0xNy41IDM4LjItNDQuNyAzOC4yaC0xNC4yVjI4NmgtMjUuNFYxODMuM2MxMi4xLS42IDI1LjUtMS4yIDM5LjYtMS4yIDI3LjIgMCA0NC43IDEzLjkgNDQuNyAzNy45bS00My4yIDE2YzEwLjQgMCAxNy44LTUuOSAxNy44LTE1LjkgMC0xMC4zLTcuNC0xNS45LTE3LjgtMTUuOS01LjMgMC0xMC42LjItMTUuNy4zVjIzNmgxNS43ek01MTUuMSAzNDAuN3YxMS42aC0yMS42djE3LjRoLTEyLjd2LTUxLjRoMzcuN3YxMS4zaC0yNXYxMS4xek01NzcuOSAzNDRjMCAxNi4xLTExLjMgMjYuOC0yNy42IDI2LjhzLTI3LjYtMTAuNy0yNy42LTI2LjggMTEuMy0yNi44IDI3LjYtMjYuOGMxNi4yIDAgMjcuNiAxMC43IDI3LjYgMjYuOG0tMTMuMiAwYzAtOS4xLTYtMTUtMTQuNC0xNXMtMTQuNCA2LTE0LjQgMTVjMCA5LjEgNiAxNS4xIDE0LjQgMTUuMXMxNC40LTYgMTQuNC0xNS4xTTYzMyAzNDYuNWMwIDE1LjMtOS4zIDI0LjMtMjQuMSAyNC4zLTE0LjcgMC0yNC05LjEtMjQtMjQuM3YtMjguMmgxMi44djI4LjJjMCA3LjkgNC4zIDEyLjQgMTEuMSAxMi40czExLjMtNC41IDExLjMtMTIuNHYtMjguMkg2MzN2MjguMnpNNjkwIDM2OS43aC0xMS42bC0yMy45LTI5Ljh2MjkuOGgtMTIuN3YtNTEuNGgxMS43bDIzLjggMzAuMXYtMzAuMUg2OTB6TTc0Ny4yIDM0My45YzAgMTYuMi0xMS4zIDI2LjQtMjYuNyAyNi40LTcuNiAwLTE0LjgtLjMtMjAuNC0uNnYtNTEuNGM1LjYtLjMgMTItLjYgMTkuMS0uNiAxNi43IDAgMjggMTAuMSAyOCAyNi4ybS0xMy4xIDBjMC05LTUuOS0xNC43LTE0LjMtMTQuNy0yLjIgMC00LjYgMC03IC4ydjI5LjVjMi42LjIgNS40LjIgOCAuMiA3LjQtLjIgMTMuMy02LjEgMTMuMy0xNS4yTTc2MS42IDM2OS43aC0xMy45bDIyLjktNTEuN2gxMS45bDIyLjggNTEuN2gtMTMuOGwtMy42LTguNWgtMjIuOGwtMy41IDguNXptNy45LTE5LjNoMTQuMWwtNy4xLTE3LjItNyAxNy4yek04MzAuNCAzNjkuN2gtMTIuOHYtNDBoLTE3LjJ2LTExLjRoNDcuMnYxMS40aC0xNy4yek04NTIuNyAzMTguM2gxMi44djUxLjRoLTEyLjh6TTkyOC40IDM0NGMwIDE2LjEtMTEuMyAyNi44LTI3LjYgMjYuOHMtMjcuNi0xMC43LTI3LjYtMjYuOCAxMS4zLTI2LjggMjcuNi0yNi44IDI3LjYgMTAuNyAyNy42IDI2LjhtLTEzLjEgMGMwLTkuMS02LTE1LTE0LjQtMTVzLTE0LjQgNi0xNC40IDE1YzAgOS4xIDYgMTUuMSAxNC40IDE1LjEgOC4zIDAgMTQuNC02IDE0LjQtMTUuMU05ODQuNSAzNjkuN2gtMTEuN0w5NDkgMzM5Ljl2MjkuOGgtMTIuN3YtNTEuNEg5NDhsMjMuOCAzMC4xdi0zMC4xaDEyLjd6IgogICAgICAgIGNsYXNzPSJzdDAiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0yNzIgMTAuM2MxMy42LTcuOCAyNS45LTguNSAzNC43LTMuMWw5OC42IDU3LjRjLjIuMS4zLjIuNS4zLTguOC01LjItMjEuMS00LjYtMzQuNiAzLjJsLTE3NyAxMDEuOEwyMC41IDY4LjhjLTI3LjMtMTUuOC0yNy4zLTQxLjMgMC01N0M0Ny44LTQgOTItMy45IDExOS4zIDExLjhsNzUuNiA0My4xTDI3MiAxMC4zIgogICAgICAgIGNsYXNzPSJzdDEiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik05OS41IDU3LjRjLTE2LjQgOS40LTQyLjkgOS40LTU5LjMgMC0xNi40LTkuNS0xNi40LTI0LjggMC0zNC4yIDE2LjQtOS40IDQyLjktOS40IDU5LjMgMCAxNi40IDkuNSAxNi40IDI0LjggMCAzNC4yIgogICAgICAgIGNsYXNzPSJzdDIiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0yOTUuMiAzMTIuMWMwIDE1LjgtNS41IDI3LTE0LjMgMzIuMmwtMTAwLjggNTcuOXMtLjEgMC0uMS4xYzguOC01LjMgMTQuMy0xNi40IDE0LjMtMzIuMlYxNjkuOWwxNzctMTAxLjhjMjctMTUuNiA0OC45LTIuNiA0OC45IDI5cy0yMS45IDY5LjktNDguOSA4NS41bC03Ni4xIDQzLjl2ODUuNnoiCiAgICAgICAgY2xhc3M9InN0MyIgLz4KICAgIDxwYXRoCiAgICAgICAgZD0iTTM0MS45IDE0Mi4zYzAgMTkgMTMuMSAyNi44IDI5LjMgMTcuNCAxNi4yLTkuNCAyOS4zLTMyLjMgMjkuMy01MS4zUzM4Ny40IDgxLjYgMzcxLjIgOTFjLTE2LjEgOS4zLTI5LjMgMzIuMy0yOS4zIDUxLjMiCiAgICAgICAgY2xhc3M9InN0MSIgLz4KICAgIDxwYXRoCiAgICAgICAgZD0iTTk2LjUgMzEzLjVjMCAzMS42IDIxLjkgNjkuOSA0OC45IDg1LjUgMjcgMTUuNiA0OC45IDIuNiA0OC45LTI5VjE2OS45TDIwLjUgNjguOEM2LjggNjEgMCA1MC42IDAgNDAuM1YxNTZjMCAxMC4zIDYuOCAyMC42IDIwLjUgMjguNWw3NiA0My44djg1LjJ6IgogICAgICAgIGNsYXNzPSJzdDIiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0xNzQuNyAzNTguN2MwIDE5LTEzLjEgMjYuOC0yOS4zIDE3LjQtMTYuMi05LjQtMjkuMy0zMi4zLTI5LjMtNTEuM3MxMy4xLTI2LjggMjkuMy0xNy40YzE2LjIgOS4zIDI5LjMgMzIuMyAyOS4zIDUxLjMiCiAgICAgICAgY2xhc3M9InN0MyIgLz4KPC9zdmc+" alt="Trust over IP Foundation"></span>
+      <span class="words">
+        <span class="org">Decentralized Trust Graph Working Group</span>
+        <span class="name"><b>RAHP</b> <span>Toolkit</span></span>
+      </span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li><a href="#top" aria-current="page">Home</a></li>
+        <li><a href="#journey">The journey</a></li>
+        <li><a href="#ways-in">Start here</a></li>
+        <li><a href="#kit">What's in the kit</a></li>
+        <li><a href="#planes">Where fixes belong</a></li>
+        <li><a href="#examples">Worked examples</a></li>
+        <li><a href="#share">Share a finding</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <p class="label" style="color:var(--mid);margin:0 0 .8rem">Risk Assessment and Harms Prevention</p>
+        <h1 id="hero-title">Find out <strong>who could be harmed</strong> by a digital trust system, and <strong>where the fix belongs</strong>.</h1>
+        <p id="summary">RAHP is a method, a catalogue of risks and a small set of checks. It helps people review specifications and the systems built from them through the eyes of the people who will live with them. People take part from start to finish, not only at one checkpoint. AI can read and draft at scale, and machines pin and check, but some steps are for people by rule.</p>
+        <div class="cta">
+          <a class="btn primary" href="#journey">Follow the journey</a>
+          <a class="btn ghost" href="#ways-in">Choose your way in</a>
+        </div>
+        <div class="listen">
+          <button type="button" id="listen" aria-pressed="false">Listen to the summary</button>
+          <span id="listen-status" aria-live="polite">About one minute, read aloud by your device.</span>
+        </div>
+      </div>
+      <div class="peers">
+        <figure>
+          <svg viewBox="0 0 440 360" role="img" aria-labelledby="peers-title peers-desc">
+            <title id="peers-title">Three peers and the bonds between them</title>
+            <desc id="peers-desc">Three circles: people, specifications and systems, each joined to a shared centre. RAHP looks for harms in those joins, where a rule in a specification or a choice in a system meets a real person.</desc>
+            <g fill="none" stroke-linecap="round" stroke-width="10">
+              <line class="bond" x1="220" y1="200" x2="220" y2="78" stroke="var(--mid)"/>
+              <line class="bond" x1="220" y1="200" x2="98" y2="280" stroke="var(--brand)"/>
+              <line class="bond" x1="220" y1="200" x2="342" y2="280" stroke="var(--brand)"/>
+            </g>
+            <circle cx="220" cy="200" r="30" fill="var(--bg)" stroke="var(--alert)" stroke-width="4"/>
+            <text x="220" y="205" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="13" fill="var(--alert)">harm?</text>
+            <circle cx="220" cy="70" r="46" fill="var(--mint)"/>
+            <circle cx="92" cy="284" r="46" fill="var(--mid)"/>
+            <circle cx="348" cy="284" r="46" fill="var(--brand)"/>
+            <g font-family="Montserrat, Arial, sans-serif" font-weight="800" font-size="13" text-anchor="middle" letter-spacing="1.5">
+              <text x="220" y="75" fill="#00005f">PEOPLE</text>
+              <text x="92" y="289" fill="#ffffff">SPECS</text>
+              <text x="348" y="289" fill="#ffffff">SYSTEMS</text>
+            </g>
+          </svg>
+          <figcaption>Peers, bonds and protocols are the ideas behind the Trust over IP brand. RAHP looks for harm where they meet.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="band tint" id="journey" aria-labelledby="journey-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">The journey</p>
+        <h2 class="section-title" id="journey-title">Eighteen steps, and who does each one</h2>
+        <p class="lead">People frame, choose, judge, decide and live with the result. AI drafts and reads at scale. Machines pin, check and fingerprint. Four steps are for people by rule, whatever tools you use.</p>
+      </div>
+
+      <ul class="legend" aria-label="Key">
+        <li><span class="mk h" aria-hidden="true"></span><span><b>Person</b>: decides, judges or acts</span></li>
+        <li><span class="mk r" aria-hidden="true"></span><span><b>Person, by rule</b>: AI must not do this</span></li>
+        <li><span class="mk ai" aria-hidden="true"></span><span><b>AI</b>: drafts, reads or proposes; a person reviews it</span></li>
+        <li><span class="mk m" aria-hidden="true"></span><span><b>Machine</b>: a script or check that gives the same answer every time</span></li>
+      </ul>
+
+      <div class="controls">
+        <fieldset class="seg">
+          <legend>Show the journey</legend>
+          <span class="opts">
+            <input type="radio" name="mode" id="mode-ai" value="ai" checked><label for="mode-ai">With AI</label>
+            <input type="radio" name="mode" id="mode-noai" value="noai"><label for="mode-noai">Without AI</label>
+          </span>
+        </fieldset>
+        <label class="check" for="show-trials"><input type="checkbox" id="show-trials"> Show what happened in our two trial reviews</label>
+      </div>
+
+      <p class="note" id="mode-note" aria-live="polite" style="margin:0 0 1rem">With AI: AI does the heavy reading and drafting, and people review everything it produces.</p>
+
+      <p class="scroll-hint" id="scroll-hint">Scroll sideways to follow the 18 steps from left to right.</p>
+      <div class="flow-wrap" tabindex="0" role="region" aria-label="Journey diagram, scrolls sideways">
+        <svg id="flow" role="img" aria-labelledby="flow-title flow-desc"><title id="flow-title">The RAHP journey as a swimlane diagram</title><desc id="flow-desc">Eighteen steps from left to right, in lanes for people, AI and machines, with arrows for each handover. The same content is in the list below the diagram and in the table.</desc></svg>
+      </div>
+
+      <div class="hsteps-head">
+        <h3 class="label" style="color:var(--mid);margin:2rem 0 .3rem">What people do, step by step</h3>
+        <p class="lead" style="margin:0 0 1rem" id="hsteps-lead"></p>
+      </div>
+      <ol class="hsteps" id="hsteps"></ol>
+
+      <div class="spine-foot">
+        <details class="more table-alt">
+          <summary>Read the journey as a table</summary>
+          <div class="table-wrap" style="margin-top:.6rem"><table id="spine-table"></table></div>
+        </details>
+        <p class="joins" style="color:var(--muted)">Steps 0 to 15 are using the kit. Steps 16 and 17 are the kit learning, which leads back to the start.</p>
+      </div>
+
+      <div class="split" style="margin-top:2rem">
+        <div class="panel">
+          <h3>Rules for using AI</h3>
+          <ul style="margin-top:.7rem">
+            <li>AI assists. People decide.</li>
+            <li>Don't use AI to score risks, verify must-haves (guardrails) or make governance decisions.</li>
+            <li>Check every quotation and citation against the source. Then check the judgement, not only the quote.</li>
+            <li>Have a second person, or a different model, check independently.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Label what AI drafted</h3>
+          <p style="margin:.7rem 0 0">An AI-drafted record says "AI draft, not yet reviewed by" and a name, until that person has reviewed the findings. A record never names someone as its reviewer before they have reviewed it.</p>
+          <p class="note warn" style="margin-bottom:0"><b>Without AI takes longer.</b> Reading one specification can take a day or more. Split several specifications across people, then meet to find the themes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="states" aria-labelledby="states-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">Review states</p>
+        <h2 class="section-title" id="states-title">How far a review has got</h2>
+        <p class="lead">Every review record moves through four states. Neither of our two trial reviews is finished. They are shown here as they stand.</p>
+      </div>
+      <ol class="states">
+        <li class="reached">
+          <h3>AI draft</h3>
+          <p>AI has read the target and drafted findings. Nobody has checked them yet.</p>
+          <div class="here"><span>Three specifications, one scenario</span></div>
+        </li>
+        <li class="reached">
+          <h3>Checked by a person</h3>
+          <p>A person has confirmed, changed or dropped each finding.</p>
+          <div class="here"><span>Arthur and Margaret</span></div>
+          <p class="empty" style="margin-top:.4rem">The findings were confirmed; the evidence was not re-checked.</p>
+        </li>
+        <li>
+          <h3>Independently examined</h3>
+          <p>A different person has tried to disprove each inference.</p>
+          <p class="empty">No review here yet.</p>
+        </li>
+        <li>
+          <h3>Decided by the task force</h3>
+          <p>The task force has decided where fixes go, how serious they are and what to accept.</p>
+          <p class="empty">No review here yet.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band tint" id="ways-in" aria-labelledby="ways-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">Start here</p>
+        <h2 class="section-title" id="ways-title">Choose your way in</h2>
+        <p class="lead">Pick what you want to do. The first four need no code and no GitHub account.</p>
+      </div>
+      <h3 class="label group-label">No code needed</h3>
+      <div class="ways">
+        <article class="way" aria-labelledby="w1">
+          <header><h3 id="w1">Understand who could be harmed</h3><span class="tag nocode">No code</span></header>
+          <p class="for">For policy, human rights and community reviewers.</p>
+          <ol>
+            <li>Meet the people in the catalogue.</li>
+            <li>Follow one person into the situations they face.</li>
+            <li>See the risks, and the safeguards that answer them.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Steps 1 to 3: choose, frame and gather</p>
+          <p class="need"><b>You need:</b> a browser.</p>
+          <a class="go" href="#kit">Go to people and situations</a>
+        </article>
+
+        <article class="way" aria-labelledby="w2">
+          <header><h3 id="w2">Listen and respond</h3><span class="tag nocode">No code</span></header>
+          <p class="for">For community reviewers who prefer to listen and speak.</p>
+          <ol>
+            <li>Listen to a short, plain summary of each review.</li>
+            <li>Answer a few questions by dictation.</li>
+            <li>Hear whether each point was accepted, declined or deferred.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Step 16: share and feed back</p>
+          <p class="need"><b>You need:</b> a device that reads aloud, or a screen reader.</p>
+          <a class="go" href="#share">Go to share a finding</a>
+        </article>
+
+        <article class="way" aria-labelledby="w3">
+          <header><h3 id="w3">Read published reviews</h3><span class="tag nocode">No code</span></header>
+          <p class="for">For public-sector and procurement readers.</p>
+          <ol>
+            <li>Find the review for a specification.</li>
+            <li>Check the date and the exact version it reviewed.</li>
+            <li>See what was found, and what is still open.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Review state 4: decided by the task force</p>
+          <p class="need"><b>You need:</b> a browser. A finished review is not a pass.</p>
+          <a class="go" href="#examples">Go to worked examples</a>
+        </article>
+
+        <article class="way" aria-labelledby="w7">
+          <header><h3 id="w7">Share a finding safely</h3><span class="tag nocode">No code</span></header>
+          <p class="for">For anyone with evidence of harm, including people who can't be named.</p>
+          <ol>
+            <li>Choose a route: public, through a form, or through a trusted intermediary.</li>
+            <li>Say what happens, to whom, and where you saw it.</li>
+            <li>See the outcome and the reason.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Step 16: share and feed back</p>
+          <p class="need"><b>You need:</b> nothing. A protected route is being designed.</p>
+          <a class="go" href="#share">Go to share a finding</a>
+        </article>
+      </div>
+      <h3 class="label group-label">Some setup, or technical</h3>
+      <div class="ways">
+        <article class="way" aria-labelledby="w4">
+          <header><h3 id="w4">Review a specification</h3><span class="tag code">Some setup</span></header>
+          <p class="for">For specification editors and reviewers.</p>
+          <ol>
+            <li>Fix the exact version you are reading.</li>
+            <li>Read it with a person's eyes, noting the section for each concern.</li>
+            <li>Link each finding to a risk, and say where the fix belongs.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Steps 1 to 12, then hand over for examination</p>
+          <p class="need"><b>You need:</b> the specification's repository. Python only for the optional check.</p>
+          <a class="go" href="#journey">Go to the journey</a>
+        </article>
+
+        <article class="way" aria-labelledby="w5">
+          <header><h3 id="w5">Review an implementation</h3><span class="tag code">Technical</span></header>
+          <p class="for">For implementers and testers, including several specifications working together.</p>
+          <ol>
+            <li>Take guardrails as short, testable statements.</li>
+            <li>Turn them into checks in your own pipeline.</li>
+            <li>Record what the system does for real people, not just what it claims.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Steps 1 to 12, and step 17 when the code changes</p>
+          <p class="need"><b>You need:</b> Git and Python 3.</p>
+          <a class="go" href="#planes">Go to where fixes belong</a>
+        </article>
+
+        <article class="way" aria-labelledby="w6">
+          <header><h3 id="w6">Adopt RAHP for your group</h3><span class="tag code">Some setup</span></header>
+          <p class="for">For working group chairs and new group leads.</p>
+          <ol>
+            <li>Keep the method; replace the catalogue with your own people and risks.</li>
+            <li>Start from a small set of defaults.</li>
+            <li>Agree how much risk your group will accept, and who decides.</li>
+          </ol>
+          <p class="joins"><b>Joins the journey at</b>Step 0 to set up, and step 15 to decide</p>
+          <p class="need"><b>You need:</b> a GitHub account, or someone in your group who has one.</p>
+          <a class="go" href="#kit">Go to what's in the kit</a>
+        </article>
+      </div>
+      <details class="more" style="margin-top:1.2rem">
+        <summary>Who these ways in were designed for</summary>
+        <p>Each way in comes from the toolkit's own user personas: fictional people such as a working group chair, a specification editor, a policy contributor, a voice-first community reviewer, a developer whose first language is not English and a contributor at risk. Persona codes TP-01 to TP-17 are in the personas file.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="band tint" id="kit" aria-labelledby="kit-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">What's in the kit</p>
+        <h2 class="section-title" id="kit-title">A portable method, and one worked instance</h2>
+        <p class="lead">The method is the same for any group. The catalogue is this task force's own, for the Decentralized Trust Graph. Another group keeps the method and replaces the catalogue.</p>
+      </div>
+      <div class="kit">
+        <div class="panel">
+          <h3>The method <span class="tag nocode">Reuse as is</span></h3>
+          <p>How to think through risks and harms, and the rules every record follows.</p>
+          <div class="counts">
+            <div class="count"><b>5</b><span>lifecycle stages, from scoping to maintenance</span></div>
+            <div class="count"><b>5</b><span>places a fix can belong</span></div>
+            <div class="count"><b>1</b><span>review record format</span></div>
+          </div>
+          <h4 class="label" style="color:var(--mid);margin:1.3rem 0 .3rem">A review, in order</h4>
+          <ol class="chain" aria-label="A review, in order">
+            <li>Pick the spec and its exact version</li>
+            <li><span>Ask who could be harmed</span></li>
+            <li><span>Link findings to risks</span></li>
+            <li><span>Decide where each fix belongs</span></li>
+            <li><span>Track its status</span></li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h3>The Decentralized Trust Graph catalogue <span class="tag code">Replace for your own</span></h3>
+          <p>This task force's people, situations, risks and safeguards. Counts as of the current build.</p>
+          <div class="counts">
+            <div class="count"><b>16</b><span>people, including agents, bad actors and edge cases</span></div>
+            <div class="count"><b>33</b><span>situations that test the system</span></div>
+            <div class="count"><b>43</b><span>risks: what could go wrong, and for whom</span></div>
+            <div class="count"><b>66</b><span>safeguards, plus 21 must-haves</span></div>
+            <div class="count"><b>37</b><span>measures of whether a safeguard works</span></div>
+            <div class="count"><b>3</b><span>risk decisions, all waiting for a named decision-maker</span></div>
+          </div>
+          <h4 class="label" style="color:var(--mid);margin:1.3rem 0 .3rem">From people to proof</h4>
+          <ol class="chain" aria-label="From people to proof">
+            <li>People</li>
+            <li><span>Situations</span></li>
+            <li><span>Risks and harms</span></li>
+            <li><span>Safeguards</span></li>
+            <li><span>Measures and tests</span></li>
+          </ol>
+          <details class="more" style="margin-top:.8rem">
+            <summary>Terms and codes used in the files</summary>
+            <p>People are personas; situations are scenarios; safeguards are controls; must-haves are guardrails (a stage cannot pass without them); measures are metrics and assurance tests. In the files they carry codes such as RK- for risks and CT- for controls.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="planes" aria-labelledby="planes-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">Where fixes belong</p>
+        <h2 class="section-title" id="planes-title">Five places a fix can belong</h2>
+        <p class="lead">Many harms can't be fixed in a specification. Each finding names the place where the fix belongs, and who must act.</p>
+      </div>
+      <div class="planes">
+        <article class="plane"><h3>Technical standards</h3><p class="who">The specification, or a companion specification</p><p class="eg">No credential can represent a legal attorney.</p></article>
+        <article class="plane"><h3>Implementation</h3><p class="who">The software, and guidance for builders</p><p class="eg">A carer can act only through a generic role or the member's unlock code.</p></article>
+        <article class="plane"><h3>Configuration</h3><p class="who">How one community sets the system up</p><p class="eg">Co-approval exists but is off by default.</p></article>
+        <article class="plane"><h3>Governance</h3><p class="who">Rules, policies and legal agreements, including user terms</p><p class="eg">No route for closing a member's identity when they die.</p></article>
+        <article class="plane"><h3>User experience</h3><p class="who">What people see and do <span class="pill todo" style="margin-top:.3rem">Proposed</span></p><p class="eg">No safe way to say no when under pressure.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band tint" id="examples" aria-labelledby="ex-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">Worked examples</p>
+        <h2 class="section-title" id="ex-title">Reviews you can read and re-run</h2>
+        <p class="lead">Each example shows the exact version reviewed, what was found and what is still open.</p>
+      </div>
+      <div class="examples">
+        <article class="example"><span class="pill ok">Finished</span><h3>Trust registry query protocol</h3><p>A single-specification review, from scoping to findings.</p></article>
+        <article class="example"><span class="pill ok">Finished</span><h3>Verifiable relationship credentials, v0.3</h3><p>A review of one draft credential specification.</p></article>
+        <article class="example"><span class="pill ok">Finished</span><h3>A fictional membership lifecycle</h3><p>A community from joining to leaving, with no real people.</p></article>
+        <article class="example"><span class="pill draft">State 2: checked by a person</span><h3>Arthur and Margaret</h3><p>A trial review of an open-source trust-community implementation stack, through the eyes of a person living with dementia and the attorney who acts for him.</p></article>
+        <article class="example"><span class="pill draft">State 1: AI draft</span><h3>Three specifications, one scenario</h3><p>A trial run of one scenario against three draft specifications at once. Public once a person has checked the findings and the task force agrees.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="share" aria-labelledby="share-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">Share a finding</p>
+        <h2 class="section-title" id="share-title">Help the toolkit learn</h2>
+        <p class="lead">Every route will show its outcome: accepted, declined or deferred, with a reason. The task force is still choosing which routes to open first.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="routes">
+          <caption class="skip">Routes for sharing a finding, who each suits, and its status</caption>
+          <thead><tr><th scope="col">Route</th><th scope="col">Suits</th><th scope="col">Watch out for</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>A GitHub form</td><td>Technical users; easy to trace</td><td>Needs a GitHub account, and is public</td><td><span class="pill todo">To decide</span></td></tr>
+            <tr><td>A GitHub discussion</td><td>Open conversation</td><td>Unstructured</td><td><span class="pill todo">To decide</span></td></tr>
+            <tr><td>A simple form, entered by a volunteer</td><td>Non-technical and voice-first reviewers</td><td>Who enters it, and how the data is protected</td><td><span class="pill todo">To decide</span></td></tr>
+            <tr><td>Through a trusted intermediary</td><td>People who can't be named</td><td>A process the task force must agree</td><td><span class="pill todo">To design</span></td></tr>
+            <tr><td>An index of published reviews</td><td>Learning from others' reviews</td><td>Where reviews live (task force agenda, 25 November)</td><td><span class="pill todo">To decide</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="band tint" id="who" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="band-head">
+        <p class="label">Who we are</p>
+        <h2 class="section-title" id="who-title">Open Community</h2>
+        <p class="lead">The RAHP Task Force is part of the Decentralized Trust Graph Working Group, a joint working group of the Trust over IP Foundation and the Decentralized Identity Foundation. Trust over IP is a project of LF Decentralized Trust.</p>
+      </div>
+      <div class="partners">
+        <a class="partner" href="https://trustoverip.org/" target="_blank" rel="noopener" title="Trust over IP Foundation home page (opens in a new tab)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIGlkPSJMYXllcl8xIiB4PSIwIiB5PSIwIgogICAgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOTg0LjcgNDA1LjYiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDk4NC43IDQwNS42Ij4KICAgIDxzdHlsZT4KICAgICAgICAuc3QwIHsKICAgICAgICAgICAgZmlsbDogIzMwNDk5ZgogICAgICAgIH0KCiAgICAgICAgLnN0MSB7CiAgICAgICAgICAgIGZpbGw6ICNhOWRkZTAKICAgICAgICB9CgogICAgICAgIC5zdDIgewogICAgICAgICAgICBmaWxsOiAjMjU4OWNhCiAgICAgICAgfQoKICAgICAgICAuc3QzIHsKICAgICAgICAgICAgZmlsbDogIzM2NTNhNAogICAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8cGF0aAogICAgICAgIGQ9Ik01NDEuNSAxNDkuOUg1MTZ2LTgwaC0zNC41VjQ3LjFINTc2djIyLjhoLTM0LjV6TTYyMi41IDEyMC40aC0xMC43djI5LjVoLTI1LjRWNDcuMWMxMC42LS40IDI3LjItLjkgNDEuMy0uOSAyNi42IDAgNDMuMiAxMi43IDQzLjIgMzYuNiAwIDEzLjgtNi42IDI0LjgtMTcuOCAzMS4xbDI0LjYgMzZoLTMwLjJsLTE4LjktMjkuNWgtNi4xem01LjYtMjEuNWMxMC40IDAgMTcuNC02LjUgMTcuNC0xNS45IDAtMTAuMy03LTE1LTE4LjQtMTUtNC43IDAtMTAuMS4yLTE1LjMuMnYzMC43aDE2LjN6TTc4MS43IDEwMy41YzAgMzAuNS0xOC42IDQ4LjctNDguMiA0OC43LTI5LjUgMC00Ny45LTE4LjEtNDcuOS00OC43VjQ3LjFoMjUuN3Y1Ni40YzAgMTUuNyA4LjYgMjQuOCAyMi4yIDI0LjhzMjIuNS05LjEgMjIuNS0yNC44VjQ3LjFoMjUuN3Y1Ni40ek04NzUuNyA3NC42Yy0xNC40LTQuNC0yNy4yLTYuOC0zNi02LjgtOC45IDAtMTQuNCAyLjctMTQuNCA5LjEgMCA2LjkgOC4zIDguMiAyMi44IDExLjIgMjEuMiA0LjUgMzUuMiAxMS4yIDM1LjIgMzEgMCAyMS45LTE3LjEgMzMuMS00Mi45IDMzLjEtMTMuMiAwLTI5LjgtMi45LTQ1LjgtOC45bDUuNy0yMi41YzE2LjUgNi4yIDI5LjkgOC42IDM5IDguOCAxMC45LjIgMTYuNi0yLjkgMTYuNi04LjggMC04LjMtMTEuNi05LjctMjQuNi0xMi40LTIzLTQuOC0zMy43LTEyLjItMzMuNy0zMC4yIDAtMjAuMyAxNi4yLTMyLjUgNDEuOS0zMi41IDE0LjIgMCAzMC44IDMuMiA0MS42IDdsLTUuNCAyMS45ek05NDkuMyAxNDkuOWgtMjUuNnYtODBoLTM0LjRWNDcuMWg5NC40djIyLjhoLTM0LjR6TTU4OC42IDIzNC43YzAgMzIuMi0yMi4xIDUzLjctNTQuMSA1My43cy01NC0yMS41LTU0LTUzLjcgMjEuOS01My43IDU0LTUzLjdjMzIgMCA1NC4xIDIxLjUgNTQuMSA1My43bS0xMS4yIDBjMC0yNi4xLTE3LjUtNDMuNS00Mi45LTQzLjUtMjUuMiAwLTQyLjggMTcuNC00Mi44IDQzLjVzMTcuNSA0My43IDQyLjggNDMuN2MyNS40IDAgNDIuOS0xNy42IDQyLjktNDMuN002MzIuNiAyODYuMWwtMzIuNy02OS45aDExLjVsMjYuOCA1Ny44IDI2LjYtNTcuOGgxMS4zbC0zMi41IDY5Ljl6TTc1MC45IDI0Ny4xYzAgMy41LS4yIDQuNy0uNiA4aC01OC4yYzEuNyAxNC40IDExLjYgMjMuOSAyNy4xIDIzLjkgOC45IDAgMTYuMi0xLjUgMjUuNy0zLjlsMS43IDguNWMtOS4xIDIuNy0xNi45IDQuOC0yNy43IDQuOC0yMy45IDAtMzcuOC0xNS42LTM3LjgtMzcuMyAwLTIyLjQgMTUuMS0zNyAzNi4zLTM3IDE5LjYtLjEgMzMuNCAxMi42IDMzLjUgMzNtLTU5LjEtLjJoNDkuNmMtLjItMTUuMy05LjctMjQuNS0yMy43LTI0LjUtMTUgMC0yNC43IDkuNy0yNS45IDI0LjVNODA3LjYgMjI0LjdjLTEwLjEgMC0xOC4zLjMtMjguNiAxLjV2NTkuOWgtMTAuNHYtNjcuOWMxMi43LTIuMyAyNS44LTMuNiAzOS0zLjZ2MTAuMXpNODU0LjkgMTgzLjNoMjUuNXYxMDIuOGgtMjUuNXpNOTg0LjcgMjIwYzAgMjMuNC0xNy41IDM4LjItNDQuNyAzOC4yaC0xNC4yVjI4NmgtMjUuNFYxODMuM2MxMi4xLS42IDI1LjUtMS4yIDM5LjYtMS4yIDI3LjIgMCA0NC43IDEzLjkgNDQuNyAzNy45bS00My4yIDE2YzEwLjQgMCAxNy44LTUuOSAxNy44LTE1LjkgMC0xMC4zLTcuNC0xNS45LTE3LjgtMTUuOS01LjMgMC0xMC42LjItMTUuNy4zVjIzNmgxNS43ek01MTUuMSAzNDAuN3YxMS42aC0yMS42djE3LjRoLTEyLjd2LTUxLjRoMzcuN3YxMS4zaC0yNXYxMS4xek01NzcuOSAzNDRjMCAxNi4xLTExLjMgMjYuOC0yNy42IDI2LjhzLTI3LjYtMTAuNy0yNy42LTI2LjggMTEuMy0yNi44IDI3LjYtMjYuOGMxNi4yIDAgMjcuNiAxMC43IDI3LjYgMjYuOG0tMTMuMiAwYzAtOS4xLTYtMTUtMTQuNC0xNXMtMTQuNCA2LTE0LjQgMTVjMCA5LjEgNiAxNS4xIDE0LjQgMTUuMXMxNC40LTYgMTQuNC0xNS4xTTYzMyAzNDYuNWMwIDE1LjMtOS4zIDI0LjMtMjQuMSAyNC4zLTE0LjcgMC0yNC05LjEtMjQtMjQuM3YtMjguMmgxMi44djI4LjJjMCA3LjkgNC4zIDEyLjQgMTEuMSAxMi40czExLjMtNC41IDExLjMtMTIuNHYtMjguMkg2MzN2MjguMnpNNjkwIDM2OS43aC0xMS42bC0yMy45LTI5Ljh2MjkuOGgtMTIuN3YtNTEuNGgxMS43bDIzLjggMzAuMXYtMzAuMUg2OTB6TTc0Ny4yIDM0My45YzAgMTYuMi0xMS4zIDI2LjQtMjYuNyAyNi40LTcuNiAwLTE0LjgtLjMtMjAuNC0uNnYtNTEuNGM1LjYtLjMgMTItLjYgMTkuMS0uNiAxNi43IDAgMjggMTAuMSAyOCAyNi4ybS0xMy4xIDBjMC05LTUuOS0xNC43LTE0LjMtMTQuNy0yLjIgMC00LjYgMC03IC4ydjI5LjVjMi42LjIgNS40LjIgOCAuMiA3LjQtLjIgMTMuMy02LjEgMTMuMy0xNS4yTTc2MS42IDM2OS43aC0xMy45bDIyLjktNTEuN2gxMS45bDIyLjggNTEuN2gtMTMuOGwtMy42LTguNWgtMjIuOGwtMy41IDguNXptNy45LTE5LjNoMTQuMWwtNy4xLTE3LjItNyAxNy4yek04MzAuNCAzNjkuN2gtMTIuOHYtNDBoLTE3LjJ2LTExLjRoNDcuMnYxMS40aC0xNy4yek04NTIuNyAzMTguM2gxMi44djUxLjRoLTEyLjh6TTkyOC40IDM0NGMwIDE2LjEtMTEuMyAyNi44LTI3LjYgMjYuOHMtMjcuNi0xMC43LTI3LjYtMjYuOCAxMS4zLTI2LjggMjcuNi0yNi44IDI3LjYgMTAuNyAyNy42IDI2LjhtLTEzLjEgMGMwLTkuMS02LTE1LTE0LjQtMTVzLTE0LjQgNi0xNC40IDE1YzAgOS4xIDYgMTUuMSAxNC40IDE1LjEgOC4zIDAgMTQuNC02IDE0LjQtMTUuMU05ODQuNSAzNjkuN2gtMTEuN0w5NDkgMzM5Ljl2MjkuOGgtMTIuN3YtNTEuNEg5NDhsMjMuOCAzMC4xdi0zMC4xaDEyLjd6IgogICAgICAgIGNsYXNzPSJzdDAiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0yNzIgMTAuM2MxMy42LTcuOCAyNS45LTguNSAzNC43LTMuMWw5OC42IDU3LjRjLjIuMS4zLjIuNS4zLTguOC01LjItMjEuMS00LjYtMzQuNiAzLjJsLTE3NyAxMDEuOEwyMC41IDY4LjhjLTI3LjMtMTUuOC0yNy4zLTQxLjMgMC01N0M0Ny44LTQgOTItMy45IDExOS4zIDExLjhsNzUuNiA0My4xTDI3MiAxMC4zIgogICAgICAgIGNsYXNzPSJzdDEiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik05OS41IDU3LjRjLTE2LjQgOS40LTQyLjkgOS40LTU5LjMgMC0xNi40LTkuNS0xNi40LTI0LjggMC0zNC4yIDE2LjQtOS40IDQyLjktOS40IDU5LjMgMCAxNi40IDkuNSAxNi40IDI0LjggMCAzNC4yIgogICAgICAgIGNsYXNzPSJzdDIiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0yOTUuMiAzMTIuMWMwIDE1LjgtNS41IDI3LTE0LjMgMzIuMmwtMTAwLjggNTcuOXMtLjEgMC0uMS4xYzguOC01LjMgMTQuMy0xNi40IDE0LjMtMzIuMlYxNjkuOWwxNzctMTAxLjhjMjctMTUuNiA0OC45LTIuNiA0OC45IDI5cy0yMS45IDY5LjktNDguOSA4NS41bC03Ni4xIDQzLjl2ODUuNnoiCiAgICAgICAgY2xhc3M9InN0MyIgLz4KICAgIDxwYXRoCiAgICAgICAgZD0iTTM0MS45IDE0Mi4zYzAgMTkgMTMuMSAyNi44IDI5LjMgMTcuNCAxNi4yLTkuNCAyOS4zLTMyLjMgMjkuMy01MS4zUzM4Ny40IDgxLjYgMzcxLjIgOTFjLTE2LjEgOS4zLTI5LjMgMzIuMy0yOS4zIDUxLjMiCiAgICAgICAgY2xhc3M9InN0MSIgLz4KICAgIDxwYXRoCiAgICAgICAgZD0iTTk2LjUgMzEzLjVjMCAzMS42IDIxLjkgNjkuOSA0OC45IDg1LjUgMjcgMTUuNiA0OC45IDIuNiA0OC45LTI5VjE2OS45TDIwLjUgNjguOEM2LjggNjEgMCA1MC42IDAgNDAuM1YxNTZjMCAxMC4zIDYuOCAyMC42IDIwLjUgMjguNWw3NiA0My44djg1LjJ6IgogICAgICAgIGNsYXNzPSJzdDIiIC8+CiAgICA8cGF0aAogICAgICAgIGQ9Ik0xNzQuNyAzNTguN2MwIDE5LTEzLjEgMjYuOC0yOS4zIDE3LjQtMTYuMi05LjQtMjkuMy0zMi4zLTI5LjMtNTEuM3MxMy4xLTI2LjggMjkuMy0xNy40YzE2LjIgOS4zIDI5LjMgMzIuMyAyOS4zIDUxLjMiCiAgICAgICAgY2xhc3M9InN0MyIgLz4KPC9zdmc+" alt="Trust over IP Foundation"></a>
+        <a class="partner" href="https://identity.foundation/" target="_blank" rel="noopener" title="Decentralized Identity Foundation home page (opens in a new tab)"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbDpzcGFjZT0icHJlc2VydmUiIGlkPSJMYXllcl8xIiB4PSIwIiB5PSIwIg0KCXN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMyMCAxMDguNCIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMzIwIDEwOC40Ij4NCgk8c3R5bGU+DQoJCS5zdDAgew0KCQkJZmlsbC1ydWxlOiBldmVub2RkOw0KCQkJY2xpcC1ydWxlOiBldmVub2RkOw0KCQkJZmlsbDogIzQyNDI0Mg0KCQl9DQoJPC9zdHlsZT4NCgk8cGF0aCBpZD0iRmlsbC0xXzNfIg0KCQlkPSJNMTU3LjYgNzIuNGgxNy42YzEyIDAgMTUuMy05LjIgMTUuMy0xOC4zIDAtMTIuMy01LjctMTguMS0xNy0xOC4xaC0xNS45djM2LjR6bS0yMS01MS4xaDQ1LjZjMTkuNSAwIDMwIDExIDMwIDMyLjkgMCAyNS45LTE0LjcgMzIuOS0zMi44IDMyLjloLTQyLjhWMjEuM3oiDQoJCWNsYXNzPSJzdDAiIC8+DQoJPHBhdGggaWQ9IkZpbGwtM18zXyIgZD0iTTIyMS44IDg3LjJoMjEuOVYyMS4zaC0yMS45eiIgY2xhc3M9InN0MCIgLz4NCgk8cGF0aCBpZD0iRmlsbC01XzNfIiBkPSJNMjU3LjIgMjEuM0gzMjB2MTQuOGgtNDAuOHYxMS4zaDM3Ljl2MTQuMmgtMzcuOXYyNS42aC0yMnoiIGNsYXNzPSJzdDAiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8xXyIgY3g9Ii04ODUuNzgzIiBjeT0iMzUyLjI0NyIgcj0iMy4zNzQiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQyNzkuNjM1IC01NjAyLjc1Mikgc2NhbGUoMTYuMDU5NikiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aA0KCQlkPSJNNTQuNSA2NC40Yy01LjcgMC0xMC40LTQuNi0xMC40LTEwLjNzNC42LTEwLjQgMTAuMy0xMC40UzY0LjggNDguMyA2NC44IDU0YzAgMi44LTEuMSA1LjQtMyA3LjRzLTQuNSAzLTcuMyAzeiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xXykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8yXyIgY3g9Ii04NzkuNjc0IiBjeT0iMzU4Ljk3NiIgcj0iMy43MiINCgkJZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgxNC41Njc3IDAgMCAxNC41Njc2IDEyODY5LjExNiAtNTE3NS4yMTMpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGggZD0iTTU0LjUgODcuNmMtMy44IDAtNy4yLTIuMy04LjctNS44cy0uNy03LjUgMi0xMC4yIDYuOC0zLjUgMTAuMy0yIDUuOCA0LjkgNS44IDguN2MwIDUuMS00LjIgOS4zLTkuNCA5LjN6Ig0KCQlzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzJfKSIgLz4NCgk8cmFkaWFsR3JhZGllbnQgaWQ9IlNWR0lEXzNfIiBjeD0iLTg3Ny45MTQiIGN5PSIzNjAuODcxIiByPSIzLjc0NiINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgxMjc1NC42NjggLTUxNjYuMzQyKSBzY2FsZSgxNC40NjY1KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KCQk8c3RvcCBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMTU3OWIiIC8+DQoJCTxzdG9wIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAzYTlmNCIgLz4NCgk8L3JhZGlhbEdyYWRpZW50Pg0KCTxwYXRoDQoJCWQ9Ik0yMC45IDUzLjljMC0zLjggMi4zLTcuMSA1LjgtOC42czcuNS0uNiAxMC4yIDIuMWMyLjcgMi43IDMuNCA2LjcgMS45IDEwLjJzLTQuOSA1LjctOC43IDUuN2MtMi41IDAtNC45LTEtNi42LTIuOC0xLjctMS43LTIuNy00LjEtMi42LTYuNnoiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfM18pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfNF8iIGN4PSItODc5LjExMSIgY3k9IjM2Mi43MzUiIHI9IjMuODI2Ig0KCQlncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDEyNTA0Ljk4MyAtNTA4My4xNDkpIHNjYWxlKDE0LjE2MjgpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGggZD0iTTg3LjcgNTRjMCA1LTQuMSA5LjEtOS4yIDkuMVM2OS40IDU5IDY5LjQgNTRzNC4xLTkuMSA5LjItOS4xYzIuNCAwIDQuOCAxIDYuNSAyLjcgMS43IDEuNyAyLjcgNCAyLjYgNi40eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF80XykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF81XyIgY3g9Ii04NzcuNDM3IiBjeT0iMzY0LjUzMSIgcj0iMy44NDciDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoMTQuMDg3NiAwIDAgMTQuMDg3NyAxMjQxNS4zMyAtNTA4MS4yMSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aCBkPSJNNTQuNCAzOS4xYy01LS4xLTktNC4yLTktOS4yLjEtNSA0LjItOSA5LjItOC45czkgNC4yIDkgOS4yYzAgMi40LTEgNC43LTIuNyA2LjQtMS43IDEuNi00LjEgMi41LTYuNSAyLjV6Ig0KCQlzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzVfKSIgLz4NCgk8cmFkaWFsR3JhZGllbnQgaWQ9IlNWR0lEXzZfIiBjeD0iLTg3Mi4wMDkiIGN5PSIzNjcuMDU5IiByPSI0LjA3NCINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSgxMTY1NC43MyAtNDgyOC44MjQpIHNjYWxlKDEzLjMwMzEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGgNCgkJZD0iTTMwLjIgODYuOGMtMy41IDAtNi42LTIuMS03LjktNS4zLTEuMy0zLjItLjYtNi45IDEuOS05LjNzNi4yLTMuMiA5LjQtMS44YzMuMiAxLjMgNS4zIDQuNSA1LjMgNy45LS4xIDQuNy00IDguNS04LjcgOC41eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF82XykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF83XyIgY3g9Ii04NzMuNDU3IiBjeT0iMzY4Ljg2NSIgcj0iNC4xNTMiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTE0NTIuODE4IC00NzU5LjQ2OCkgc2NhbGUoMTMuMDQ5OSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aCBkPSJNNzguNyA2OS44YzQuNyAwIDguNCAzLjggOC40IDguNSAwIDQuNi0zLjggOC40LTguNSA4LjMtNC43IDAtOC40LTMuOC04LjQtOC41LjEtNC42IDMuOC04LjMgOC41LTguM3oiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfN18pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfOF8iIGN4PSItODcwLjE0OSIgY3k9IjM3Mi4zMDciIHI9IjQuMTc3Ig0KCQlncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDExMzQzLjcyOCAtNDc3Ni4xNDcpIHNjYWxlKDEyLjk3NDEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGggZD0iTTMwLjIgMzguM2MtNC42IDAtOC40LTMuOC04LjQtOC40czMuOC04LjMgOC40LTguMyA4LjQgMy44IDguNCA4LjQtMy44IDguMy04LjQgOC4zeiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF84XykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF85XyIgY3g9Ii04NzEuMTU0IiBjeT0iMzc0Ljg2NiIgcj0iNC4yODUiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEwNzAuMzY0IC00Njg2LjA5Mykgc2NhbGUoMTIuNjQ1MykiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aCBkPSJNODYuOCAzMGMwIDQuNS0zLjcgOC4xLTguMiA4LjFzLTguMi0zLjYtOC4yLTguMSAzLjctOC4xIDguMi04LjFjNC41IDAgOC4xIDMuNiA4LjIgOC4xeiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF85XykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8xMF8iIGN4PSItODU3LjM0NiIgY3k9IjM4Ni4xOTUiIHI9IjQuOTgzIg0KCQlncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDkzNzcuOTYgLTQxNDUuNjc3KSBzY2FsZSgxMC44NzUpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGgNCgkJZD0iTTU0LjUgMTA4LjRjLTMuOSAwLTctMy4xLTcuMS02LjkgMC0zLjkgMy4xLTcgNy03LjEgMy45IDAgNyAzLjEgNy4xIDYuOSAwIDEuOS0uNyAzLjctMiA1LTEuMyAxLjMtMy4xIDIuMS01IDIuMXoiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMTBfKSIgLz4NCgk8cmFkaWFsR3JhZGllbnQgaWQ9IlNWR0lEXzExXyIgY3g9Ii04NTMuOTY3IiBjeT0iMzg5LjU3OCIgcj0iNC45ODMiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTM0MS4yMSAtNDE4Mi40NjQpIHNjYWxlKDEwLjg3NSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aCBkPSJNNyA2MWMtMy45IDAtNy0zLjEtNy03czMuMS03IDctNyA3IDMuMSA3IDctMy4xIDctNyA3eiIgc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xMV8pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMTJfIiBjeD0iLTg1Mi4yNjciIGN5PSIzOTkuODI3IiByPSI1LjI2NCINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSg4ODE3LjMwNCAtNDA1Ni44MjgpIHNjYWxlKDEwLjI4MikiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aA0KCQlkPSJNNTQuNSAwYzEuOCAwIDMuNS42IDQuOCAxLjkgMS4zIDEuMiAyIDMgMS45IDQuNyAwIDIuNC0xLjMgNC42LTMuMyA1LjctMi4xIDEuMi00LjYgMS4yLTYuNiAwUzQ3LjkgOSA0Ny45IDYuNmMwLTEuOC43LTMuNSAxLjktNC43QzUxIC43IDUyLjcgMCA1NC41IDB6Ig0KCQlzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzEyXykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8xM18iIGN4PSItODU1Ljk1IiBjeT0iMzk2LjEwNCIgcj0iNS4yNjQiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoODg2NS41NTYgLTQwMjMuMzQzKSBzY2FsZSgxMC4yOTQxKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KCQk8c3RvcCBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMTU3OWIiIC8+DQoJCTxzdG9wIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAzYTlmNCIgLz4NCgk8L3JhZGlhbEdyYWRpZW50Pg0KCTxwYXRoIGQ9Ik0xMDIgNDcuNGMzLjcgMCA2LjYgMyA2LjYgNi42IDAgMy43LTMgNi42LTYuNiA2LjZzLTYuNi0zLTYuNi02LjZjMC0xLjguNy0zLjUgMS45LTQuNyAxLjMtMS4zIDMtMiA0LjctMS45eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xM18pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMTRfIiBjeD0iLTg0Ny4xNjQiIGN5PSIzOTYuNzYiIHI9IjUuNDUyIg0KCQlncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDg0NzQuNzM0IC0zODg5LjM5OCkgc2NhbGUoOS45Mzk1KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KCQk8c3RvcCBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMTU3OWIiIC8+DQoJCTxzdG9wIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAzYTlmNCIgLz4NCgk8L3JhZGlhbEdyYWRpZW50Pg0KCTxwYXRoIGQ9Ik0zMC4yIDk1YzIuNiAwIDQuOSAxLjYgNS45IDRzLjQgNS4yLTEuNCA3LTQuNiAyLjQtNyAxLjQtNC0zLjMtMy45LTUuOWMwLTEuNy43LTMuMyAxLjktNC41czIuOC0yIDQuNS0yeiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xNF8pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMTVfIiBjeD0iLTg0NC44NDEiIGN5PSIzOTkuMjI3IiByPSI1LjQ4Ig0KCQlncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDg0MDguNjY4IC0zODkzLjY0Mykgc2NhbGUoOS44ODg3KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KCQk8c3RvcCBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMTU3OWIiIC8+DQoJCTxzdG9wIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAzYTlmNCIgLz4NCgk8L3JhZGlhbEdyYWRpZW50Pg0KCTxwYXRoDQoJCWQ9Ik02LjkgODQuNEMzLjQgODQuNC41IDgxLjUuNSA3OHMyLjktNi40IDYuNC02LjMgNi40IDIuOSA2LjQgNi40YzAgMS43LS43IDMuMy0xLjkgNC41LTEuMSAxLjEtMi44IDEuOC00LjUgMS44eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xNV8pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMTZfIiBjeD0iLTg0OC40NjgiIGN5PSIzOTkuOTY4IiByPSI1LjU5NSINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSg4MjcyLjk5NCAtMzgyMC4xKSBzY2FsZSg5LjY4NjUpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGgNCgkJZD0iTTc4LjYgMTA3LjZjLTMuNCAwLTYuMi0yLjgtNi4yLTYuM3MyLjgtNi4yIDYuMy02LjJjMy40IDAgNi4yIDIuOCA2LjIgNi4zIDAgMS43LS43IDMuMy0xLjkgNC40LTEuMSAxLjItMi44IDEuOC00LjQgMS44eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xNl8pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMTdfIiBjeD0iLTg0Mi4wMTEiIGN5PSI0MDYuNzM0IiByPSI1LjQ5OCINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSg4MTQ2LjQ3NCAtMzg1NC43MTkpIHNjYWxlKDkuNjEwNSkiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aA0KCQlkPSJNMTMuMiAzMGMwIDEuNi0uNiAzLjItMS44IDQuNFM4LjYgMzYuMiA3IDM2LjJjLTIuMy4xLTQuNS0xLTUuNi0zcy0xLjItNC40IDAtNi40IDMuMy0zLjEgNS42LTNjMS43IDAgMy4yLjYgNC40IDEuOCAxLjEgMS4yIDEuOCAyLjggMS44IDQuNHoiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMTdfKSIgLz4NCgk8cmFkaWFsR3JhZGllbnQgaWQ9IlNWR0lEXzE4XyIgY3g9Ii04MzkuNTc3IiBjeT0iNDE0LjI1MSIgcj0iNS44MTUiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoNzc5OS41OTYgLTM3NjcuMzQ4KSBzY2FsZSg5LjIyNTIpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGggZD0iTTMwLjIuNmMxLjYgMCAzLjEuNiA0LjIgMS43czEuOCAyLjYgMS44IDQuMmMwIDMuMy0yLjcgNi02IDZzLTYtMi43LTYtNiAyLjctNS45IDYtNS45eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8xOF8pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMTlfIiBjeD0iLTg0Ni40NjEiIGN5PSI0MDcuMDM5IiByPSI1LjgyMiINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSg3OTMyLjM1NSAtMzczNC4xMSkgc2NhbGUoOS4zMDcpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGggZD0iTTEwMi4xIDg0LjJjLTMuMyAwLTYtMi43LTYtNnMyLjYtNiA2LTYgNiAyLjYgNi4xIDUuOWMwIDEuNi0uNiAzLjEtMS43IDQuMy0xLjMgMS4yLTIuOCAxLjgtNC40IDEuOHoiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMTlfKSIgLz4NCgk8cmFkaWFsR3JhZGllbnQgaWQ9IlNWR0lEXzIwXyIgY3g9Ii04NDMuNDIiIGN5PSI0MTUuMjc0IiByPSI2LjAwMiINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSg3NjcwLjA2NCAtMzY5NS41NjgpIHNjYWxlKDkuMDI5NikiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4NCgkJPHN0b3Agb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMDE1NzliIiAvPg0KCQk8c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMwM2E5ZjQiIC8+DQoJPC9yYWRpYWxHcmFkaWVudD4NCgk8cGF0aA0KCQlkPSJNMTAxLjkgMzUuOGMtMi40LS4xLTQuNS0xLjUtNS4zLTMuN3MtLjMtNC43IDEuNC02LjNjMS43LTEuNiA0LjItMiA2LjQtMS4xIDIuMiAxIDMuNSAzLjEgMy40IDUuNSAwIDEuNS0uNyAzLTEuOCA0LTEuMSAxLjEtMi42IDEuNy00LjEgMS42eiINCgkJc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8yMF8pIiAvPg0KCTxyYWRpYWxHcmFkaWVudCBpZD0iU1ZHSURfMjFfIiBjeD0iLTg0MS41NDYiIGN5PSI0MTcuMDk1IiByPSI1Ljk5NCINCgkJZ3JhZGllbnRUcmFuc2Zvcm09InRyYW5zbGF0ZSg3NjYzLjA5MSAtMzcxNi45Mykgc2NhbGUoOS4wNDE0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KCQk8c3RvcCBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMTU3OWIiIC8+DQoJCTxzdG9wIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAzYTlmNCIgLz4NCgk8L3JhZGlhbEdyYWRpZW50Pg0KCTxwYXRoIGQ9Ik04NC40IDYuN2MwIDMuMi0yLjYgNS44LTUuOCA1LjhzLTUuOC0yLjYtNS44LTUuOFM3NS40LjkgNzguNi45czUuOCAyLjUgNS44IDUuOHoiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMjFfKSIgLz4NCgk8cmFkaWFsR3JhZGllbnQgaWQ9IlNWR0lEXzIyXyIgY3g9Ii03OTcuNTg2IiBjeT0iNDU1LjM5NiIgcj0iOC4wNTYiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTQyMC4xNjUgLTMwMDkuNTI0KSBzY2FsZSg2LjcyNzYpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGggZD0iTTExLjQgMTAxLjRjMCAyLjQtMS45IDQuMy00LjMgNC4zcy00LjQtMS45LTQuNC00LjNTNC42IDk3LjEgNyA5N2MxLjIgMCAyLjMuNCAzLjEgMS4yczEuMyAyIDEuMyAzLjJ6Ig0KCQlzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzIyXykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8yM18iIGN4PSItNzk2LjE3IiBjeT0iNDcxLjc2MSIgcj0iOC43ODIiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDk2Ny41NzkgLTI4NTcuMDg3KSBzY2FsZSg2LjE3MTEpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGgNCgkJZD0iTTEwNiAxMDEuNGMwIDEuNi0xIDMuMS0yLjQgMy43LTEuNS42LTMuMi4zLTQuMy0uOS0xLjEtMS4xLTEuNS0yLjgtLjktNC4zczIuMS0yLjUgMy43LTIuNWMxLjEgMCAyLjEuNCAyLjggMS4xLjcuOCAxLjEgMS44IDEuMSAyLjl6Ig0KCQlzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzIzXykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8yNF8iIGN4PSItNzgwLjg2NSIgY3k9IjQ4OC4wNzkiIHI9IjguOTY2Ig0KCQlncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDQ3NzQuMTMzIC0yODk1LjkwMykgc2NhbGUoNi4wNDQzKSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPg0KCQk8c3RvcCBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMwMTU3OWIiIC8+DQoJCTxzdG9wIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzAzYTlmNCIgLz4NCgk8L3JhZGlhbEdyYWRpZW50Pg0KCTxwYXRoIGQ9Ik02LjkgMTAuNUM0LjggMTAuNSAzIDguNyAzIDYuNnMxLjgtMy45IDMuOS0zLjkgMy45IDEuNyAzLjkgMy45YzAgMS0uNCAyLTEuMiAyLjgtLjYuNy0xLjYgMS4xLTIuNyAxLjF6Ig0KCQlzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzI0XykiIC8+DQoJPHJhZGlhbEdyYWRpZW50IGlkPSJTVkdJRF8yNV8iIGN4PSItNzgxLjkyOCIgY3k9IjUwMy43MiIgcj0iOS42NTIiDQoJCWdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDQ1OC43ODUgLTI3ODMuMTU3KSBzY2FsZSg1LjYzMjgpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+DQoJCTxzdG9wIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzAxNTc5YiIgLz4NCgkJPHN0b3Agb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMDNhOWY0IiAvPg0KCTwvcmFkaWFsR3JhZGllbnQ+DQoJPHBhdGgNCgkJZD0iTTEwMi4xIDEwLjJjLTIgMC0zLjctMS42LTMuNy0zLjYgMC0xLjMuNy0yLjUgMS44LTMuMSAxLjEtLjYgMi41LS42IDMuNiAwczEuOCAxLjggMS44IDMuMWMuMSAyLTEuNSAzLjYtMy41IDMuNnoiDQoJCXN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMjVfKSIgLz4NCjwvc3ZnPg==" alt="Decentralized Identity Foundation (DIF)"></a>
+        <a class="partner wide" href="https://www.lfdecentralizedtrust.org/" target="_blank" rel="noopener" title="LF Decentralized Trust home page (opens in a new tab)"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTc5LjVweCIgaGVpZ2h0PSI4OC40cHgiIHZpZXdCb3g9IjAgMCA1NzkuNSA4OC40IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NzkuNSA4OC40OyIgeG1sbnM6Yng9Imh0dHBzOi8vYm94eS1zdmcuY29tIj4KICA8ZGVmcz4KICAgIDxieDpleHBvcnQ+CiAgICAgIDxieDpmaWxlIGZvcm1hdD0icG5nIiB3aWR0aD0iMTg4MCIgaGVpZ2h0PSIyODUiIGFudGlhbGlhc2luZz0iZmFsc2UiIHBhdGg9ImxmZHQucG5nIi8+CiAgICA8L2J4OmV4cG9ydD4KICA8L2RlZnM+CiAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5Ecm9wX3gwMDIwX1NoYWRvd3tmaWxsOm5vbmU7fQoJLlJvdW5kX3gwMDIwX0Nvcm5lcnNfeDAwMjBfMl94MDAyMF9wdHtmaWxsOiNGRkZGRkY7c3Ryb2tlOiMyMzFGMjA7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQoJLkxpdmVfeDAwMjBfUmVmbGVjdF94MDAyMF9Ye2ZpbGw6bm9uZTt9CgkuQmV2ZWxfeDAwMjBfU29mdHtmaWxsOnVybCgjU1ZHSURfMV8pO30KCS5EdXNre2ZpbGw6I0ZGRkZGRjt9CgkuRm9saWFnZV9HU3tmaWxsOiNGRkREMDA7fQoJLlBvbXBhZG91cl9HU3tmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiM0NEFERTI7fQoJLnN0MHtmaWxsOiMwMDk0RkY7fQoJLnN0MXtmaWxsOiMwMDM3Nzg7fQoJLnN0MntvcGFjaXR5OjAuNzU7ZmlsbDojRkZGRkZGO30KCS5zdDN7ZmlsbDojRkZGRkZGO30KCS5zdDR7b3BhY2l0eTowLjc1O30KPC9zdHlsZT4KICA8Zz4KICAgIDxnPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjcuOSwzMS4xIDcuOSwxNS42IDAsMTUuNiAwLDM4LjkgMjMuNSwzOC45IDIzLjUsMzEuMSAmIzk7JiM5OyIvPgogICAgICA8cG9seWdvbiBjbGFzcz0ic3QxIiBwb2ludHM9IjM4LjksMCAwLDAgMCwxMS43IDcuOCwxMS43IDcuOCw3LjggMzEuMSw3LjggMzEuMSwzMS4xIDI3LjIsMzEuMSAyNy4yLDM4LjkgMzguOSwzOC45ICYjOTsmIzk7Ii8+CiAgICA8L2c+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNNDkuMiwwaDEydjI5aDE3LjJ2MTBINDkuMlYwTDQ5LjIsMHoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik04My42LDBoMzAuMXYxMEg5NS42djQuOWgxNS42djkuM0g5NS42VjM5aC0xMlYwTDgzLjYsMHoiLz4KICAgIDxnPgogICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMC42LDQ4LjNoMTMuNUMyNS44LDQ4LjYsMzIsNTUuMSwzMiw2OGMwLDEyLjktNi4yLDE5LjQtMTcuOSwxOS42SDAuNlY0OC4zeiBNNC4zLDg0LjRoNy45IGMxMS4yLDAuMSwxNi4xLTQuNywxNi4xLTE2LjVzLTQuOS0xNi41LTE2LjEtMTYuNUg0LjNWODQuNHoiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM2LjcsNDguM2gyNi45djMuMkg0MC40djE0LjJoMjEuN3YzLjJINDAuNHYxNS41aDIzLjV2My4ySDM2LjdWNDguM3oiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTk2LjIsNjAuMmMtMS4zLTYuMS02LjMtOS41LTEyLTkuNWMtMTAuMywwLTE0LjcsOC43LTE0LjcsMTcuM2MwLDguNiw0LjQsMTcuMywxNC43LDE3LjMgYzcuMiwwLDExLjgtNS42LDEyLjUtMTIuNmgzLjdjLTEsOS42LTcuMSwxNS44LTE2LjIsMTUuOGMtMTIuMywwLTE4LjQtOS43LTE4LjQtMjAuNWMwLTEwLjcsNi4xLTIwLjUsMTguNC0yMC41IGM3LjQsMCwxNC43LDQuNSwxNS43LDEyLjdIOTYuMnoiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTEwNC44LDQ4LjNoMjYuOXYzLjJoLTIzLjJ2MTQuMmgyMS43djMuMmgtMjEuN3YxNS41SDEzMnYzLjJoLTI3LjJWNDguM3oiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTEzNS43LDQ4LjNoNC4ybDIyLjcsMzMuMmgwLjFWNDguM2gzLjd2MzkuM2gtNC4ybC0yMi43LTMzLjJoLTAuMXYzMy4yaC0zLjdWNDguM3oiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTE2OC43LDQ4LjNoMzAuOXYzLjJIMTg2djM2LjFoLTMuN1Y1MS41aC0xMy42VjQ4LjN6Ii8+CiAgICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMDEuOSw0OC4zaDE3LjljNi40LDAsMTEuOSwzLjEsMTEuOSwxMC4yYzAsNS0yLjYsOS03LjYsMTB2MC4xYzUuMSwwLjcsNi42LDQuMiw2LjgsOC45IGMwLjIsMi43LDAuMiw4LjEsMS44LDEwLjFoLTQuMWMtMC45LTEuNS0wLjktNC41LTEtNi4xYy0wLjMtNS41LTAuOC0xMS42LTcuOC0xMS4zaC0xNC4xdjE3LjRoLTMuN1Y0OC4zeiBNMjA1LjYsNjdoMTMuOSBjNC41LDAsOC40LTIuOSw4LjQtNy42YzAtNC44LTIuOC03LjgtOC40LTcuOGgtMTMuOVY2N3oiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTI0OC40LDQ4LjNoNC4ybDE1LjMsMzkuM2gtNGwtNC44LTEyLjJoLTE3LjhsLTQuNywxMi4yaC00TDI0OC40LDQ4LjN6IE0yNDIuNSw3Mi4yaDE1LjNsLTcuNS0yMC4xIEwyNDIuNSw3Mi4yeiIvPgogICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjcwLDQ4LjNoMy43djM2LjFoMjEuOHYzLjJIMjcwVjQ4LjN6Ii8+CiAgICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yOTguMiw0OC4zaDMuN3YzOS4zaC0zLjdWNDguM3oiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTMwNi44LDQ4LjNoMjguMXYzLjNsLTI1LjcsMzIuOGgyNi4ydjMuMmgtMzAuNHYtMy4zbDI1LjctMzIuOGgtMjMuOVY0OC4zeiIvPgogICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzM4LjcsNDguM2gyNi45djMuMmgtMjMuMnYxNC4yaDIxLjd2My4yaC0yMS43djE1LjVoMjMuNXYzLjJoLTI3LjJWNDguM3oiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTM2OS43LDQ4LjNoMTMuNWMxMS43LDAuMywxNy45LDYuOCwxNy45LDE5LjZjMCwxMi45LTYuMiwxOS40LTE3LjksMTkuNmgtMTMuNVY0OC4zeiBNMzczLjQsODQuNGg3LjkgYzExLjIsMC4xLDE2LjEtNC43LDE2LjEtMTYuNXMtNC45LTE2LjUtMTYuMS0xNi41aC03LjlWODQuNHoiLz4KICAgICAgPHBhdGggY2xhc3M9InN0MCIgZD0iTTQxNS40LDQ4LjNoMzAuOXYzLjJoLTEzLjZ2MzYuMUg0MjlWNTEuNWgtMTMuNlY0OC4zeiIvPgogICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDQ4LjYsNDguM2gxNy45YzYuNCwwLDExLjksMy4xLDExLjksMTAuMmMwLDUtMi42LDktNy42LDEwdjAuMWM1LjEsMC43LDYuNiw0LjIsNi44LDguOSBjMC4yLDIuNywwLjIsOC4xLDEuOCwxMC4xaC00LjFjLTAuOS0xLjUtMC45LTQuNS0xLTYuMWMtMC4zLTUuNS0wLjgtMTEuNi03LjgtMTEuM2gtMTQuMXYxNy40aC0zLjdWNDguM3ogTTQ1Mi4zLDY3aDEzLjkgYzQuNSwwLDguNC0yLjksOC40LTcuNmMwLTQuOC0yLjgtNy44LTguNC03LjhoLTEzLjlWNjd6Ii8+CiAgICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00ODMuMyw0OC4zaDMuN3YyNC4zYy0wLjEsOS4xLDQuMywxMi42LDExLjQsMTIuNmM3LjIsMCwxMS41LTMuNSwxMS41LTEyLjZWNDguM2gzLjd2MjUuMSBjMCw4LjEtNC4zLDE1LTE1LjIsMTVjLTEwLjgsMC0xNS4xLTYuOS0xNS4xLTE1VjQ4LjN6Ii8+CiAgICAgIDxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MjEuNCw3NC43Yy0wLjIsOC4xLDUuNiwxMC42LDEyLjcsMTAuNmM0LjEsMCwxMC4zLTIuMywxMC4zLThjMC00LjUtNC40LTYuMi04LTcuMWwtOC43LTIuMSBjLTQuNi0xLjItOC44LTMuNC04LjgtOS41YzAtMy45LDIuNS0xMS4xLDEzLjQtMTEuMWM3LjcsMCwxNC41LDQuMiwxNC40LDEyLjJoLTMuN2MtMC4yLTYtNS4xLTktMTAuNy05Yy01LjEsMC05LjgsMi05LjgsNy44IGMwLDMuNywyLjcsNS4yLDUuOSw2bDkuNSwyLjRjNS41LDEuNSwxMC4xLDMuOSwxMC4xLDEwLjNjMCwyLjctMS4xLDExLjItMTQuOSwxMS4yYy05LjIsMC0xNi00LjItMTUuNi0xMy44SDUyMS40eiIvPgogICAgICA8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTQ4LjUsNDguM2gzMC45djMuMmgtMTMuNnYzNi4xaC0zLjdWNTEuNWgtMTMuNlY0OC4zeiIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+" alt="LF Decentralized Trust"></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div>
+      <p><b style="color:var(--fg)">RAHP Task Force</b>, Decentralized Trust Graph Working Group, Trust over IP Foundation.</p>
+      <p><a href="https://github.com/trustoverip/dtgwg-rahp-tf" rel="noopener">Repository on GitHub</a> · Content CC-BY 4.0 · Code Apache 2.0</p>
+      <p>Colours follow the Trust over IP Brand Design Manual. Montserrat and Atkinson Hyperlegible stand in for the brand's licensed typefaces. Logos are the property of their owners: Trust over IP logo from its logo-assets repository (CC BY 4.0, by Peter Stoyko of Elanica); LF Decentralized Trust and DIF logos used under their owners' guidelines.</p>
+    </div>
+    <div>
+      <p><b style="color:var(--fg)">AI use.</b> This draft was designed and written with Claude (claude-opus-5-5, Anthropic) as drafting author. Nicky Hickman is author of record and approves anything published. EU AI Act, Article 50 transparency.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('listen');
+  var status=document.getElementById('listen-status');
+  var synth=window.speechSynthesis;
+  var text="RAHP Toolkit. Find out who could be harmed by a digital trust system, and where the fix belongs. "+
+    document.getElementById('summary').textContent+
+    " A review follows eighteen steps. People take part in every stage. AI can read and draft at scale, and machines pin versions and run checks. "+
+    "Four steps are for people by rule: reviewing the findings, examining them independently, deciding what to do, and approving what is shared. "+
+    "There are seven ways in. Four need no code: understand who could be harmed; listen and respond; read published reviews; and share a finding safely.";
+  function reset(){btn.setAttribute('aria-pressed','false');btn.textContent='Listen to the summary';}
+  if(!synth||typeof SpeechSynthesisUtterance==='undefined'){
+    btn.disabled=true;
+    status.textContent='Reading aloud is not available here. Use your screen reader, or read the summary above.';
+    return;
+  }
+  btn.addEventListener('click',function(){
+    try{
+      if(btn.getAttribute('aria-pressed')==='true'){synth.cancel();reset();status.textContent='Stopped.';return;}
+      var u=new SpeechSynthesisUtterance(text);
+      u.lang='en-GB';u.rate=0.95;
+      u.onend=function(){reset();status.textContent='Finished.';};
+      u.onerror=function(){reset();status.textContent='Reading aloud stopped. Use your screen reader, or read the summary above.';};
+      synth.cancel();synth.speak(u);
+      btn.setAttribute('aria-pressed','true');btn.textContent='Stop the summary';
+      status.textContent='Reading the summary aloud.';
+    }catch(e){reset();status.textContent='Reading aloud is not available here. Use your screen reader, or read the summary above.';}
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  var phases=[
+    {t:"GET STARTED",steps:[0,1]},{t:"FRAME",steps:[2,3,4]},{t:"READ AND DRAFT",steps:[5,6,7]},
+    {t:"JUDGE AND RECORD",steps:[8,9,10,11,12]},{t:"DECIDE",steps:[13,14,15]},{t:"FEED BACK: THE KIT LEARNS",steps:[16,17],learn:true}
+  ];
+  // Per step: title; ai-mode actors with short (diagram) and long (list) text; order of handovers; without-AI version; why a person; trials.
+  var S={
+   0:{t:"Get going",ord:["h","ai","m"],h:["Decides to use the kit","Decides whether the kit fits their purpose, and reads the front door."],ai:"Explains the kit",m:"Installs and sets up",
+      no:{ord:["h","m"],h:["Reads docs; sets up Python","Reads the documentation, copies the repository and sets up Python."],m:"Installs and sets up"},
+      why:"Only a person can judge whether the kit fits what they need to do.",am:["partly","AI explained the kit; setup was blocked"],lx:["partly","AI explained the kit; setup was blocked"]},
+   1:{t:"Choose a way in",ord:["h"],h:["Person-first or spec-first","Chooses whether to start from a person and their situation, or from a specification or system."],
+      no:{ord:["h"],h:["Person-first or spec-first","Chooses whether to start from a person and their situation, or from a specification or system."]},
+      why:"Where you start shapes everything that follows, and reflects what you care about.",am:["done","Started from two people"],lx:["done","Started from a case study; AI suggested two personas and the reviewer chose"]},
+   2:{t:"Frame the question",ord:["ai","h"],ai:"Drafts review questions",h:["Picks people; approves questions","Picks the people and situations to test, and approves or rewrites the review questions."],
+      no:{ord:["h"],h:["Picks people and questions","Reads the catalogue, then picks the people, situations and questions."],slow:"HOURS"},
+      why:"Choosing whose experience to test is a value judgement.",am:["done","The reviewer picked the people"],lx:["done","AI wrote ten questions; the reviewer approved them"]},
+   3:{t:"Gather the catalogue",ord:["m","ai"],m:"Supplies catalogue data",ai:"Pulls out relevant risks",
+      no:{ord:["m","h"],m:"Supplies catalogue data",h:["Reads the catalogue","Reads the catalogue files, or this site, to find the relevant people, risks and safeguards."]},
+      am:["done","AI extracted it from the data"],lx:["done","AI extracted it from the data"]},
+   4:{t:"Pin the exact version",ord:["ai","m"],ai:"Runs the commands",m:"Records the exact commit",
+      no:{ord:["h","m"],h:["Copies the commit ID","Copies the 40-character commit ID from GitHub, so others can see exactly what was read."],m:"Git keeps the version"},
+      am:["partly","Pinned, but only one of three repositories fits the record format"],lx:["done","Pinned for all three specifications"]},
+   5:{t:"Read with the person's eyes",ord:["h","ai"],h:["Sets the lens; spot-reads","Sets the lens (whose eyes, which situation) and spot-reads to check AI is reading the right things."],ai:"Reads and cites lines",
+      no:{ord:["h"],h:["Reads every section","Reads every section, noting what each part means for the person."],slow:"DAYS"},
+      why:"AI reads fast, but does not know which reading matters to the person at the centre.",am:["done","AI searched three code repositories"],lx:["done","Three AI agents read about 19,000 lines in minutes"]},
+   6:{t:"Draft findings",ord:["ai"],ai:"Drafts each finding",
+      no:{ord:["h"],h:["Writes each finding","Writes each finding by hand: its status, the matching risk and where the fix belongs."]},
+      am:["done","AI drafted 6 findings, then 8"],lx:["done","AI drafted 57 findings"]},
+   7:{t:"Check the citations",ord:["ai","m"],ai:"Spot-checks quotations",m:"Checks lines vs source",
+      no:{ord:["h"],h:["Re-reads each cited line","Re-reads each cited line against the source."]},
+      am:["na","Not done in this trial"],lx:["partly","AI spot-checked 27 lines: the quotations, not the judgements"]},
+   8:{t:"Review the findings",ord:["r"],r:["Confirms, changes or drops","Acts as the person's advocate: confirms, changes or drops every finding, and adds what was missed."],
+      no:{ord:["r"],r:["Confirms, changes or drops","Acts as the person's advocate: confirms, changes or drops every finding, and adds what was missed."]},
+      why:"A finding is a claim about harm to real people. A person must stand behind each one.",am:["done","The reviewer kept 6 findings and added 2"],lx:["notyet","Not done yet"]},
+   9:{t:"Propose new risks",ord:["ai","h"],ai:"Proposes missing risks",h:["Decides what to put forward","Decides which proposed risks to put forward. The task force accepts them later."],
+      no:{ord:["h"],h:["Proposes new risks","Proposes risks the catalogue lacks. The task force accepts them later."]},
+      why:"Adding to the shared catalogue affects every group that uses it.",am:["done","2 new risks proposed"],lx:["done","4 new risks proposed"]},
+   10:{t:"Build the review record",ord:["ai","m"],ai:"Drafts the record",m:"Formats it",
+      no:{ord:["h"],h:["Writes the record","Writes the review record by hand in the template."]},
+      am:["done","AI built the record"],lx:["done","AI built three records, at first naming a reviewer who had not reviewed them"]},
+   11:{t:"Validate",ord:["m"],m:"Checks completeness and links",
+      no:{ord:["h","m"],h:["Runs the checks","Runs the checking script."],m:"Checks completeness and links"},
+      am:["done","Passed, after workarounds"],lx:["done","Passed"]},
+   12:{t:"Bind the evidence",ord:["m","ai","h"],ai:"Drafts line links",m:"Adds fingerprints",h:["Keeps seen and inferred apart","Checks each finding's evidence, keeping what was seen apart from what was inferred."],
+      no:{ord:["h","m"],h:["Builds the evidence file","Builds the evidence file by hand, linking each finding to its lines."],m:"Adds fingerprints"},
+      why:"Separating what was seen from what was inferred needs judgement and accountability.",am:["after","Drafted afterwards; not yet checked by a person"],lx:["after","Generated afterwards"]},
+   13:{t:"Find themes",ord:["ai","h"],ai:"Drafts themes",h:["Judges which themes hold","Judges which themes across specifications or systems really hold."],
+      no:{ord:["h"],h:["Finds themes together","Finds the themes in a group meeting, after splitting the reading across people."]},
+      why:"Themes are interpretations. A person must judge whether they hold.",am:["na","One target, so no themes"],lx:["done","AI drafted 10 themes"]},
+   14:{t:"Examine independently",ord:["r"],r:["A different person tests it","A different person tries to disprove each inference."],
+      no:{ord:["r"],r:["A different person tests it","A different person tries to disprove each inference."]},
+      why:"Reasoning isn't tested until someone who didn't make it tries to break it.",am:["notyet","Not done yet"],lx:["notyet","Not done yet"]},
+   15:{t:"Interpret and decide",ord:["r"],r:["Task force decides","The task force decides where fixes go, how serious each finding is, and what risk to accept."],
+      no:{ord:["r"],r:["Task force decides","The task force decides where fixes go, how serious each finding is, and what risk to accept."]},
+      why:"Decisions on severity and acceptance carry accountability that no tool can hold.",am:["pending","Waiting for the task force"],lx:["pending","Waiting for the task force"]},
+   16:{t:"Share and feed back",ord:["ai","r","m"],ai:"Drafts issues and feedback",r:["Approves what is shared","Approves what is shared with specification groups and the catalogue."],m:"Posts them",
+      no:{ord:["r"],r:["Approves, writes, posts","Approves what is shared, then writes and posts it."]},
+      why:"Publishing speaks for the group, and can affect real people and projects.",am:["done","Two issues posted; feedback drafted"],lx:["done","The specification review was updated"]},
+   17:{t:"Reassess after change",ord:["m","h","ai"],m:"Spots a changed spec",h:["Decides to re-run","Decides whether a change is big enough to run the review again."],ai:"Re-runs the review",
+      no:{ord:["h"],h:["Watches; re-runs","Watches the repositories for changes, then runs the review again."]},
+      why:"Deciding when to look again is a judgement about risk.",am:["na","No change yet"],lx:["needed","One specification changed the same day"]}
+  };
+  var label={done:"Done",partly:"Partly",after:"Done afterwards",notyet:"Not yet",pending:"Pending",needed:"Needed",na:"Not applicable"};
+  var mode='ai', trials=false;
+  var svg=document.getElementById('flow'), list=document.getElementById('hsteps'), table=document.getElementById('spine-table'), note=document.getElementById('mode-note'), lead=document.getElementById('hsteps-lead');
+  function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+  function wrap(t,max){var w=t.split(' '),L=[],c='';w.forEach(function(x){if((c+' '+x).trim().length>max){if(c)L.push(c);c=x;}else c=(c+' '+x).trim();});if(c)L.push(c);return L;}
+  function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function view(i){var s=S[i];if(mode==='ai')return {ord:s.ord,h:s.h,r:s.r,ai:s.ai,m:s.m};var n=s.no;return {ord:n.ord,h:n.h,r:n.r,m:n.m,slow:n.slow};}
+  function short(v,k){var x=v[k];return Array.isArray(x)?x[0]:x;}
+  function longT(v,k){var x=v[k];return Array.isArray(x)?x[1]:x;}
+
+  function draw(){
+    while(svg.lastChild && svg.lastChild.nodeName!=='desc') svg.removeChild(svg.lastChild);
+    var LW=150, CW=152, PH=24, SH=48, top=PH+SH;
+    var lanes=[{k:'h',t:'PERSON',sub:'decides, judges, acts',h:118},{k:'ai',t:'AI',sub:'drafts, reads, proposes',h:96},{k:'m',t:'MACHINE',sub:'pins, checks, posts',h:86}];
+    if(trials){lanes.push({k:'t1',t:'TRIAL',sub:'Arthur and Margaret',h:58});lanes.push({k:'t2',t:'TRIAL',sub:'Three specifications',h:58});}
+    var y=top; lanes.forEach(function(l){l.y=y;y+=l.h;}); var H=y+44, W=LW+18*CW+150;
+    svg.setAttribute('viewBox','0 0 '+W+' '+H); svg.setAttribute('width',W); svg.setAttribute('height',H);
+    var defs=el('defs',{},svg);
+    var pat=el('pattern',{id:'hatch',width:8,height:8,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs); el('rect',{width:8,height:8,class:'lane-bg'},pat); el('line',{x1:0,y1:0,x2:0,y2:8,class:'hatch-line'},pat);
+    var mk=el('marker',{id:'ah',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'},defs); el('path',{d:'M0,0 L10,5 L0,10 z',class:'arrowhead'},mk);
+    var mk2=el('marker',{id:'ah2',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:7,markerHeight:7,orient:'auto-start-reverse'},defs); el('path',{d:'M0,0 L10,5 L0,10 z',class:'arrowhead loop'},mk2);
+    // lanes
+    lanes.forEach(function(l,ix){
+      el('rect',{x:0,y:l.y,width:W,height:l.h,class:'lane-bg'+(ix%2?' alt':'')},svg);
+      el('line',{x1:0,y1:l.y,x2:W,y2:l.y,class:'lane-line'},svg);
+      var tl=el('text',{x:14,y:l.y+l.h/2-4,class:'lane-label'},svg); tl.textContent=l.t;
+      var ts=el('text',{x:14,y:l.y+l.h/2+12,class:'lane-sub'},svg); ts.textContent=l.sub;
+    });
+    el('line',{x1:LW,y1:PH,x2:LW,y2:y,class:'lane-line'},svg);
+    // phases + step headers
+    phases.forEach(function(ph){
+      var x0=LW+ph.steps[0]*CW, w=ph.steps.length*CW;
+      el('rect',{x:x0+2,y:2,width:w-4,height:PH-4,rx:3,class:'phase-bg'+(ph.learn?' learn':'')},svg);
+      var t=el('text',{x:x0+10,y:PH-8,class:'phase-t'},svg); t.textContent=ph.t;
+    });
+    for(var i=0;i<18;i++){
+      var x=LW+i*CW;
+      if(i>0) el('line',{x1:x,y1:PH,x2:x,y2:y,class:'lane-line',opacity:.5},svg);
+      var n=el('text',{x:x+10,y:PH+18,class:'step-num'},svg); n.textContent=i;
+      wrap(S[i].t,17).slice(0,2).forEach(function(L,k){var t=el('text',{x:x+28,y:PH+18+k*15,class:'step-t'},svg);t.textContent=L;});
+    }
+    // nodes (drawn into a layer added after the arrows, so arrows pass behind boxes)
+    var pos={}; var arrowLayer=el('g',{},svg); var nodeLayer=el('g',{},svg);
+    var nodeW=CW-22;
+    for(var i=0;i<18;i++){
+      var v=view(i), x=LW+i*CW+11; pos[i]={};
+      v.ord.forEach(function(k){
+        var laneK=(k==='r')?'h':k, l=lanes.filter(function(q){return q.k===laneK;})[0];
+        var txt=short(v,k)||'', lines=wrap(txt,18).slice(0,4), nh=Math.max(40,lines.length*14+(k==='r'?30:18)), ny=l.y+(l.h-nh)/2;
+        var g=el('g',{class:'n-'+k},nodeLayer);
+        var tt=el('title',{},g); tt.textContent=(k==='r'?'Person, by rule':k==='h'?'Person':k==='ai'?'AI':'Machine')+': '+(longT(v,k)||txt);
+        if(k==='m'){el('rect',{x:x,y:ny,width:nodeW,height:nh,rx:1,class:'box'},g);el('rect',{x:x+5,y:ny+5,width:nodeW-10,height:nh-10,class:'txtbg'},g);}
+        else el('rect',{x:x,y:ny,width:nodeW,height:nh,rx:k==='h'?14:(k==='ai'?6:2)},g);
+        if(k==='ai') el('rect',{x:x+nodeW-13,y:ny-5,width:10,height:10,class:'dia',transform:'rotate(45 '+(x+nodeW-8)+' '+ny+')'},g);
+        var ty=ny+(k==='r'?30:18);
+        if(k==='r'){var tg=el('text',{x:x+10,y:ny+15,class:'tag'},g);tg.textContent='HUMAN BY RULE';}
+        lines.forEach(function(L,j){var t=el('text',{x:x+10,y:ty+j*14},g);t.textContent=L;});
+        if(k!=='ai'&&k!=='m'&&v.slow){var sl=el('text',{x:x+nodeW-4,y:ny+nh+12,'text-anchor':'end',class:'slow'},nodeLayer);sl.textContent='TAKES '+v.slow;}
+        pos[i][k]={x:x,y:ny,w:nodeW,h:nh,cx:x+nodeW/2,cy:ny+nh/2};
+      });
+    }
+    // arrows: within a step (handover), and from the last actor of a step to the first of the next
+    function arrow(a,b,cls){
+      var d;
+      if(Math.abs(a.cx-b.cx)<2){ // same column, vertical; an arrow that skips a lane runs near the right edge, behind the middle box
+        var down=b.cy>a.cy, skip=Math.abs(a.cy-b.cy)>130, vx=skip?(a.x+a.w-22):(a.x+26);
+        d='M'+vx+','+(down?a.y+a.h:a.y)+' L'+vx+','+(down?b.y:b.y+b.h);
+      }else{
+        var x1=a.x+a.w, y1=a.cy, x2=b.x, y2=b.cy, mx=(x1+x2)/2;
+        d=Math.abs(y1-y2)<2?('M'+x1+','+y1+' L'+x2+','+y2):('M'+x1+','+y1+' L'+mx+','+y1+' L'+mx+','+y2+' L'+x2+','+y2);
+      }
+      el('path',{d:d,class:'arrow'+(cls?' '+cls:''),'marker-end':'url(#'+(cls?'ah2':'ah')+')'},arrowLayer);
+    }
+    for(var i=0;i<18;i++){
+      var o=view(i).ord;
+      for(var j=1;j<o.length;j++) arrow(pos[i][o[j-1]],pos[i][o[j]]);
+      if(i<17){var o2=view(i+1).ord; arrow(pos[i][o[o.length-1]],pos[i+1][o2[0]]);}
+    }
+    // loop back
+    var last=pos[17][view(17).ord[view(17).ord.length-1]], lx=last.x+last.w;
+    el('path',{d:'M'+lx+','+last.cy+' L'+(lx+40)+','+last.cy,class:'arrow loop','marker-end':'url(#ah2)'},svg);
+    var lt=el('text',{x:lx+46,y:last.cy-6,class:'loop-t'},svg); lt.textContent='Back to step 1:';
+    var lt2=el('text',{x:lx+46,y:last.cy+9,class:'loop-t'},svg); lt2.textContent='the kit learns';
+    // trials
+    if(trials){
+      ['t1','t2'].forEach(function(k){
+        var l=lanes.filter(function(q){return q.k===k;})[0];
+        for(var i=0;i<18;i++){
+          var st=(k==='t1'?S[i].am:S[i].lx), x=LW+i*CW+11;
+          var g=el('g',{},svg); var tt=el('title',{},g); tt.textContent=(k==='t1'?'Arthur and Margaret':'Three specifications')+', step '+i+': '+label[st[0]]+'. '+st[1];
+          el('rect',{x:x,y:l.y+12,width:nodeW,height:l.h-24,rx:4,class:'tr-chip '+st[0]},g);
+          var t=el('text',{x:x+8,y:l.y+l.h/2+4,class:'tr-t'},g); t.textContent=label[st[0]];
+        }
+      });
+    }
+    // caption under lanes
+    var c=el('text',{x:14,y:H-16,class:'lane-sub'},svg);
+    c.textContent=mode==='ai'?'Arrows show who hands over to whom. Dark boxes are steps for people by rule.':'Without AI, the AI lane is empty and people do that work. Steps for people by rule do not change.';
+  }
+
+  function listHuman(){
+    var html='', n=0, rows='<thead><tr><th scope="col">Step</th><th scope="col">Person</th><th scope="col">AI</th><th scope="col">Machine</th></tr></thead><tbody>';
+    for(var i=0;i<18;i++){
+      var v=view(i), s=S[i], who=v.r?'r':(v.h?'h':null);
+      rows+='<tr><th scope="row">'+i+'. '+esc(s.t)+(v.r?' (human by rule)':'')+'</th><td>'+esc(longT(v,who||'x')||'—')+(v.slow?' (takes '+v.slow.toLowerCase()+')':'')+'</td><td>'+esc(mode==='ai'?(s.ai||'—'):'Not used')+'</td><td>'+esc(v.m||'—')+'</td></tr>';
+      if(!who) continue; n++;
+      var why=s.why|| 'Without AI, a person does this work.';
+      html+='<li class="hstep'+(who==='r'?' rule':'')+'"><div class="top"><span class="n" aria-hidden="true">'+i+'</span><h4>Step '+i+': '+esc(s.t)+'</h4>'+(who==='r'?'<span class="tag" style="background:var(--fg);color:var(--bg)">Human by rule</span>':'<span class="tag nocode">Person</span>')+(v.slow?'<span class="slower">Takes '+v.slow.toLowerCase()+'</span>':'')+'</div>'+
+            '<p>'+esc(longT(v,who))+'</p><p class="why"><b>Why a person:</b> '+esc(why)+'</p>'+
+            '<div class="trials"><span><b>Arthur and Margaret:</b> '+label[s.am[0]]+'. '+esc(s.am[1])+'</span><span><b>Three specifications:</b> '+label[s.lx[0]]+'. '+esc(s.lx[1])+'</span></div></li>';
+    }
+    list.innerHTML=html; table.innerHTML=rows+'</tbody>';
+    lead.textContent=(mode==='ai'?'With AI, ':'Without AI, ')+'people act in '+n+' of the 18 steps. Four of them are for people by rule.';
+  }
+  function render(){draw();listHuman();}
+  document.querySelectorAll('input[name="mode"]').forEach(function(r){
+    r.addEventListener('change',function(){
+      mode=r.value; render();
+      note.textContent= mode==='ai'
+        ? 'With AI: AI does the heavy reading and drafting, and people review everything it produces.'
+        : 'Without AI: the AI lane is empty and people do that work. It takes longer, especially reading. The four steps for people by rule do not change.';
+    });
+  });
+  var tr=document.getElementById('show-trials');
+  tr.addEventListener('change',function(){trials=tr.checked;document.body.classList.toggle('show-trials',trials);render();});
+  render();
+})();
+</script>
+</body>
+</html>

@@ -23,6 +23,12 @@
 #   residual_risk    — severity remaining after controls
 #   review_date      — when this acceptance expires and must be revisited
 #   evidence         — the artefact the decision was based on
+# For accepted/accepted_with_conditions claims, INV-6 enforces documentary
+# completeness, non-Critical residual severity and ISO dates with review_date
+# after decision_date. It does NOT verify that the authority is empowered,
+# the signatories consented or the evidence is substantively sufficient.
+# Adopters choosing to omit the instance invariant lose this validation coverage;
+# it is not evidence that an otherwise incomplete acceptance is legitimate.
 
 record_type: risk_acceptance
 records:

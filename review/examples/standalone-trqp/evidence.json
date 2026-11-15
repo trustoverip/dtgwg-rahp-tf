@@ -8,11 +8,11 @@
   "method_revision": "ab191485b48bca805ea2cc962c2ea9476a65db66",
   "review_binding": {
     "path": "review.yaml",
-    "sha256": "2493027beff2d86fb3173fdd61ff2f0f437cbba5d5352077c074e1e61b5e4b10"
+    "sha256": "8a7c5b8e4a8e9f1373e44825a55ae06a73d1094f25f601fd6071811419b6cddb"
   },
   "risks_binding": {
     "path": "risks.yaml",
-    "sha256": "4f6880dc3b05b1e835b7bde3eff9c06cbc153b1e6d77c12cf5fe0f5700980542"
+    "sha256": "572dc0a5b16a5ab9bfd19a2df557a85a17a8f15b72c44a703b041282255d1df1"
   },
   "execution": {
     "state": "complete",
@@ -128,8 +128,8 @@
       ],
       "treatment": "Request deployment policy, authority provenance and an action-time decision trace, including a post-revocation negative case. Do not infer mandatory protocol fields or storage design.",
       "risk_reasoning": {
-        "RK-AU01": "The example tests whether a structural authorization claim is incorrectly treated as proof of authority.",
-        "RK-TM01": "A response about a past moment cannot establish permission at a later action time without additional evidence."
+        "EX-RK-AU01": "The example tests whether a structural authorization claim is incorrectly treated as proof of authority.",
+        "EX-RK-TM01": "A response about a past moment cannot establish permission at a later action time without additional evidence."
       }
     },
     {
@@ -150,7 +150,7 @@
       ],
       "treatment": "Ask editors to align time_requested with the API query and explain time_evaluated separately; rerun at a new source revision.",
       "risk_reasoning": {
-        "RK-TM01": "The source-example mismatch demonstrates the specific time-confusion hypothesis; harm in a deployment remains hypothetical."
+        "EX-RK-TM01": "The source-example mismatch demonstrates the specific time-confusion hypothesis; harm in a deployment remains hypothetical."
       }
     }
   ]

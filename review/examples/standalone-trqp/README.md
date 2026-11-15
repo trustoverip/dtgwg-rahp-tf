@@ -117,8 +117,8 @@ bytes and their manifests/digests can construct a consistent bundle; this adapte
 does not authenticate the publisher or provide a trusted signature.
 
 [risks.yaml](risks.yaml) contains **two example-local hypotheses**, selected via
-the existing `--risks` interface. RK-AU01 examines structure mistaken for authority;
-RK-TM01 examines time confusion. These identifiers are local to this example, not
+the existing `--risks` interface. EX-RK-AU01 examines structure mistaken for authority;
+EX-RK-TM01 examines time confusion. These `EX-RK-*` identifiers are explicitly local to this example and cannot be mistaken for canonical `RK-*` corpus identifiers. They are not
 additions to the canonical DTG corpus, scored risks, accepted risks or demonstrated
 deployment incidents. The sidecar explains each mapping. No downstream CRK
 identifiers, pressure-test statuses or controllers are imported.
