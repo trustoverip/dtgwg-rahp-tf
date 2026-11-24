@@ -1093,7 +1093,7 @@ body = GCSS + f'''<div class="switch"><a class="btn ghost" href="guide-with-ai.h
 <div class="gintro"><div><h3>You will produce</h3><p>A review: what you found, for whom, where the fix belongs, at an exact version of the specification.</p></div>
 <div><h3>You need</h3><ul><li>A browser.</li><li>A document or spreadsheet.</li><li>Git and Python 3, only for the optional check.</li></ul></div>
 <div><h3>Time</h3><p>A day or more for one specification. Split several specifications across people.</p></div>
-<div><h3>Reference</h3><p>{link(REPOURL + '/blob/main/docs/pressure-testing-a-spec.md', 'Review record guide')} · {link(REPOURL + '/blob/main/review/examples/tea-delegated-authority/TUTORIAL.md', 'Technical tutorial')} · <a href="examples.html">Examples</a></p></div></div>
+<div><h3>Reference</h3><p>{link(REPOURL + '/blob/main/docs/pressure-testing-a-spec.md', 'Review record guide')} · {link(REPOURL + '/blob/main/review/examples/standalone-trqp/TUTORIAL.md', 'Technical tutorial (start here)')} · {link(REPOURL + '/blob/main/review/examples/tea-delegated-authority/TUTORIAL.md', 'Second tutorial: TEA')} · <a href="examples.html">Examples</a></p></div></div>
 <ol class="gsteps">{''.join(steps)}</ol>'''
 page('guide-without-ai.html', 'RAHP Guide Without AI', 'guides', 'Guides', 'Review without AI',
      'A step-by-step guide to reviewing a specification by hand, from choosing the people to sharing what you found. No code is needed except for one optional check.', body, COPYJS)
