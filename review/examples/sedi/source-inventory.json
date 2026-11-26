@@ -10,7 +10,7 @@
     "authority": "publisher-described draft interpretation; not authoritative implementation standards",
     "full_git_revision": null,
     "retained_snapshot": null,
-    "redistribution_permission": "not-established"
+    "redistribution_permission": "not-established; public accessibility does not establish permission"
   },
   "rahp": {
     "repository": "https://github.com/trustoverip/dtgwg-rahp-tf",
@@ -182,6 +182,31 @@
     "No raw response bytes or content digests available from the current acquisition environment.",
     "No authoritative Git repository or full commit identity established.",
     "Source redistribution permission has not been established.",
-    "No operational evidence acquired."
-  ]
+    "No operational evidence acquired.",
+    "Annex A, Annex E and conformance page returned cache misses on repeat retrieval; direct HTTPS acquisition failed DNS resolution."
+  ],
+  "domain_inventory": {
+    "source": "https://sedi.utah.gov/implementation-guide/introduction/#requirement-id-domains",
+    "domains": [
+      "BOR",
+      "DEF",
+      "PRG",
+      "SDI",
+      "APP",
+      "IDP",
+      "GOV",
+      "WAL",
+      "VER",
+      "RPY",
+      "LOY",
+      "PRC",
+      "ENF",
+      "CRY",
+      "PRV",
+      "INT",
+      "KMS",
+      "ORG"
+    ],
+    "coverage": "domain identifiers only; Annex A and Annex E retrieval unavailable; no complete requirement or obligation count asserted"
+  }
 }

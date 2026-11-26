@@ -16,6 +16,16 @@ The RAHP baseline used to scope this work is [8f6be0638fc1932abe5713263e26fee392
 
 Before creating a review record, obtain the publisher's immutable source revision and redistribution terms, or agree a bounded web-source representation with Task Force review. Retain exact acquired bytes and retrieval metadata where permissible. If redistribution is not permitted, keep source bytes outside the public repository and document the independently obtainable inputs and integrity boundary. A fresh capture cannot be assumed identical to the draft observed on 26 November.
 
+## Local source acquisition
+
+The [source acquisition helper](capture_sources.py) downloads only the inventory's explicitly listed public HTTPS sources to a new directory outside the checkout. It writes a manifest of response-byte SHA-256 digests, URL, media type, size and retrieval time; it rejects redirects, unexpected media types and empty or oversized responses. It does not publish source bytes or claim that a capture corresponds to the historical build. Use a network-enabled workstation with permission to retain the documents:
+
+```sh
+python3 review/examples/sedi/capture_sources.py /tmp/sedi-capture
+```
+
+The capture is an acquisition record, not a valid `rahp-spec-review/v1` target. Before using it for an assessment, review its content and establish the publisher/version relationship and a suitable upstream source identity contract. Do not commit captured files without confirmed redistribution rights. A repeat acquisition is a distinct observation.
+
 ## Initial vertical examination
 
 Question: Can a person who chooses a lawful physical identity format encounter material disadvantage despite a documented physical alternative?
@@ -29,6 +39,8 @@ The initial scope is one otherwise eligible individual accessing a government se
 | SEDI-BOR-09 | 63A-20-101(9) | Format choice does not disadvantage the otherwise entitled person. |
 
 Source: [Part 1](https://sedi.utah.gov/implementation-guide/part-1/). Relevant implementation decisions concern acceptance-point review frequency, pathway inventory and permissible channel distinctions. The draft identifies limitations of administrative review, automated platform checks and expert examination; documentary evidence alone cannot establish actual service access. These observations are preliminary and not yet bound to an immutable source.
+
+The [initial requirement inventory](initial-requirements.json) records the three requirement IDs, roles, implementation decision references, objective numbers, verification coverage and evidence categories. The source inventory also records all 18 published requirement domains. The complete requirement and role-obligation annexes remain unavailable; no claim of full requirement coverage is made.
 
 ### Candidate constructed cases
 
