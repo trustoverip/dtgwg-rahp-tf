@@ -67,7 +67,7 @@
       ],
       "potential_harm": "State-created identity framing may undermine individual autonomy and legitimacy.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Naming scans do not establish semantics; expert review is point-in-time.",
+      "disposition_rationale": "The distinction between endorsement and origination needs an explicit semantic boundary before naming or interface checks can establish fidelity to the intended model.",
       "related_requirements": [
         "SEDI-PRG-01",
         "SEDI-BOR-02"
@@ -137,7 +137,7 @@
       ],
       "potential_harm": "Arbitrary or discriminatory endorsement denies lawful identity access.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Determinism cannot establish fairness of upstream inputs; annual disparity analysis can lag or miss individual discrimination.",
+      "disposition_rationale": "The applicable eligibility, override and appeal decisions must be established by their responsible authorities before evidence can demonstrate non-discriminatory application.",
       "related_requirements": [
         "SEDI-APP-03",
         "SEDI-SDI-23",
@@ -202,7 +202,7 @@
       ],
       "potential_harm": "Unapproved standards may produce illegitimate eligibility or acceptance decisions.",
       "disposition": "evidence-required",
-      "disposition_rationale": "URL and change checks do not establish lawful process or actual implementation.",
+      "disposition_rationale": "The domains and rulemaking obligation are specified; the docket and version-to-implementation trace are needed to establish that standards were actually adopted through the required process.",
       "related_requirements": [
         "SEDI-PRG-04",
         "SEDI-PRG-05"
@@ -262,7 +262,7 @@
       ],
       "potential_harm": "Opaque or divergent specifications prevent independent scrutiny and interoperability.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Availability is not sufficiency; point-in-time review misses later divergence.",
+      "disposition_rationale": "The design calls for independent implementation; an independent implementation attempt and deployed-version comparison are required to establish that publication is sufficient.",
       "related_requirements": [
         "SEDI-PRG-02",
         "SEDI-INT-01"
@@ -333,7 +333,7 @@
       ],
       "potential_harm": "Coerced device surrender exposes data or enables tampering.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Protocol tests cannot cover every device/reader pairing or informal counter demands.",
+      "disposition_rationale": "The operational distance threshold and service conditions must be specified by the responsible authority before a contactless test can establish that a person can retain custody of the device.",
       "related_requirements": [
         "SEDI-GOV-03",
         "SEDI-BOR-04"
@@ -399,7 +399,7 @@
       ],
       "potential_harm": "Uncontrolled lifecycle data handling permits unauthorized use.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Publication is not adequacy; assessor context and self-reported compliance limit assurance.",
+      "disposition_rationale": "The governance obligation is defined, but actual cross-actor data flows and processing practices are required to determine whether standards constrain the ecosystem.",
       "related_requirements": [
         "SEDI-PRV-04",
         "SEDI-PRC-01",
@@ -456,7 +456,7 @@
       ],
       "potential_harm": "Price barriers undermine voluntary choice.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Discriminatory impact is judgment-dependent; no bright-line test.",
+      "disposition_rationale": "A fee assessment depends on whether fees are imposed and the approved schedule; parity and distributional evidence must be assessed against that decision.",
       "related_requirements": [
         "SEDI-BOR-09",
         "SEDI-GOV-01"
@@ -523,7 +523,7 @@
       ],
       "potential_harm": "Incomplete reporting can conceal adverse outcomes and delay oversight.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Pipelines do not generate substantive analysis; report accuracy requires independent audit.",
+      "disposition_rationale": "The reporting obligation has a future deadline; the actual report and reconciled data are needed when due, not an assumption of present compliance or noncompliance.",
       "related_requirements": [
         "SEDI-PRG-09",
         "SEDI-ENF-03"
@@ -578,7 +578,7 @@
       ],
       "potential_harm": "Insufficient institutional capability can weaken risk oversight.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Experience evaluation subjective; statute supplies no standardized threshold in guide.",
+      "disposition_rationale": "The required experience categories are stated but appointment criteria and minimum thresholds require accountable determination before appointment evidence can be evaluated.",
       "related_requirements": [
         "SEDI-PRG-01",
         "SEDI-PRG-07"
@@ -639,7 +639,7 @@
       ],
       "potential_harm": "Incomplete coordination may yield inconsistent service access and verification.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Participation does not establish quality or effectiveness; partner actions outside Department control.",
+      "disposition_rationale": "The coordination partners are identified; actual decisions and outstanding dependencies are necessary to establish whether coordination addresses the intended acceptance and verification needs.",
       "related_requirements": [
         "SEDI-PRG-10",
         "SEDI-PRG-11"
@@ -708,7 +708,7 @@
       ],
       "potential_harm": "Context-specific harms can be overlooked by generic conformance.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Documentation does not establish practical acceptance; expert quality depends on domain engagement.",
+      "disposition_rationale": "The use-case categories are specified; completed use-case examinations and interaction evidence are needed to establish whether the required operational and privacy concerns have been covered.",
       "related_requirements": [
         "SEDI-PRG-09",
         "SEDI-PRG-11",
@@ -779,7 +779,7 @@
       ],
       "potential_harm": "Unresolved integration gaps persist despite documented coordination.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Assessor may lack partner context; documentation cannot establish gaps are acted upon.",
+      "disposition_rationale": "A gap-analysis obligation exists; evidence of identified gaps, responsible authorities and closure decisions is needed to distinguish an actionable programme from an inventory.",
       "related_requirements": [
         "SEDI-PRG-09",
         "SEDI-PRG-10",
@@ -837,7 +837,7 @@
       ],
       "potential_harm": "Device surrender exposes holder information and autonomy.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Tests and annual review cannot detect all informal field practices.",
+      "disposition_rationale": "The contactless and training requirements are stated; field observations and complaint evidence are needed to establish that device surrender is not demanded in practice.",
       "related_requirements": [
         "SEDI-BOR-11",
         "SEDI-ENF-01"
@@ -1014,7 +1014,7 @@
       ],
       "potential_harm": "Improper or prolonged exemption may produce inequitable access.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Feasibility judgments vary; administrative review cannot independently establish infeasibility.",
+      "disposition_rationale": "An exemption is conditional on a particular legal requirement or an authorized infeasibility determination; evidence must be assessed against that decision rather than treating failed integration as automatically exempt.",
       "related_requirements": [
         "SEDI-GOV-06",
         "SEDI-GOV-05"
@@ -1079,7 +1079,7 @@
       ],
       "potential_harm": "Presentation records reused for tracking or profiling.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Valid tags may conceal business-logic misuse; expert point-in-time and self-report cannot establish exception legitimacy.",
+      "disposition_rationale": "Clarification of the authorized purpose and legal-exception boundary is needed before a processing-path test can determine whether secondary use is permitted.",
       "related_requirements": [
         "SEDI-PRC-02",
         "SEDI-PRC-03",
@@ -1142,7 +1142,7 @@
       ],
       "potential_harm": "Cross-purpose aggregation produces profiling and discrimination.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Tests miss manual aggregation and out-of-band exfiltration; reviews miss subsequent changes.",
+      "disposition_rationale": "The purpose segregation requirement is explicit; actual lineage and access-path evidence are needed to establish whether unrelated joins or repurposing occur.",
       "related_requirements": [
         "SEDI-PRC-01",
         "SEDI-PRC-03",
@@ -1211,7 +1211,7 @@
       ],
       "potential_harm": "Secondary use exceeds actual authorization.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Token presence does not establish freely given authorization or conspicuous notice; legal basis separate.",
+      "disposition_rationale": "The distinction between express opt-in and processing required by law must be resolved for the relevant use before testing can determine whether retention or sharing was authorized.",
       "related_requirements": [
         "SEDI-PRC-01",
         "SEDI-PRC-02",
@@ -1276,7 +1276,7 @@
       ],
       "potential_harm": "Unavailable remedy leaves harms undetected or uncorrected.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Endpoint reachability does not establish accessibility or delivery to ombudsperson; point-in-time review misses degradation.",
+      "disposition_rationale": "Complaint channels are specified; actual receipt, accessible handling and remedy evidence are needed to establish effective redress.",
       "related_requirements": [
         "SEDI-BOR-05",
         "SEDI-BOR-04",
@@ -1335,7 +1335,7 @@
       ],
       "potential_harm": "Inadequate or excessive evidence collection undermines accountability or privacy.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Administrative review cannot establish record completeness or functioning preservation under actual process.",
+      "disposition_rationale": "The preservation obligation is linked to lawful investigative demands; scoped request and production evidence is necessary to establish compliance without inferring general surveillance authority.",
       "related_requirements": [
         "SEDI-ENF-03",
         "SEDI-PRV-03",
@@ -1391,7 +1391,7 @@
       ],
       "potential_harm": "Delayed oversight can prolong undetected harm.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Department cannot enforce external legislative office's completion; deadline is future.",
+      "disposition_rationale": "The audit deadline and cooperation obligation are stated; engagement and response records are required to establish performance as the deadline approaches.",
       "related_requirements": [
         "SEDI-ENF-03",
         "SEDI-ENF-04"
