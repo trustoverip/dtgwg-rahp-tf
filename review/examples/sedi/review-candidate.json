@@ -56,7 +56,8 @@
       ],
       "requirements": [
         "SEDI-BOR-03",
-        "SEDI-GOV-02"
+        "SEDI-GOV-02",
+        "SEDI-BOR-04"
       ],
       "sources": [
         {
@@ -66,7 +67,9 @@
             9,
             10,
             11,
-            12
+            12,
+            13,
+            14
           ]
         },
         {
@@ -87,7 +90,8 @@
       ],
       "requirements": [
         "SEDI-BOR-04",
-        "SEDI-APP-04"
+        "SEDI-APP-04",
+        "SEDI-BOR-09"
       ],
       "sources": [
         {
@@ -96,7 +100,10 @@
           "pages": [
             12,
             13,
-            14
+            14,
+            24,
+            25,
+            26
           ]
         },
         {

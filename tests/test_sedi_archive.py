@@ -85,7 +85,7 @@ class SediCandidateTests(unittest.TestCase):
         self.assertEqual(result["overall_assurance"], "review-required")
 
     def test_false_success_mutations(self):
-        for mutation in ("target", "reviewer", "status", "missing-binding", "digest", "page", "risk"):
+        for mutation in ("target", "reviewer", "status", "missing-binding", "digest", "page", "risk", "wrong-case", "wrong-requirement", "wrong-source-page", "baseline"):
             with self.subTest(mutation=mutation):
                 candidate = copy.deepcopy(self.candidate)
                 if mutation == "target":
@@ -100,6 +100,14 @@ class SediCandidateTests(unittest.TestCase):
                     candidate["bindings"][0]["sources"][0]["sha256"] = "0" * 64
                 elif mutation == "page":
                     candidate["bindings"][0]["sources"][0]["pages"] = [0]
+                elif mutation == "wrong-case":
+                    candidate["bindings"][0]["cases"] = ["unequal-service"]
+                elif mutation == "wrong-requirement":
+                    candidate["bindings"][0]["requirements"] = ["SEDI-BOR-09"]
+                elif mutation == "wrong-source-page":
+                    candidate["bindings"][0]["sources"][0]["pages"] = [1]
+                elif mutation == "baseline":
+                    candidate["rahp_baseline"] = "0" * 40
                 else:
                     candidate["findings"][0]["risks"] = ["EX-RK-HX99"]
                 with self.assertRaises(ValueError):

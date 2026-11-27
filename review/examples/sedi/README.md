@@ -78,3 +78,5 @@ python3 review/examples/sedi/examine.py '/path/to/SEDI RAHP Review Input.zip'
 ```
 
 The first command verifies exact archive and member bytes without extraction. The second additionally checks candidate findings against the existing finding schema and vocabulary and checks evidence references. Neither verifies the truth of the documentary interpretation or publisher authenticity. Independent reviewers must inspect the indicated pages, corroborate or challenge the four open candidate findings and agree how a non-Git review is represented. No source documents are redistributed. A different archive must fail, even if it contains similar documents.
+
+The [tutorial](TUTORIAL.md) describes source verification and independent review. [Objective-control mappings](objective-controls.json) cover the seven scoped requirements and 32 numbered objectives at requirement-group level, including treatment owners and proposed evidence checks. They do not constitute verified guardrails or executed deployment assurance tests.

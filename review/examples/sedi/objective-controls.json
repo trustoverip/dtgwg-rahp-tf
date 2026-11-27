@@ -1,0 +1,262 @@
+{
+  "status": "proposed documentary control and evidence mapping; no guardrail or test execution asserted",
+  "scope": "Seven selected requirements; objective numbers are publisher-local, not canonical RAHP IDs.",
+  "distinctions": {
+    "control": "Proposed treatment or existing requirement-level protection",
+    "guardrail": "A candidate invariant whose violation would warrant examination; no verified binary guardrail result",
+    "assurance_test": "Proposed evidence-generating activity; not executed against a deployment"
+  },
+  "cross_cutting_risk": "EX-RK-HX04 applies to any unsupported inference of operational equivalence from documentary evidence.",
+  "records": [
+    {
+      "id": "SEDI-BOR-03",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "risks": [
+        "EX-RK-HX01",
+        "EX-RK-HX02"
+      ],
+      "control": "Maintain physical issuance and acceptance, independent of digital enrollment; review the acceptance inventory.",
+      "authority": "Department and governmental entities",
+      "assurance_test": "Sample physical issuance and acceptance at actual service points; inspect inventory freshness and eligibility rules.",
+      "verification": {
+        "AUTO": {
+          "applicability": "N/A",
+          "objectives": []
+        },
+        "EXPT": {
+          "applicability": "N/A",
+          "objectives": []
+        },
+        "ADMN": {
+          "applicability": "Mandatory",
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-BOR-04",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "risks": [
+        "EX-RK-HX01",
+        "EX-RK-HX02"
+      ],
+      "control": "Maintain complete pathway inventory, usable fallback, non-compulsion policies, staff training and grievance mechanisms.",
+      "authority": "Department and governmental entities",
+      "assurance_test": "Compare inventory to service catalog; exercise internal and external fallback; observe staff intake and grievance handling.",
+      "verification": {
+        "AUTO": {
+          "applicability": "Recommended",
+          "objectives": [
+            2,
+            3
+          ]
+        },
+        "EXPT": {
+          "applicability": "Recommended",
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "ADMN": {
+          "applicability": "Mandatory",
+          "objectives": [
+            1,
+            4,
+            5
+          ]
+        }
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-BOR-09",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "risks": [
+        "EX-RK-HX02",
+        "EX-RK-HX03"
+      ],
+      "control": "Maintain format-neutral service conditions, limit distinctions, bind relying-party agreements and provide complaint channels.",
+      "authority": "Governmental entities, health care providers and relying parties (government service only exercised)",
+      "assurance_test": "Compare matched service outcomes, fees and delays; inspect permitted distinctions, agreements and complaint handling.",
+      "verification": {
+        "AUTO": {
+          "applicability": "N/A",
+          "objectives": []
+        },
+        "EXPT": {
+          "applicability": "Recommended",
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "ADMN": {
+          "applicability": "Mandatory",
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-APP-04",
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "risks": [
+        "EX-RK-HX02"
+      ],
+      "control": "Remove enrollment prerequisites and possession assumptions from service pathways and agreements.",
+      "authority": "Department and governmental entities",
+      "assurance_test": "Exercise enrollment-free intake and fallback; inspect integration agreements and staff practices.",
+      "verification": {
+        "AUTO": [],
+        "EXPT": [],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-GOV-01",
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "risks": [
+        "EX-RK-HX03"
+      ],
+      "control": "Prohibit SEDI-linked preferential treatment and incentives; maintain service parity.",
+      "authority": "Governmental entities",
+      "assurance_test": "Compare fee schedules, processing times, incentives and workflows for the same entitlement.",
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ADMN": [
+          1,
+          2,
+          3
+        ]
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-GOV-02",
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "risks": [
+        "EX-RK-HX01",
+        "EX-RK-HX03"
+      ],
+      "control": "Retain physical acceptance, prevent degradation and provide complaint mechanisms.",
+      "authority": "Governmental entities",
+      "assurance_test": "Observe physical acceptance and paired outcomes; test complaint accessibility and remediation.",
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          1,
+          2
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-GOV-05",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "risks": [
+        "EX-RK-HX03"
+      ],
+      "control": "Document infeasibility or specific-format legal basis; obtain Department review and track remediation. Do not infer authority to mandate SEDI.",
+      "authority": "Governmental entities; Department reviews infeasibility claims",
+      "assurance_test": "Inspect case-specific basis, review decision, timeline and progress; check exception direction.",
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          1,
+          2
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "guardrail": "No unsupported assertion of effective service parity or non-compulsion; a missing observation remains unknown.",
+      "operational_evidence": "not acquired"
+    }
+  ]
+}
