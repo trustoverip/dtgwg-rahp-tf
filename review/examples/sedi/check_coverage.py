@@ -53,8 +53,10 @@ def check(register, index, manifest, loader=load, require_complete=False):
             raise ValueError("Missing examination or objective mismatch")
         if r["status"] == "scenario-examined" and not r.get("case_refs"):
             raise ValueError("Scenario status lacks case references")
-    if require_complete and counts["indexed"]:
-        raise ValueError(f'{counts["indexed"]} requirements remain indexed only')
+    if require_complete:
+        # Lazy import: normalization invokes the inventory check with require_complete=False.
+        from normalize_coverage import normalize, require_complete as require_documentary_complete
+        require_documentary_complete(normalize(register, index, manifest, loader))
     return {"indexed_universe": len(indexed), "counts": counts,
             "documentary_coverage_complete": counts["indexed"] == 0,
             "overall_assurance": "review-required"}
@@ -64,8 +66,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--require-complete", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(check(load("requirement-coverage.json"), load("requirement-index.json"),
-                           load("archive-manifest.json"), require_complete=args.require_complete), indent=2))
+    register, index, manifest = (load(n) for n in ("requirement-coverage.json", "requirement-index.json", "archive-manifest.json"))
+    print(json.dumps(check(register, index, manifest, require_complete=args.require_complete), indent=2))
 
 
 if __name__ == "__main__":

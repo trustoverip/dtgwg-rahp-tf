@@ -2,10 +2,10 @@
 import argparse
 import json
 from pathlib import Path
-from normalize_coverage import normalize, load
+from normalize_coverage import normalize, load, require_complete as require_documentary_complete
 from verify_archive import verify_archive
 
-def compose(archive, loader=load):
+def compose(archive, loader=load, require_complete=False):
     register = loader("requirement-coverage.json")
     manifest = loader("archive-manifest.json")
     integrity = verify_archive(archive, manifest)
@@ -53,7 +53,8 @@ def compose(archive, loader=load):
         findings.append({**f, "risk_refs": refs, "requirements": reqs,
                          "sources": [rows[r].get("source") for r in reqs],
                          "proposition": case["constructed"], "evidence_needed": evidence,
-                         "authority": case.get("authority"), "classification": "constructed; not observed"})
+                         "authority": case.get("authority"), "affected_context": view["affected_contexts"][f["case"]],
+                         "classification": "constructed; not observed"})
     if seen != cases.keys() or len({f["id"] for f in findings}) != len(findings):
         raise ValueError("Incomplete or duplicate finding index")
     synthesis = loader("synthesis.json")
@@ -74,6 +75,9 @@ def compose(archive, loader=load):
             expected_requirements.add(finding["source_gap"])
         if (len(finding["requirements"]) != len(set(finding["requirements"]))
                 or set(finding["requirements"]) != expected_requirements
+                or not finding["observation"].strip()
+                or not finding["interpretation"].strip()
+                or not finding["design_protection"].strip()
                 or not finding["recommendation"].strip()
                 or not finding["interpretation_boundary"].strip()):
             raise ValueError("Incomplete synthesis reasoning or requirement binding")
@@ -88,8 +92,12 @@ def compose(archive, loader=load):
             raise ValueError("Unknown source gap")
     if synthesis_cases != cases.keys():
         raise ValueError("Incomplete synthesis case coverage")
-    source_bound_synthesis = [{**f, "sources": {r: rows[r].get("source") or rows[r].get("source_gap") for r in f["requirements"] + [x["id"] for x in f.get("additional_requirements", [])]}} for f in synthesis["findings"]]
+    source_bound_synthesis = [{**f, "sources": {r: rows[r].get("source") or rows[r].get("source_gap_record") for r in f["requirements"] + [x["id"] for x in f.get("additional_requirements", [])]}} for f in synthesis["findings"]]
+    if require_complete:
+        require_documentary_complete(view)
     return {**integrity, "coverage": view["summary"], "risks": list(risks.values()),
+            "affected_contexts": view["affected_contexts"],
+            "normalization_gaps": {r["id"]: r["normalization_gaps"] for r in view["records"] if r["normalization_gaps"]},
             "synthesis": source_bound_synthesis,
             "candidate_propositions": findings, "overall_assurance": "review-required",
             "formal_review": "not-established", "documentary_coverage_complete": all(r["status"] != "indexed" for r in rows.values()),
@@ -98,5 +106,6 @@ def compose(archive, loader=load):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("archive", type=Path)
+    parser.add_argument("--require-complete", action="store_true", help="Reject indexed-only or analytically incomplete documentary records")
     args = parser.parse_args()
-    print(json.dumps(compose(args.archive), indent=2))
+    print(json.dumps(compose(args.archive, require_complete=args.require_complete), indent=2))

@@ -15,7 +15,7 @@
         "equivalent-service",
         "evidence-missing"
       ],
-      "observation": "The rights and acceptance provisions explicitly protect physical alternatives and voluntary use; documentary and laboratory checks cannot establish field-level access or remedy.",
+      "observation": "The draft retains physical issuance and acceptance, prohibits mandatory digital enrollment and differential service conditions, and provides complaint and exception mechanisms.",
       "authority": "Department, governmental entities and applicable service operators",
       "resolution_evidence": "Representative service observations, matched service outcomes, accessible correction and complaint disposition.",
       "status": "open",
@@ -29,7 +29,9 @@
         "SEDI-BOR-11",
         "SEDI-ENF-01",
         "SEDI-GOV-03"
-      ]
+      ],
+      "interpretation": "These are meaningful design-level protections for format choice; documentary requirements and policy reviews cannot establish field-level equivalence, accessibility or remedy.",
+      "design_protection": "The physical-pathway and non-compulsion obligations directly address the stated exclusion mechanism at the requirement level."
     },
     {
       "id": "S-02",
@@ -40,7 +42,7 @@
         "TC-03",
         "EI-01"
       ],
-      "observation": "The draft provides disclosure and predicate protections; joint satisfaction of BOR-08, SDI-07 and CRY-03 and the end-to-end request context require examination. A selected field list is not proof of cryptographic hiding.",
+      "observation": "BOR-08 requires cryptographic hiding of unselected attributes; SDI-07 permits structural or cryptographic mechanisms, and CRY-03 excludes field filtering alone. Other cited requirements constrain disclosure and request context.",
       "authority": "SEDI specification owners; wallet, verifier and relying-party implementers",
       "resolution_evidence": "Clarify combined requirements; independently examine actual cryptographic construction, purpose and recipient binding, negative disclosure and metadata tests.",
       "status": "open",
@@ -61,7 +63,9 @@
         "SEDI-WAL-10",
         "SEDI-WAL-11",
         "SEDI-WAL-12"
-      ]
+      ],
+      "interpretation": "Read these requirements jointly: an individually valid field selection or predicate is not proof of hiding or unlinkability across the actual request, recipient and metadata.",
+      "design_protection": "The explicit attribute-choice, hiding and predicate constraints address over-disclosure at design level, subject to compatible implementation."
     },
     {
       "id": "S-03",
@@ -73,7 +77,7 @@
         "OS-02",
         "P-06"
       ],
-      "observation": "Anti-surveillance restrictions coexist with holder-controlled history and security/audit obligations. The relevant evidence boundary is log content, access and completeness, not logging alone.",
+      "observation": "The cited rights, privacy, wallet, organizational and audit requirements restrict monitoring and address presentation history and security records.",
       "authority": "Department and applicable wallet providers",
       "resolution_evidence": "Log and telemetry data flows, access, integrity and instrumentation evidence without holder-identifying presentation history.",
       "status": "open",
@@ -89,7 +93,9 @@
         "SEDI-SDI-17",
         "SEDI-WAL-06",
         "SEDI-WAL-13"
-      ]
+      ],
+      "interpretation": "Log content, access and completeness must be considered together. Neither logging nor its absence alone establishes accountability without surveillance.",
+      "design_protection": "The explicit anti-monitoring and restricted-history requirements address presentation tracking; security logging and audit obligations address accountability."
     },
     {
       "id": "S-04",
@@ -102,7 +108,7 @@
         "D-03",
         "L-06"
       ],
-      "observation": "Offline availability, status freshness, compromise recovery and portability are separately protected; effectiveness depends on how lifecycle transitions compose.",
+      "observation": "The cited lifecycle requirements address status, offline presentation, replacement, migration, revocation, rotation and compromise response.",
       "authority": "Department, wallet providers and verifiers",
       "resolution_evidence": "Status staleness policy, propagation, recovery, migration, emergency key transitions and continuity evidence.",
       "status": "open",
@@ -120,7 +126,9 @@
         "SEDI-SDI-24",
         "SEDI-VER-05",
         "SEDI-WAL-09"
-      ]
+      ],
+      "interpretation": "Separate lifecycle controls do not establish that stale status, recovery, migration and key changes compose safely in a real interaction.",
+      "design_protection": "Revocation, replacement and portability obligations, plus rotation continuity, directly address compromise and lockout risks in design."
     },
     {
       "id": "S-05",
@@ -135,7 +143,7 @@
         "OS-01",
         "D-06"
       ],
-      "observation": "Identity, current authority, action scope and factual justification are distinct. Technical authorization does not establish appropriate exercise of authority.",
+      "observation": "The cited application, holder-control, guardian-presentation and loyalty requirements address identity and representative authorization, bounded actions and duties toward individuals.",
       "authority": "Department and competent oversight authorities",
       "resolution_evidence": "Relationship and appointment evidence, scoped authority, termination, attribution, factual grounds and accessible challenge.",
       "status": "open",
@@ -161,7 +169,9 @@
         "SEDI-SDI-23",
         "SEDI-VER-05",
         "SEDI-WAL-09"
-      ]
+      ],
+      "interpretation": "Identity, current authority, action scope and factual justification are distinct; technically authorized exercise can still harm the person represented.",
+      "design_protection": "The express guardian-authorization, expiry, scope and loyalty provisions address unauthorized and exploitative representation at design level."
     },
     {
       "id": "S-06",
@@ -174,7 +184,7 @@
         "OS-03",
         "P-05"
       ],
-      "observation": "Component conformance and profile claims cannot establish interaction-level protection; missing or stale evidence must remain visible.",
+      "observation": "The cited program, interoperability and organizational requirements address conformance assessment, open standards, common formats and change management.",
       "authority": "Department and profile owners",
       "resolution_evidence": "Version-bound paired interaction evidence, applicable role and method coverage, change-impact and reassessment records.",
       "status": "open",
@@ -192,7 +202,9 @@
         "SEDI-PRG-01",
         "SEDI-PRG-02",
         "SEDI-PRV-01"
-      ]
+      ],
+      "interpretation": "Individual component or profile conformance cannot establish end-to-end interaction properties, especially with mismatched versions or changed configuration.",
+      "design_protection": "The independent assessment, interoperability and change-management provisions provide useful component-level protections and evidence expectations."
     },
     {
       "id": "S-07",
@@ -202,7 +214,7 @@
         "IP-02",
         "IP-03"
       ],
-      "observation": "Proofing and eligibility gates require substantively valid evidence; the draft recognizes proportionality and upstream accuracy limits. Clarify age gate and guardian pathways without inferring legal inconsistency.",
+      "observation": "The cited application and proofing requirements address eligibility, risk-commensurate proofing, authoritative inputs, accessible methods and authorized proofing entities.",
       "authority": "Department and identity-proofing entities",
       "resolution_evidence": "Approved proofing criteria, authoritative inputs, proportionality, correction and representative accessibility evidence.",
       "status": "open",
@@ -222,7 +234,9 @@
         "SEDI-IDP-05",
         "SEDI-IDP-10",
         "SEDI-SDI-23"
-      ]
+      ],
+      "interpretation": "The age gate and guardian pathways must be interpreted jointly. A nominal proofing level or four populated assertion fields cannot establish accurate or proportionate proofing.",
+      "design_protection": "The accepted-standard, risk-commensurate and alternative-method provisions directly address proofing quality and exclusion in design."
     },
     {
       "id": "S-08",
@@ -233,7 +247,7 @@
         "TC-04",
         "EI-03"
       ],
-      "observation": "The draft restricts purpose, retention and disclosure. A later consent record does not alone establish that all other processing restrictions are satisfied.",
+      "observation": "The cited processing, wallet, verifier and relying-party requirements constrain purposes, collection, consent, retention and onward disclosure.",
       "authority": "Department and applicable processors",
       "resolution_evidence": "Data lineage, purpose and legal basis, consent scope, retention/deletion and downstream access evidence.",
       "status": "open",
@@ -255,7 +269,9 @@
         "SEDI-WAL-02",
         "SEDI-WAL-12",
         "SEDI-WAL-14"
-      ]
+      ],
+      "interpretation": "A later consent record or a passing local prompt does not establish that the original purpose, recipient and other processing restrictions are satisfied across actors.",
+      "design_protection": "The explicit purpose, per-transaction consent and retention restrictions address secondary processing at the requirement level."
     },
     {
       "id": "S-09",
@@ -265,7 +281,7 @@
         "TC-02",
         "OS-01"
       ],
-      "observation": "Issuer signature verification, state infrastructure control and third-party equivalent obligations require distinct evidence. Delegated hosting or custody examples do not establish permission to relinquish sole control.",
+      "observation": "The cited authenticity, key and infrastructure requirements address cryptographic verification, Department control and third-party compliance.",
       "authority": "Department and competent independent assessors",
       "resolution_evidence": "Key provenance, actual custody and control, ceremony and delegated function scope; clarify combined SDI-13, KMS-03 and ORG-06 obligations.",
       "status": "open",
@@ -283,7 +299,9 @@
         "SEDI-SDI-13",
         "SEDI-SDI-14",
         "SEDI-SDI-21"
-      ]
+      ],
+      "interpretation": "Signature validity, actual key provenance, institutional custody and scope of delegated operations require distinct evidence; delegated custody examples do not themselves authorize relinquishing control.",
+      "design_protection": "The provenance, key-management and Department-control obligations provide design-level protections against forged issuance and unauthorized custody."
     },
     {
       "id": "S-10",
@@ -291,7 +309,7 @@
       "cases": [
         "C-05"
       ],
-      "observation": "INT-01, CRY-04 and ORG-04 retain apparent method-applicability questions; do not silently change source assignments.",
+      "observation": "INT-01, CRY-04 and ORG-04 include method declarations whose limitations refer to expert or organizational examination; KMS-04 has a similar EXPT issue and INT-04 omits ADMN.",
       "authority": "SEDI guide maintainers",
       "resolution_evidence": "Publisher clarification of applicability and intended assessment objects.",
       "status": "open",
@@ -310,8 +328,18 @@
         {
           "id": "SEDI-ORG-04",
           "reason": "Directly named verification-method applicability question in the synthesis."
+        },
+        {
+          "id": "SEDI-KMS-04",
+          "reason": "EXPT N/A declaration and its expert-review limitation are directly discussed."
+        },
+        {
+          "id": "SEDI-INT-04",
+          "reason": "ADMN is not declared in the detailed verification table."
         }
-      ]
+      ],
+      "interpretation": "Treat the source-declared method and its limitation separately. The apparent tensions require guide-maintainer clarification, not silent reassignment of methods.",
+      "design_protection": "The guide exposes method limitations and explicit objective mappings; these make the clarification needs visible without resolving them."
     },
     {
       "id": "S-11",
@@ -320,7 +348,7 @@
         "C-03",
         "EI-04"
       ],
-      "observation": "Technical suitability is distinct from rulemaking approval and actor-specific acceptance obligations.",
+      "observation": "The cited program and acceptance requirements address public consultation, response, profile approval and actor-specific acceptance obligations.",
       "authority": "Department and applicable regulated actors",
       "resolution_evidence": "Approval docket, role applicability and exception basis.",
       "status": "open",
@@ -333,13 +361,15 @@
         "SEDI-PRG-04",
         "SEDI-PRG-05",
         "SEDI-RPY-08"
-      ]
+      ],
+      "interpretation": "Technical suitability is distinct from lawful approval and the scope of an actor-specific obligation or exception.",
+      "design_protection": "The express consultation, response and actor-specific acceptance obligations provide procedural and scope protections in design."
     },
     {
       "id": "S-12",
       "control_plane": "specification",
       "cases": [],
-      "observation": "IDP-08 is indexed but its detailed section is absent from the retained source. APP-08 is not a substitute.",
+      "observation": "IDP-08 appears in the retained index and annex mappings, but no detailed numbered objective or method section was located in Part 3.",
       "authority": "SEDI guide maintainers",
       "resolution_evidence": "Publisher-qualified detailed requirement or explicit disposition of the source omission.",
       "status": "open",
@@ -348,7 +378,9 @@
       "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
       "requirements": [
         "SEDI-IDP-08"
-      ]
+      ],
+      "interpretation": "The source omission prevents a complete requirement-level examination. APP-08 is a distinct requirement and cannot substitute for IDP-08.",
+      "design_protection": "Independence is identified as a protection in the summary material, but the detailed protection and assessment criteria are not established."
     }
   ]
 }
