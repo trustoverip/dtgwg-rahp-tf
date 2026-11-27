@@ -84,3 +84,7 @@ The [tutorial](TUTORIAL.md) describes source verification and independent review
 ## SEDI-02: Privacy and surveillance
 
 [Privacy documentary examination](privacy-examination.json) records twelve selected requirements, their objective and verification coverage, six constructed cases, five local risk hypotheses, source bindings and evidence needs. It preserves the distinction between disclosure choice, protocol unlinkability, structural state anti-surveillance, downstream data handling and interoperability refusal. This tranche is not included in the SEDI-01 executable candidate and is not a formal review. No operational claims or scores are made.
+
+## SEDI-03: Credential lifecycle and continuity
+
+[Lifecycle documentary examination](lifecycle-examination.json) examines nine requirements, including offline status freshness, accessible recovery, substantiation of revocation grounds, planned versus emergency key transitions, and wallet migration. Six constructed cases and five local hypotheses are bound to the archive. Part 3 page 54 explicitly identifies the offline/status tension. No separate suspension mechanism or operational outcomes are assumed. This tranche remains outside the SEDI-01 composed candidate pending consolidation.

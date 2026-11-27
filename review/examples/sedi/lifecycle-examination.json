@@ -1,0 +1,466 @@
+{
+  "schema": "sedi-documentary-theme/v1",
+  "theme": "SEDI-03",
+  "status": "author-prepared documentary examination; independent review pending",
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "scope": "Compromise detection, offline status, recovery, revocation, key rotation and compromise response, migration and continuity. No assumed separate suspension protocol.",
+  "contexts": [
+    "Holder with compromised or lost device",
+    "Holder without specialist technical knowledge or reliable connectivity",
+    "Holder disputing revocation",
+    "Holder migrating wallets",
+    "Verifier with stale trust or status material"
+  ],
+  "reuse": [
+    {
+      "id": "RK-NM02",
+      "reason": "Recovery failure analogy; SEDI replacement and proofing differ from DTG key recovery."
+    },
+    {
+      "id": "RK-CR01",
+      "reason": "Due-process and revocation harm analogy; statutory grounds differ."
+    },
+    {
+      "id": "RK-CR02",
+      "reason": "Renewal access analogy; expiry is not assumed identical to revocation."
+    },
+    {
+      "id": "RK-ID03",
+      "reason": "Cascading invalidation analogy; issuer signing-key incident differs from IDVP breach."
+    },
+    {
+      "id": "RK-CR03",
+      "reason": "Cascade harm analogy; SEDI verifier trust-store transition differs."
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "EX-RK-LC01",
+      "harm": "Compromised credential accepted during stale status window; identity fraud"
+    },
+    {
+      "id": "EX-RK-LC02",
+      "harm": "Recovery inaccessible or hijacked; exclusion or identity takeover"
+    },
+    {
+      "id": "EX-RK-LC03",
+      "harm": "Revocation without substantiated statutory ground; loss of service and remedy"
+    },
+    {
+      "id": "EX-RK-LC04",
+      "harm": "Signing-key incident or rotation disrupts valid holders; cascading exclusion"
+    },
+    {
+      "id": "EX-RK-LC05",
+      "harm": "Migration duplicates or loses holder binding; fraud or lockout"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "SEDI-SDI-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          8,
+          9
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3
+        ],
+        "EXPT": [
+          1,
+          3
+        ],
+        "ADMN": []
+      },
+      "roles": "Department, Verifiers",
+      "observation": "Detect compromised credentials within defined propagation delay without disclosing presentation patterns."
+    },
+    {
+      "id": "SEDI-SDI-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          9,
+          10,
+          11
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          4
+        ],
+        "EXPT": [
+          1,
+          2,
+          3
+        ],
+        "ADMN": [
+          2
+        ]
+      },
+      "roles": "Department",
+      "observation": "Expedited replacement within original-proofing window, with new personal digital identifier."
+    },
+    {
+      "id": "SEDI-SDI-06",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          17,
+          18
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "EXPT": [
+          4,
+          5
+        ],
+        "ADMN": []
+      },
+      "roles": "Department, Wallet Providers, Verifiers",
+      "observation": "Offline presentation without network service; equivalent security and privacy."
+    },
+    {
+      "id": "SEDI-SDI-10",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          24,
+          25,
+          26
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [
+          2,
+          4
+        ],
+        "EXPT": [
+          1,
+          3
+        ],
+        "ADMN": [
+          1
+        ]
+      },
+      "roles": "Department, Wallet Providers",
+      "observation": "Recovery and migration usable without specialist knowledge."
+    },
+    {
+      "id": "SEDI-SDI-23",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          50,
+          51
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [
+          2,
+          3,
+          4
+        ],
+        "EXPT": [
+          1,
+          5
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "roles": "Department",
+      "observation": "Revocation restricted to enumerated grounds; reason recorded and no override."
+    },
+    {
+      "id": "SEDI-SDI-24",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          52,
+          53,
+          54
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "EXPT": [
+          4,
+          5
+        ],
+        "ADMN": [
+          6
+        ]
+      },
+      "roles": "Department",
+      "observation": "Detection-to-reporting pipeline and incident response aligned to referenced statute."
+    },
+    {
+      "id": "SEDI-KMS-04",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          40,
+          41
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          3
+        ],
+        "EXPT": [],
+        "ADMN": [
+          2,
+          4,
+          5
+        ],
+        "ADMN_parameter_check": true
+      },
+      "roles": "Department",
+      "observation": "Scheduled key rotation preserves validity of previously issued credentials."
+    },
+    {
+      "id": "SEDI-KMS-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          41,
+          42,
+          43
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ADMN_parameter_check": true
+      },
+      "roles": "Department",
+      "observation": "Exercised compromise response plan with detection, notification, revocation, reissuance and review."
+    },
+    {
+      "id": "SEDI-INT-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          29,
+          30,
+          31
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          6
+        ],
+        "EXPT": [
+          4,
+          5,
+          7
+        ],
+        "ADMN": []
+      },
+      "roles": "Department, Wallet Providers",
+      "observation": "Holder-initiated migration without reissuance, reproofing or Department interaction; binding and privacy preserved."
+    }
+  ],
+  "cases": [
+    {
+      "id": "L-01",
+      "constructed": "Offline verifier accepts credential revoked after last status refresh",
+      "risk": "EX-RK-LC01",
+      "requirements": [
+        "SEDI-SDI-01",
+        "SEDI-SDI-06"
+      ],
+      "proposed_evidence": "Exercise bounded stale status and reconnect paths; inspect maximum propagation delay and offline acceptance policy; no per-presentation callback. Part 3 p54 explicitly recognizes tension. Distinguish offline availability from freshness.",
+      "authority": "Department and Verifiers",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "L-02",
+      "constructed": "Compromised holder recovers without original device or technical expertise",
+      "risk": "EX-RK-LC02",
+      "requirements": [
+        "SEDI-SDI-02",
+        "SEDI-SDI-10",
+        "SEDI-SDI-01"
+      ],
+      "proposed_evidence": "Exercise accessible expedited replacement, proofing-window boundaries, adversarial recovery and old-credential invalidation; check actual time without usable identity and lawful physical alternative (SEDI-01). Do not assume re-binding alone revokes old credential.",
+      "authority": "Department and Wallet Providers",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "L-03",
+      "constructed": "Operator supplies allowed reason code without substantiating actual ground",
+      "risk": "EX-RK-LC03",
+      "requirements": [
+        "SEDI-SDI-23"
+      ],
+      "proposed_evidence": "Inspect authorization, evidence supporting ground, audit and disputed-revocation handling. Negative API tests cannot establish factual justification; guide explicitly acknowledges this limitation.",
+      "authority": "Department and oversight body",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "L-04",
+      "constructed": "Planned rotation and emergency key compromise produce different validity outcomes",
+      "risk": "EX-RK-LC04",
+      "requirements": [
+        "SEDI-KMS-04",
+        "SEDI-KMS-05",
+        "SEDI-SDI-24",
+        "SEDI-SDI-01"
+      ],
+      "proposed_evidence": "Test planned overlap and verifier trust-store updates separately from emergency revocation, notification and reissuance. Exercise incident plan and measure affected holders' interruption; do not infer emergency validity from planned rotation requirement.",
+      "authority": "Department and Verifiers",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "L-05",
+      "constructed": "Holder migrates credential between conforming wallets; old wallet remains accessible",
+      "risk": "EX-RK-LC05",
+      "requirements": [
+        "SEDI-INT-03",
+        "SEDI-SDI-10"
+      ],
+      "proposed_evidence": "Test preserved binding, unauthorized copy resistance, failed import and recovery; distinguish portability from compromise replacement. Guide does not by itself establish old-wallet retirement semantics.",
+      "authority": "Department and Wallet Providers",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "L-06",
+      "constructed": "Normal recovery succeeds in a controlled fixture but operational coverage is missing",
+      "risk": "EX-RK-LC02",
+      "requirements": [
+        "SEDI-SDI-02",
+        "SEDI-SDI-10"
+      ],
+      "proposed_evidence": "Compare recovery completion, accessibility and reproofing evidence across representative contexts; fixture success is not population-level continuity assurance.",
+      "authority": "Department and independent assessor",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    }
+  ],
+  "limitations": [
+    "No deployment, actual incident, propagation measurements or recovery outcomes examined.",
+    "No independent legal conclusion, risk scores or verified guardrail.",
+    "Part 3 p54 explicitly documents offline/status tension; proposed checks do not resolve the design decision.",
+    "Separate documentary tranche; not included in SEDI-01 composed runner."
+  ]
+}
