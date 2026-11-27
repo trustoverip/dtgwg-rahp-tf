@@ -108,3 +108,7 @@ The proposed execution scope now includes all 142 indexed requirements, with dif
 ### WP-C: Application and identity proofing
 
 [Identity-proofing examination](identity-proofing-examination.json) records 15 additional full documentary requirement examinations, four constructed cases and three new local hypotheses. IDP-08 is indexed and cross-referenced but lacks its standalone detailed section in the retained Part 3 PDF; its source gap is explicitly recorded and the register retains indexed status. The APP-01 age gate is examined alongside guardian pathways, and the informative NIST mapping is not treated as an adopted rule. Coverage: 83/142 examined, 59 indexed-only (including IDP-08). No source objectives invented; no operational assurance asserted.
+
+### WP-D: Credential architecture and technical security
+
+[Technical architecture examination](technical-architecture-examination.json) adds 24 requirements and four constructed cases covering authenticity, interoperability, predicate privacy, proofing validation, technological enforcement, infrastructure control, purpose/retention/disclosure, cryptographic agility and key ceremonies. Explicit method applicability and objective coverage are preserved separately. CRY-03 and CRY-04 provide cross-requirement clarification evidence. Coverage: 107/142 examined, 35 indexed-only including IDP-08. No operational assurance is asserted.

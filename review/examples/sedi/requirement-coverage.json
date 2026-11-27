@@ -579,18 +579,38 @@
     {
       "id": "SEDI-SDI-04",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-04",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-05",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
@@ -636,18 +656,39 @@
     {
       "id": "SEDI-SDI-08",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-08",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-09",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-09",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
@@ -673,54 +714,118 @@
     {
       "id": "SEDI-SDI-11",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-11",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-12",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-12",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-13",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-13",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-14",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-14",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-15",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-15",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-16",
       "index_page": 3,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-16",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
@@ -747,45 +852,98 @@
     {
       "id": "SEDI-SDI-18",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-18",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-19",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-19",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-20",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-20",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-21",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-21",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-SDI-22",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-SDI-22",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
@@ -1948,45 +2106,99 @@
     {
       "id": "SEDI-CRY-01",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-CRY-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-CRY-02",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-CRY-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-CRY-03",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-CRY-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-CRY-04",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-CRY-04",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-CRY-05",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-CRY-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
@@ -2013,9 +2225,19 @@
     {
       "id": "SEDI-PRV-02",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-PRV-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
@@ -2145,27 +2367,60 @@
     {
       "id": "SEDI-KMS-01",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-KMS-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-KMS-02",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-KMS-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-KMS-03",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "technical-architecture-examination.json",
+        "id": "SEDI-KMS-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-D",
       "review_state": "not-reviewed"
     },

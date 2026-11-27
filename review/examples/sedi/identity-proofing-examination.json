@@ -991,7 +991,12 @@
       "disposition": "clarification-required",
       "evidence_needed": "Obtain publisher clarification or complete source section with normative wording, numbered objectives and method applicability. Preserve the observed source baseline.",
       "status": "source-gap",
-      "operational_evidence": "not acquired"
+      "operational_evidence": "not acquired",
+      "contributor_web_observation": {
+        "url": "https://sedi.utah.gov/implementation-guide/part-3/#sedi-idp-08-independence-from-physical-id-system",
+        "observation": "Contributor reports that the anchor exists but does not lead to the appropriate text. Not independently verified in this increment.",
+        "interpretation": "Do not infer that APP-08 was mislabelled or substitute its fraud text for IDP-08; publisher clarification remains required."
+      }
     }
   ],
   "local_risks": [
