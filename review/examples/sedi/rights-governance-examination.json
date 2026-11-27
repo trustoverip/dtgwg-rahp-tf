@@ -891,11 +891,11 @@
       "limitation": "Functional endpoint checks do not establish applicability or deadline; expert coverage incomplete.",
       "evidence_needed": "First issuance date, system inventory, implementation dates and functional acceptance.",
       "risk_refs": [
-        "EX-RK-HX01"
+        "EX-RK-HX03"
       ],
       "potential_harm": "Eligible users may face unavailable digital acceptance.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Functional endpoint checks do not establish applicability or deadline; expert coverage incomplete.",
+      "disposition_rationale": "Applicability and the integration deadline depend on the entity's system inventory and first issuance date; a successful endpoint test cannot decide whether the obligation applies.",
       "related_requirements": [
         "SEDI-GOV-05",
         "SEDI-BOR-09"
@@ -950,11 +950,11 @@
       "limitation": "Technical tests cannot establish funding eligibility; qualification changes over time.",
       "evidence_needed": "Funding and system inventory, first issuance date, integration evidence and physical alternative.",
       "risk_refs": [
-        "EX-RK-HX01"
+        "EX-RK-HX03"
       ],
       "potential_harm": "Failure to integrate may disadvantage patients using SEDI.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Technical tests cannot establish funding eligibility; qualification changes over time.",
+      "disposition_rationale": "The provider's funding, system status and first issuance date determine whether the specific acceptance obligation applies; implementation evidence is meaningful only after those conditions are established.",
       "related_requirements": [
         "SEDI-GOV-07",
         "SEDI-BOR-09"
