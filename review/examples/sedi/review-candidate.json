@@ -1,0 +1,204 @@
+{
+  "schema": "sedi-local-review-candidate/v1",
+  "assessment_id": "SEDI-01",
+  "reviewer": null,
+  "review_state": "awaiting-accountable-review",
+  "target": {
+    "kind": "local-archive",
+    "sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+    "manifest": "archive-manifest.json",
+    "publisher_release_identity": "not independently established"
+  },
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "findings": [
+    {
+      "id": "F-001",
+      "summary": "Physical identity availability and acceptance are addressed in the draft, but local discontinuation is not established by documentary review.",
+      "risks": [
+        "EX-RK-HX01"
+      ],
+      "control_plane": "operational-policy",
+      "status": "open"
+    },
+    {
+      "id": "F-002",
+      "summary": "Non-compulsion is explicitly required; evidence of enforcement at external service points is absent from the assessment input.",
+      "risks": [
+        "EX-RK-HX02"
+      ],
+      "control_plane": "operational-policy",
+      "status": "open"
+    },
+    {
+      "id": "F-003",
+      "summary": "Service parity is required; the permitted digital-channel distinctions and actual comparative service outcomes require separate evidence.",
+      "risks": [
+        "EX-RK-HX03"
+      ],
+      "control_plane": "governance",
+      "status": "open"
+    },
+    {
+      "id": "F-004",
+      "summary": "Documentary verification coverage does not establish operational equivalence across the complete service interaction.",
+      "risks": [
+        "EX-RK-HX04"
+      ],
+      "control_plane": "governance",
+      "status": "open"
+    }
+  ],
+  "bindings": [
+    {
+      "finding": "F-001",
+      "cases": [
+        "unavailable-physical-path"
+      ],
+      "requirements": [
+        "SEDI-BOR-03",
+        "SEDI-GOV-02"
+      ],
+      "sources": [
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+          "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256",
+          "pages": [
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+          "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+          "pages": [
+            95,
+            96
+          ]
+        }
+      ],
+      "resolution_evidence": "Representative service-point acceptance observations and current inventory, with remediation evidence."
+    },
+    {
+      "finding": "F-002",
+      "cases": [
+        "digital-enrollment-condition"
+      ],
+      "requirements": [
+        "SEDI-BOR-04",
+        "SEDI-APP-04"
+      ],
+      "sources": [
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+          "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256",
+          "pages": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+          "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+          "pages": [
+            61,
+            62,
+            63
+          ]
+        }
+      ],
+      "resolution_evidence": "Independent observations of service intake and fallback execution, including informal compulsion and grievance outcomes."
+    },
+    {
+      "finding": "F-003",
+      "cases": [
+        "unequal-service"
+      ],
+      "requirements": [
+        "SEDI-BOR-09",
+        "SEDI-GOV-01",
+        "SEDI-GOV-02",
+        "SEDI-GOV-05"
+      ],
+      "sources": [
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+          "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256",
+          "pages": [
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+          "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+          "pages": [
+            93,
+            94,
+            95,
+            96,
+            100,
+            101,
+            102
+          ]
+        }
+      ],
+      "resolution_evidence": "Authoritative permitted distinctions and exception basis, paired service measurements and review of disparate outcomes."
+    },
+    {
+      "finding": "F-004",
+      "cases": [
+        "equivalent-service",
+        "evidence-missing"
+      ],
+      "requirements": [
+        "SEDI-BOR-03",
+        "SEDI-BOR-04",
+        "SEDI-BOR-09",
+        "SEDI-APP-04",
+        "SEDI-GOV-01",
+        "SEDI-GOV-02"
+      ],
+      "sources": [
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+          "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256",
+          "pages": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            24,
+            25,
+            26
+          ]
+        },
+        {
+          "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+          "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+          "pages": [
+            61,
+            62,
+            63,
+            93,
+            94,
+            95,
+            96
+          ]
+        }
+      ],
+      "resolution_evidence": "Evidence plan linking sampled operational outcomes and coverage limitations to accountable assessment judgment."
+    }
+  ],
+  "limitations": [
+    "Not rahp-spec-review/v1; local candidate contract only.",
+    "No independent reviewer has accepted these findings.",
+    "All findings concern evidence limitations, not observed noncompliance.",
+    "No operational assurance or risk acceptance."
+  ]
+}

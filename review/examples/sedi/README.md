@@ -2,7 +2,7 @@
 
 Tracking issue: [#71](https://github.com/trustoverip/dtgwg-rahp-tf/issues/71), following the Task Force decision on 25 November 2026.
 
-**Status: local assessment input baseline established; examination not yet executed.**
+**Status: local documentary examination candidate; accountable review pending.**
 
 This upstream-only exemplar examines whether the SEDI draft's protections remain effective across representative digital identity service interactions. It is separate from the canonical DTG instance and does not depend on downstream tooling.
 
@@ -65,3 +65,16 @@ No canonical DTG records or shared contracts are modified. This foundation was p
 ## First documentary examination (27 November 2026)
 
 [Requirement index](requirement-index.json) enumerates all 142 Annex A identifiers and their PDF page locations. [Scoped role mappings](role-mappings.json) cross-check the three selected requirements against Annexes E and G. [Candidate cases](cases.json) records five constructed cases, affected contexts, corpus reuse reasoning and documentary dispositions with source bindings. These are author-prepared analytical records, not formal RAHP review findings. The full-text requirement inventory and ecosystem-wide role mapping are not claimed. A non-Git review representation and accountable review remain necessary; no operational assurance is asserted.
+
+## Reproduce the local candidate
+
+The four [companion requirements](companion-requirements.json) clarify non-enrollment, service parity, physical acceptance and the direction of SEDI acceptance exemptions. The [review candidate](review-candidate.json) uses the existing finding vocabulary and finding validation rules but explicitly does not claim the Git-based `rahp-spec-review/v1` contract. Its reviewer remains null until accountable review occurs. This is an example-local proposal, not a new normative method contract.
+
+With the exact contributor-supplied ZIP outside the checkout and repository dependencies installed:
+
+```sh
+python3 review/examples/sedi/verify_archive.py '/path/to/SEDI RAHP Review Input.zip'
+python3 review/examples/sedi/examine.py '/path/to/SEDI RAHP Review Input.zip'
+```
+
+The first command verifies exact archive and member bytes without extraction. The second additionally checks candidate findings against the existing finding schema and vocabulary and checks evidence references. Neither verifies the truth of the documentary interpretation or publisher authenticity. Independent reviewers must inspect the indicated pages, corroborate or challenge the four open candidate findings and agree how a non-Git review is represented. No source documents are redistributed. A different archive must fail, even if it contains similar documents.
