@@ -27,6 +27,16 @@ class SediNormalizationTests(unittest.TestCase):
         self.assertTrue(gap["source_gap"])
         self.assertNotIn("objectives", gap)
 
+    def test_repeated_rationale_is_not_complete(self):
+        name = "technical-architecture-examination.json"
+        doc = copy.deepcopy(load(name))
+        record = doc["requirements"][0]
+        record["disposition_rationale"] = record["limitation"]
+        result = normalize(self.register, self.index, self.manifest,
+                           lambda path: doc if path == name else load(path))
+        row = next(r for r in result["records"] if r["id"] == record["id"])
+        self.assertIn("disposition rationale restates limitation", row["normalization_gaps"])
+
     def test_mutations(self):
         name = "technical-architecture-examination.json"
         for mutation in ("digest", "page", "coverage", "applicability"):
