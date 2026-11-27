@@ -25,7 +25,7 @@ The baseline is at logical tick 9. The sole material change is revocation of the
 
 [Retained evidence](lifecycle-evidence.json) contains the actual replayed reference traces: source proposition ID, context/subject/protocol bindings, logical timestamps, offered grants, current revocation record, gate decision and mock actuator effects. The protocol results are separately derived from those traces. Four baseline and six reassessed trials meet the declared protocol. A baseline protocol PASS does not establish revocation effectiveness before revocation occurs.
 
-Three deliberately altered reference variants expose the following counterexamples. They are separate subjects/configurations in the evidence, not failures observed in a live agent or in the nominal reference:
+Three mutation configurations deliberately introduce incorrect outputs to challenge the oracle. They share the same implementation digest; the variant and protocol context distinguish the runs. The reference has no independent cache, fallback or composition mechanism. The following counterexamples are injected faults, not observed failures of those mechanisms:
 
 | Challenge | Observed discrepancy | Trial |
 |---|---|---|
@@ -35,17 +35,17 @@ Three deliberately altered reference variants expose the following counterexampl
 
 All three variants fail the protocol. Missing, duplicate, wrong-context or incomplete observations cannot establish a PASS. A correctly bound contradictory observation remains a failure even if other required evidence is absent. These are checks on the example's evidence handling, not an implementation of all Matrix formula semantics.
 
-The draft [baseline review](baseline-review.json) and [reassessed review](reassessed-review.json) use the existing `rahp-spec-review/v1` contract against the pinned Matrix README. The immutable Git target is documentary; the supplied workbook digest and constructed subject context are carried in separate evidence, not misrepresented as Git revisions. The accountable draft owner is identified in the records; neither record asserts independent human adjudication. Both retain open findings about translation and enforcement evidence. The evidence binds both reviews and the local risk register to the source lock. The fixture's protocol results are not finding treatment statuses, effective Matrix outcomes or an assurance certificate.
+The following records are retained for traceability but must not be relied upon as documentary findings about the executable fixture until the target/evidence binding is corrected. The draft [baseline review](baseline-review.json) and [reassessed review](reassessed-review.json) use the existing `rahp-spec-review/v1` contract against the pinned Matrix README. The immutable Git target is documentary; the supplied workbook digest and constructed subject context are carried in separate evidence, not misrepresented as Git revisions. The accountable draft owner is identified in the records; neither record asserts independent human adjudication. Both retain open findings about translation and enforcement evidence. The evidence binds both reviews and the local risk register to the source lock. The fixture's protocol results are not finding treatment statuses, effective Matrix outcomes or an assurance certificate.
 
 ## Reassessment after change
 
-The affected dependency is the root grant's current validity, through its child and grandchild, to direct/cached/fallback booking decisions and observable effects. Recombination of surviving grants is explicitly tested. The independent read grant has a separate lineage; its continued success is observed rather than presumed. The following dispositions concern the applicability of evidence to a stated claim, not changes to historical bytes.
+The affected dependency is the root grant's current validity, through its child and grandchild, to direct/cached/fallback booking decisions and observable effects. The reference checks each offered grant individually and cannot compose partial grants. The recombination mutation tests detection of an injected allow decision, not a composition mechanism. Dependency selection and the following dispositions are authored interpretations, not computed outputs. The independent read grant has a separate lineage; its continued success is observed rather than presumed. The following dispositions concern the applicability of evidence to a stated claim, not changes to historical bytes.
 
 | Disposition | Evidence and rationale |
 |---|---|
 | Retained | Baseline source/protocol and grant topology remain identifiable; baseline traces still establish what occurred at tick 9. The independent read path is also re-exercised. |
 | Stale | The tick-9 authority snapshot cannot answer a tick-12 current-authority question. Obtain the new snapshot. |
-| Weakened | Earlier direct-path success alone offers less support for behavior in the changed context, particularly cached and fallback paths. Re-exercise affected paths. |
+| Weakened | Earlier direct-path success alone offers less support after revocation. Cache and fallback labels repeat the ancestry check; actual cache and fallback behavior remains untested. |
 | Invalid | Using the old booking approval as authority for a new execution after parent revocation breaks a necessary assumption, irrespective of the historic trace's integrity. |
 | Contradicted | In the separate fallback challenge, a recorded gate denial is contradicted as evidence of containment by the observed mock booking effect. The counterexample is retained; no nominal baseline observation is rewritten. |
 | Unresolved | Real propagation, concurrent or undisclosed paths, deployment identity, reviewer independence, and duty/relationship obligations are not established. Missing dependency edges are not evidence of unaffected claims. |
@@ -55,7 +55,7 @@ The focused reassessment thus retains the earlier review, context and observatio
 ## Transformation limits and review questions
 
 - Review v1 represents the two findings, the documentary target revision and their treatment plane. It does not natively express the workbook's campaign identity and approval, six outcome states, trial coverage/closure review, subject embedding, time, or evidence dependency graph. The sidecar preserves the selected experimental information; source campaign/run records remain unassessed. No round-trip conversion is claimed.
-- Tested coverage is limited to the declared paths, ticks, grant graph and effect ledger. No statistical generalization, real authority evidence, distributed timing, concurrent operation, end-to-end deployment, or human outcome is tested. An independent reviewer should challenge whether the selected protocol adequately instantiates the source proposition and whether the dependency reasoning is complete within the fixture.
+- Tested coverage is limited to the declared observations, ticks, grant graph and effect ledger. The deadline is recorded but does not parameterize the existing protocol; changing it does not alter expected results. Distinct path labels do not demonstrate distinct mechanisms. No statistical generalization, real authority evidence, distributed timing, concurrent operation, end-to-end deployment, or human outcome is tested. An independent reviewer should challenge whether the selected protocol adequately instantiates the source proposition and whether the dependency reasoning is complete within the fixture.
 - No core extension is justified by this result alone. Existing RAHP review records plus an example-local sidecar suffice for this bounded demonstration; general evidence applicability and dependency representation remain research questions.
 
 ## Reproduce
