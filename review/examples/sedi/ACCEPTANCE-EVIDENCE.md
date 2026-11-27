@@ -1,8 +1,8 @@
-# Acceptance evidence audit — 2026-11-27
+# Acceptance evidence and reconciliation — 27 November 2026
 
-AI-assisted author-side record. Baseline 7a04d19861cff821afadcc430ac30886a68a0e6f: GitHub build, validation and DCO passed. Supplied repository snapshot executed locally with the retained ZIP: consolidate.py exit 0, 21 members verified, 141/142 requirements, 703 objectives, 47 normalization gaps including IDP-08, review-required. Focused unittest discovery: 28 tests passed. This is evidence for that snapshot, not subsequent commits or publisher authentication.
+AI-assisted assessment record. The final validation evidence and current acceptance decisions appear under [Consolidated assessment evidence](#consolidated-assessment-evidence). Earlier observations below are retained as historical evidence, not current status. Baseline 7a04d19861cff821afadcc430ac30886a68a0e6f: GitHub build, validation and DCO passed. Supplied repository snapshot executed locally with the retained ZIP: consolidate.py exit 0, 21 members verified, 141/142 requirements, 703 objectives, 47 normalization gaps including IDP-08, review-required. Focused unittest discovery: 28 tests passed. This is evidence for that snapshot, not subsequent commits or publisher authentication.
 
-## Closure decisions
+## Initial acceptance evidence (historical)
 
 - Representative normal, adverse and failure-path scenarios documented: cases.json and thematic cases (equivalent-service, P-06, L-06, D-06 and adverse counterparts).
 - Selected risks connected to harms and failure conditions: consolidated 31 local hypotheses, 47 cases and their risk references; no scoring.
@@ -11,15 +11,15 @@ AI-assisted author-side record. Baseline 7a04d19861cff821afadcc430ac30886a68a0e6
 - Applicability outside DTG evaluated: REVIEW-HANDOVER.md method applicability; no shared change proposed.
 - Existing validation and reproduction mechanisms exercised: actual consolidated archive execution and focused regression suite on supplied snapshot.
 
-Keep open: persona/context justification across all risks; normalized risk/control and objective mappings; complete verification applicability and limits; all three full requirement coverage criteria; comprehensive independent source corroboration; formal findings source/interpretation/recommendation separation and treatment qualification; strict completeness and unresolved-metadata negative gate (not yet fully demonstrated); independent reproducibility of reasoning; reviewers, review objections and publication decisions. Existing checked criteria retained. IDP-08 remains a source dependency, not a successful examination.
+At this earlier revision, the following remained open: persona/context justification across all risks; normalized risk/control and objective mappings; complete verification applicability and limits; all three full requirement coverage criteria; comprehensive independent source corroboration; formal findings source/interpretation/recommendation separation and treatment qualification; strict completeness and unresolved-metadata negative gate (not yet fully demonstrated); independent reproducibility of reasoning; reviewers, review objections and publication decisions. Existing checked criteria retained. IDP-08 remains a source dependency, not a successful examination.
 
-## CP2–CP4 changes
+## Initial source and analytical reconciliation (historical)
 
-Reconciled 43 companion/thematic authority references and visible method applicability rows. Legacy objective coverage arrays retained for compatibility. Null/absent method applicability is unresolved, not N/A; no claim that all source fields or objective text are reconciled. All cases now linked to synthesis; consumer rejects omitted synthesis coverage. Repeat actual archive replay after this commit, not just baseline execution.
+Reconciled 43 companion/thematic authority references and visible method applicability rows. Legacy objective coverage arrays retained for compatibility. Null/absent method applicability is unresolved, not N/A; no claim that all source fields or objective text are reconciled. All cases now linked to synthesis; consumer rejects omitted synthesis coverage. Subsequent execution is recorded below.
 
 ### Source correction
 
-Reinspection of retained Parts 7 and 9 establishes ADMN Mandatory and EXPT N/A for KMS-04, LOY-04, LOY-05 and INT-01. KMS-04 and INT-01 AUTO Mandatory; LOY-04/05 AUTO N/A. Corrected exact objective coverage, including KMS-04 parameter checks. The earlier four conflicts originated in author-side metadata, not the source. EXPT limitations for KMS-04 and INT-01 still describe expert review. Other metadata requires systematic corroboration; no claim of completed CP2.
+Reinspection of retained Parts 7 and 9 establishes ADMN Mandatory and EXPT N/A for KMS-04, LOY-04, LOY-05 and INT-01. KMS-04 and INT-01 AUTO Mandatory; LOY-04/05 AUTO N/A. Corrected exact objective coverage, including KMS-04 parameter checks. The earlier four conflicts originated in author-side metadata, not the source. EXPT limitations for KMS-04 and INT-01 still describe expert review. Other metadata requires systematic corroboration; the broader source reconciliation was not yet complete at that revision.
 
 ## Source reconciliation and commit-bound replay — 2026-11-27
 
@@ -38,9 +38,9 @@ Execution baseline: `4c190963210c8c50b28c74820c9a1d053dbd447f`. Reconstructed th
 
 The executable replay resolves the earlier repository retrieval obstacle. Missing analytical metadata, complete page-span verification, source interpretation, IDP-08 publisher clarification and independent review remain outstanding. The strict completeness gate currently rejects indexed-only coverage, not all unresolved analytical metadata; do not treat this as satisfying the full strict-completeness acceptance criterion. No canonical DTG changes, risk scoring, risk acceptance, legal determination or operational assurance.
 
-## Author-side closure audit (27 November 2026)
+## Consolidated assessment evidence
 
-Supersedes the earlier author-side normalization and replay work outstanding above. Source-citation commit `4d40804b749fc8baba5c4f2432918f511d53b22e` and analytical implementation commit `5ba1c38a7fd042f2ed85a7e36febd0803310d937` were checked against the exact locally tested changed Git blobs (six source/candidate files and six analytical/data/test files). The evidence-only changes and the standalone coverage-test import adjustment follow that implementation.
+This section supersedes the historical outstanding work recorded above. Source-citation commit `4d40804b749fc8baba5c4f2432918f511d53b22e` and analytical implementation commit `5ba1c38a7fd042f2ed85a7e36febd0803310d937` were checked against the exact locally tested changed Git blobs (six source/candidate files and six analytical/data/test files). The evidence-only changes and the standalone coverage-test import adjustment follow that implementation.
 
 ### Source and analytical reconciliation
 
@@ -58,14 +58,14 @@ Legacy reconciliation uses 43 requirement-specific limitation notes, three exist
 
 ### Acceptance reconciliation
 
-Author-side closure evidence for the twelve remaining author-completable criteria:
+Evidence for the additional acceptance criteria satisfied by the consolidated assessment:
 
 | Criterion | Evidence and closure boundary |
 | --- | --- |
 | Personas and affected contexts | Ten justified groups in legacy-analysis.json; every constructed case has exactly one group with a rationale. |
 | Selected requirement/objective risk and control traceability | objective-controls.json and normalized view: seven requirements, 32 numbered objectives, explicit control, authority, proposed assurance test and guardrail, with source verification consistency. This is selected mapping, not 703 executed tests. |
 | Applicable verification methods examined | Retained PDF method tables and all declared applicability/coverage compared; INT-04 undeclared and source tensions retained rather than invented. |
-| Verification limits, decisions and unavailable evidence | Requirement-specific limitations and evidence requests, original tranche limitations, source-gap and synthesis records; operational evidence not acquired. |
+| Verification limits, decisions and unavailable evidence | Requirement-specific limitations and evidence requests, original documentary examination limitations, source-gap and synthesis records; operational evidence not acquired. |
 | Strict completeness validation | Both actual strict consumers reject source gaps; missing, duplicate, unknown and blank analytical metadata, source and synthesis failures exercised by regressions. |
 | Independently reviewable consolidated records | Exact archive manifest, normalized view, corrected citations, explicit source-gap records, contextual vs direct risk rationale and linked case/evidence records. Reviewability is not review performed. |
 | Substantive findings supported by source/evidence | Twelve source-bound review propositions, cited case and additional direct requirement references, proposed resolution evidence; documentary, not observed failures. |
@@ -75,4 +75,4 @@ Author-side closure evidence for the twelve remaining author-completable criteri
 | Methodological changes justified | No shared method or canonical DTG change proposed. Example-local ZIP provenance is justified by the mismatch with Git revision semantics; future generalization is a separate Task Force decision. |
 | Reproduce retained-source checks and reasoning | Actual archive execution with verified Git blob identities, precise commands, source references and review guidance in REVIEW-HANDOVER.md. Exact retained bytes must be obtained with appropriate permission. |
 
-Six criteria remain open: (1) full indexed requirement examination and (2) full requirement-level protection/relevance/dependency/evidence disposition cannot be asserted for missing IDP-08, with INT-04 declaration also unresolved; (3) accountable reviewers identified, (4) Task Force review, (5) material objections/limitations disposition and (6) publication/communication disposition require accountable review. Author-side work is prepared for qualified review, subject to new evidence or objections. No canonical changes, release or external communication are warranted by author-side closure.
+The requirement-level analytical disposition criterion is also satisfied: the IDP-08 source-gap record in [identity-proofing-examination.json](identity-proofing-examination.json) identifies its intended protection (independence of physical and digital identity systems), potential harm, EX-RK-HX01 risk reference, related requirements (IDP-09, BOR-03 and BOR-04), evidence needed and a reasoned clarification-required disposition. This is a qualified treatment of the available evidence, not a complete detailed source examination or a verified protection. INT-04 has a detailed analytical disposition with its undeclared ADMN applicability retained. Five criteria remain open: full indexed requirement examination (IDP-08 and INT-04 source clarification), accountable reviewers identified, Task Force review, disposition of material objections and limitations, and publication/communication disposition. The assessment is prepared for qualified independent review, subject to new evidence or objections. No canonical changes, release or external communication are warranted by author-side closure.

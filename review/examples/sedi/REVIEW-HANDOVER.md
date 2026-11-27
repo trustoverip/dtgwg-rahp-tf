@@ -1,4 +1,4 @@
-# SEDI review handover (author-side candidate)
+# SEDI independent review guide
 
 ## Scope and evidence
 
@@ -6,7 +6,7 @@ The retained ZIP identifies the source bytes, not a publisher-authenticated rele
 
 ## Examine and review
 
-[Legacy analytical reconciliation](legacy-analysis.json) records requirement-specific limitations and ten justified affected-context groups covering all 47 cases. The normalized view retains explicit risk-relevance bases, harms, associated cases, related requirements, evidence needs and documentary dispositions. The seven [selected objective-control mappings](objective-controls.json) cover 32 objectives; the remaining objectives are inventoried and examined at requirement level, not represented as individually executed assurance tests. Case-derived risk associations are contextual; co-examination does not establish a normative dependency. The [synthesis](synthesis.json) separates twelve open documentary observations, interpretations, design protections, proposed treatment authorities, recommendations and resolution evidence. The consumer derives their source references. The original SEDI-01 candidate remains a bounded example using existing finding semantics. Do not treat the broader synthesis as an accepted formal review or the proposed treatment authorities as risk-acceptance authorities.
+[Requirement limitations and affected contexts](legacy-analysis.json) records requirement-specific limitations and ten justified affected-context groups covering all 47 cases. The normalized view retains explicit risk-relevance bases, harms, associated cases, related requirements, evidence needs and documentary dispositions. The seven [selected objective-control mappings](objective-controls.json) cover 32 objectives; the remaining objectives are inventoried and examined at requirement level, not represented as individually executed assurance tests. Case-derived risk associations are contextual; co-examination does not establish a normative dependency. The [synthesis](synthesis.json) separates twelve open documentary observations, interpretations, design protections, proposed treatment authorities, recommendations and resolution evidence. The consumer derives their source references. The bounded service-equivalence candidate remains a bounded example using existing finding semantics. Do not treat the broader synthesis as an accepted formal review or the proposed treatment authorities as risk-acceptance authorities.
 
 ## Method applicability
 
@@ -30,7 +30,7 @@ The normal examination paths pass and retain review-required status. The last tw
 
 An independent reviewer can follow each normalized record to its primary examination and cited PDF pages, compare the heading, role, numbered objectives, method table and parameter coverage with the original, then examine risk relevance, linked cases, proposed evidence and synthesis. Reassess the substantive author interpretations rather than accepting a passing consumer as proof of their correctness.
 
-## Remaining source and governance gates
+## Outstanding source and governance decisions
 
 - Obtain a publisher-qualified detailed IDP-08 section or formally retain the omission. Do not substitute APP-08 or invent objectives.
 - Clarify the undeclared INT-04 ADMN method and the documented method/limitation tensions in INT-01, KMS-04, CRY-04 and ORG-04. Preserve the original declarations until qualified.
@@ -38,4 +38,4 @@ An independent reviewer can follow each normalized record to its primary examina
 - Agree publication and communication disposition, including whether and how to engage the SEDI programme. No engagement is implied by this assessment.
 - Reassess after a changed source, governing rule, conformance profile, implementation or new evidence.
 
-The author-side package is prepared for qualified independent review, not for unconditional documentary completeness or assurance. No operational evidence, legal conclusion, risk scoring, risk acceptance, publisher authenticity or accountable review is established.
+The assessment is prepared for qualified independent review, not for unconditional documentary completeness or assurance. No operational evidence, legal conclusion, risk scoring, risk acceptance, publisher authenticity or accountable review is established.

@@ -4,18 +4,18 @@ The register is an index into documentary examination records, not a second copy
 
 ## Status and disposition
 
-- `indexed`: only index identity established. No examination reference or disposition; must name an outstanding work package.
+- `indexed`: only index identity established. No detailed examination reference or primary register disposition; the register identifies the outstanding assessment activity. A separate source-gap record can retain a reasoned clarification-required disposition without asserting detailed examination.
 - `examined`: a substantive documentary record exists, with source page/digest, authority and actors, numbered objectives, method applicability, protection, risk relevance, dependencies and evidence limitations. Initial imported entries point to the previous thematic records; the derived view reconciles their analytical fields using the legacy limitation record, existing case and bounded review bindings and selected objective-control mappings. An explicit undeclared source method remains a gap, not N/A.
 - `scenario-examined`: additionally bound to one or more relevant constructed scenarios with explicit risk and evidence propositions. Do not assign from a requirement ID match alone.
 - Accountable review is a separate field; no author-side promotion to reviewed status.
 
-Dispositions describe documentary conclusions, not governed RAHP finding status: addressed-in-design, partially-addressed, decision-dependent, evidence-required, clarification-required, gap-identified, indeterminate, out-of-scope (with explicit rationale). The imported 46 use conservative evidence-required because operational effectiveness is unestablished; this is not a statement that the guide lacks a protection. Indexed entries have no disposition.
+Dispositions describe documentary conclusions, not governed RAHP finding status: addressed-in-design, partially-addressed, decision-dependent, evidence-required, clarification-required, gap-identified, indeterminate, out-of-scope (with explicit rationale). The imported 46 use conservative evidence-required because operational effectiveness is unestablished; this is not a statement that the guide lacks a protection. Indexed entries have no detailed-examination disposition in the primary register. IDP-08 has a separate source-gap disposition, which is not a promotion to examined status.
 
-## Work packages
+## Assessment domains
 
-WP-A: BOR (5 remaining); WP-B: PRG/GOV/PRC/ENF (17); WP-C: APP/IDP (16); WP-D: SDI/CRY/PRV/KMS (24); WP-E: WAL/VER/RPY (27); WP-F: ORG (organizational security, 7). Counts describe the initial outstanding set and remain stable as planning provenance.
+The register preserves historical planning identifiers for individual rights; programme governance, processing restrictions and enforcement; application and identity proofing; credential architecture and technical security; wallet, verifier and relying-party interactions; and organisational security. These identifiers are stable data references, not a measure of current assessment completion.
 
-For each newly examined requirement, retain the precise source reference, authority reference as stated in the guide, actors, objective numbers and substantive properties, AUTO/EXPT/ADMN applicability and limitations, relevant risks or reasoned non-applicability, existing protection, material dependencies and proposed evidence. Record an explicit disposition and rationale. Reuse cases where adequate; add cases only for a distinct material failure proposition. Do not infer a statutory conclusion or operational effectiveness.
+For each detailed requirement examination, retain the precise source reference, authority reference as stated in the guide, actors, objective numbers and substantive properties, AUTO/EXPT/ADMN applicability and limitations, relevant risks or reasoned non-applicability, existing protection, material dependencies and proposed evidence. Record an explicit disposition and rationale. Reuse cases where adequate; add cases only for a distinct material failure proposition. Do not infer a statutory conclusion or operational effectiveness.
 
 ## Mechanical checks
 
