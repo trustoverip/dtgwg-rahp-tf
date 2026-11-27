@@ -1,0 +1,559 @@
+{
+  "schema": "sedi-documentary-theme/v1",
+  "theme": "SEDI-04",
+  "status": "author-prepared documentary examination; independent review pending",
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "scope": "Guardian application and consent, credential management scope, presentation authority, expiration and revocation of delegated authority, service parity and duty of loyalty. No determination of Utah legal capacity or guardianship law.",
+  "contexts": [
+    "Non-emancipated minor requiring guardian consent",
+    "Incapacitated individual with consent where required by Department",
+    "Individual designating a representative",
+    "Authorized guardian exercising a bounded action",
+    "Subject affected by conflicted representative"
+  ],
+  "reuse": [
+    {
+      "id": "RK-HX04",
+      "reason": "Supported decision-making exclusion analogy; SEDI expressly provides guardian workflows."
+    },
+    {
+      "id": "RK-HX05",
+      "reason": "Representation and separate accountability analogy; Utah authority differs from LPA."
+    },
+    {
+      "id": "RK-SC05",
+      "reason": "Subject/actor/consent separation analogy; no assumption SEDI uses DTG schemas."
+    },
+    {
+      "id": "RK-AI01",
+      "reason": "Scope creep mechanism analogy, not an AI-agent assessment."
+    },
+    {
+      "id": "RK-AI02",
+      "reason": "Stale delegated authority analogy; guardian authority differs from operator membership."
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "EX-RK-DA01",
+      "harm": "Unauthorized representative obtains or uses identity credential; identity theft or loss of autonomy"
+    },
+    {
+      "id": "EX-RK-DA02",
+      "harm": "Guardian exceeds action-specific authority; unwanted disclosure or management"
+    },
+    {
+      "id": "EX-RK-DA03",
+      "harm": "Expired or revoked authority remains usable; unauthorized transactions"
+    },
+    {
+      "id": "EX-RK-DA04",
+      "harm": "Legitimate representative rejected or subject consent conflated with substituted decision; exclusion"
+    },
+    {
+      "id": "EX-RK-DA05",
+      "harm": "Conflicted or exploitative representative acts within technical scope; harm despite authorization"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "SEDI-BOR-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+        "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256",
+        "pages": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "EXPT": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "ADMN": [
+          3,
+          4,
+          9,
+          10
+        ]
+      },
+      "roles": "Department, Wallet Providers",
+      "observation": "Holder control, guardian scope policy, separate logging, constrained revocation and absence of undocumented override."
+    },
+    {
+      "id": "SEDI-APP-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          58,
+          59
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3
+        ],
+        "EXPT": [
+          4
+        ],
+        "ADMN": [
+          5
+        ]
+      },
+      "roles": "Department",
+      "observation": "Consent and identity verification for non-emancipated minors before proofing."
+    },
+    {
+      "id": "SEDI-APP-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          59,
+          60,
+          61
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "EXPT": [
+          5
+        ],
+        "ADMN": [
+          4
+        ]
+      },
+      "roles": "Department",
+      "observation": "Guardian-initiated applications, both identities and authorization verified; subject consent where required."
+    },
+    {
+      "id": "SEDI-WAL-09",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 4_ Digital Wallet Providers _ SEDI.pdf",
+        "sha256": "2ad8cf24dad18bd10ab8ab5da8972506c70bd9ca58d4c7d46fdc305098a35076",
+        "pages": [
+          16,
+          17,
+          18
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "EXPT": [
+          2,
+          4
+        ],
+        "ADMN": [
+          1,
+          3
+        ]
+      },
+      "roles": "Wallet Providers",
+      "observation": "Distinguishable guardian presentations, verification of authorization and rejection of expired or revoked authority."
+    },
+    {
+      "id": "SEDI-VER-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 5_ Verifiers _ SEDI.pdf",
+        "sha256": "564c6c6358345bbf4f50f146569afafb20a9296bf2ee088ac02eef0893b91757",
+        "pages": [
+          9,
+          10
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3
+        ],
+        "EXPT": [
+          2,
+          4
+        ],
+        "ADMN": [
+          3,
+          4
+        ]
+      },
+      "roles": "Verifiers",
+      "observation": "Validate guardian authority and equivalent processing; no rejection solely because of representative status."
+    },
+    {
+      "id": "SEDI-RPY-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 6_ Relying Parties _ SEDI.pdf",
+        "sha256": "75c5a1dd790a506c7bcadfaa40104b1776c996ceba337560f5a6de2d0dad9344",
+        "pages": [
+          9,
+          10,
+          11
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          4
+        ],
+        "EXPT": [
+          3,
+          4
+        ],
+        "ADMN": [
+          3,
+          4
+        ]
+      },
+      "roles": "Relying Parties",
+      "observation": "Authorized guardian presentations on same terms; no additional burden or service degradation."
+    },
+    {
+      "id": "SEDI-LOY-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 7_ General Requirements _ SEDI.pdf",
+        "sha256": "05c4fbb92964d193dc823c212819baca597d7264308ebfa4e6f2f571be699f70",
+        "pages": [
+          2,
+          3
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2
+        ],
+        "EXPT": [
+          1,
+          3,
+          4
+        ],
+        "ADMN": [
+          5,
+          6
+        ]
+      },
+      "roles": "Department, Wallet Providers, Verifiers, Relying Parties, Digital Guardians",
+      "observation": "Best interests and avoidance of manipulative disclosure, participant agreements and complaint channel."
+    },
+    {
+      "id": "SEDI-LOY-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 7_ General Requirements _ SEDI.pdf",
+        "sha256": "05c4fbb92964d193dc823c212819baca597d7264308ebfa4e6f2f571be699f70",
+        "pages": [
+          4,
+          5,
+          6
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          4
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      "roles": "Department, Wallet Providers, Verifiers, Relying Parties, Digital Guardians",
+      "observation": "No exploitation; administrative evidence and expert assessment."
+    },
+    {
+      "id": "SEDI-LOY-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 7_ General Requirements _ SEDI.pdf",
+        "sha256": "05c4fbb92964d193dc823c212819baca597d7264308ebfa4e6f2f571be699f70",
+        "pages": [
+          6,
+          7,
+          8
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": [
+          2
+        ],
+        "EXPT": [
+          1,
+          3,
+          4
+        ],
+        "ADMN": [
+          4,
+          5,
+          6
+        ]
+      },
+      "roles": "All ecosystem participants",
+      "observation": "Risk proportionality requires contextual judgment, not merely baseline security checks."
+    },
+    {
+      "id": "SEDI-LOY-04",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 7_ General Requirements _ SEDI.pdf",
+        "sha256": "05c4fbb92964d193dc823c212819baca597d7264308ebfa4e6f2f571be699f70",
+        "pages": [
+          8,
+          9
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "roles": "All ecosystem participants",
+      "observation": "No detrimental practices, accessible complaints, pattern review and remediation."
+    },
+    {
+      "id": "SEDI-LOY-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 7_ General Requirements _ SEDI.pdf",
+        "sha256": "05c4fbb92964d193dc823c212819baca597d7264308ebfa4e6f2f571be699f70",
+        "pages": [
+          10,
+          11
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "roles": "All ecosystem participants",
+      "observation": "No harmful practices, accessible complaints, harm review and incident remediation. Annex G guardian table lists LOY-01–04 only; Part 7 names all participants. Applicability requires clarification rather than silent reconciliation."
+    }
+  ],
+  "cases": [
+    {
+      "id": "D-01",
+      "constructed": "Authenticated adult claims guardianship without valid appointment",
+      "risk": "EX-RK-DA01",
+      "requirements": [
+        "SEDI-APP-02",
+        "SEDI-APP-03"
+      ],
+      "proposed_evidence": "Department must distinguish identity evidence from proof of legal relationship, current authority and subject consent where required. Test missing, forged and mismatched appointment evidence; automated workflow checks do not authenticate underlying documents.",
+      "authority": "Department",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "D-02",
+      "constructed": "Valid guardian attempts credential deletion or presentation outside permitted scope",
+      "risk": "EX-RK-DA02",
+      "requirements": [
+        "SEDI-BOR-02",
+        "SEDI-WAL-09",
+        "SEDI-VER-05"
+      ],
+      "proposed_evidence": "Exercise allowed and denied operations, check actor/subject separation and distinct audit entries. Inspect Department scope policy and enforcement; presentation authority does not by itself authorize deletion or revocation.",
+      "authority": "Department, Wallet Providers, Verifiers",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "D-03",
+      "constructed": "Previously authorized guardian presents after expiry or termination",
+      "risk": "EX-RK-DA03",
+      "requirements": [
+        "SEDI-WAL-09",
+        "SEDI-VER-05",
+        "SEDI-RPY-05"
+      ],
+      "proposed_evidence": "Check termination evidence and status freshness at wallet and verifier/relying party, including offline paths; establish who can terminate authority and acceptable propagation bounds. Do not conflate guardian termination with subject credential revocation.",
+      "authority": "Department, Wallet Providers, Verifiers, Relying Parties",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "D-04",
+      "constructed": "Authorized guardian supports a subject who can express preferences, but service requires guardian to act as if subject consent were unnecessary",
+      "risk": "EX-RK-DA04",
+      "requirements": [
+        "SEDI-APP-03",
+        "SEDI-VER-05",
+        "SEDI-RPY-05"
+      ],
+      "proposed_evidence": "Exercise subject consent where required, supported versus substituted decision-making and equivalent service terms. Check relationship-specific legal basis, accessible interaction and actual processing outcomes; do not presume all subjects lack capacity.",
+      "authority": "Department, Verifiers, Relying Parties",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "D-05",
+      "constructed": "Technically authorized guardian uses identity attributes for personal benefit at subject's expense",
+      "risk": "EX-RK-DA05",
+      "requirements": [
+        "SEDI-BOR-02",
+        "SEDI-LOY-01",
+        "SEDI-LOY-02",
+        "SEDI-LOY-03",
+        "SEDI-LOY-04",
+        "SEDI-LOY-05"
+      ],
+      "proposed_evidence": "Distinguish scope enforcement from best-interest judgment. Inspect participant duties, accessible complaint routes, independent conflict review and remediation; clarify LOY-05 role-table omission. No conclusion that harm occurred.",
+      "authority": "Digital Guardians, Department and competent oversight authorities",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "D-06",
+      "constructed": "Valid guardian presentation receives equivalent service in a bounded fixture",
+      "risk": "EX-RK-DA04",
+      "requirements": [
+        "SEDI-APP-02",
+        "SEDI-APP-03",
+        "SEDI-WAL-09",
+        "SEDI-VER-05",
+        "SEDI-RPY-05"
+      ],
+      "proposed_evidence": "Positive fixture must use valid relationship, current authority and appropriate consent; measure equivalent service and preserve attribution. A single fixture does not establish all guardianship relationships or actual service parity.",
+      "authority": "Department, Wallet Providers, Verifiers, Relying Parties",
+      "status": "open",
+      "operational_evidence": "not acquired"
+    }
+  ],
+  "role_reference": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex G_ Roles and Actors _ SEDI.pdf",
+    "sha256": "7b4893075a572ea85e9580dfeb1cefa0777c8284e37e542625b59096db711108",
+    "pages": [
+      16
+    ]
+  },
+  "limitations": [
+    "No actual guardianship instruments, Department rules, operational evidence or legal determination examined.",
+    "Part 7 LOY-05 all-participant scope and Annex G guardian table omission retained for review.",
+    "Separate documentary tranche; not included in SEDI-01 composed runner."
+  ]
+}

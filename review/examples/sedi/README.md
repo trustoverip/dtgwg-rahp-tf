@@ -88,3 +88,7 @@ The [tutorial](TUTORIAL.md) describes source verification and independent review
 ## SEDI-03: Credential lifecycle and continuity
 
 [Lifecycle documentary examination](lifecycle-examination.json) examines nine requirements, including offline status freshness, accessible recovery, substantiation of revocation grounds, planned versus emergency key transitions, and wallet migration. Six constructed cases and five local hypotheses are bound to the archive. Part 3 page 54 explicitly identifies the offline/status tension. No separate suspension mechanism or operational outcomes are assumed. This tranche remains outside the SEDI-01 composed candidate pending consolidation.
+
+## SEDI-04: Delegated authority and accountability
+
+[Delegation documentary examination](delegation-examination.json) examines guardian consent, appointment and action scope, current authority, service parity and duty of loyalty. It distinguishes identity, legal relationship, action-specific authorization and best-interest judgment. Annex G p16 lists LOY-01–04 for guardians while Part 7 LOY-05 names all ecosystem participants; this is retained as an applicability question, not a legal conclusion. The tranche remains outside the SEDI-01 composed candidate pending consolidation.
