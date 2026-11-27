@@ -996,7 +996,10 @@
         "url": "https://sedi.utah.gov/implementation-guide/part-3/#sedi-idp-08-independence-from-physical-id-system",
         "observation": "Contributor reports that the anchor exists but does not lead to the appropriate text. Not independently verified in this increment.",
         "interpretation": "Do not infer that APP-08 was mislabelled or substitute its fraud text for IDP-08; publisher clarification remains required."
-      }
+      },
+      "protection": "Intended independence of the physical and digital identity systems, as indicated by the index and informative mappings; detailed normative protection is unavailable.",
+      "disposition_rationale": "Publisher clarification is required because the indexed requirement has no located detailed section; testing another requirement cannot establish the missing objectives or method applicability.",
+      "reassessment_trigger": "Publisher supplies the detailed section or an accountable reviewer approves a bounded source-gap disposition; neither event counts as an examination of missing source content."
     }
   ],
   "local_risks": [
