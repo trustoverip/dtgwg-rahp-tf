@@ -48,15 +48,160 @@
     "SEDI-KMS-05": "Plan records and tabletop exercises do not establish response to real compromises."
   },
   "context_groups": [
-    {"context": "People choosing or needing a physical pathway, including those without a compatible device or with accessibility needs", "reason": "Access, cost and time must remain comparable without compelling digital enrollment; a policy alone may conceal local denial.", "cases": ["equivalent-service", "unavailable-physical-path", "digital-enrollment-condition", "unequal-service", "evidence-missing"]},
-    {"context": "People presenting limited attributes or credentials across unrelated services", "reason": "Attribute leakage, correlation and latent observation can expose people beyond the intended transaction.", "cases": ["P-01", "P-02", "P-03", "P-06", "TC-03", "EI-02", "OS-02"]},
-    {"context": "People declining secondary use or facing a changed request, incompatible verifier or downstream processor", "reason": "Consent at one component does not establish the purpose, recipient, retention or privacy properties of the completed interaction.", "cases": ["P-04", "P-05", "AB-03", "TC-04", "EI-01", "EI-03"]},
-    {"context": "Holders recovering from device loss, migrating wallets, or disputing revocation; verifiers with stale status material", "reason": "Lifecycle transitions can lock out legitimate holders or accept compromised credentials even where components pass nominal checks.", "cases": ["L-01", "L-02", "L-03", "L-04", "L-05", "L-06"]},
-    {"context": "Non-emancipated minors, people needing representation, designated representatives and subjects affected by a conflicted representative", "reason": "Identity authentication, relationship authority, action scope, continued validity and the person's preferences are distinct.", "cases": ["D-01", "D-02", "D-03", "D-04", "D-05", "D-06", "IP-01"]},
-    {"context": "Applicants dependent on authoritative source data and accessible proofing or correction", "reason": "Incorrect upstream data, disproportionate proofing and stale provider authorization can exclude eligible applicants or falsely flag them.", "cases": ["AB-01", "IP-02", "IP-03", "IP-04"]},
-    {"context": "Holders at contactless service points and people seeking services from qualifying health care providers", "reason": "Lab interoperability or a general optional-acceptance rule does not establish actual service acceptance under the applicable actor obligations.", "cases": ["AB-02", "EI-04"]},
-    {"context": "Independent implementers, verifiers relying on profile claims, holders using online/offline modes and assessors", "reason": "Version, hook, role and mode mismatch can invalidate a component-level claim at the interaction boundary.", "cases": ["C-01", "C-02", "C-06"]},
-    {"context": "Department approving profiles, independent assessors, auditors and people relying on continuing conformance", "reason": "Technical success, administrative approval, complete evidence and changes to a deployed configuration must be assessed separately.", "cases": ["C-03", "C-04", "C-05", "OS-03"]},
-    {"context": "Holders relying on authentic issuance and continuity, Department key operators and delegated infrastructure operators", "reason": "Key provenance, custody, current operational authorization and privilege termination affect holders even where technical checks pass.", "cases": ["TC-01", "TC-02", "OS-01"]}
-  ]
+    {
+      "context": "People choosing or needing a physical pathway, including those without a compatible device or with accessibility needs",
+      "reason": "Access, cost and time must remain comparable without compelling digital enrollment; a policy alone may conceal local denial.",
+      "cases": [
+        "equivalent-service",
+        "unavailable-physical-path",
+        "digital-enrollment-condition",
+        "unequal-service",
+        "evidence-missing"
+      ]
+    },
+    {
+      "context": "People presenting limited attributes or credentials across unrelated services",
+      "reason": "Attribute leakage, correlation and latent observation can expose people beyond the intended transaction.",
+      "cases": [
+        "P-01",
+        "P-02",
+        "P-03",
+        "P-06",
+        "TC-03",
+        "EI-02",
+        "OS-02"
+      ]
+    },
+    {
+      "context": "People declining secondary use or facing a changed request, incompatible verifier or downstream processor",
+      "reason": "Consent at one component does not establish the purpose, recipient, retention or privacy properties of the completed interaction.",
+      "cases": [
+        "P-04",
+        "P-05",
+        "AB-03",
+        "TC-04",
+        "EI-01",
+        "EI-03"
+      ]
+    },
+    {
+      "context": "Holders recovering from device loss, migrating wallets, or disputing revocation; verifiers with stale status material",
+      "reason": "Lifecycle transitions can lock out legitimate holders or accept compromised credentials even where components pass nominal checks.",
+      "cases": [
+        "L-01",
+        "L-02",
+        "L-03",
+        "L-04",
+        "L-05",
+        "L-06"
+      ]
+    },
+    {
+      "context": "Non-emancipated minors, people needing representation, designated representatives and subjects affected by a conflicted representative",
+      "reason": "Identity authentication, relationship authority, action scope, continued validity and the person's preferences are distinct.",
+      "cases": [
+        "D-01",
+        "D-02",
+        "D-03",
+        "D-04",
+        "D-05",
+        "D-06",
+        "IP-01"
+      ]
+    },
+    {
+      "context": "Applicants dependent on authoritative source data and accessible proofing or correction",
+      "reason": "Incorrect upstream data, disproportionate proofing and stale provider authorization can exclude eligible applicants or falsely flag them.",
+      "cases": [
+        "AB-01",
+        "IP-02",
+        "IP-03",
+        "IP-04"
+      ]
+    },
+    {
+      "context": "Holders at contactless service points and people seeking services from qualifying health care providers",
+      "reason": "Lab interoperability or a general optional-acceptance rule does not establish actual service acceptance under the applicable actor obligations.",
+      "cases": [
+        "AB-02",
+        "EI-04"
+      ]
+    },
+    {
+      "context": "Independent implementers, verifiers relying on profile claims, holders using online/offline modes and assessors",
+      "reason": "Version, hook, role and mode mismatch can invalidate a component-level claim at the interaction boundary.",
+      "cases": [
+        "C-01",
+        "C-02",
+        "C-06"
+      ]
+    },
+    {
+      "context": "Department approving profiles, independent assessors, auditors and people relying on continuing conformance",
+      "reason": "Technical success, administrative approval, complete evidence and changes to a deployed configuration must be assessed separately.",
+      "cases": [
+        "C-03",
+        "C-04",
+        "C-05",
+        "OS-03"
+      ]
+    },
+    {
+      "context": "Holders relying on authentic issuance and continuity, Department key operators and delegated infrastructure operators",
+      "reason": "Key provenance, custody, current operational authorization and privilege termination affect holders even where technical checks pass.",
+      "cases": [
+        "TC-01",
+        "TC-02",
+        "OS-01"
+      ]
+    }
+  ],
+  "disposition_rationales": {
+    "SEDI-BOR-02": "The holder-control design names an authorization boundary; evidence of actual scoped delegation and denied override is needed to determine whether it holds at execution.",
+    "SEDI-BOR-03": "The physical pathway is expressly protected; representative issuance and acceptance records are needed to establish practical access rather than further normative wording.",
+    "SEDI-BOR-04": "The non-compulsion obligation is stated; service-path and fallback observations are needed to determine whether possession or enrollment becomes a de facto prerequisite.",
+    "SEDI-BOR-08": "Attribute selection is an explicit protection, but cryptographic and presentation evidence must establish that omitted information cannot be recovered; the combined SDI-07/CRY-03 interpretation remains separately open.",
+    "SEDI-BOR-09": "Equal service conditions are specified; matched cost, delay and service outcomes are needed to distinguish actual parity from policy parity.",
+    "SEDI-BOR-10": "The prohibition is explicit; independent architectural and runtime evidence is needed to determine whether monitoring capability exists outside the authorized exceptions.",
+    "SEDI-PRG-01": "The conformance obligation includes remediation and change, so actual integration and regression evidence is needed in addition to initial component assessments.",
+    "SEDI-PRG-02": "The intended independent implementability is clear; an independent implementation attempt is necessary to distinguish publication from sufficient technical disclosure.",
+    "SEDI-PRG-04": "The comment-period requirement supplies a measurable interval; contemporaneous publication and closure records are required to establish that the interval was honored.",
+    "SEDI-PRG-05": "The obligation to respond substantively is stated; the submitted comments and actual responses must be compared before judging its fulfillment.",
+    "SEDI-SDI-01": "The design requires detection within a bounded delay; measured status propagation and privacy-preserving verification evidence are necessary to determine whether deployed verifiers meet it.",
+    "SEDI-SDI-02": "Replacement timing and identifier change are prescribed; recovery traces are needed to establish the actual time and holder binding without inappropriate reproofing.",
+    "SEDI-SDI-03": "The unlinkability property is stated; repeated presentations and adversarial linkage analysis must establish the protection under a declared observation model.",
+    "SEDI-SDI-06": "Offline operation is required; disconnected and degraded-network tests are needed to establish that comparable protection survives without callbacks.",
+    "SEDI-SDI-07": "The protection of unselected attributes is explicit; evidence must establish actual non-recoverability, while the interpretation of the structural alternative under CRY-03 remains a separate clarification.",
+    "SEDI-SDI-10": "The recovery requirement concerns affected-person usability, not only technical success; representative recovery and migration outcomes are needed.",
+    "SEDI-SDI-17": "The architectural monitoring restriction is stated; independent inspection of traffic and accessible infrastructure is required to support absence of tracking capability within the assessed boundary.",
+    "SEDI-SDI-23": "Permitted grounds are enumerated; actual decision evidence must establish substantiated grounds and authorized handling rather than merely valid reason codes.",
+    "SEDI-SDI-24": "The incident reporting and response obligations are stated; exercise and actual incident records are needed to establish detection, escalation and response performance.",
+    "SEDI-APP-02": "The consent prerequisite is stated; case evidence must establish valid guardian authorization before proofing and demonstrate rejection of invalid consent.",
+    "SEDI-APP-03": "The representative application pathway is defined; evidence must demonstrate identity, authorization and required subject consent in relevant relationship contexts.",
+    "SEDI-APP-04": "The non-enrollment prerequisite is explicit; observed service paths are needed to determine whether local practice contradicts the documented policy.",
+    "SEDI-GOV-01": "Equal benefits are required; matched service records and observations are needed to determine whether preferential digital treatment persists in practice.",
+    "SEDI-GOV-02": "Physical acceptance and equivalent service are expressly required; representative physical-path outcomes and complaint handling are needed to establish implementation.",
+    "SEDI-GOV-05": "Exception grounds are defined, but the actual evidence and authorized exemption decision are needed to determine whether an exception is applicable; physical-path rights remain separate.",
+    "SEDI-WAL-09": "The design specifies representative presentation checks; current, scoped authority evidence and rejected expired/revoked grants are necessary to establish actual enforcement.",
+    "SEDI-WAL-12": "The requirement specifies affirmative choice before transmission; observed consent, cancellation and disclosure flows are needed to determine whether that choice is effective.",
+    "SEDI-WAL-14": "The retention and disclosure boundary is stated; actual storage, deletion and onward-transfer evidence must establish enforcement rather than policy intent.",
+    "SEDI-VER-05": "Representative authority and equivalent processing are stated; presentation evidence must establish valid scope and current authorization without discriminatory rejection.",
+    "SEDI-RPY-05": "Equivalent representative service is required; matched service outcomes and burden evidence must establish whether the obligation survives local practice.",
+    "SEDI-LOY-01": "The best-interest obligation is stated; assessment of actual interactions, incentives and complaint evidence is needed to evaluate manipulative disclosure.",
+    "SEDI-LOY-02": "The prohibition on exploitation is stated; observed conduct and business arrangements must be examined to determine whether it is respected.",
+    "SEDI-LOY-03": "The proportionality requirement calls for contextual judgment; evidence of assessed risks, benefits and alternatives is needed before that judgment can be made.",
+    "SEDI-LOY-04": "The detriment prohibition is stated; affected-person outcomes and remedy records are needed to establish whether harmful practices occur.",
+    "SEDI-LOY-05": "Evidence of actual conduct and harm remains required even if the applicable participant class is clarified; the Annex G/Part 7 scope question is retained separately.",
+    "SEDI-ENF-03": "Audit readiness is required; actual record coverage, retention and privacy-preserving audit evidence are needed to distinguish usable evidence from populated fields.",
+    "SEDI-ENF-04": "Independent architectural evidence is expressly required; inspection and negative observations are needed to support the monitoring restriction.",
+    "SEDI-PRV-01": "The unlinkability property extends beyond payloads; repeated presentation and transport-metadata evidence must establish the protection under explicit adversary assumptions.",
+    "SEDI-PRV-03": "The prohibited communication and logging paths are stated; architectural inspection and traffic evidence are needed to establish their absence within the tested deployment.",
+    "SEDI-PRV-04": "The minimization obligation is stated; actual data flows, copy inventories and deletion evidence are necessary to determine whether it is enforced across actors.",
+    "SEDI-INT-01": "Evidence of independently implementable protocols remains necessary whatever the expert-method label means; the EXPT designation itself is a separate source clarification.",
+    "SEDI-INT-02": "The requirement specifies equivalent protection across modes; paired interoperability and privacy/security tests are necessary rather than evidence of common syntax alone.",
+    "SEDI-INT-03": "Holder-directed migration is specified; independent wallet-pair evidence must establish portability, preserved binding and absence of required issuer interaction.",
+    "SEDI-INT-04": "Evidence of refusal rather than downgrade is necessary regardless of the unresolved ADMN designation; the missing method declaration remains a separate documentary question.",
+    "SEDI-KMS-04": "Rotation continuity requires actual overlap and verification evidence irrespective of the EXPT designation; the method interpretation is retained for clarification.",
+    "SEDI-KMS-05": "The response plan is required; exercise and incident-response evidence is necessary to establish whether detection, notification and recovery operate in practice."
+  }
 }
