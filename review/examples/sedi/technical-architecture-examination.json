@@ -60,7 +60,7 @@
       ],
       "potential_harm": "Forged credentials or reliance on attacker-controlled keys.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Primitive strength and future attacks not established by signature vectors.",
+      "disposition_rationale": "The non-callback authenticity requirement is explicit; key provenance and signature-path evidence are needed to establish trustworthy verification without relying on issuer contact.",
       "related_requirements": [
         "SEDI-CRY-01",
         "SEDI-KMS-03",
@@ -119,7 +119,7 @@
       ],
       "potential_harm": "Incompatibility or weakened protection excludes holders.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Finite platform sample; scope of wide variety is judgment-dependent.",
+      "disposition_rationale": "Equivalent cross-platform protection is specified; paired implementation and downgrade tests are needed to establish it for the declared platform set.",
       "related_requirements": [
         "SEDI-INT-04",
         "SEDI-SDI-09",
@@ -177,7 +177,7 @@
       ],
       "potential_harm": "Underlying age inferred despite boolean result.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Side channels and known attack model limitations.",
+      "disposition_rationale": "The permitted output is a boolean age predicate; boundary and leakage evidence is needed to distinguish correct disclosure from disclosure of additional age information.",
       "related_requirements": [
         "SEDI-CRY-03",
         "SEDI-PRV-02",
@@ -239,7 +239,7 @@
       ],
       "potential_harm": "Lock-in or discriminatory access.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Two wallets do not establish universal availability; informal preferential treatment may escape review.",
+      "disposition_rationale": "Wallet independence is specified; independent onboarding, import and interoperability evidence is required to establish practical choice rather than mere format publication.",
       "related_requirements": [
         "SEDI-INT-03",
         "SEDI-SDI-05",
@@ -302,7 +302,7 @@
       ],
       "potential_harm": "Incorrect endorsement from unsupported proofing.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Gate tests cannot establish substantive proofing quality; periodic assessments miss deterioration.",
+      "disposition_rationale": "The issuance prerequisites are defined; actual proofing-validation and current entity-authorization evidence are needed to determine whether deficient assertions prevent issuance.",
       "related_requirements": [
         "SEDI-IDP-01",
         "SEDI-IDP-04",
@@ -363,7 +363,7 @@
       ],
       "potential_harm": "Policy-only treatment misrepresented as effective technical control.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Mapping completeness is not validity of feasibility justification.",
+      "disposition_rationale": "Technical enforcement and justified exceptions are required; actual control and feasibility evidence is necessary to determine whether a claimed exception is warranted.",
       "related_requirements": [
         "SEDI-PRG-01",
         "SEDI-ENF-03"
@@ -422,7 +422,7 @@
       ],
       "potential_harm": "Uncontrolled infrastructure undermines issuance and revocation authority.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Network checks cannot establish physical location; configuration may change between audits.",
+      "disposition_rationale": "The infrastructure boundary is prescribed; inventory, location and operational-control evidence is needed to establish where issuance and revocation actually occur.",
       "related_requirements": [
         "SEDI-SDI-21",
         "SEDI-KMS-02",
@@ -483,7 +483,7 @@
       ],
       "potential_harm": "Unauthorized infrastructure access or identity data exposure.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Control tests do not establish overall security posture; periodic expert assessment bounded.",
+      "disposition_rationale": "The required security measures are specified at design level; deployment configuration and independent assessment are needed to establish their effective operation.",
       "related_requirements": [
         "SEDI-KMS-01",
         "SEDI-SDI-13",
@@ -546,7 +546,7 @@
       ],
       "potential_harm": "Proprietary dependency restricts access or interoperability.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Catalog checks cannot detect unpublished claims or later changes.",
+      "disposition_rationale": "The openness requirement is explicit; dependency and licensing evidence plus an independent implementation are needed to establish practical availability without prohibited restrictions.",
       "related_requirements": [
         "SEDI-CRY-04",
         "SEDI-INT-01",
@@ -606,7 +606,7 @@
       ],
       "potential_harm": "Incorrect endorsed attributes or unnecessary disclosure.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Schema presence does not establish attribute truth.",
+      "disposition_rationale": "The endorsed attributes and individual disclosure property are defined; proofing provenance and disclosure tests are needed to establish both truth of endorsement and selective presentation.",
       "related_requirements": [
         "SEDI-IDP-04",
         "SEDI-SDI-07",
@@ -665,7 +665,7 @@
       ],
       "potential_harm": "Application data repurposed across government.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Insider misuse, exfiltration and new integrations may evade checks.",
+      "disposition_rationale": "Purpose isolation is required; actual data paths and access denials are necessary to establish separation from unrelated Department processing.",
       "related_requirements": [
         "SEDI-SDI-19",
         "SEDI-SDI-22",
@@ -730,7 +730,7 @@
       ],
       "potential_harm": "Use continues beyond authorized purpose.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Prompt presence does not establish informed choice; review misses changes.",
+      "disposition_rationale": "The interaction of revocable authorization with isolation and disclosure restrictions needs clarification before downstream access tests can establish the permitted boundary.",
       "related_requirements": [
         "SEDI-SDI-18",
         "SEDI-SDI-22",
@@ -791,7 +791,7 @@
       ],
       "potential_harm": "Unnecessary retained identity data exposed.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Schedule enforcement does not establish necessity; backup purge may lag.",
+      "disposition_rationale": "Retention and deletion are specified; copy inventories, expiry and restoration evidence are necessary to determine whether retained replicas undermine deletion.",
       "related_requirements": [
         "SEDI-SDI-21",
         "SEDI-IDP-03",
@@ -852,7 +852,7 @@
       ],
       "potential_harm": "Uncontrolled storage increases exposure.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Network location is not physical evidence; inventory can be stale.",
+      "disposition_rationale": "The storage boundary is explicit; actual topology, replica location and control evidence are necessary to establish that all covered copies remain within it.",
       "related_requirements": [
         "SEDI-SDI-13",
         "SEDI-SDI-20"
@@ -915,7 +915,7 @@
       ],
       "potential_harm": "Unauthorized disclosure through invalid representative or legal demand.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Legal validity needs human review; new pathways may evade periodic assessment.",
+      "disposition_rationale": "The permitted disclosure classes are enumerated; request authorization and rejected-request evidence are needed to establish that other paths do not bypass them.",
       "related_requirements": [
         "SEDI-BOR-02",
         "SEDI-SDI-19",
@@ -978,7 +978,7 @@
       ],
       "potential_harm": "False authenticity or presentation tracking.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Opportunistic callbacks can evade offline tests.",
+      "disposition_rationale": "Signature verification and status checking are distinguished; observed online and offline paths and trusted-key evidence are needed to establish that distinction in implementation.",
       "related_requirements": [
         "SEDI-SDI-04",
         "SEDI-PRV-03",
@@ -1042,7 +1042,7 @@
       ],
       "potential_harm": "Unauthorized copies undermine holder binding.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Undocumented OS/hardware backdoors; expert analysis limited by attack model.",
+      "disposition_rationale": "Exclusive secret control is required; extraction, duplication and migration evidence is needed to establish holder binding rather than infer it from the credential format.",
       "related_requirements": [
         "SEDI-INT-03",
         "SEDI-SDI-02",
@@ -1104,7 +1104,7 @@
       ],
       "potential_harm": "Hidden attributes recoverable despite selective UI.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Finite attribute combinations and attack models.",
+      "disposition_rationale": "The relationship between mandatory cryptographic disclosure and the structural alternative in SDI-07 needs resolution before a test can establish sufficiency of the chosen mechanism.",
       "related_requirements": [
         "SEDI-SDI-07",
         "SEDI-BOR-08",
@@ -1165,7 +1165,7 @@
       ],
       "potential_harm": "Unsupported open-standard claim conceals dependencies.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Undisclosed use and deployment drift; EXPT N/A text nevertheless calls for expert source/legal review.",
+      "disposition_rationale": "The catalog obligation is clear, but the declared expert-method applicability needs clarification for licensing and algorithm review; implementation evidence remains separately necessary.",
       "related_requirements": [
         "SEDI-SDI-15",
         "SEDI-INT-01"
@@ -1226,7 +1226,7 @@
       ],
       "potential_harm": "Algorithm transition causes fraud or lockout.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Identifiers and current transition tests cannot predict future dependencies.",
+      "disposition_rationale": "Agility and transition are recommended design properties; actual transition and downgrade evidence is needed to establish continuity under the adopted policy.",
       "related_requirements": [
         "SEDI-KMS-04",
         "SEDI-KMS-05",
@@ -1286,7 +1286,7 @@
       ],
       "potential_harm": "Repeated or side-channel inference reveals attributes.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Cannot detect every network/hardware/environmental side channel.",
+      "disposition_rationale": "Boolean disclosure and leakage limits are specified; repeated-query and metadata evidence is needed to determine unintended inference beyond the permitted predicate.",
       "related_requirements": [
         "SEDI-SDI-08",
         "SEDI-CRY-03",
@@ -1347,7 +1347,7 @@
       ],
       "potential_harm": "Unmanaged key lifecycle undermines issuer trust.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Policy existence not operational conformance.",
+      "disposition_rationale": "The policy and review cadence are specified; actual policy coverage, key inventory and ceremony evidence are needed to establish implementation.",
       "related_requirements": [
         "SEDI-KMS-02",
         "SEDI-KMS-03",
@@ -1413,7 +1413,7 @@
       ],
       "potential_harm": "Unauthorized signing-key generation or copying.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Documentation cannot detect all-party collusion; witness independence is trust assumption.",
+      "disposition_rationale": "The multi-party ceremony safeguards are stated; observed ceremonies, custodian authority and independent witness evidence are needed to establish actual separation and control.",
       "related_requirements": [
         "SEDI-SDI-13",
         "SEDI-KMS-01",
@@ -1477,7 +1477,7 @@
       ],
       "potential_harm": "Compromised or externally controlled signing keys.",
       "disposition": "evidence-required",
-      "disposition_rationale": "API and certificate tests cannot establish physical control or supply-chain integrity.",
+      "disposition_rationale": "The module requirements are defined; deployed module identity, key handling and operational-control evidence are needed to establish conformance.",
       "related_requirements": [
         "SEDI-KMS-02",
         "SEDI-SDI-13",
