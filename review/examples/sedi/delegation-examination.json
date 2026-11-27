@@ -400,8 +400,8 @@
       "authority_reference": "Utah Code § 63A-20-701(2)",
       "verification_applicability": {
         "AUTO": "N/A",
-        "EXPT": "Mandatory",
-        "ADMN": "Recommended"
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
       }
     },
     {
@@ -478,8 +478,8 @@
       "authority_reference": "Utah Code § 63A-20-701(4)",
       "verification_applicability": {
         "AUTO": "N/A",
-        "ADMN": "Mandatory",
-        "EXPT": "N/A"
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
       },
       "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
     },
@@ -516,8 +516,8 @@
       "authority_reference": "Utah Code § 63A-20-701(5)",
       "verification_applicability": {
         "AUTO": "N/A",
-        "ADMN": "Mandatory",
-        "EXPT": "N/A"
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
       },
       "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
     }
@@ -625,7 +625,7 @@
     "Separate documentary tranche; not included in SEDI-01 composed runner."
   ],
   "metadata_reconciliation": {
-    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "source": "Retained PDF detailed-section extraction, 2026-11-27; verification method declarations corroborated, INT-04 ADMN undeclared. Heading citations for SDI-24, ENF-03 and ENF-04 distinguished from cross-references in preceding prose. Existing page bindings retained pending full page-span review. Source interpretation not independently reviewed.",
     "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
     "date": "2026-11-27"
   }

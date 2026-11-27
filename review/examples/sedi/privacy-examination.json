@@ -189,7 +189,7 @@
       "verification_applicability": {
         "AUTO": "Mandatory",
         "EXPT": "Recommended",
-        "ADMN": null
+        "ADMN": "N/A"
       }
     },
     {
@@ -304,11 +304,11 @@
       },
       "observation": "Unlinkability extends to timing, ordering and transport metadata.",
       "roles": "Department, Wallet Providers",
-      "authority_reference": "Utah Code § 63A-20-301(1)(a), 201(1)",
+      "authority_reference": "Utah Code §§ 63A-20-301(1)(a), 201(1)",
       "verification_applicability": {
         "AUTO": "Mandatory",
-        "EXPT": null,
-        "ADMN": null
+        "EXPT": "Recommended",
+        "ADMN": "N/A"
       }
     },
     {
@@ -347,9 +347,9 @@
       "roles": "Department",
       "authority_reference": "Utah Code § 63A-20-301(3)",
       "verification_applicability": {
-        "AUTO": null,
+        "AUTO": "Recommended",
         "EXPT": "Mandatory",
-        "ADMN": null
+        "ADMN": "N/A"
       }
     },
     {
@@ -385,7 +385,7 @@
       },
       "observation": "Minimize data at each lifecycle stage and publish purpose, retention and deletion specification.",
       "roles": "Department, Identity Proofing Entities, Wallet Providers, Verifiers, Relying Parties",
-      "authority_reference": "Utah Code § 63A-20-301(4), 302(7)(a)",
+      "authority_reference": "Utah Code §§ 63A-20-301(4), 302(7)(a)",
       "verification_applicability": {
         "AUTO": "Recommended",
         "EXPT": "Mandatory",
@@ -565,7 +565,8 @@
         "AUTO": "Recommended",
         "EXPT": "Mandatory",
         "ADMN": null
-      }
+      },
+      "verification_declaration_note": "ADMN is not listed in the source verification table; null denotes undeclared, not N/A."
     }
   ],
   "cases": [
@@ -659,7 +660,7 @@
     "Not integrated into SEDI-01 executable candidate; separate documentary tranche pending composed validation and independent review."
   ],
   "metadata_reconciliation": {
-    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "source": "Retained PDF detailed-section extraction, 2026-11-27; verification method declarations corroborated, INT-04 ADMN undeclared. Heading citations for SDI-24, ENF-03 and ENF-04 distinguished from cross-references in preceding prose. Existing page bindings retained pending full page-span review. Source interpretation not independently reviewed.",
     "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
     "date": "2026-11-27"
   }

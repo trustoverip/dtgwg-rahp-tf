@@ -174,7 +174,7 @@
     }
   ],
   "metadata_reconciliation": {
-    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "source": "Retained PDF detailed-section extraction, 2026-11-27; verification method declarations corroborated, INT-04 ADMN undeclared. Heading citations for SDI-24, ENF-03 and ENF-04 distinguished from cross-references in preceding prose. Existing page bindings retained pending full page-span review. Source interpretation not independently reviewed.",
     "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
     "date": "2026-11-27"
   }
