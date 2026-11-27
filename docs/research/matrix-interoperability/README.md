@@ -4,13 +4,13 @@ This research addresses [issue #39](https://github.com/trustoverip/dtgwg-rahp-tf
 
 ## Findings
 
-The Matrix and RAHP share a useful distinction between a risk, a proposed control, observations, and the judgment those observations support. The Matrix also defines campaign-level conditions for accepting an assessment outcome, including explicit context, coverage, applicable evidence, and review. Those conditions cannot be translated directly into the RAHP v1 specification-review contract without preserving additional information.
+The Matrix explicitly derives its assurance-register foundation from RAHP. Shared constructs are expected and do not establish independent interoperability. The Matrix and RAHP share a useful distinction between a risk, a proposed control, observations, and the judgment those observations support. The Matrix also defines campaign-level conditions for accepting an assessment outcome, including explicit context, coverage, applicable evidence, and review. Those conditions cannot be translated directly into the RAHP v1 specification-review contract without preserving additional information.
 
-The [worked assessment](worked-assessment.md) takes a real catalogue proposition, `A01-P5` (revocation of derived authority within a declared deadline), and examines it in a constructed reference subject. It preserves before/after observations when the parent grant is revoked. The nominal protocol succeeds; three deliberately faulty execution variants produce counterexamples. This demonstrates reproducible reference experiments and a way to represent their findings, not live-system revocation enforcement or a completed Matrix campaign.
+The [worked assessment](worked-assessment.md) takes a real catalogue proposition, `A01-P5` (revocation of derived authority within a declared deadline), and examines it in a constructed reference subject. It preserves before/after observations when the parent grant is revoked. The nominal protocol succeeds; three mutation configurations inject incorrect outcomes to test the oracle. This demonstrates reproducible reference experiments and a way to represent their findings, not live-system revocation enforcement or a completed Matrix campaign.
 
 ## Semantic crosswalk
 
-The [source lock](source-lock.json) identifies the inspected RAHP revisions, Matrix README, contributor-supplied workbook and Warranted Lifecycle Alignment (WLA) paper. The workbook copy is content-addressed; its equivalence to the current publisher edition and permission to redistribute it have not been established. The following mappings are bounded to the inspected sources and selected proposition.
+The [source lock](source-lock.json) identifies the inspected RAHP revisions, Matrix README, contributor-supplied workbook and Warranted Lifecycle Alignment (WLA) paper. The workbook copy is content-addressed; its equivalence to the current publisher edition and permission to redistribute it have not been established. The following mappings are bounded to the inspected sources and selected proposition. Tabs without workbook locators in the source lock are described at README level only, not verified at workbook-row level.
 
 | Matrix construct (workbook tab) | RAHP analogue | Classification and limit |
 |---|---|---|
@@ -25,6 +25,8 @@ The [source lock](source-lock.json) identifies the inspected RAHP revisions, Mat
 | Reliance and operational decisions (`Operational Decisions`, `Peer Inspections`) | Findings and recommendations; external governance | Intentional non-mapping for authorization/enforcement; peer evidence can inform but not replace accountable judgment. |
 
 The source formulas reinforce this distinction. In `Assessment Runs!R82:R84`, absence of a raw outcome is not assessed, a recorded failure takes precedence, and an unresolved contradiction requires review. A raw PASS cannot become an effective PASS without matching approved context, current evidence, coverage and closure review, and other specified inputs. Scenario and proposition formula cells (`Scenarios!D19:D21`, `Propositions!D11`) retain adverse or unresolved results rather than treating counts as evidence adequacy. These are inspected formula semantics, not a full spreadsheet recalculation or implementation of its outcome engine. See the worked assessment for the resulting transformation losses.
+
+The Matrix's PASS and FAIL have analogous local meanings in the fixture; INDETERMINATE is represented, but REVIEW REQUIRED is not a separate trial outcome. NOT APPLICABLE and NOT ASSESSED have no trial-level equivalent. None maps directly to a RAHP finding treatment status.
 
 ## Recommendation
 
