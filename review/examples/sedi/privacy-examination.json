@@ -162,7 +162,8 @@
         "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
         "pages": [
           11,
-          12
+          12,
+          13
         ]
       },
       "objectives": [
@@ -277,7 +278,8 @@
         "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
         "pages": [
           16,
-          17
+          17,
+          18
         ]
       },
       "objectives": [
@@ -318,7 +320,8 @@
         "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
         "pages": [
           20,
-          21
+          21,
+          22
         ]
       },
       "objectives": [
@@ -399,7 +402,8 @@
         "sha256": "2ad8cf24dad18bd10ab8ab5da8972506c70bd9ca58d4c7d46fdc305098a35076",
         "pages": [
           21,
-          22
+          22,
+          23
         ]
       },
       "objectives": [
