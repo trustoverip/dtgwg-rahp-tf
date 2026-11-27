@@ -2746,63 +2746,152 @@
     {
       "id": "SEDI-ORG-01",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ORG-02",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ORG-03",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ORG-04",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-04",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ORG-05",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ORG-06",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-06",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ORG-07",
       "index_page": 10,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "organizational-security-examination.json",
+        "id": "SEDI-ORG-07",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
       "work_package": "WP-F",
       "review_state": "not-reviewed"
     }

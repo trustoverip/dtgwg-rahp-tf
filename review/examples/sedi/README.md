@@ -116,3 +116,7 @@ The proposed execution scope now includes all 142 indexed requirements, with dif
 ### WP-E: Wallet, verifier and relying-party interactions
 
 [Ecosystem interactions examination](ecosystem-interactions-examination.json) adds 27 requirements and four constructed cross-actor cases. Existing local hypotheses are reused. The examination distinguishes local four-condition gates from end-to-end binding, holder-only logs from provider telemetry, actor-specific data processing obligations, and permissive acceptance from specific institutional obligations. Coverage: 134/142 examined; eight indexed-only including IDP-08. No operational assurance is asserted.
+
+### WP-F: Organizational security
+
+[Organizational security examination](organizational-security-examination.json) covers all seven ORG requirements (Part 9 pp44–59), including access and personnel security, vulnerability management, privacy-preserving logging, incident response, delegated infrastructure and change control. ORG means organizational security, not organizational identity. Existing risk hypotheses suffice; three cross-actor cases extend them. Coverage is 141/142, with IDP-08 the sole indexed-only source dependency. No operational assurance is asserted.

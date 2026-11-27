@@ -13,7 +13,7 @@ Dispositions describe documentary conclusions, not governed RAHP finding status:
 
 ## Work packages
 
-WP-A: BOR (5 remaining); WP-B: PRG/GOV/PRC/ENF (17); WP-C: APP/IDP (16); WP-D: SDI/CRY/PRV/KMS (24); WP-E: WAL/VER/RPY (27); WP-F: ORG (7). Counts describe the initial outstanding set and remain stable as planning provenance.
+WP-A: BOR (5 remaining); WP-B: PRG/GOV/PRC/ENF (17); WP-C: APP/IDP (16); WP-D: SDI/CRY/PRV/KMS (24); WP-E: WAL/VER/RPY (27); WP-F: ORG (organizational security, 7). Counts describe the initial outstanding set and remain stable as planning provenance.
 
 For each newly examined requirement, retain the precise source reference, authority reference as stated in the guide, actors, objective numbers and substantive properties, AUTO/EXPT/ADMN applicability and limitations, relevant risks or reasoned non-applicability, existing protection, material dependencies and proposed evidence. Record an explicit disposition and rationale. Reuse cases where adequate; add cases only for a distinct material failure proposition. Do not infer a statutory conclusion or operational effectiveness.
 
