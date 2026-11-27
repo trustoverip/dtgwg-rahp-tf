@@ -123,7 +123,7 @@
       ],
       "potential_harm": "Attribute exposure beyond intended transaction.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Platform-specific exposure vectors and deployment variation remain.",
+      "disposition_rationale": "The design prohibits plaintext exposure and requires isolation; observed logs, temporary storage and processing configuration are needed to establish enforcement.",
       "related_requirements": [
         "SEDI-VER-03",
         "SEDI-RPY-03"
@@ -180,7 +180,7 @@
       ],
       "potential_harm": "Policy-only compliance mistaken for enforced protection.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Automated checks cannot establish feasibility; capability evolves.",
+      "disposition_rationale": "Technical enforcement and justified exceptions are stated; implementation and reassessment records are necessary to determine whether exception claims are supported.",
       "related_requirements": [
         "SEDI-SDI-12",
         "SEDI-VER-02",
@@ -304,7 +304,7 @@
       ],
       "potential_harm": "Offline access failure or stale-status acceptance.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Finite network/device combinations and regression exposure.",
+      "disposition_rationale": "Offline presentation is required; disconnected execution and traffic observations are needed to establish absence of hidden network dependency.",
       "related_requirements": [
         "SEDI-SDI-06",
         "SEDI-SDI-01",
@@ -371,7 +371,7 @@
       ],
       "potential_harm": "Presentation history becomes surveillance data.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Covert OS/firmware exfiltration or later capability changes not excluded.",
+      "disposition_rationale": "Holder-exclusive logging is stated; access, export, deletion and backup evidence is needed to establish whether another actor can obtain presentation history.",
       "related_requirements": [
         "SEDI-PRV-03",
         "SEDI-ENF-03",
@@ -432,7 +432,7 @@
       ],
       "potential_harm": "Unselected information disclosed.",
       "disposition": "evidence-required",
-      "disposition_rationale": "UI usability and all combinations not established.",
+      "disposition_rationale": "Selective transmission and hiding are explicit; actual payload and cryptographic evidence must establish that holder choice controls disclosure.",
       "related_requirements": [
         "SEDI-BOR-08",
         "SEDI-CRY-03",
@@ -492,7 +492,7 @@
       ],
       "potential_harm": "Unintended inference of underlying age.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Finite thresholds/formats and emerging cryptographic vulnerabilities.",
+      "disposition_rationale": "The boolean age output is specified; boundary, repeated-query and metadata evidence are needed to establish it without disclosing extra attributes.",
       "related_requirements": [
         "SEDI-SDI-08",
         "SEDI-PRV-02"
@@ -552,7 +552,7 @@
       ],
       "potential_harm": "Unauthorized processing before presentation.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Runtime coverage cannot exclude every hidden or future access path.",
+      "disposition_rationale": "The scope of permitted maintenance operations under holder-initiated access needs clarification before background activity can be judged authorized.",
       "related_requirements": [
         "SEDI-WAL-12",
         "SEDI-WAL-13",
@@ -619,7 +619,7 @@
       ],
       "potential_harm": "Consent obtained without meaningful notice.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Automated presence checks cannot establish conspicuousness or comprehension.",
+      "disposition_rationale": "Notice must precede processing; observed timing, accessibility and actual downstream use are necessary to determine whether the notice is accurate and meaningful.",
       "related_requirements": [
         "SEDI-WAL-12",
         "SEDI-VER-06",
@@ -683,7 +683,7 @@
       ],
       "potential_harm": "Identity information repurposed or monetized.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Testing cannot exclude all server-side or future flows.",
+      "disposition_rationale": "Secondary processing is prohibited; observed data lineage, SDKs and secondary stores are needed to establish whether monetization or profiling paths exist.",
       "related_requirements": [
         "SEDI-WAL-14",
         "SEDI-PRC-01",
@@ -743,7 +743,7 @@
       ],
       "potential_harm": "SEDI conformance incorrectly substituted for statutory compliance.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Legal applicability and operational practices require qualified review.",
+      "disposition_rationale": "The compliance programme is required; applicable obligations, attestations and implemented controls are necessary evidence, not a legal determination.",
       "related_requirements": [
         "SEDI-VER-08",
         "SEDI-RPY-09"
@@ -802,7 +802,7 @@
       ],
       "potential_harm": "Verification creates unnecessary retained data.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Tests cannot establish full security posture or all configurations.",
+      "disposition_rationale": "Transfer and temporary storage protections are specified; actual transaction boundaries, expiry and configuration evidence are needed to establish them.",
       "related_requirements": [
         "SEDI-VER-03",
         "SEDI-RPY-01"
@@ -859,7 +859,7 @@
       ],
       "potential_harm": "Unsupported claim of enforced verification obligations.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Technical feasibility requires judgment; later capabilities change.",
+      "disposition_rationale": "Feasible technical enforcement and exception documentation are required; actual controls and exception reassessment evidence are needed before judging sufficiency.",
       "related_requirements": [
         "SEDI-WAL-03",
         "SEDI-RPY-02",
@@ -921,7 +921,7 @@
       ],
       "potential_harm": "Verification pipeline exposes identity information.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Review covers limited deployment environments.",
+      "disposition_rationale": "Logging and caching restrictions are explicit; observed logs and internal access paths are needed to establish whether attributes persist or are exposed.",
       "related_requirements": [
         "SEDI-WAL-02",
         "SEDI-RPY-03"
@@ -982,7 +982,7 @@
       ],
       "potential_harm": "Excessive or incidental attribute processing.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Request matching does not establish necessity of stated purpose.",
+      "disposition_rationale": "Purpose-bounded requests are required; actual request, purpose and holder-selection bindings are needed to establish rejection of excessive requests.",
       "related_requirements": [
         "SEDI-RPY-04",
         "SEDI-WAL-07",
@@ -1044,7 +1044,7 @@
       ],
       "potential_harm": "Processing proceeds without required conditions.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Notice comprehension and real necessity not established by automated gate tests.",
+      "disposition_rationale": "The processing prerequisites are enumerated; negative and cross-actor execution evidence is needed to establish that no path processes before all conditions hold.",
       "related_requirements": [
         "SEDI-WAL-11",
         "SEDI-WAL-12",
@@ -1106,7 +1106,7 @@
       ],
       "potential_harm": "Device surrender exposes information or enables tampering.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Field practice can diverge from protocol testing.",
+      "disposition_rationale": "Device transfer is prohibited; representative interaction and service evidence are needed to determine whether informal transfer demands undermine the design.",
       "related_requirements": [
         "SEDI-BOR-11",
         "SEDI-GOV-03",
@@ -1167,7 +1167,7 @@
       ],
       "potential_harm": "False statutory compliance claim.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Legal interpretation and actual practices outside mechanical validation.",
+      "disposition_rationale": "External privacy obligations remain applicable; qualified obligation review and actual processing evidence are necessary before assessing compliance.",
       "related_requirements": [
         "SEDI-WAL-15",
         "SEDI-RPY-09"
@@ -1226,7 +1226,7 @@
       ],
       "potential_harm": "RP-side exposure after valid verification.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Integration tests do not cover full internal infrastructure.",
+      "disposition_rationale": "Attribute protection is required; actual data flows, access and deployed security configuration are needed to establish effective protection.",
       "related_requirements": [
         "SEDI-VER-01",
         "SEDI-RPY-03"
@@ -1283,7 +1283,7 @@
       ],
       "potential_harm": "Policy-only claim masks bypassable controls.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Technical feasibility not established by tests.",
+      "disposition_rationale": "The enforcement and exception obligation is stated; actual control evidence and exception decisions are needed to establish whether policy is an adequate substitute.",
       "related_requirements": [
         "SEDI-WAL-03",
         "SEDI-VER-02"
@@ -1344,7 +1344,7 @@
       ],
       "potential_harm": "Over-retention or exposure after presentation.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Internal RP handling beyond integration boundary not fully testable.",
+      "disposition_rationale": "The distinction between necessary secure logging and the verifier's stricter plaintext restriction needs clarification before observed log contents can be classified.",
       "related_requirements": [
         "SEDI-VER-03",
         "SEDI-PRC-02",
@@ -1405,7 +1405,7 @@
       ],
       "potential_harm": "Unnecessary disclosure under nominal purpose mapping.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Mapping tests cannot establish reasonable necessity.",
+      "disposition_rationale": "Purpose and proportionality are stated; actual requests and retention records are needed to determine whether collection exceeds the declared purpose.",
       "related_requirements": [
         "SEDI-VER-04",
         "SEDI-RPY-06",
@@ -1467,7 +1467,7 @@
       ],
       "potential_harm": "RP processes without actual authorization or necessity.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Automated checks cannot establish human understanding; administrative checks cannot establish runtime enforcement.",
+      "disposition_rationale": "The prerequisite sequence is defined; execution evidence across actor boundaries and fallback paths is needed to establish that processing does not precede authorization.",
       "related_requirements": [
         "SEDI-VER-06",
         "SEDI-WAL-11",
@@ -1528,7 +1528,7 @@
       ],
       "potential_harm": "Coerced handover or service exclusion.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Informal field practices outside finite tests.",
+      "disposition_rationale": "Device custody and service continuity are specified; representative service observations are needed to establish that refusing device transfer does not exclude a person.",
       "related_requirements": [
         "SEDI-VER-07",
         "SEDI-BOR-11",
@@ -1648,7 +1648,7 @@
       ],
       "potential_harm": "Unsupported statutory compliance claim.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Legal interpretation and actual practices require independent review.",
+      "disposition_rationale": "External privacy obligations are not displaced; qualified review and actual processing evidence are needed rather than assuming SEDI conformance suffices.",
       "related_requirements": [
         "SEDI-WAL-15",
         "SEDI-VER-08"
