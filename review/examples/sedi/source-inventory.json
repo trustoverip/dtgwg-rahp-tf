@@ -208,5 +208,17 @@
       "ORG"
     ],
     "coverage": "domain identifiers only; Annex A and Annex E retrieval unavailable; no complete requirement or obligation count asserted"
+  },
+  "local_archive": {
+    "manifest": "archive-manifest.json",
+    "received_on": "2026-11-27",
+    "guide_pdf_count": 18,
+    "toolkit_docx_count": 3,
+    "annex_a_unique_requirements": 142,
+    "prior_web_access_gaps": "Annex A, Annex E and conformance content now available in archive",
+    "missing": [
+      "overview",
+      "complete official statutory text"
+    ]
   }
 }

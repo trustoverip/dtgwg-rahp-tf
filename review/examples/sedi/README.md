@@ -2,19 +2,19 @@
 
 Tracking issue: [#71](https://github.com/trustoverip/dtgwg-rahp-tf/issues/71), following the Task Force decision on 25 November 2026.
 
-**Status: source qualification and initial scoping; examination not yet executed.**
+**Status: local assessment input baseline established; examination not yet executed.**
 
 This upstream-only exemplar examines whether the SEDI draft's protections remain effective across representative digital identity service interactions. It is separate from the canonical DTG instance and does not depend on downstream tooling.
 
 ## Source boundary
 
-See [source inventory](source-inventory.json). The guide describes itself as a working draft interpreting Utah Code Title 63A, Chapter 20; official implementation standards are the Department's responsibility. The inventory identifies 19 guide pages from the overview navigation plus the statutory chapter. Only the entries explicitly marked inspected were accessible as indexed content. No raw bytes were obtained; no digest, immutable target revision or source authenticity claim is made.
+See [source inventory](source-inventory.json). The guide describes itself as a working draft interpreting Utah Code Title 63A, Chapter 20; official implementation standards are the Department's responsibility. The inventory identifies 19 guide pages from the overview navigation plus the statutory chapter. The original web discovery inventory is historical. On 27 November 2026 a contributor supplied a locally assembled archive from the [SEDI toolkit](https://sedi.utah.gov/bring-sedi-to-your-state/#kit) and [Implementation Guide](https://sedi.utah.gov/implementation-guide/), in the absence of a formally downloadable publisher payload. See [archive manifest](archive-manifest.json) for exact archive and member digests. All 18 guide PDFs and three toolkit DOCX files were readable. The overview and complete official statutory text are not included. The statutory language DOCX explicitly contains extracts.
 
 The guide labels its build as `08495a8`, dated 22 May 2026, while the introduction's version history dates the initial draft to 19 June 2026. Preserve both labels; do not reconcile them by assumption.
 
 The RAHP baseline used to scope this work is [8f6be0638fc1932abe5713263e26fee3929be147](https://github.com/trustoverip/dtgwg-rahp-tf/commit/8f6be0638fc1932abe5713263e26fee3929be147). The existing `rahp-spec-review/v1` target revision is a full Git commit identity. The existing `review/source_integrity.py` verifies commit-qualified GitHub URLs, blob identity and SHA-256. A short build label or SHA-256 of a web page is not a substitute.
 
-Before creating a review record, obtain the publisher's immutable source revision and redistribution terms, or agree a bounded web-source representation with Task Force review. Retain exact acquired bytes and retrieval metadata where permissible. If redistribution is not permitted, keep source bytes outside the public repository and document the independently obtainable inputs and integrity boundary. A fresh capture cannot be assumed identical to the draft observed on 26 November.
+The archive digest identifies the exact assessment input, not a publisher Git revision. Before creating a conforming review record, agree a bounded non-Git target representation with Task Force review or obtain an authoritative Git revision. Retain exact acquired bytes and retrieval metadata where permissible. If redistribution is not permitted, keep source bytes outside the public repository and document the independently obtainable inputs and integrity boundary. A fresh capture cannot be assumed identical to the draft observed on 26 November.
 
 ## Local source acquisition
 
@@ -38,9 +38,9 @@ The initial scope is one otherwise eligible individual accessing a government se
 | SEDI-BOR-04 | 63A-20-101(4) | The physical alternative is usable without digital enrollment. |
 | SEDI-BOR-09 | 63A-20-101(9) | Format choice does not disadvantage the otherwise entitled person. |
 
-Source: [Part 1](https://sedi.utah.gov/implementation-guide/part-1/). Relevant implementation decisions concern acceptance-point review frequency, pathway inventory and permissible channel distinctions. The draft identifies limitations of administrative review, automated platform checks and expert examination; documentary evidence alone cannot establish actual service access. These observations are preliminary and not yet bound to an immutable source.
+Source: [Part 1](https://sedi.utah.gov/implementation-guide/part-1/). Relevant implementation decisions concern acceptance-point review frequency, pathway inventory and permissible channel distinctions. The draft identifies limitations of administrative review, automated platform checks and expert examination; documentary evidence alone cannot establish actual service access. These observations are now traceable to the retained Part 1 PDF (pages 9–14 and 24–26); the local archive manifest identifies its exact bytes.
 
-The [initial requirement inventory](initial-requirements.json) records the three requirement IDs, roles, implementation decision references, objective numbers, verification coverage and evidence categories. The source inventory also records all 18 published requirement domains. The complete requirement and role-obligation annexes remain unavailable; no claim of full requirement coverage is made.
+The [initial requirement inventory](initial-requirements.json) records the three requirement IDs, roles, implementation decision references, objective numbers, verification coverage and evidence categories. The source inventory also records all 18 published requirement domains. Annex A and Annex E are now available. Annex A contains 142 unique requirement IDs, as independently extracted from the PDF. Full role and objective mapping is not yet complete.
 
 ### Candidate constructed cases
 
@@ -58,6 +58,6 @@ These are constructed hypotheses, not reports of Utah operations. The affected c
 
 The proposed first examination needs the pinned source, relevant administrative rules (if available), pathway and acceptance-point inventories, service workflows, comparative service metrics, and complaint/remediation evidence. The latter are not available in this documentary exercise. Do not infer runtime compliance or noncompliance from their absence.
 
-The next increment must acquire and qualify the source and represent its identity without weakening existing review contracts. Only then introduce example-local risks, cases, review and evidence bindings and reproducible checks. No risk scores, guardrail results, findings or assurance outcomes are asserted here.
+The next increment must qualify the local archive representation for the review contract without weakening existing Git checks. The archive is available for documentary examination; no publisher authenticity or redistribution claim is made. Only then introduce example-local risks, cases, review and evidence bindings and reproducible checks. No risk scores, guardrail results, findings or assurance outcomes are asserted here.
 
 No canonical DTG records or shared contracts are modified. This foundation was prepared with AI assistance and remains subject to accountable human review.

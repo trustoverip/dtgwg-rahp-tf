@@ -1,5 +1,5 @@
 {
-  "status": "provisional documentary inventory; not a source-pinned review or finding",
+  "status": "documentary inventory corroborated against locally retained Part 1 PDF; not an approved review or finding",
   "source": "https://sedi.utah.gov/implementation-guide/part-1/",
   "source_build_label": "08495a8",
   "requirements": [
@@ -44,7 +44,11 @@
         "service policies",
         "complaints and inspections"
       ],
-      "limitation": "Administrative verification may miss local withdrawal of physical acceptance."
+      "limitation": "Administrative verification may miss local withdrawal of physical acceptance.",
+      "pdf_pages": [
+        9,
+        11
+      ]
     },
     {
       "id": "SEDI-BOR-04",
@@ -94,7 +98,11 @@
         "integration agreements",
         "staff procedures and grievance records"
       ],
-      "limitation": "Platform tests cannot cover external portals; review cannot establish every downstream or informal interaction."
+      "limitation": "Platform tests cannot cover external portals; review cannot establish every downstream or informal interaction.",
+      "pdf_pages": [
+        12,
+        14
+      ]
     },
     {
       "id": "SEDI-BOR-09",
@@ -143,12 +151,20 @@
         "processing-time measurements",
         "complaint and audit evidence"
       ],
-      "limitation": "Design review cannot establish real service performance; administrative review may miss local degradation."
+      "limitation": "Design review cannot establish real service performance; administrative review may miss local degradation.",
+      "pdf_pages": [
+        24,
+        26
+      ]
     }
   ],
   "exclusions": [
     "Operational evidence not acquired",
     "No independent assessment or risk scoring",
     "No inference that SEDI violates any requirement"
-  ]
+  ],
+  "local_source": {
+    "manifest": "archive-manifest.json",
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf"
+  }
 }
