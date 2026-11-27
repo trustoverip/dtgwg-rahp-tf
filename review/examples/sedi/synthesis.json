@@ -11,7 +11,9 @@
         "digital-enrollment-condition",
         "unequal-service",
         "AB-01",
-        "AB-02"
+        "AB-02",
+        "equivalent-service",
+        "evidence-missing"
       ],
       "observation": "The rights and acceptance provisions explicitly protect physical alternatives and voluntary use; documentary and laboratory checks cannot establish field-level access or remedy.",
       "authority": "Department, governmental entities and applicable service operators",
@@ -39,7 +41,8 @@
         "P-03",
         "C-04",
         "EI-02",
-        "OS-02"
+        "OS-02",
+        "P-06"
       ],
       "observation": "Anti-surveillance restrictions coexist with holder-controlled history and security/audit obligations. The relevant evidence boundary is log content, access and completeness, not logging alone.",
       "authority": "Department and applicable wallet providers",
@@ -54,7 +57,8 @@
         "L-02",
         "L-04",
         "L-05",
-        "D-03"
+        "D-03",
+        "L-06"
       ],
       "observation": "Offline availability, status freshness, compromise recovery and portability are separately protected; effectiveness depends on how lifecycle transitions compose.",
       "authority": "Department, wallet providers and verifiers",
@@ -71,7 +75,8 @@
         "D-05",
         "L-03",
         "IP-04",
-        "OS-01"
+        "OS-01",
+        "D-06"
       ],
       "observation": "Identity, current authority, action scope and factual justification are distinct. Technical authorization does not establish appropriate exercise of authority.",
       "authority": "Department and competent oversight authorities",
@@ -86,7 +91,8 @@
         "C-02",
         "C-05",
         "C-06",
-        "OS-03"
+        "OS-03",
+        "P-05"
       ],
       "observation": "Component conformance and profile claims cannot establish interaction-level protection; missing or stale evidence must remain visible.",
       "authority": "Department and profile owners",

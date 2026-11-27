@@ -95,7 +95,13 @@
         ]
       },
       "observation": "Attribute-level choice, cryptographic hiding and absence of metadata leakage.",
-      "roles": "Department, Wallet Providers, Verifiers"
+      "roles": "Department, Wallet Providers, Verifiers",
+      "authority_reference": "Utah Code § 63A-20-101(8)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-BOR-10",
@@ -141,7 +147,13 @@
         ]
       },
       "observation": "Structural restriction on state-accessible tracking capability, subject to authorized exceptions.",
-      "roles": "Department, Wallet Providers"
+      "roles": "Department, Wallet Providers",
+      "authority_reference": "Utah Code § 63A-20-101(10)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Mandatory",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-SDI-03",
@@ -172,7 +184,13 @@
         "ADMN": []
       },
       "observation": "No shared identifiers, repeated signatures or payload-based linkage, including statistical linkage.",
-      "roles": "Department, Wallet Providers"
+      "roles": "Department, Wallet Providers",
+      "authority_reference": "Utah Code § 63A-20-301(1)(a)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": null
+      }
     },
     {
       "id": "SEDI-SDI-07",
@@ -203,7 +221,13 @@
         "ADMN": []
       },
       "observation": "Non-selected attributes inaccessible through the presentation; mechanism may be structural or cryptographic.",
-      "roles": "Department, Wallet Providers"
+      "roles": "Department, Wallet Providers",
+      "authority_reference": "Utah Code § 63A-20-301(1)(e)(i)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "N/A"
+      }
     },
     {
       "id": "SEDI-SDI-17",
@@ -238,7 +262,13 @@
         ]
       },
       "observation": "No Department monitoring capability; signals may exist only where individual patterns cannot be inferred.",
-      "roles": "Department"
+      "roles": "Department",
+      "authority_reference": "Utah Code § 63A-20-301(3)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-PRV-01",
@@ -273,7 +303,13 @@
         "ADMN": []
       },
       "observation": "Unlinkability extends to timing, ordering and transport metadata.",
-      "roles": "Department, Wallet Providers"
+      "roles": "Department, Wallet Providers",
+      "authority_reference": "Utah Code § 63A-20-301(1)(a), 201(1)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": null,
+        "ADMN": null
+      }
     },
     {
       "id": "SEDI-PRV-03",
@@ -308,7 +344,13 @@
         "ADMN": []
       },
       "observation": "Prohibits Department-bound presentation traffic, revealing status checks and accessible transaction logs.",
-      "roles": "Department"
+      "roles": "Department",
+      "authority_reference": "Utah Code § 63A-20-301(3)",
+      "verification_applicability": {
+        "AUTO": null,
+        "EXPT": "Mandatory",
+        "ADMN": null
+      }
     },
     {
       "id": "SEDI-PRV-04",
@@ -342,7 +384,13 @@
         "ADMN_parameter_check": true
       },
       "observation": "Minimize data at each lifecycle stage and publish purpose, retention and deletion specification.",
-      "roles": "Department, Identity Proofing Entities, Wallet Providers, Verifiers, Relying Parties"
+      "roles": "Department, Identity Proofing Entities, Wallet Providers, Verifiers, Relying Parties",
+      "authority_reference": "Utah Code § 63A-20-301(4), 302(7)(a)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-WAL-12",
@@ -375,7 +423,13 @@
         ]
       },
       "observation": "Affirmative per-transaction consent and cancellation before transmission; no dark patterns.",
-      "roles": "Wallet Providers"
+      "roles": "Wallet Providers",
+      "authority_reference": "Utah Code § 63A-20-401(2)(c)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-WAL-14",
@@ -414,7 +468,13 @@
         ]
       },
       "observation": "Limits wallet retention and sharing to express authorization or legal obligation; technical deletion enforcement.",
-      "roles": "Wallet Providers"
+      "roles": "Wallet Providers",
+      "authority_reference": "Utah Code § 63A-20-401(3)(b)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-ENF-04",
@@ -455,7 +515,13 @@
         ]
       },
       "observation": "Independent architectural evidence of no monitoring capability, including status-list unlinkability.",
-      "roles": "Department"
+      "roles": "Department",
+      "authority_reference": "Utah Code § 63A-20-802(2)(b)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-INT-04",
@@ -493,7 +559,13 @@
         "ADMN": []
       },
       "observation": "Refuse incompatible interactions rather than downgrade required privacy or security.",
-      "roles": "Department, Wallet Providers, Verifiers"
+      "roles": "Department, Wallet Providers, Verifiers",
+      "authority_reference": "Utah Code § 63A-20-301(1)(c)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": null
+      }
     }
   ],
   "cases": [
@@ -585,5 +657,10 @@
     "No actual SEDI implementation, profile conformance, telemetry, logs or test execution examined.",
     "Objective coverage transcribed from supplied guide; no risk scoring or guardrail verification.",
     "Not integrated into SEDI-01 executable candidate; separate documentary tranche pending composed validation and independent review."
-  ]
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
 }

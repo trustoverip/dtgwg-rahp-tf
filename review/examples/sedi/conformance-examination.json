@@ -84,7 +84,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Issuance conformance includes operation, change management, deviation identification and remediation; expert assessment mandatory."
+      "observation": "Issuance conformance includes operation, change management, deviation identification and remediation; expert assessment mandatory.",
+      "authority_reference": "Utah Code § 63A-20-202(2)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-PRG-02",
@@ -124,7 +130,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Public standards must support independent implementation throughout credential lifecycle; URL availability is not technical sufficiency."
+      "observation": "Public standards must support independent implementation throughout credential lifecycle; URL availability is not technical sufficiency.",
+      "authority_reference": "Utah Code § 63A-20-202(3)(a)(ii)(A)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-PRG-04",
@@ -153,7 +165,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Minimum 45-day accessible public comment period; administrative evidence of publication and timing, not technical certification."
+      "observation": "Minimum 45-day accessible public comment period; administrative evidence of publication and timing, not technical certification.",
+      "authority_reference": "Utah Code § 63A-20-202(3)(b)(i)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-PRG-05",
@@ -182,7 +200,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Published substantive responses before rules take effect; generic acknowledgment insufficient."
+      "observation": "Published substantive responses before rules take effect; generic acknowledgment insufficient.",
+      "authority_reference": "Utah Code § 63A-20-202(3)(b)(ii)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-ENF-03",
@@ -221,7 +245,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Audit-ready program records; field completeness is not substantive completeness; audit evidence must respect anti-surveillance."
+      "observation": "Audit-ready program records; field completeness is not substantive completeness; audit evidence must respect anti-surveillance.",
+      "authority_reference": "Utah Code § 63A-20-802(1)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-INT-01",
@@ -257,7 +287,12 @@
         ]
       },
       "roles": "Department",
-      "observation": "Open protocols, formats, schemas and APIs; catalog validation cannot detect uncataloged dependencies. EXPT marked N/A although limitation describes expert review need."
+      "observation": "Open protocols, formats, schemas and APIs; catalog validation cannot detect uncataloged dependencies. EXPT marked N/A although limitation describes expert review need.",
+      "authority_reference": "Utah Code § 63A-20-301(2)(e)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Mandatory"
+      }
     },
     {
       "id": "SEDI-INT-02",
@@ -295,7 +330,13 @@
         "ADMN": []
       },
       "roles": "Department, Wallet Providers, Verifiers",
-      "observation": "Common credential format; equivalent online/offline assurance and privacy, not merely common syntax."
+      "observation": "Common credential format; equivalent online/offline assurance and privacy, not merely common syntax.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(d)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "N/A"
+      }
     }
   ],
   "cases": [
@@ -425,5 +466,10 @@
     "No independent legal conclusion, risk scoring or verified guardrail.",
     "Framework observations are not numbered SEDI requirements; objective totals count only selected requirement records.",
     "Separate documentary tranche pending consolidated runner."
-  ]
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
 }

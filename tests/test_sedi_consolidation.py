@@ -21,7 +21,7 @@ class SediConsolidationTests(unittest.TestCase):
             self.assertEqual(r["overall_assurance"], "review-required")
 
     def test_false_success(self):
-        for mutation in ("missing-case", "unknown-risk", "terminal", "baseline", "invented-plane", "synthesis-terminal"):
+        for mutation in ("missing-case", "unknown-risk", "terminal", "baseline", "invented-plane", "synthesis-terminal", "unbound-synthesis"):
             with self.subTest(mutation=mutation):
                 def loader(name):
                     d = copy.deepcopy(consolidate.load(name))
@@ -38,6 +38,9 @@ class SediConsolidationTests(unittest.TestCase):
                         d["cases"][0]["risk"] = "EX-RK-UNKNOWN"
                     if name == "synthesis.json" and mutation == "synthesis-terminal":
                         d["findings"][0]["status"] = "resolved"
+                    if name == "synthesis.json" and mutation == "unbound-synthesis":
+                        for f in d["findings"]:
+                            f["cases"] = [c for c in f["cases"] if c != "equivalent-service"]
                     return d
                 with patch.object(consolidate, "verify_archive", return_value={}):
                     with self.assertRaises(ValueError):

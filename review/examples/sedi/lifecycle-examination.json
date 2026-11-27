@@ -85,7 +85,13 @@
         "ADMN": []
       },
       "roles": "Department, Verifiers",
-      "observation": "Detect compromised credentials within defined propagation delay without disclosing presentation patterns."
+      "observation": "Detect compromised credentials within defined propagation delay without disclosing presentation patterns.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(a)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-SDI-02",
@@ -119,7 +125,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Expedited replacement within original-proofing window, with new personal digital identifier."
+      "observation": "Expedited replacement within original-proofing window, with new personal digital identifier.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(a)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-SDI-06",
@@ -152,7 +164,13 @@
         "ADMN": []
       },
       "roles": "Department, Wallet Providers, Verifiers",
-      "observation": "Offline presentation without network service; equivalent security and privacy."
+      "observation": "Offline presentation without network service; equivalent security and privacy.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(d)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "N/A"
+      }
     },
     {
       "id": "SEDI-SDI-10",
@@ -185,7 +203,13 @@
         ]
       },
       "roles": "Department, Wallet Providers",
-      "observation": "Recovery and migration usable without specialist knowledge."
+      "observation": "Recovery and migration usable without specialist knowledge.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(g)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-SDI-23",
@@ -222,7 +246,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Revocation restricted to enumerated grounds; reason recorded and no override."
+      "observation": "Revocation restricted to enumerated grounds; reason recorded and no override.",
+      "authority_reference": "Utah Code § 63A-20-301(5)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-SDI-24",
@@ -259,7 +289,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Detection-to-reporting pipeline and incident response aligned to referenced statute."
+      "observation": "Detection-to-reporting pipeline and incident response aligned to referenced statute.",
+      "authority_reference": "Utah Code § 63A-20-301(6)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-KMS-04",
@@ -292,7 +328,12 @@
         "ADMN_parameter_check": true
       },
       "roles": "Department",
-      "observation": "Scheduled key rotation preserves validity of previously issued credentials."
+      "observation": "Scheduled key rotation preserves validity of previously issued credentials.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(a), 301(2)(d)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Mandatory"
+      }
     },
     {
       "id": "SEDI-KMS-05",
@@ -335,7 +376,13 @@
         "ADMN_parameter_check": true
       },
       "roles": "Department",
-      "observation": "Exercised compromise response plan with detection, notification, revocation, reissuance and review."
+      "observation": "Exercised compromise response plan with detection, notification, revocation, reissuance and review.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(a), 301(2)(d), 301(6)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-INT-03",
@@ -372,7 +419,13 @@
         "ADMN": []
       },
       "roles": "Department, Wallet Providers",
-      "observation": "Holder-initiated migration without reissuance, reproofing or Department interaction; binding and privacy preserved."
+      "observation": "Holder-initiated migration without reissuance, reproofing or Department interaction; binding and privacy preserved.",
+      "authority_reference": "Utah Code § 63A-20-301(2)(g)(i)(E), 301(1)(f)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "N/A"
+      }
     }
   ],
   "cases": [
@@ -462,5 +515,10 @@
     "No independent legal conclusion, risk scores or verified guardrail.",
     "Part 3 p54 explicitly documents offline/status tension; proposed checks do not resolve the design decision.",
     "Separate documentary tranche; not included in SEDI-01 composed runner."
-  ]
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
 }

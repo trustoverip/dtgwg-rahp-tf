@@ -60,6 +60,7 @@ def compose(archive, loader=load):
     if synthesis["archive_sha256"] != manifest["sha256"]:
         raise ValueError("Synthesis baseline mismatch")
     synth_ids = set()
+    synthesis_cases = set()
     for finding in synthesis["findings"]:
         if finding["id"] in synth_ids or finding["status"] != "open" or not finding["authority"] or not finding["resolution_evidence"]:
             raise ValueError("Invalid synthesis disposition or authority")
@@ -68,8 +69,11 @@ def compose(archive, loader=load):
             raise ValueError("Invalid control plane")
         if not set(finding["cases"]) <= cases.keys() or (not finding["cases"] and not finding.get("source_gap")):
             raise ValueError("Invalid synthesis binding")
+        synthesis_cases.update(finding["cases"])
         if finding.get("source_gap") and not rows.get(finding["source_gap"], {}).get("source_gap"):
             raise ValueError("Unknown source gap")
+    if synthesis_cases != cases.keys():
+        raise ValueError("Incomplete synthesis case coverage")
     return {**integrity, "coverage": view["summary"], "risks": list(risks.values()),
             "synthesis": synthesis["findings"],
             "candidate_propositions": findings, "overall_assurance": "review-required",

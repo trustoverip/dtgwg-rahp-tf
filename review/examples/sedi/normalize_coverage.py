@@ -43,7 +43,7 @@ def normalize(register, index, manifest, loader=load):
         for method in METHODS:
             v = raw[method]
             if isinstance(v, list):
-                v = {"objectives": v, "applicability": None}
+                v = {"objectives": v, "applicability": source.get("verification_applicability", {}).get(method)}
             else:
                 v = dict(v)
             v.setdefault("applicability", None)

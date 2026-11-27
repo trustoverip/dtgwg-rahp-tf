@@ -34,7 +34,13 @@
         ]
       },
       "observation": "Prohibits enrollment prerequisites and possession assumptions; mandatory administrative review covers all objectives but cannot detect informal SEDI-only practices.",
-      "treatment": "Service integration and fallback policies plus independent point-of-service observations."
+      "treatment": "Service integration and fallback policies plus independent point-of-service observations.",
+      "authority_reference": "Utah Code § 63A-20-302(5)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-GOV-01",
@@ -71,7 +77,13 @@
         ]
       },
       "observation": "Prohibits differential benefits, including speed and fee advantages; workflow review and administrative audit have acknowledged coverage limits.",
-      "treatment": "Matched fee and processing-time evidence; independent review of preferential practices."
+      "treatment": "Matched fee and processing-time evidence; independent review of preferential practices.",
+      "authority_reference": "Utah Code § 63A-20-304(1)(a)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-GOV-02",
@@ -107,7 +119,13 @@
         ]
       },
       "observation": "Requires physical acceptance and prohibits service degradation; complaint mechanisms are an objective, not evidence that local denial is detected.",
-      "treatment": "Verify actual acceptance at representative service points and complaint resolution."
+      "treatment": "Verify actual acceptance at representative service points and complaint resolution.",
+      "authority_reference": "Utah Code § 63A-20-304(1)(b)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-GOV-05",
@@ -146,7 +164,18 @@
         ]
       },
       "observation": "Exemption concerns obligation to accept SEDI, with infeasibility documentation and remediation or a legal specific-format requirement. It does not itself authorize mandatory SEDI enrollment.",
-      "treatment": "Check exception direction, legal basis, Department review and remediation separately from physical-format rights."
+      "treatment": "Check exception direction, legal basis, Department review and remediation separately from physical-format rights.",
+      "authority_reference": "Utah Code § 63A-20-304(2)(b)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
+      }
     }
-  ]
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
 }

@@ -112,7 +112,13 @@
         ]
       },
       "roles": "Department, Wallet Providers",
-      "observation": "Holder control, guardian scope policy, separate logging, constrained revocation and absence of undocumented override."
+      "observation": "Holder control, guardian scope policy, separate logging, constrained revocation and absence of undocumented override.",
+      "authority_reference": "Utah Code § 63A-20-101(2)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Mandatory"
+      }
     },
     {
       "id": "SEDI-APP-02",
@@ -145,7 +151,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Consent and identity verification for non-emancipated minors before proofing."
+      "observation": "Consent and identity verification for non-emancipated minors before proofing.",
+      "authority_reference": "Utah Code § 63A-20-302(2)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-APP-03",
@@ -180,7 +192,13 @@
         ]
       },
       "roles": "Department",
-      "observation": "Guardian-initiated applications, both identities and authorization verified; subject consent where required."
+      "observation": "Guardian-initiated applications, both identities and authorization verified; subject consent where required.",
+      "authority_reference": "Utah Code § 63A-20-302(3)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-WAL-09",
@@ -216,7 +234,13 @@
         ]
       },
       "roles": "Wallet Providers",
-      "observation": "Distinguishable guardian presentations, verification of authorization and rejection of expired or revoked authority."
+      "observation": "Distinguishable guardian presentations, verification of authorization and rejection of expired or revoked authority.",
+      "authority_reference": "Utah Code § 63A-20-401(1)(h)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-VER-05",
@@ -250,7 +274,13 @@
         ]
       },
       "roles": "Verifiers",
-      "observation": "Validate guardian authority and equivalent processing; no rejection solely because of representative status."
+      "observation": "Validate guardian authority and equivalent processing; no rejection solely because of representative status.",
+      "authority_reference": "Utah Code § 63A-20-501(1)(e)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-RPY-05",
@@ -285,7 +315,13 @@
         ]
       },
       "roles": "Relying Parties",
-      "observation": "Authorized guardian presentations on same terms; no additional burden or service degradation."
+      "observation": "Authorized guardian presentations on same terms; no additional burden or service degradation.",
+      "authority_reference": "Utah Code § 63A-20-601(1)(e)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-LOY-01",
@@ -321,7 +357,13 @@
         ]
       },
       "roles": "Department, Wallet Providers, Verifiers, Relying Parties, Digital Guardians",
-      "observation": "Best interests and avoidance of manipulative disclosure, participant agreements and complaint channel."
+      "observation": "Best interests and avoidance of manipulative disclosure, participant agreements and complaint channel.",
+      "authority_reference": "Utah Code § 63A-20-701(1)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-LOY-02",
@@ -354,7 +396,13 @@
         ]
       },
       "roles": "Department, Wallet Providers, Verifiers, Relying Parties, Digital Guardians",
-      "observation": "No exploitation; administrative evidence and expert assessment."
+      "observation": "No exploitation; administrative evidence and expert assessment.",
+      "authority_reference": "Utah Code § 63A-20-701(2)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-LOY-03",
@@ -391,7 +439,13 @@
         ]
       },
       "roles": "All ecosystem participants",
-      "observation": "Risk proportionality requires contextual judgment, not merely baseline security checks."
+      "observation": "Risk proportionality requires contextual judgment, not merely baseline security checks.",
+      "authority_reference": "Utah Code § 63A-20-701(3)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
     },
     {
       "id": "SEDI-LOY-04",
@@ -420,7 +474,12 @@
         ]
       },
       "roles": "All ecosystem participants",
-      "observation": "No detrimental practices, accessible complaints, pattern review and remediation."
+      "observation": "No detrimental practices, accessible complaints, pattern review and remediation.",
+      "authority_reference": "Utah Code § 63A-20-701(4)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Mandatory"
+      }
     },
     {
       "id": "SEDI-LOY-05",
@@ -451,7 +510,12 @@
         ]
       },
       "roles": "All ecosystem participants",
-      "observation": "No harmful practices, accessible complaints, harm review and incident remediation. Annex G guardian table lists LOY-01–04 only; Part 7 names all participants. Applicability requires clarification rather than silent reconciliation."
+      "observation": "No harmful practices, accessible complaints, harm review and incident remediation. Annex G guardian table lists LOY-01–04 only; Part 7 names all participants. Applicability requires clarification rather than silent reconciliation.",
+      "authority_reference": "Utah Code § 63A-20-701(5)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Mandatory"
+      }
     }
   ],
   "cases": [
@@ -555,5 +619,10 @@
     "No actual guardianship instruments, Department rules, operational evidence or legal determination examined.",
     "Part 7 LOY-05 all-participant scope and Annex G guardian table omission retained for review.",
     "Separate documentary tranche; not included in SEDI-01 composed runner."
-  ]
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF requirement headings and visible verification table rows; null or absent applicability means not corroborated in this pass. Objective assignments retained, not independently verified.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
 }
