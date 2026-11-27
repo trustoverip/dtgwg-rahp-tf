@@ -40,7 +40,7 @@ The initial scope is one otherwise eligible individual accessing a government se
 
 Source: [Part 1](https://sedi.utah.gov/implementation-guide/part-1/). Relevant implementation decisions concern acceptance-point review frequency, pathway inventory and permissible channel distinctions. The draft identifies limitations of administrative review, automated platform checks and expert examination; documentary evidence alone cannot establish actual service access. These observations are now traceable to the retained Part 1 PDF (pages 9–14 and 24–26); the local archive manifest identifies its exact bytes.
 
-The [initial requirement inventory](initial-requirements.json) records the three requirement IDs, roles, implementation decision references, objective numbers, verification coverage and evidence categories. The source inventory also records all 18 published requirement domains. Annex A and Annex E are now available. Annex A contains 142 unique requirement IDs, as independently extracted from the PDF. Full role and objective mapping is not yet complete.
+The [initial requirement inventory](initial-requirements.json) records the three requirement IDs, roles, implementation decision references, objective numbers, verification coverage and evidence categories. The source inventory also records all 18 published requirement domains. Annex A and Annex E are now available. Annex A contains 142 unique requirement IDs, as independently extracted from the PDF. This was the initial vertical inventory; see the consolidated view below for current coverage.
 
 ### Candidate constructed cases
 
@@ -87,19 +87,19 @@ The [tutorial](TUTORIAL.md) describes source verification and independent review
 
 ## SEDI-03: Credential lifecycle and continuity
 
-[Lifecycle documentary examination](lifecycle-examination.json) examines nine requirements, including offline status freshness, accessible recovery, substantiation of revocation grounds, planned versus emergency key transitions, and wallet migration. Six constructed cases and five local hypotheses are bound to the archive. Part 3 page 54 explicitly identifies the offline/status tension. No separate suspension mechanism or operational outcomes are assumed. This tranche remains outside the SEDI-01 composed candidate pending consolidation.
+[Lifecycle documentary examination](lifecycle-examination.json) examines nine requirements, including offline status freshness, accessible recovery, substantiation of revocation grounds, planned versus emergency key transitions, and wallet migration. Six constructed cases and five local hypotheses are bound to the archive. Part 3 page 54 explicitly identifies the offline/status tension. No separate suspension mechanism or operational outcomes are assumed. This tranche is outside the bounded SEDI-01 candidate and included in the consolidated examination.
 
 ## SEDI-04: Delegated authority and accountability
 
-[Delegation documentary examination](delegation-examination.json) examines guardian consent, appointment and action scope, current authority, service parity and duty of loyalty. It distinguishes identity, legal relationship, action-specific authorization and best-interest judgment. Annex G p16 lists LOY-01–04 for guardians while Part 7 LOY-05 names all ecosystem participants; this is retained as an applicability question, not a legal conclusion. The tranche remains outside the SEDI-01 composed candidate pending consolidation.
+[Delegation documentary examination](delegation-examination.json) examines guardian consent, appointment and action scope, current authority, service parity and duty of loyalty. It distinguishes identity, legal relationship, action-specific authorization and best-interest judgment. Annex G p16 lists LOY-01–04 for guardians while Part 7 LOY-05 names all ecosystem participants; this is retained as an applicability question, not a legal conclusion. The tranche is outside the bounded SEDI-01 candidate and included in the consolidated examination.
 
 ## SEDI-05: Compositional conformance
 
-[Conformance documentary examination](conformance-examination.json) distinguishes mandatory base requirements, profile-specific technology bindings, actor-level claims, Department rulemaking, paired interaction evidence and prospective certification. It retains explicit questions about Part 9 base coverage and INT-01 expert-review applicability, and links privacy, lifecycle and service-equivalence dependencies to earlier themes. No actual profile or certificate is assessed. This completes the planned thematic expansion; consolidated replay, findings and accountable review remain outstanding.
+[Conformance documentary examination](conformance-examination.json) distinguishes mandatory base requirements, profile-specific technology bindings, actor-level claims, Department rulemaking, paired interaction evidence and prospective certification. It retains explicit questions about Part 9 base coverage and INT-01 expert-review applicability, and links privacy, lifecycle and service-equivalence dependencies to earlier themes. No actual profile or certificate is assessed. This completed the thematic expansion; see the consolidated examination and review handover below.
 
 ## Complete requirement coverage extension
 
-The proposed execution scope now includes all 142 indexed requirements, with differentiated scenario depth. [Coverage conventions](COVERAGE.md) and [coverage register](requirement-coverage.json) track documentary examination and indexed-only requirements. This extends the five thematic records without duplicating their contents. The complete-coverage gate must remain failing until all requirements have documentary examination records; no operational assurance is inferred.
+The proposed execution scope now includes all 142 indexed requirements, with differentiated scenario depth. [Coverage conventions](COVERAGE.md) and [coverage register](requirement-coverage.json) track documentary examination and indexed-only requirements. This extends the five thematic records without duplicating their contents. The complete-coverage gate must remain failing until all requirements have documentary examination records and required analytical metadata; no operational assurance is inferred.
 
 ### WP-A/B: Rights, governance, processing restrictions and enforcement
 
@@ -123,10 +123,14 @@ The proposed execution scope now includes all 142 indexed requirements, with dif
 
 ## G1: Normalized documentary view
 
-Run `python3 review/examples/sedi/normalize_coverage.py` to derive a consistent requirement view from the register and existing examination records. No generated duplicate is committed. Source bindings, objective sequences and method coverage are checked; missing authority, applicability, analytical fields and the IDP-08 source gap remain visible. The view is not a source transcription or independent assurance decision. Source-field reconciliation and normalization gaps remain open before review readiness.
+Run `python3 review/examples/sedi/normalize_coverage.py` to derive a consistent requirement view from the register and existing examination records. No generated duplicate is committed. Source bindings, objective sequences and method coverage are checked; missing authority, applicability, analytical fields and the IDP-08 source gap remain visible. The view is not a source transcription or independent assurance decision. The author-side reconciliation resolves the original analytical field omissions; the two remaining normalization gaps are IDP-08 (missing detailed section) and INT-04 (ADMN undeclared).
 
 ## Consolidated consumer and review handover
 
 Run `python3 review/examples/sedi/consolidate.py /path/to/retained.zip` for the integrated retained-source and documentary consistency path. See [review handover](REVIEW-HANDOVER.md) for limitations and remaining gates. Candidate propositions are not formal findings; independent review is pending.
 
-The [synthesis](synthesis.json) groups documentary observations into twelve open review propositions, including the IDP-08 dependency. Case IDs remain analytical instruments; the consumer rejects invented case-level control-plane assignments. Proposed treatment authorities are not acceptance authorities.
+The [synthesis](synthesis.json) groups documentary observations into twelve open review propositions, including the IDP-08 dependency and method-applicability questions. The synthesis explicitly separates source observations, author interpretations, existing design protections, recommendations and proposed treatment authorities. Case IDs remain analytical instruments; the consumer rejects invented case-level control-plane assignments. Proposed treatment authorities are not acceptance authorities.
+
+## Author-side completion and qualified review
+
+[Acceptance evidence](ACCEPTANCE-EVIDENCE.md) records the source-field comparison, actual archive replay, strict negative gates and criterion reconciliation. All 141 detailed requirements now have analytical fields and reviewable source bindings. Ten justified affected-context groups cover all 47 constructed cases. The 32 selected objectives have explicit requirement-group control mappings; the remaining objectives are not asserted to have been individually executed. The original 46 legacy records are reconciled in the derived view, with INT-04 still undeclared. See the [review handover](REVIEW-HANDOVER.md) for reproduction and the remaining publisher and Task Force decisions. No formal review or assurance is claimed.

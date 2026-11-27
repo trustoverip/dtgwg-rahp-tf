@@ -1,10 +1,12 @@
 """Coverage register consistency and incomplete-coverage gate."""
 import copy
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1] / "review/examples/sedi"
+sys.path.insert(0, str(ROOT))
 SPEC = importlib.util.spec_from_file_location("sedi_coverage", ROOT / "check_coverage.py")
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)

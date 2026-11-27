@@ -37,3 +37,42 @@ Execution baseline: `4c190963210c8c50b28c74820c9a1d053dbd447f`. Reconstructed th
 - `check_coverage.py --require-complete`: exit 1, expected rejection: one requirement remains indexed only.
 
 The executable replay resolves the earlier repository retrieval obstacle. Missing analytical metadata, complete page-span verification, source interpretation, IDP-08 publisher clarification and independent review remain outstanding. The strict completeness gate currently rejects indexed-only coverage, not all unresolved analytical metadata; do not treat this as satisfying the full strict-completeness acceptance criterion. No canonical DTG changes, risk scoring, risk acceptance, legal determination or operational assurance.
+
+## Author-side closure audit (27 November 2026)
+
+Supersedes the earlier author-side normalization and replay work outstanding above. Source-citation commit `4d40804b749fc8baba5c4f2432918f511d53b22e` and analytical implementation commit `5ba1c38a7fd042f2ed85a7e36febd0803310d937` were checked against the exact locally tested changed Git blobs (six source/candidate files and six analytical/data/test files). The evidence-only changes and the standalone coverage-test import adjustment follow that implementation.
+
+### Source and analytical reconciliation
+
+Reopened the retained Part 1–9 PDF bytes. Located all 141 detailed sections, checked the 703 objective numbers, explicit method-objective assignments, applicability declarations and parameter flags against the normalized records, and compared heading citations and roles. Parenthetical citations and equivalent range notation were checked separately from preceding statutory prose. Eight requirements omitted a page containing their detailed examination; citations were extended for SDI-03, SDI-04, GOV-02, WAL-12, LOY-04, ENF-03, PRV-01 and PRV-03. Existing conservative page sets were not narrowed on text-extraction heuristics. GOV-02's bounded review bindings now include Part 3 page 97. Chapter introductions and informative summaries are not treated as missing numbered requirements. This is author-side structural and documentary reconciliation, not independent review or legal verification.
+
+Legacy reconciliation uses 43 requirement-specific limitation notes, three existing initial limitations, existing case evidence requests and the seven selected objective-control records. All 46 legacy requirements have explicit protection, relevance, limitation, evidence need, related requirements and disposition rationale in the derived view. Contextual risk associations do not claim that each objective independently mitigates the risk. The 95 later records retain their explicit requirement-level analytical mappings. Ten justified context groups cover 47/47 cases; 31/31 local risks have case and harm links. The 12 open synthesis propositions separate source observations, interpretations, existing design protections, treatment recommendations, proposed authorities and resolution evidence. Source citations are derived, including the five IDP-08 gap citations; direct additional sources for S-10 are explicitly reasoned. No new risk or case is introduced.
+
+### Observed execution
+
+- Actual ZIP SHA-256 matches pinned baseline; 21 substantive members verified. Normal consolidated replay exits 0: 142 indexed, 141 examined, 703 objectives, 31 risks, 47 cases, 12 synthesis propositions, ten context groups. Remaining normalization gaps: **two** (IDP-08 detailed section absent; INT-04 ADMN undeclared). Formal review not established; overall assurance review-required; documentary coverage and normalization incomplete.
+- Actual bounded SEDI-01 replay exits 0: seven scoped requirements, 32 mapped objectives, four open findings; candidate validation complete, not independent review.
+- Focused regression discovery: **32 tests passed**, including new context, limitation, selected-control, source-gap, risk, relation and synthesis negative mutations. Standalone coverage regression: two tests passed after ensuring its test imports use the same module directory as the consumer.
+- Both actual strict CLI invocations exit 1, naming IDP-08 and INT-04. A separate negative fixture establishes that an analytical metadata gap is rejected even without an indexed-only record; missing and duplicate inventory rows are already rejected. Positive fixture permits complete metadata without implying operational assurance.
+- Repository canonical validation: 0 errors, 32 retained warnings. CI is a separate repository check; do not attribute independent review or source authenticity to CI.
+
+### Acceptance reconciliation
+
+Author-side closure evidence for the twelve remaining author-completable criteria:
+
+| Criterion | Evidence and closure boundary |
+| --- | --- |
+| Personas and affected contexts | Ten justified groups in legacy-analysis.json; every constructed case has exactly one group with a rationale. |
+| Selected requirement/objective risk and control traceability | objective-controls.json and normalized view: seven requirements, 32 numbered objectives, explicit control, authority, proposed assurance test and guardrail, with source verification consistency. This is selected mapping, not 703 executed tests. |
+| Applicable verification methods examined | Retained PDF method tables and all declared applicability/coverage compared; INT-04 undeclared and source tensions retained rather than invented. |
+| Verification limits, decisions and unavailable evidence | Requirement-specific limitations and evidence requests, original tranche limitations, source-gap and synthesis records; operational evidence not acquired. |
+| Strict completeness validation | Both actual strict consumers reject source gaps; missing, duplicate, unknown and blank analytical metadata, source and synthesis failures exercised by regressions. |
+| Independently reviewable consolidated records | Exact archive manifest, normalized view, corrected citations, explicit source-gap records, contextual vs direct risk rationale and linked case/evidence records. Reviewability is not review performed. |
+| Substantive findings supported by source/evidence | Twelve source-bound review propositions, cited case and additional direct requirement references, proposed resolution evidence; documentary, not observed failures. |
+| Observation, interpretation and recommendation separation | Distinct synthesis fields with validation and explicit interpretation boundary. |
+| Existing adequate protections alongside gaps | Design-protection field in synthesis identifies meaningful requirement-level protections and qualifies effectiveness; not an operational adequacy finding. |
+| Appropriate treatment mechanism and authority | Explicit proposed control plane, treatment authority, recommendation and evidence in synthesis; not an acceptance authority. |
+| Methodological changes justified | No shared method or canonical DTG change proposed. Example-local ZIP provenance is justified by the mismatch with Git revision semantics; future generalization is a separate Task Force decision. |
+| Reproduce retained-source checks and reasoning | Actual archive execution with verified Git blob identities, precise commands, source references and review guidance in REVIEW-HANDOVER.md. Exact retained bytes must be obtained with appropriate permission. |
+
+Six criteria remain open: (1) full indexed requirement examination and (2) full requirement-level protection/relevance/dependency/evidence disposition cannot be asserted for missing IDP-08, with INT-04 declaration also unresolved; (3) accountable reviewers identified, (4) Task Force review, (5) material objections/limitations disposition and (6) publication/communication disposition require accountable review. Author-side work is prepared for qualified review, subject to new evidence or objections. No canonical changes, release or external communication are warranted by author-side closure.

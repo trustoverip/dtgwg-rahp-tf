@@ -5,7 +5,7 @@ The register is an index into documentary examination records, not a second copy
 ## Status and disposition
 
 - `indexed`: only index identity established. No examination reference or disposition; must name an outstanding work package.
-- `examined`: a substantive documentary record exists, with source page/digest, authority and actors, numbered objectives, method applicability, protection, risk relevance, dependencies and evidence limitations. Initial imported entries point to the previous thematic records; gaps in their normalized fields must be reconciled during consolidation.
+- `examined`: a substantive documentary record exists, with source page/digest, authority and actors, numbered objectives, method applicability, protection, risk relevance, dependencies and evidence limitations. Initial imported entries point to the previous thematic records; the derived view reconciles their analytical fields using the legacy limitation record, existing case and bounded review bindings and selected objective-control mappings. An explicit undeclared source method remains a gap, not N/A.
 - `scenario-examined`: additionally bound to one or more relevant constructed scenarios with explicit risk and evidence propositions. Do not assign from a requirement ID match alone.
 - Accountable review is a separate field; no author-side promotion to reviewed status.
 
@@ -27,4 +27,4 @@ python3 review/examples/sedi/check_coverage.py --require-complete
 python3 -m unittest discover -s tests -p 'test_sedi_coverage.py'
 ```
 
-The first command checks exact index coverage and record references, and reports outstanding examination work. The second must fail while any indexed requirement remains. It is a documentary completeness gate, not an assurance verdict. It does not evaluate the truth or adequacy of author judgments. The final consolidation must normalize existing records and independently review coverage quality before declaring completion.
+The first command checks exact index coverage and record references, and reports outstanding examination work. The second also derives the normalized analytical view and rejects indexed-only records and unresolved required fields. The integrated consumer supports the same strict gate with `consolidate.py /path/to/retained.zip --require-complete`. Current strict failures are IDP-08 (no detailed section) and INT-04 (ADMN undeclared). A valid documentary disposition may remain open pending operational evidence or review; strict completeness is not risk acceptance or an assurance verdict. Independent review of source interpretation and analytical judgment remains necessary.
