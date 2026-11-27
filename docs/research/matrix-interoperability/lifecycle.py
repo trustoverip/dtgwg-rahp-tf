@@ -14,7 +14,10 @@ GRANTS = {
 PARTIALS = ["calendar", "message", "purchase", "account"]
 # ID, source scenario suffix, tick, path, operation, offered grants, expected effect.
 # The oracle is the declared research protocol, not the gate's decision.
-PROTOCOL = {
+def protocol(deadline):
+    if deadline < 10:
+        raise ValueError('Deadline precedes revocation')
+    return {
     "baseline": [
         ["B1", "POS", 9, "direct", "book", ["grandchild"], True],
         ["B2", "NEG", 9, "combined", "book", PARTIALS, False],
@@ -22,14 +25,18 @@ PROTOCOL = {
         ["B4", "POS", 9, "direct", "read", ["read"], True],
     ],
     "reassessed": [
-        ["R1", "NEG", 12, "direct", "book", ["grandchild"], False],
-        ["R2", "NEG", 12, "combined", "book", PARTIALS, False],
-        ["R3", "ADV", 12, "cached", "book", ["grandchild"], False],
-        ["R4", "ADV", 13, "fallback", "book", ["grandchild"], False],
-        ["R5", "ADV", 12, "recombine", "book", PARTIALS, False],
-        ["R6", "POS", 13, "direct", "read", ["read"], True],
+        ["R1", "NEG", deadline, "direct", "book", ["grandchild"], False],
+        ["R2", "NEG", deadline, "combined", "book", PARTIALS, False],
+        ["R3", "ADV", deadline, "cached", "book", ["grandchild"], False],
+        ["R4", "ADV", deadline + 1, "fallback", "book", ["grandchild"], False],
+        ["R5", "ADV", deadline, "recombine", "book", PARTIALS, False],
+        ["R6", "POS", deadline + 1, "direct", "read", ["read"], True],
+        ["R7", "NEG", deadline + 1, "direct", "book", ["grandchild"], False],
     ],
-}
+    }
+
+
+PROTOCOL = protocol(DEADLINE)
 
 
 def digest(value):
@@ -49,10 +56,10 @@ def eligible(grant, operation, revoked):
     return bool(visited)
 
 
-def context(phase, variant="reference"):
+def context(phase, variant="reference", deadline=DEADLINE):
     return {"phase": phase, "variant": variant, "subject_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-            "protocol_sha256": digest(PROTOCOL), "grant_graph": {k: list(v) for k, v in GRANTS.items()},
-            "revocation": None if phase == "baseline" else {"grant": "root", "effective_tick": 10, "deadline_tick": DEADLINE}}
+            "protocol_sha256": digest(protocol(deadline)), "grant_graph": {k: list(v) for k, v in GRANTS.items()},
+            "revocation": None if phase == "baseline" else {"grant": "root", "effective_tick": 10, "deadline_tick": deadline}}
 
 
 def execute(case, ctx):
@@ -61,6 +68,8 @@ def execute(case, ctx):
     revoked = {event["grant"]} if event and tick >= event["effective_tick"] else set()
     variant = ctx["variant"]
     checked_revocation = set() if variant == "cached-mutant" and path == "cached" else revoked
+    if variant == "late-propagation-mutant" and event and tick < event["effective_tick"] + 3:
+        checked_revocation = set()
     gate = any(eligible(g, operation, checked_revocation) for g in offered)
     if variant == "recombine-mutant" and path == "recombine" and revoked:
         gate = True
@@ -97,7 +106,8 @@ def trial(case, observed, ctx):
 
 
 def aggregate(phase, observations, ctx):
-    cases = {c[0]: c for c in PROTOCOL[phase]}
+    deadline = ctx["revocation"]["deadline_tick"] if ctx["revocation"] else DEADLINE
+    cases = {c[0]: c for c in protocol(deadline)[phase]}
     valid = [o for o in observations if isinstance(o, dict) and isinstance(o.get("id"), str) and o["id"] in cases]
     results = [trial(cases[o["id"]], o, ctx) for o in valid]
     if "FAIL" in results:
@@ -108,11 +118,12 @@ def aggregate(phase, observations, ctx):
     return "PASS"
 
 
-def campaign(phase, variant="reference"):
-    ctx = context(phase, variant)
-    obs = [execute(case, ctx) for case in PROTOCOL[phase]]
+def campaign(phase, variant="reference", deadline=DEADLINE):
+    ctx = context(phase, variant, deadline)
+    cases = protocol(deadline)[phase]
+    obs = [execute(case, ctx) for case in cases]
     return {"context": ctx, "observations": obs,
-            "trial_results": {c[0]: trial(c, o, ctx) for c, o in zip(PROTOCOL[phase], obs)},
+            "trial_results": {c[0]: trial(c, o, ctx) for c, o in zip(cases, obs)},
             "protocol_result": aggregate(phase, obs, ctx)}
 
 
@@ -122,7 +133,7 @@ def replay():
     return {"source_proposition": "A01-P5", "bindings": bindings,
             "baseline": campaign("baseline"), "reassessed": campaign("reassessed"),
             "challenges": {v: campaign("reassessed", v) for v in
-                           ("cached-mutant", "fallback-mutant", "recombine-mutant")},
+                           ("cached-mutant", "fallback-mutant", "recombine-mutant", "late-propagation-mutant")},
             "matrix_campaign": "not-executed", "overall_assurance": "review-required"}
 
 
