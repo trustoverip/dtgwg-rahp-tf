@@ -68,7 +68,7 @@
       ],
       "potential_harm": "Stale or excessive privilege enables unauthorized issuance or key use.",
       "disposition": "evidence-required",
-      "disposition_rationale": "MFA and stale-account detection do not establish least privilege or four-hour revocation; expert sampling and role definitions limit assurance.",
+      "disposition_rationale": "Privilege and deprovisioning bounds are prescribed; actual role-change and session-invalidation evidence is needed to establish timely withdrawal.",
       "related_requirements": [
         "SEDI-KMS-02",
         "SEDI-KMS-03",
@@ -129,7 +129,7 @@
       ],
       "potential_harm": "Personnel misuse or unchecked critical actions compromise issuance.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Personnel records do not verify behavior; expert sampling is incomplete.",
+      "disposition_rationale": "Screening, training and separation are stated; role-specific evidence is necessary to establish their operation without collecting unnecessary personnel data.",
       "related_requirements": [
         "SEDI-ORG-01",
         "SEDI-KMS-02"
@@ -192,7 +192,7 @@
       ],
       "potential_harm": "Unmanaged vulnerability enables infrastructure compromise.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Scan coverage gaps, engagement scope and test duration limit conclusions.",
+      "disposition_rationale": "Scan and remediation intervals are prescribed; inventory, coverage and remediation evidence are necessary to establish that the actual system is included.",
       "related_requirements": [
         "SEDI-SDI-14",
         "SEDI-ORG-05",
@@ -257,7 +257,7 @@
       ],
       "potential_harm": "Audit blind spots or presentation surveillance undermine accountability/privacy.",
       "disposition": "clarification-required",
-      "disposition_rationale": "AUTO cannot establish all-subsystem instrumentation; EXPT sampling bounded. ADMN N/A limitation nevertheless describes organizational policy/retention review.",
+      "disposition_rationale": "The verification-method assignment needs clarification for expert and administrative review of monitoring and privacy exclusions; actual log evidence remains necessary.",
       "related_requirements": [
         "SEDI-SDI-17",
         "SEDI-PRV-03",
@@ -329,7 +329,7 @@
       ],
       "potential_harm": "Delayed containment or recovery causes cascading harm or service interruption.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Documentation and exercises do not establish real-incident effectiveness; automated alerting addressed in ORG-04.",
+      "disposition_rationale": "Response and recovery duties are defined; exercise and incident records are required to establish timing, notification and verified closure.",
       "related_requirements": [
         "SEDI-ORG-04",
         "SEDI-SDI-24",
@@ -391,7 +391,7 @@
       ],
       "potential_harm": "Delegation creates unaccountable infrastructure or key custody gaps.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Audit scope/frequency bounded by contract; contract review does not establish operational behavior.",
+      "disposition_rationale": "The interaction between delegated operation, state custody and sole Department HSM control needs clarification before delegated functions can be assessed against the intended authority boundary.",
       "related_requirements": [
         "SEDI-SDI-13",
         "SEDI-SDI-21",
@@ -463,7 +463,7 @@
       ],
       "potential_harm": "Material changes invalidate prior assurance while stale claims remain in use.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Records do not establish quality; expert sampling misses changes.",
+      "disposition_rationale": "Change-control and rollback requirements are explicit; actual approvals, test fidelity and reassessment evidence are needed to establish that material changes do not bypass them.",
       "related_requirements": [
         "SEDI-PRG-01",
         "SEDI-ORG-03",
