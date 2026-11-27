@@ -69,13 +69,28 @@ def compose(archive, loader=load):
             raise ValueError("Invalid control plane")
         if not set(finding["cases"]) <= cases.keys() or (not finding["cases"] and not finding.get("source_gap")):
             raise ValueError("Invalid synthesis binding")
+        expected_requirements = set().union(*(set(cases[k][1]["requirements"]) for k in finding["cases"]))
+        if finding.get("source_gap"):
+            expected_requirements.add(finding["source_gap"])
+        if (len(finding["requirements"]) != len(set(finding["requirements"]))
+                or set(finding["requirements"]) != expected_requirements
+                or not finding["recommendation"].strip()
+                or not finding["interpretation_boundary"].strip()):
+            raise ValueError("Incomplete synthesis reasoning or requirement binding")
+        extra = finding.get("additional_requirements", [])
+        extra_ids = [r["id"] for r in extra]
+        if (len(set(extra_ids)) != len(extra_ids)
+                or set(extra_ids) & expected_requirements
+                or any(r["id"] not in rows or not rows[r["id"]].get("source") or not r["reason"].strip() for r in extra)):
+            raise ValueError("Invalid additional synthesis source binding")
         synthesis_cases.update(finding["cases"])
         if finding.get("source_gap") and not rows.get(finding["source_gap"], {}).get("source_gap"):
             raise ValueError("Unknown source gap")
     if synthesis_cases != cases.keys():
         raise ValueError("Incomplete synthesis case coverage")
+    source_bound_synthesis = [{**f, "sources": {r: rows[r].get("source") or rows[r].get("source_gap") for r in f["requirements"] + [x["id"] for x in f.get("additional_requirements", [])]}} for f in synthesis["findings"]]
     return {**integrity, "coverage": view["summary"], "risks": list(risks.values()),
-            "synthesis": synthesis["findings"],
+            "synthesis": source_bound_synthesis,
             "candidate_propositions": findings, "overall_assurance": "review-required",
             "formal_review": "not-established", "documentary_coverage_complete": all(r["status"] != "indexed" for r in rows.values()),
             "normalization_complete": not any(r["normalization_gaps"] for r in rows.values())}

@@ -18,7 +18,18 @@
       "observation": "The rights and acceptance provisions explicitly protect physical alternatives and voluntary use; documentary and laboratory checks cannot establish field-level access or remedy.",
       "authority": "Department, governmental entities and applicable service operators",
       "resolution_evidence": "Representative service observations, matched service outcomes, accessible correction and complaint disposition.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Collect matched service evidence and investigate denial, compulsion and remedy before claiming equivalence.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-BOR-03",
+        "SEDI-BOR-04",
+        "SEDI-BOR-05",
+        "SEDI-BOR-09",
+        "SEDI-BOR-11",
+        "SEDI-ENF-01",
+        "SEDI-GOV-03"
+      ]
     },
     {
       "id": "S-02",
@@ -32,7 +43,25 @@
       "observation": "The draft provides disclosure and predicate protections; joint satisfaction of BOR-08, SDI-07 and CRY-03 and the end-to-end request context require examination. A selected field list is not proof of cryptographic hiding.",
       "authority": "SEDI specification owners; wallet, verifier and relying-party implementers",
       "resolution_evidence": "Clarify combined requirements; independently examine actual cryptographic construction, purpose and recipient binding, negative disclosure and metadata tests.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Assess combined disclosure and request-context protections with cryptographic and metadata tests; clarify ambiguous specification requirements where necessary.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-BOR-08",
+        "SEDI-CRY-03",
+        "SEDI-PRV-01",
+        "SEDI-PRV-02",
+        "SEDI-RPY-04",
+        "SEDI-RPY-06",
+        "SEDI-SDI-03",
+        "SEDI-SDI-07",
+        "SEDI-SDI-08",
+        "SEDI-VER-04",
+        "SEDI-VER-06",
+        "SEDI-WAL-10",
+        "SEDI-WAL-11",
+        "SEDI-WAL-12"
+      ]
     },
     {
       "id": "S-03",
@@ -47,7 +76,20 @@
       "observation": "Anti-surveillance restrictions coexist with holder-controlled history and security/audit obligations. The relevant evidence boundary is log content, access and completeness, not logging alone.",
       "authority": "Department and applicable wallet providers",
       "resolution_evidence": "Log and telemetry data flows, access, integrity and instrumentation evidence without holder-identifying presentation history.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Examine log content, visibility and access jointly with anti-surveillance restrictions.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-BOR-10",
+        "SEDI-ENF-03",
+        "SEDI-ENF-04",
+        "SEDI-ORG-04",
+        "SEDI-ORG-05",
+        "SEDI-PRV-03",
+        "SEDI-SDI-17",
+        "SEDI-WAL-06",
+        "SEDI-WAL-13"
+      ]
     },
     {
       "id": "S-04",
@@ -63,7 +105,22 @@
       "observation": "Offline availability, status freshness, compromise recovery and portability are separately protected; effectiveness depends on how lifecycle transitions compose.",
       "authority": "Department, wallet providers and verifiers",
       "resolution_evidence": "Status staleness policy, propagation, recovery, migration, emergency key transitions and continuity evidence.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Test status freshness, recovery, migration and key transitions together; document tolerable staleness and residual exposure.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-INT-03",
+        "SEDI-KMS-04",
+        "SEDI-KMS-05",
+        "SEDI-RPY-05",
+        "SEDI-SDI-01",
+        "SEDI-SDI-02",
+        "SEDI-SDI-06",
+        "SEDI-SDI-10",
+        "SEDI-SDI-24",
+        "SEDI-VER-05",
+        "SEDI-WAL-09"
+      ]
     },
     {
       "id": "S-05",
@@ -81,7 +138,30 @@
       "observation": "Identity, current authority, action scope and factual justification are distinct. Technical authorization does not establish appropriate exercise of authority.",
       "authority": "Department and competent oversight authorities",
       "resolution_evidence": "Relationship and appointment evidence, scoped authority, termination, attribution, factual grounds and accessible challenge.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Validate current appointment, scope, termination and actual grounds; provide accessible challenge and oversight.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-APP-02",
+        "SEDI-APP-03",
+        "SEDI-BOR-02",
+        "SEDI-IDP-01",
+        "SEDI-IDP-04",
+        "SEDI-IDP-11",
+        "SEDI-KMS-03",
+        "SEDI-LOY-01",
+        "SEDI-LOY-02",
+        "SEDI-LOY-03",
+        "SEDI-LOY-04",
+        "SEDI-LOY-05",
+        "SEDI-ORG-01",
+        "SEDI-ORG-02",
+        "SEDI-ORG-06",
+        "SEDI-RPY-05",
+        "SEDI-SDI-23",
+        "SEDI-VER-05",
+        "SEDI-WAL-09"
+      ]
     },
     {
       "id": "S-06",
@@ -97,7 +177,22 @@
       "observation": "Component conformance and profile claims cannot establish interaction-level protection; missing or stale evidence must remain visible.",
       "authority": "Department and profile owners",
       "resolution_evidence": "Version-bound paired interaction evidence, applicable role and method coverage, change-impact and reassessment records.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Require version-bound interaction evidence rather than aggregate component pass results.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-BOR-08",
+        "SEDI-ENF-03",
+        "SEDI-INT-01",
+        "SEDI-INT-02",
+        "SEDI-INT-04",
+        "SEDI-ORG-03",
+        "SEDI-ORG-05",
+        "SEDI-ORG-07",
+        "SEDI-PRG-01",
+        "SEDI-PRG-02",
+        "SEDI-PRV-01"
+      ]
     },
     {
       "id": "S-07",
@@ -110,7 +205,24 @@
       "observation": "Proofing and eligibility gates require substantively valid evidence; the draft recognizes proportionality and upstream accuracy limits. Clarify age gate and guardian pathways without inferring legal inconsistency.",
       "authority": "Department and identity-proofing entities",
       "resolution_evidence": "Approved proofing criteria, authoritative inputs, proportionality, correction and representative accessibility evidence.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Examine approved proofing criteria, authoritative inputs and correction pathways with affected participants.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-APP-01",
+        "SEDI-APP-02",
+        "SEDI-APP-03",
+        "SEDI-APP-05",
+        "SEDI-APP-08",
+        "SEDI-BOR-05",
+        "SEDI-IDP-01",
+        "SEDI-IDP-02",
+        "SEDI-IDP-03",
+        "SEDI-IDP-04",
+        "SEDI-IDP-05",
+        "SEDI-IDP-10",
+        "SEDI-SDI-23"
+      ]
     },
     {
       "id": "S-08",
@@ -124,7 +236,26 @@
       "observation": "The draft restricts purpose, retention and disclosure. A later consent record does not alone establish that all other processing restrictions are satisfied.",
       "authority": "Department and applicable processors",
       "resolution_evidence": "Data lineage, purpose and legal basis, consent scope, retention/deletion and downstream access evidence.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Trace purpose, authorization, retention and onward disclosure rather than treating consent as sufficient.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-PRC-01",
+        "SEDI-PRC-02",
+        "SEDI-PRC-03",
+        "SEDI-PRV-04",
+        "SEDI-RPY-01",
+        "SEDI-RPY-03",
+        "SEDI-SDI-18",
+        "SEDI-SDI-19",
+        "SEDI-SDI-20",
+        "SEDI-SDI-22",
+        "SEDI-VER-01",
+        "SEDI-VER-03",
+        "SEDI-WAL-02",
+        "SEDI-WAL-12",
+        "SEDI-WAL-14"
+      ]
     },
     {
       "id": "S-09",
@@ -137,7 +268,22 @@
       "observation": "Issuer signature verification, state infrastructure control and third-party equivalent obligations require distinct evidence. Delegated hosting or custody examples do not establish permission to relinquish sole control.",
       "authority": "Department and competent independent assessors",
       "resolution_evidence": "Key provenance, actual custody and control, ceremony and delegated function scope; clarify combined SDI-13, KMS-03 and ORG-06 obligations.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Obtain independent evidence of key custody and actual institutional control; clarify delegated functions.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-CRY-01",
+        "SEDI-KMS-01",
+        "SEDI-KMS-02",
+        "SEDI-KMS-03",
+        "SEDI-ORG-01",
+        "SEDI-ORG-02",
+        "SEDI-ORG-06",
+        "SEDI-SDI-04",
+        "SEDI-SDI-13",
+        "SEDI-SDI-14",
+        "SEDI-SDI-21"
+      ]
     },
     {
       "id": "S-10",
@@ -148,7 +294,24 @@
       "observation": "INT-01, CRY-04 and ORG-04 retain apparent method-applicability questions; do not silently change source assignments.",
       "authority": "SEDI guide maintainers",
       "resolution_evidence": "Publisher clarification of applicability and intended assessment objects.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Ask guide maintainers to clarify method declarations and limitations without silently modifying source assignments.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-ENF-03",
+        "SEDI-INT-01",
+        "SEDI-PRG-01"
+      ],
+      "additional_requirements": [
+        {
+          "id": "SEDI-CRY-04",
+          "reason": "Directly named verification-method applicability question in the synthesis."
+        },
+        {
+          "id": "SEDI-ORG-04",
+          "reason": "Directly named verification-method applicability question in the synthesis."
+        }
+      ]
     },
     {
       "id": "S-11",
@@ -160,7 +323,17 @@
       "observation": "Technical suitability is distinct from rulemaking approval and actor-specific acceptance obligations.",
       "authority": "Department and applicable regulated actors",
       "resolution_evidence": "Approval docket, role applicability and exception basis.",
-      "status": "open"
+      "status": "open",
+      "recommendation": "Verify the applicable approval and exception basis independently of technical suitability.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-BOR-09",
+        "SEDI-GOV-06",
+        "SEDI-GOV-07",
+        "SEDI-PRG-04",
+        "SEDI-PRG-05",
+        "SEDI-RPY-08"
+      ]
     },
     {
       "id": "S-12",
@@ -170,7 +343,12 @@
       "authority": "SEDI guide maintainers",
       "resolution_evidence": "Publisher-qualified detailed requirement or explicit disposition of the source omission.",
       "status": "open",
-      "source_gap": "SEDI-IDP-08"
+      "source_gap": "SEDI-IDP-08",
+      "recommendation": "Request missing detailed IDP-08 text or explicit publisher disposition.",
+      "interpretation_boundary": "Documentary proposition; constructed cases are not observed failures; proposed treatment authority is not an independently established acceptance authority.",
+      "requirements": [
+        "SEDI-IDP-08"
+      ]
     }
   ]
 }

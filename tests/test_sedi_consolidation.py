@@ -21,7 +21,7 @@ class SediConsolidationTests(unittest.TestCase):
             self.assertEqual(r["overall_assurance"], "review-required")
 
     def test_false_success(self):
-        for mutation in ("missing-case", "unknown-risk", "terminal", "baseline", "invented-plane", "synthesis-terminal", "unbound-synthesis"):
+        for mutation in ("missing-case", "unknown-risk", "terminal", "baseline", "invented-plane", "synthesis-terminal", "unbound-synthesis", "missing-synthesis-requirement", "invalid-extra-source", "empty-recommendation"):
             with self.subTest(mutation=mutation):
                 def loader(name):
                     d = copy.deepcopy(consolidate.load(name))
@@ -41,6 +41,13 @@ class SediConsolidationTests(unittest.TestCase):
                     if name == "synthesis.json" and mutation == "unbound-synthesis":
                         for f in d["findings"]:
                             f["cases"] = [c for c in f["cases"] if c != "equivalent-service"]
+                    if name == "synthesis.json":
+                        if mutation == "missing-synthesis-requirement":
+                            d["findings"][0]["requirements"].pop()
+                        elif mutation == "invalid-extra-source":
+                            d["findings"][0]["additional_requirements"] = [{"id": "SEDI-UNKNOWN", "reason": "fixture"}]
+                        elif mutation == "empty-recommendation":
+                            d["findings"][0]["recommendation"] = " "
                     return d
                 with patch.object(consolidate, "verify_archive", return_value={}):
                     with self.assertRaises(ValueError):
