@@ -1,0 +1,1563 @@
+{
+  "schema": "sedi-coverage-tranche/v1",
+  "work_packages": [
+    "WP-D"
+  ],
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "provenance": {
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27",
+    "source": "Retained Part 3 and Part 9 PDFs"
+  },
+  "requirements": [
+    {
+      "id": "SEDI-SDI-04",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          13,
+          14,
+          15
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(b)",
+      "roles": [
+        "Department",
+        "Verifiers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Public-key authenticity and integrity without issuer callback or shared-secret verification.",
+      "limitation": "Primitive strength and future attacks not established by signature vectors.",
+      "evidence_needed": "Verify trusted key provenance, altered credential rejection and separation of status from signature verification.",
+      "risk_refs": [
+        "EX-RK-TC01"
+      ],
+      "potential_harm": "Forged credentials or reliance on attacker-controlled keys.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The non-callback authenticity requirement is explicit; key provenance and signature-path evidence are needed to establish trustworthy verification without relying on issuer contact.",
+      "related_requirements": [
+        "SEDI-CRY-01",
+        "SEDI-KMS-03",
+        "SEDI-SDI-01"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          15,
+          16,
+          17
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(c)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            2,
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Cross-platform operations without privacy or security downgrade.",
+      "limitation": "Finite platform sample; scope of wide variety is judgment-dependent.",
+      "evidence_needed": "Defined platform set, paired operations, downgrade/refusal and alternative access evidence.",
+      "risk_refs": [
+        "EX-RK-CF02"
+      ],
+      "potential_harm": "Incompatibility or weakened protection excludes holders.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Equivalent cross-platform protection is specified; paired implementation and downgrade tests are needed to establish it for the declared platform set.",
+      "related_requirements": [
+        "SEDI-INT-04",
+        "SEDI-SDI-09",
+        "SEDI-BOR-04"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-08",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          21,
+          22
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(e)(ii)",
+      "roles": [
+        "Department",
+        "Wallet Providers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            3
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Boolean age predicate, no age or birth-date disclosure; boundary correctness.",
+      "limitation": "Side channels and known attack model limitations.",
+      "evidence_needed": "Boundary vectors and cryptographic leakage analysis; repeated holder-approved predicates and metadata tests.",
+      "risk_refs": [
+        "EX-RK-PR01"
+      ],
+      "potential_harm": "Underlying age inferred despite boolean result.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The permitted output is a boolean age predicate; boundary and leakage evidence is needed to distinguish correct disclosure from disclosure of additional age information.",
+      "related_requirements": [
+        "SEDI-CRY-03",
+        "SEDI-PRV-02",
+        "SEDI-IDP-05"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-09",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          22,
+          23,
+          24
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(f)",
+      "roles": [
+        "Department",
+        "Wallet Providers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            3,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            2,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            4
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Wallet-agnostic format and import; no preferential provider access; two independent wallets tested.",
+      "limitation": "Two wallets do not establish universal availability; informal preferential treatment may escape review.",
+      "evidence_needed": "Independent wallet interoperability, provider agreements, registry and actual onboarding access.",
+      "risk_refs": [
+        "EX-RK-CF02"
+      ],
+      "potential_harm": "Lock-in or discriminatory access.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Wallet independence is specified; independent onboarding, import and interoperability evidence is required to establish practical choice rather than mere format publication.",
+      "related_requirements": [
+        "SEDI-INT-03",
+        "SEDI-SDI-05",
+        "SEDI-BOR-09"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-11",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          26,
+          27,
+          28
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(a)",
+      "roles": [
+        "Department",
+        "Identity Proofing Entities"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            4,
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            5
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Independent Department validation of proofing, required standard and assurance, current entity authorization before issuance.",
+      "limitation": "Gate tests cannot establish substantive proofing quality; periodic assessments miss deterioration.",
+      "evidence_needed": "Actual validation evidence, current authorization and rejected deficient assertions.",
+      "risk_refs": [
+        "EX-RK-IP01"
+      ],
+      "potential_harm": "Incorrect endorsement from unsupported proofing.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The issuance prerequisites are defined; actual proofing-validation and current entity-authorization evidence are needed to determine whether deficient assertions prevent issuance.",
+      "related_requirements": [
+        "SEDI-IDP-01",
+        "SEDI-IDP-04",
+        "SEDI-IDP-11"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-12",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          28,
+          29,
+          30
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Technological enforcement where feasible; documented justification otherwise and current control mapping.",
+      "limitation": "Mapping completeness is not validity of feasibility justification.",
+      "evidence_needed": "Independent feasibility analysis, actual enforcement, exception rationale and responsible authority.",
+      "risk_refs": [
+        "EX-RK-CF03"
+      ],
+      "potential_harm": "Policy-only treatment misrepresented as effective technical control.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Technical enforcement and justified exceptions are required; actual control and feasibility evidence is necessary to determine whether a claimed exception is warranted.",
+      "related_requirements": [
+        "SEDI-PRG-01",
+        "SEDI-ENF-03"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-13",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          30,
+          31,
+          32
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(c)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            3
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Issuance/revocation infrastructure and signing keys in state-controlled Utah data centers.",
+      "limitation": "Network checks cannot establish physical location; configuration may change between audits.",
+      "evidence_needed": "Physical/site control, deployment and routing inventory, key ceremony and independent inspection.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Uncontrolled infrastructure undermines issuance and revocation authority.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The infrastructure boundary is prescribed; inventory, location and operational-control evidence is needed to establish where issuance and revocation actually occur.",
+      "related_requirements": [
+        "SEDI-SDI-21",
+        "SEDI-KMS-02",
+        "SEDI-KMS-03"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-14",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          32,
+          33,
+          34
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            5
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Encryption, administrative access controls, audit logging and evolving security best practices.",
+      "limitation": "Control tests do not establish overall security posture; periodic expert assessment bounded.",
+      "evidence_needed": "Operational configuration, independent security assessment, privileged access and audit scope.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Unauthorized infrastructure access or identity data exposure.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The required security measures are specified at design level; deployment configuration and independent assessment are needed to establish their effective operation.",
+      "related_requirements": [
+        "SEDI-KMS-01",
+        "SEDI-SDI-13",
+        "SEDI-PRV-03"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-15",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          34,
+          35,
+          36
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(e)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            4,
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Open publicly available standards without licensing fees or patent restrictions/royalty-bearing terms.",
+      "limitation": "Catalog checks cannot detect unpublished claims or later changes.",
+      "evidence_needed": "Independent implementation, dependency inventory and qualified licensing review.",
+      "risk_refs": [
+        "EX-RK-CF02"
+      ],
+      "potential_harm": "Proprietary dependency restricts access or interoperability.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The openness requirement is explicit; dependency and licensing evidence plus an independent implementation are needed to establish practical availability without prohibited restrictions.",
+      "related_requirements": [
+        "SEDI-CRY-04",
+        "SEDI-INT-01",
+        "SEDI-PRG-02"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-16",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          36,
+          37,
+          38
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(f)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Endorsed name, birth date, image and Utah address; each individually selectively disclosable.",
+      "limitation": "Schema presence does not establish attribute truth.",
+      "evidence_needed": "Verify proofing provenance separately from schema and selective disclosure vectors.",
+      "risk_refs": [
+        "EX-RK-IP01"
+      ],
+      "potential_harm": "Incorrect endorsed attributes or unnecessary disclosure.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The endorsed attributes and individual disclosure property are defined; proofing provenance and disclosure tests are needed to establish both truth of endorsement and selective presentation.",
+      "related_requirements": [
+        "SEDI-IDP-04",
+        "SEDI-SDI-07",
+        "SEDI-CRY-03"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-18",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          40,
+          41
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(4)(a); 301(4)(b)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            2,
+            3
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            2
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Purpose limitation and isolation from non-SEDI Department systems.",
+      "limitation": "Insider misuse, exfiltration and new integrations may evade checks.",
+      "evidence_needed": "Inspect data flows, non-program access denial, sharing arrangements and express authorization boundary.",
+      "risk_refs": [
+        "EX-RK-PR04"
+      ],
+      "potential_harm": "Application data repurposed across government.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Purpose isolation is required; actual data paths and access denials are necessary to establish separation from unrelated Department processing.",
+      "related_requirements": [
+        "SEDI-SDI-19",
+        "SEDI-SDI-22",
+        "SEDI-APP-06"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-19",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          41,
+          42,
+          43,
+          44
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(4)(b)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            2,
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            3,
+            5
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Affirmative per-purpose revocable authorization; immediate block of further access on revocation.",
+      "limitation": "Prompt presence does not establish informed choice; review misses changes.",
+      "evidence_needed": "Test purpose-specific grant/revocation across downstream access, inspect UX and scope; reconcile with SDI-18 isolation and SDI-22 disclosure restrictions.",
+      "risk_refs": [
+        "EX-RK-PR04"
+      ],
+      "potential_harm": "Use continues beyond authorized purpose.",
+      "disposition": "clarification-required",
+      "disposition_rationale": "The interaction of revocable authorization with isolation and disclosure restrictions needs clarification before downstream access tests can establish the permitted boundary.",
+      "related_requirements": [
+        "SEDI-SDI-18",
+        "SEDI-SDI-22",
+        "SEDI-PRC-03"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-20",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          44,
+          45,
+          46
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(4)(c)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            4
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Necessary retention schedule and deletion across primary, backup and replica storage.",
+      "limitation": "Schedule enforcement does not establish necessity; backup purge may lag.",
+      "evidence_needed": "Retention rationale, copy inventory, expiry/deletion and restoration tests.",
+      "risk_refs": [
+        "EX-RK-PR04"
+      ],
+      "potential_harm": "Unnecessary retained identity data exposed.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Retention and deletion are specified; copy inventories, expiry and restoration evidence are necessary to determine whether retained replicas undermine deletion.",
+      "related_requirements": [
+        "SEDI-SDI-21",
+        "SEDI-IDP-03",
+        "SEDI-PRV-04"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-21",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          46,
+          47
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(4)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Application/proofing data exclusively in state-controlled Utah data centers including replicas.",
+      "limitation": "Network location is not physical evidence; inventory can be stale.",
+      "evidence_needed": "Inspect actual storage topology, backup/replica locations and operational control.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Uncontrolled storage increases exposure.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The storage boundary is explicit; actual topology, replica location and control evidence are necessary to establish that all covered copies remain within it.",
+      "related_requirements": [
+        "SEDI-SDI-13",
+        "SEDI-SDI-20"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-SDI-22",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          47,
+          48,
+          49,
+          50
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(4)(e)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            2,
+            6
+          ],
+          "applicability": "Recommended"
+        }
+      },
+      "protection": "Disclosure only to subject/guardian or pursuant to valid warrant/court order; no bulk export or informal sharing.",
+      "limitation": "Legal validity needs human review; new pathways may evade periodic assessment.",
+      "evidence_needed": "Verify subject/guardian authorization, denied requests, legal review, disclosure logs and pathway inventory.",
+      "risk_refs": [
+        "EX-RK-DA02"
+      ],
+      "potential_harm": "Unauthorized disclosure through invalid representative or legal demand.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The permitted disclosure classes are enumerated; request authorization and rejected-request evidence are needed to establish that other paths do not bypass them.",
+      "related_requirements": [
+        "SEDI-BOR-02",
+        "SEDI-SDI-19",
+        "SEDI-ENF-02"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-CRY-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          5,
+          6,
+          7
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-201(4), 201(30)",
+      "roles": [
+        "Department",
+        "Verifiers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            3,
+            4,
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Non-callback public-key signatures; status checking architecturally separate.",
+      "limitation": "Opportunistic callbacks can evade offline tests.",
+      "evidence_needed": "Observe online/offline signature paths, trusted keys, separation of status traffic and unexpected callbacks.",
+      "risk_refs": [
+        "EX-RK-TC01"
+      ],
+      "potential_harm": "False authenticity or presentation tracking.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Signature verification and status checking are distinguished; observed online and offline paths and trusted-key evidence are needed to establish that distinction in implementation.",
+      "related_requirements": [
+        "SEDI-SDI-04",
+        "SEDI-PRV-03",
+        "SEDI-SDI-01"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-CRY-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          7,
+          8,
+          9
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-201(20)",
+      "roles": [
+        "Department",
+        "Wallet Providers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Exclusive holder secret control, proof without disclosure, migration without reissuance.",
+      "limitation": "Undocumented OS/hardware backdoors; expert analysis limited by attack model.",
+      "evidence_needed": "Inspect key generation, extraction/duplication resistance, migration, old-instance state and server copies.",
+      "risk_refs": [
+        "EX-RK-LC05"
+      ],
+      "potential_harm": "Unauthorized copies undermine holder binding.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Exclusive secret control is required; extraction, duplication and migration evidence is needed to establish holder binding rather than infer it from the credential format.",
+      "related_requirements": [
+        "SEDI-INT-03",
+        "SEDI-SDI-02",
+        "SEDI-BOR-02"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-CRY-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          9,
+          10,
+          11
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(e)(i); 301(1)(e)(ii)",
+      "roles": [
+        "Department",
+        "Wallet Providers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            3,
+            4,
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Cryptographic selective disclosure and predicate proofs; field filtering alone insufficient.",
+      "limitation": "Finite attribute combinations and attack models.",
+      "evidence_needed": "Review cryptographic construction and negative vectors, metadata and recoverability; clarify SDI-07 structural alternative under combined obligations.",
+      "risk_refs": [
+        "EX-RK-PR01"
+      ],
+      "potential_harm": "Hidden attributes recoverable despite selective UI.",
+      "disposition": "clarification-required",
+      "disposition_rationale": "The relationship between mandatory cryptographic disclosure and the structural alternative in SDI-07 needs resolution before a test can establish sufficiency of the chosen mechanism.",
+      "related_requirements": [
+        "SEDI-SDI-07",
+        "SEDI-BOR-08",
+        "SEDI-PRV-02"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-CRY-04",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          11,
+          12,
+          13
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(e)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "ADMN": {
+          "objectives": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        }
+      },
+      "protection": "Published catalog of publicly standardized royalty-free algorithms.",
+      "limitation": "Undisclosed use and deployment drift; EXPT N/A text nevertheless calls for expert source/legal review.",
+      "evidence_needed": "Compare actual implementation to catalog and qualified licensing review; seek method clarification.",
+      "risk_refs": [
+        "EX-RK-CF05"
+      ],
+      "potential_harm": "Unsupported open-standard claim conceals dependencies.",
+      "disposition": "clarification-required",
+      "disposition_rationale": "The catalog obligation is clear, but the declared expert-method applicability needs clarification for licensing and algorithm review; implementation evidence remains separately necessary.",
+      "related_requirements": [
+        "SEDI-SDI-15",
+        "SEDI-INT-01"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-CRY-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(e); 301(1)(a)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            3
+          ],
+          "applicability": "Recommended",
+          "parameter_check": true
+        }
+      },
+      "protection": "SHOULD-level agility, algorithm identifiers, concurrent validation and transition policy.",
+      "limitation": "Identifiers and current transition tests cannot predict future dependencies.",
+      "evidence_needed": "Test authorized algorithm transitions, downgrade rejection, deprecation/reissuance policy and continuity.",
+      "risk_refs": [
+        "EX-RK-LC04"
+      ],
+      "potential_harm": "Algorithm transition causes fraud or lockout.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Agility and transition are recommended design properties; actual transition and downgrade evidence is needed to establish continuity under the adopted policy.",
+      "related_requirements": [
+        "SEDI-KMS-04",
+        "SEDI-KMS-05",
+        "SEDI-INT-02"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-PRV-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          18,
+          19,
+          20
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(e)(ii)",
+      "roles": [
+        "Department",
+        "Wallet Providers"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Boolean predicates, metadata leakage resistance, holder control and bounds on repeated inference.",
+      "limitation": "Cannot detect every network/hardware/environmental side channel.",
+      "evidence_needed": "Evaluate repeated threshold requests, timing/size/errors and explicit holder choice; separate permitted predicate inference from unintended leakage.",
+      "risk_refs": [
+        "EX-RK-PR02"
+      ],
+      "potential_harm": "Repeated or side-channel inference reveals attributes.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Boolean disclosure and leakage limits are specified; repeated-query and metadata evidence is needed to determine unintended inference beyond the permitted predicate.",
+      "related_requirements": [
+        "SEDI-SDI-08",
+        "SEDI-CRY-03",
+        "SEDI-WAL-12"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-KMS-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          34,
+          35,
+          36
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(a); 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            3,
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Published annually reviewed key lifecycle policy aligned with NIST SP 800-57 Parts 1–3.",
+      "limitation": "Policy existence not operational conformance.",
+      "evidence_needed": "Key inventory, policy coverage, actual ceremonies/configuration and review cadence.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Unmanaged key lifecycle undermines issuer trust.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The policy and review cadence are specified; actual policy coverage, key inventory and ceremony evidence are needed to establish implementation.",
+      "related_requirements": [
+        "SEDI-KMS-02",
+        "SEDI-KMS-03",
+        "SEDI-KMS-04",
+        "SEDI-KMS-05"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-KMS-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          36,
+          37,
+          38
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(a); 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "At least two authorized custodians, split knowledge or multi-party control, independent witnesses, tamper-evident logs and state facility.",
+      "limitation": "Documentation cannot detect all-party collusion; witness independence is trust assumption.",
+      "evidence_needed": "Ceremony evidence, custodian authority, independent witness and HSM/location proof; examine collusion and actual enforcement.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Unauthorized signing-key generation or copying.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The multi-party ceremony safeguards are stated; observed ceremonies, custodian authority and independent witness evidence are needed to establish actual separation and control.",
+      "related_requirements": [
+        "SEDI-SDI-13",
+        "SEDI-KMS-01",
+        "SEDI-KMS-03"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-KMS-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          38,
+          39,
+          40
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(a); 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            4
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            2,
+            5
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "FIPS 140-3 Level 2 minimum, Level 3 SHOULD for root/issuer, no cleartext export, sole Department operational control.",
+      "limitation": "API and certificate tests cannot establish physical control or supply-chain integrity.",
+      "evidence_needed": "Module identity/configuration, actual key generation/use, operational control and expert review.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Compromised or externally controlled signing keys.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "The module requirements are defined; deployed module identity, key handling and operational-control evidence are needed to establish conformance.",
+      "related_requirements": [
+        "SEDI-KMS-02",
+        "SEDI-SDI-13",
+        "SEDI-SDI-04"
+      ],
+      "operational_evidence": "not acquired"
+    }
+  ],
+  "local_risks": [
+    {
+      "id": "EX-RK-TC01",
+      "name": "Unsupported credential authenticity",
+      "harm": "Forgery or unsafe acceptance through untrusted verification keys or incorrectly enforced verification",
+      "reuse": "RK-ID04 concerns DID document manipulation; RK-CY01 concerns ZKP failure. Neither directly represents issuer signature/key provenance."
+    },
+    {
+      "id": "EX-RK-TC02",
+      "name": "Compromised or externally controlled issuance infrastructure",
+      "harm": "Unauthorized issuance, revocation or exposure of identity data",
+      "reuse": "RK-ID03 addresses IDVP breach; RK-EX01 concerns compelled anchors/IDVPs. State-controlled signing infrastructure and ceremony control are distinct."
+    }
+  ],
+  "cases": [
+    {
+      "id": "TC-01",
+      "risk": "EX-RK-TC01",
+      "requirements": [
+        "SEDI-SDI-04",
+        "SEDI-CRY-01",
+        "SEDI-KMS-03"
+      ],
+      "constructed": "Credential validates under an attacker-controlled or stale verification key, or implementation calls issuer when online despite offline test success.",
+      "evidence": "Verify trust-key provenance, permitted algorithm and invalid/altered vectors; inspect actual online/offline traffic and independent status checking.",
+      "authority": "Department; Verifiers"
+    },
+    {
+      "id": "TC-02",
+      "risk": "EX-RK-TC02",
+      "requirements": [
+        "SEDI-SDI-13",
+        "SEDI-SDI-14",
+        "SEDI-SDI-21",
+        "SEDI-KMS-01",
+        "SEDI-KMS-02",
+        "SEDI-KMS-03"
+      ],
+      "constructed": "Documented multi-party ceremony and validated HSM coexist with operational custody or backup infrastructure outside the required control boundary.",
+      "evidence": "Inspect actual physical and operational control, key/copy inventories, ceremony participants and independent witnesses. No inference of collusion or actual compromise.",
+      "authority": "Department; independent assessor"
+    },
+    {
+      "id": "TC-03",
+      "risk": "EX-RK-PR02",
+      "requirements": [
+        "SEDI-SDI-08",
+        "SEDI-CRY-03",
+        "SEDI-PRV-02"
+      ],
+      "constructed": "Repeated individually valid boolean age predicates and response metadata narrow the underlying age.",
+      "evidence": "Separate information implied by explicitly authorized predicates from additional leakage; assess repeated requests, timing/size/errors and holder control.",
+      "authority": "Department; Wallet Providers"
+    },
+    {
+      "id": "TC-04",
+      "risk": "EX-RK-PR04",
+      "requirements": [
+        "SEDI-SDI-18",
+        "SEDI-SDI-19",
+        "SEDI-SDI-20",
+        "SEDI-SDI-22"
+      ],
+      "constructed": "An authorization is revoked while a copy remains accessible through another system or disclosure pathway.",
+      "evidence": "Trace purpose-specific authorization, immediate access block, retention necessity and separate disclosure authority; test all copies and interfaces.",
+      "authority": "Department"
+    }
+  ],
+  "limitations": [
+    "Method applicability and numbered objective coverage reproduce separate source statements; recommended EXPT with no numbered coverage (SDI-04) is not silently assigned objectives.",
+    "CRY-03 explicitly excludes field filtering alone, refining SDI-07; evaluate joint satisfaction.",
+    "CRY-04 EXPT N/A limitation describes expert audit and legal review; retain clarification.",
+    "No actual implementation, operational evidence, risk scoring, guardrail verification or legal determination."
+  ]
+}

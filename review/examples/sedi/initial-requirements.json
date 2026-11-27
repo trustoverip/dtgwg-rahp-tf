@@ -1,0 +1,174 @@
+{
+  "status": "documentary inventory corroborated against locally retained Part 1 PDF; not an approved review or finding",
+  "source": "https://sedi.utah.gov/implementation-guide/part-1/",
+  "source_build_label": "08495a8",
+  "requirements": [
+    {
+      "id": "SEDI-BOR-03",
+      "statute": "63A-20-101(3)",
+      "roles": [
+        "Governmental Entities",
+        "Department"
+      ],
+      "decision": "review frequency",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "applicability": "N/A",
+          "objectives": []
+        },
+        "EXPT": {
+          "applicability": "N/A",
+          "objectives": []
+        },
+        "ADMN": {
+          "applicability": "Mandatory",
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      },
+      "evidence_categories": [
+        "physical issuance records",
+        "acceptance point inventory",
+        "service policies",
+        "complaints and inspections"
+      ],
+      "limitation": "Administrative verification may miss local withdrawal of physical acceptance.",
+      "pdf_pages": [
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "id": "SEDI-BOR-04",
+      "statute": "63A-20-101(4)",
+      "roles": [
+        "Governmental Entities",
+        "Department"
+      ],
+      "decision": "SEDI-enabled service pathway inventory",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "applicability": "Recommended",
+          "objectives": [
+            2,
+            3
+          ]
+        },
+        "EXPT": {
+          "applicability": "Recommended",
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "ADMN": {
+          "applicability": "Mandatory",
+          "objectives": [
+            1,
+            4,
+            5
+          ]
+        }
+      },
+      "evidence_categories": [
+        "service catalog and pathway inventory",
+        "workflow and fallback documentation",
+        "integration agreements",
+        "staff procedures and grievance records"
+      ],
+      "limitation": "Platform tests cannot cover external portals; review cannot establish every downstream or informal interaction.",
+      "pdf_pages": [
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "id": "SEDI-BOR-09",
+      "statute": "63A-20-101(9)",
+      "roles": [
+        "Governmental Entities",
+        "Health Care Providers",
+        "Relying Parties"
+      ],
+      "decision": "permitted digital-channel service distinctions",
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "applicability": "N/A",
+          "objectives": []
+        },
+        "EXPT": {
+          "applicability": "Recommended",
+          "objectives": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        "ADMN": {
+          "applicability": "Mandatory",
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        }
+      },
+      "evidence_categories": [
+        "service agreements",
+        "workflow and fee records",
+        "processing-time measurements",
+        "complaint and audit evidence"
+      ],
+      "limitation": "Design review cannot establish real service performance; administrative review may miss local degradation.",
+      "pdf_pages": [
+        24,
+        25,
+        26
+      ]
+    }
+  ],
+  "exclusions": [
+    "Operational evidence not acquired",
+    "No independent assessment or risk scoring",
+    "No inference that SEDI violates any requirement"
+  ],
+  "local_source": {
+    "manifest": "archive-manifest.json",
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf"
+  }
+}

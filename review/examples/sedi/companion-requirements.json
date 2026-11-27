@@ -1,0 +1,182 @@
+{
+  "status": "documentary author observations; independent review pending",
+  "requirements": [
+    {
+      "id": "SEDI-APP-04",
+      "statute": "63A-20-302(5)",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          61,
+          62,
+          63
+        ]
+      },
+      "roles": [
+        "Department",
+        "Governmental Entities"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "observation": "Prohibits enrollment prerequisites and possession assumptions; mandatory administrative review covers all objectives but cannot detect informal SEDI-only practices.",
+      "treatment": "Service integration and fallback policies plus independent point-of-service observations.",
+      "authority_reference": "Utah Code § 63A-20-302(5)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      }
+    },
+    {
+      "id": "SEDI-GOV-01",
+      "statute": "63A-20-304(1)(a)",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          93,
+          94
+        ]
+      },
+      "roles": [
+        "Governmental Entities"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "ADMN": [
+          1,
+          2,
+          3
+        ]
+      },
+      "observation": "Prohibits differential benefits, including speed and fee advantages; workflow review and administrative audit have acknowledged coverage limits.",
+      "treatment": "Matched fee and processing-time evidence; independent review of preferential practices.",
+      "authority_reference": "Utah Code § 63A-20-304(1)(a)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
+      }
+    },
+    {
+      "id": "SEDI-GOV-02",
+      "statute": "63A-20-304(1)(b)",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          95,
+          96,
+          97
+        ]
+      },
+      "roles": [
+        "Governmental Entities"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          1,
+          2
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "observation": "Requires physical acceptance and prohibits service degradation; complaint mechanisms are an objective, not evidence that local denial is detected.",
+      "treatment": "Verify actual acceptance at representative service points and complaint resolution.",
+      "authority_reference": "Utah Code § 63A-20-304(1)(b)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
+      }
+    },
+    {
+      "id": "SEDI-GOV-05",
+      "statute": "63A-20-304(2)(b)",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+        "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+        "pages": [
+          100,
+          101,
+          102
+        ]
+      },
+      "roles": [
+        "Governmental Entities"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [
+          1,
+          2
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "observation": "Exemption concerns obligation to accept SEDI, with infeasibility documentation and remediation or a legal specific-format requirement. It does not itself authorize mandatory SEDI enrollment.",
+      "treatment": "Check exception direction, legal basis, Department review and remediation separately from physical-format rights.",
+      "authority_reference": "Utah Code § 63A-20-304(2)(b)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "Recommended",
+        "ADMN": "Mandatory"
+      }
+    }
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF detailed-section extraction, 2026-11-27; verification method declarations corroborated, INT-04 ADMN undeclared. Heading citations for SDI-24, ENF-03 and ENF-04 distinguished from cross-references in preceding prose. Existing page bindings retained pending full page-span review. Source interpretation not independently reviewed.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
+}

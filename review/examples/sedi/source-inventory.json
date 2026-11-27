@@ -1,0 +1,224 @@
+{
+  "purpose": "Source discovery and acquisition inventory; not a retained-source manifest",
+  "observed_on": "2026-11-26",
+  "guide": {
+    "publisher_url": "https://sedi.utah.gov/implementation-guide/",
+    "version_label": "0.1.0-draft",
+    "build_label": "08495a8",
+    "build_date_label": "2026-05-22",
+    "introduction_version_history_date": "2026-06-19",
+    "authority": "publisher-described draft interpretation; not authoritative implementation standards",
+    "full_git_revision": null,
+    "retained_snapshot": null,
+    "redistribution_permission": "not-established; public accessibility does not establish permission"
+  },
+  "rahp": {
+    "repository": "https://github.com/trustoverip/dtgwg-rahp-tf",
+    "baseline_commit": "8f6be0638fc1932abe5713263e26fee3929be147"
+  },
+  "sources": [
+    {
+      "id": "overview",
+      "url": "https://sedi.utah.gov/implementation-guide/",
+      "role": "draft-guide",
+      "scope": "initial-examination",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "introduction",
+      "url": "https://sedi.utah.gov/implementation-guide/introduction/",
+      "role": "draft-guide",
+      "scope": "initial-examination",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-1",
+      "url": "https://sedi.utah.gov/implementation-guide/part-1/",
+      "role": "draft-guide",
+      "scope": "initial-examination",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-2",
+      "url": "https://sedi.utah.gov/implementation-guide/part-2/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-3",
+      "url": "https://sedi.utah.gov/implementation-guide/part-3/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-4",
+      "url": "https://sedi.utah.gov/implementation-guide/part-4/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-5",
+      "url": "https://sedi.utah.gov/implementation-guide/part-5/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-6",
+      "url": "https://sedi.utah.gov/implementation-guide/part-6/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-7",
+      "url": "https://sedi.utah.gov/implementation-guide/part-7/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-8",
+      "url": "https://sedi.utah.gov/implementation-guide/part-8/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "part-9",
+      "url": "https://sedi.utah.gov/implementation-guide/part-9/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "conformance-and-profiles",
+      "url": "https://sedi.utah.gov/implementation-guide/conformance-and-profiles/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-a",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-a/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-b",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-b/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-c",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-c/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-d",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-d/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-e",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-e/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-f",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-f/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "navigation-link-identified; content retrieval unavailable",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "annex-g",
+      "url": "https://sedi.utah.gov/implementation-guide/annex-g/",
+      "role": "draft-guide",
+      "scope": "inventory-only",
+      "access": "indexed-content-inspected",
+      "retention": "not-acquired"
+    },
+    {
+      "id": "utah-code-63a-20",
+      "url": "https://le.utah.gov/xcode/Title63A/Chapter20/C63A-20_2026050620260506.pdf",
+      "role": "statutory-source",
+      "scope": "initial-examination: sections 101(3), (4), (9); 202 for rulemaking authority",
+      "access": "indexed statutory text inspected; original PDF bytes not acquired",
+      "retention": "not-acquired"
+    }
+  ],
+  "limitations": [
+    "No raw response bytes or content digests available from the current acquisition environment.",
+    "No authoritative Git repository or full commit identity established.",
+    "Source redistribution permission has not been established.",
+    "No operational evidence acquired.",
+    "Annex A, Annex E and conformance page returned cache misses on repeat retrieval; direct HTTPS acquisition failed DNS resolution."
+  ],
+  "domain_inventory": {
+    "source": "https://sedi.utah.gov/implementation-guide/introduction/#requirement-id-domains",
+    "domains": [
+      "BOR",
+      "DEF",
+      "PRG",
+      "SDI",
+      "APP",
+      "IDP",
+      "GOV",
+      "WAL",
+      "VER",
+      "RPY",
+      "LOY",
+      "PRC",
+      "ENF",
+      "CRY",
+      "PRV",
+      "INT",
+      "KMS",
+      "ORG"
+    ],
+    "coverage": "domain identifiers only; Annex A and Annex E retrieval unavailable; no complete requirement or obligation count asserted"
+  },
+  "local_archive": {
+    "manifest": "archive-manifest.json",
+    "received_on": "2026-11-27",
+    "guide_pdf_count": 18,
+    "toolkit_docx_count": 3,
+    "annex_a_unique_requirements": 142,
+    "prior_web_access_gaps": "Annex A, Annex E and conformance content now available in archive",
+    "missing": [
+      "overview",
+      "complete official statutory text"
+    ]
+  }
+}

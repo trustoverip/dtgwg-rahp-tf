@@ -1,0 +1,148 @@
+{
+  "kind": "locally-assembled-assessment-input",
+  "archive": "SEDI RAHP Review Input.zip",
+  "sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "received_on": "2026-11-27",
+  "provenance": "Contributor supplied a locally assembled archive in the absence of a formally downloadable publisher payload.",
+  "source_collections": [
+    "https://sedi.utah.gov/bring-sedi-to-your-state/#kit",
+    "https://sedi.utah.gov/implementation-guide/"
+  ],
+  "publisher_release_identity": "not independently established",
+  "redistribution": "not established; source bytes not committed",
+  "excluded": [
+    "directory entries",
+    "__MACOSX metadata"
+  ],
+  "files": [
+    {
+      "path": "SEDI RAHP Review Input/Utah-State-Endorsed-Digital-Identity_Example_Statutory_Language_2026.04.22.docx",
+      "bytes": 123052,
+      "sha256": "af118b73cdbc08849cc85bc9bd5b8be8823e56e0c55a367da094150f5e5374b1"
+    },
+    {
+      "path": "SEDI RAHP Review Input/Utah-Digital-Identity-Bill-of-Rights_2026.04.asd_.docx",
+      "bytes": 96714,
+      "sha256": "9b108a5e7b3e17085db64c483fe91ec2cb609735462ec7f4cd4810b685a0af3e"
+    },
+    {
+      "path": "SEDI RAHP Review Input/Utah-Digital-Identity-Duty-of-Loyalty_2026.04.asd_.docx",
+      "bytes": 96665,
+      "sha256": "af8259216c5f0c5eaccb4eb487c3e13606661a0a1f2e7b92cf96ee25c8391413"
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 8_ Enforcement and Audit _ SEDI.pdf",
+      "bytes": 363065,
+      "sha256": "b22279d5eb9d7c65bba15db9e33241c04b7d383beca10f535bd026605b08e512",
+      "pages": 12
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 2_ Definitions and Program _ SEDI.pdf",
+      "bytes": 582594,
+      "sha256": "48985662316a50ea6b446bffb7c82d1c20f6088381728a0b7fe5edf9647c74b7",
+      "pages": 29
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex C_ Glossary _ SEDI.pdf",
+      "bytes": 230298,
+      "sha256": "4f69d8297c6e47b5e04c1c99cb15e0b8f237308a5c918673db5c9343231c62e8",
+      "pages": 6
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Introduction _ SEDI.pdf",
+      "bytes": 417111,
+      "sha256": "b63ee38a2bc3baacee47004e53d9b17e077f4ebd458de073bf73138e0385bb2e",
+      "pages": 13
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 5_ Verifiers _ SEDI.pdf",
+      "bytes": 444352,
+      "sha256": "564c6c6358345bbf4f50f146569afafb20a9296bf2ee088ac02eef0893b91757",
+      "pages": 16
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 7_ General Requirements _ SEDI.pdf",
+      "bytes": 447488,
+      "sha256": "05c4fbb92964d193dc823c212819baca597d7264308ebfa4e6f2f571be699f70",
+      "pages": 19
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+      "bytes": 1090374,
+      "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+      "pages": 62
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+      "bytes": 1609698,
+      "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334",
+      "pages": 107
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex A_ Complete Requirements Index _ SEDI.pdf",
+      "bytes": 555518,
+      "sha256": "6233ffecdb11fb0fe9aa818a662a6aa92cba23d1f642bc6902138cef447e3c55",
+      "pages": 11
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex G_ Roles and Actors _ SEDI.pdf",
+      "bytes": 721612,
+      "sha256": "7b4893075a572ea85e9580dfeb1cefa0777c8284e37e542625b59096db711108",
+      "pages": 17
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex B_ Statutory Cross-Reference Table _ SEDI.pdf",
+      "bytes": 365491,
+      "sha256": "5aa0a89f39725ab3cff6b1acdc3be2006e0acaf134b5ad9a5aa1b55474dc12d9",
+      "pages": 9
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 4_ Digital Wallet Providers _ SEDI.pdf",
+      "bytes": 627598,
+      "sha256": "2ad8cf24dad18bd10ab8ab5da8972506c70bd9ca58d4c7d46fdc305098a35076",
+      "pages": 28
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex F_ TSA mDL Final Rule Mapping _ SEDI.pdf",
+      "bytes": 254498,
+      "sha256": "377902f4a02c32df59332fba77e1771db84637c65ae6ec7dbdc2d1bce6d4b32f",
+      "pages": 5
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Conformance and Profiles _ SEDI.pdf",
+      "bytes": 213311,
+      "sha256": "e0d59d6e7e568bb35a7fd68414fbd0587a2f2d24dfd0bc9aecba17f1864db64f",
+      "pages": 4
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+      "bytes": 622048,
+      "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256",
+      "pages": 32
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex E_ Role-Obligation Matrix _ SEDI.pdf",
+      "bytes": 506316,
+      "sha256": "ba9344b6323c43d58d1970b4d299caa2fcab1e193c30ad7b831ec0e5886b9cdb",
+      "pages": 11
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 6_ Relying Parties _ SEDI.pdf",
+      "bytes": 473741,
+      "sha256": "75c5a1dd790a506c7bcadfaa40104b1776c996ceba337560f5a6de2d0dad9344",
+      "pages": 18
+    },
+    {
+      "path": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex D_ Informative Reference Mapping _ SEDI.pdf",
+      "bytes": 222637,
+      "sha256": "d18402fd90de4bf6e268b2f298e29adfe582ba2e408a6de32dab581c64b9dd04",
+      "pages": 4
+    }
+  ],
+  "limitations": [
+    "Overview page absent",
+    "Toolkit statutory language document is an extract, not complete official legislation",
+    "PDF renderings do not establish original HTML byte identity",
+    "No operational evidence"
+  ]
+}

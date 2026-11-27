@@ -1,0 +1,577 @@
+{
+  "source": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex A_ Complete Requirements Index _ SEDI.pdf",
+    "sha256": "6233ffecdb11fb0fe9aa818a662a6aa92cba23d1f642bc6902138cef447e3c55"
+  },
+  "scope": "All Annex A requirement identifiers and one-based PDF page locations; not full-text extraction or coverage assessment",
+  "records": [
+    {
+      "id": "SEDI-BOR-01",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-02",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-03",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-04",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-05",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-06",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-07",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-08",
+      "pdf_page": 1
+    },
+    {
+      "id": "SEDI-BOR-09",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-BOR-10",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-BOR-11",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-01",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-02",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-03",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-04",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-05",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-06",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-07",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-08",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-09",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-10",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-PRG-11",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-SDI-01",
+      "pdf_page": 2
+    },
+    {
+      "id": "SEDI-SDI-02",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-03",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-04",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-05",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-06",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-07",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-08",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-09",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-10",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-11",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-12",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-13",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-14",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-15",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-16",
+      "pdf_page": 3
+    },
+    {
+      "id": "SEDI-SDI-17",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-18",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-19",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-20",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-21",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-22",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-23",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-SDI-24",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-01",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-02",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-03",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-04",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-05",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-06",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-APP-07",
+      "pdf_page": 4
+    },
+    {
+      "id": "SEDI-IDP-01",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-02",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-03",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-04",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-05",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-06",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-07",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-APP-08",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-08",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-09",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-10",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-IDP-11",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-GOV-01",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-GOV-02",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-GOV-03",
+      "pdf_page": 5
+    },
+    {
+      "id": "SEDI-GOV-04",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-GOV-05",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-GOV-06",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-GOV-07",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-01",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-02",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-03",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-04",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-05",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-06",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-07",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-08",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-09",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-10",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-11",
+      "pdf_page": 6
+    },
+    {
+      "id": "SEDI-WAL-12",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-WAL-13",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-WAL-14",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-WAL-15",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-01",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-02",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-03",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-04",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-05",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-06",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-07",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-VER-08",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-RPY-01",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-RPY-02",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-RPY-03",
+      "pdf_page": 7
+    },
+    {
+      "id": "SEDI-RPY-04",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-RPY-05",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-RPY-06",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-RPY-07",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-RPY-08",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-RPY-09",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-LOY-01",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-LOY-02",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-LOY-03",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-LOY-04",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-LOY-05",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-PRC-01",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-PRC-02",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-PRC-03",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-ENF-01",
+      "pdf_page": 8
+    },
+    {
+      "id": "SEDI-ENF-02",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-ENF-03",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-ENF-04",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-ENF-05",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-CRY-01",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-CRY-02",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-CRY-03",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-CRY-04",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-CRY-05",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-PRV-01",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-PRV-02",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-PRV-03",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-PRV-04",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-INT-01",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-INT-02",
+      "pdf_page": 9
+    },
+    {
+      "id": "SEDI-INT-03",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-INT-04",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-KMS-01",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-KMS-02",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-KMS-03",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-KMS-04",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-KMS-05",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-01",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-02",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-03",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-04",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-05",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-06",
+      "pdf_page": 10
+    },
+    {
+      "id": "SEDI-ORG-07",
+      "pdf_page": 10
+    }
+  ]
+}

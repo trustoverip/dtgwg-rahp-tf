@@ -1,0 +1,478 @@
+{
+  "schema": "sedi-documentary-theme/v1",
+  "theme": "SEDI-05",
+  "status": "author-prepared documentary examination; independent review pending",
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "scope": "Base and profile conformance, actor-specific obligations, profile approval, method coverage, online/offline equivalence and audit readiness. No actual profile, certificate or implementation assessed.",
+  "contexts": [
+    "Independent wallet implementer",
+    "Verifier relying on a profile claim",
+    "Individual using online or offline presentation",
+    "Department approving profile and operating issuance",
+    "Independent assessor and program auditor"
+  ],
+  "reuse": [
+    {
+      "id": "RK-G05",
+      "reason": "False assurance from credential-level compliance without governance evidence; SEDI explicitly specifies rulemaking."
+    },
+    {
+      "id": "RK-SC02",
+      "reason": "Ambiguous schema and interoperability analogy; SEDI uses profile hooks."
+    },
+    {
+      "id": "RK-SY03",
+      "reason": "Unresolved design dependencies and assurance gaps; not a claim of DTG scaling failure."
+    },
+    {
+      "id": "RK-EX03",
+      "reason": "Regulatory consequence analogy; no determination of legal noncompliance."
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "EX-RK-CF01",
+      "harm": "Component or profile conformance misrepresented as whole interaction assurance; unsafe acceptance or exclusion"
+    },
+    {
+      "id": "EX-RK-CF02",
+      "harm": "Unresolved profile hooks or implementation drift result in incompatible or privacy-degrading interactions"
+    },
+    {
+      "id": "EX-RK-CF03",
+      "harm": "Technical evidence substituted for missing governance or administrative evidence; unsupported legitimacy claim"
+    },
+    {
+      "id": "EX-RK-CF04",
+      "harm": "Audit or conformance evidence collection creates surveillance capability or incomplete accountability"
+    },
+    {
+      "id": "EX-RK-CF05",
+      "harm": "Unknown, stale or contradictory evidence suppressed in aggregate conclusion; continued exposure to harm"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "SEDI-PRG-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 2_ Definitions and Program _ SEDI.pdf",
+        "sha256": "48985662316a50ea6b446bffb7c82d1c20f6088381728a0b7fe5edf9647c74b7",
+        "pages": [
+          6,
+          7
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [
+          2
+        ],
+        "EXPT": [
+          1,
+          3,
+          4
+        ],
+        "ADMN": [
+          3,
+          4
+        ]
+      },
+      "roles": "Department",
+      "observation": "Issuance conformance includes operation, change management, deviation identification and remediation; expert assessment mandatory.",
+      "authority_reference": "Utah Code § 63A-20-202(2)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
+    },
+    {
+      "id": "SEDI-PRG-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 2_ Definitions and Program _ SEDI.pdf",
+        "sha256": "48985662316a50ea6b446bffb7c82d1c20f6088381728a0b7fe5edf9647c74b7",
+        "pages": [
+          7,
+          8,
+          9
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": [
+          6
+        ],
+        "EXPT": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "roles": "Department",
+      "observation": "Public standards must support independent implementation throughout credential lifecycle; URL availability is not technical sufficiency.",
+      "authority_reference": "Utah Code § 63A-20-202(3)(a)(ii)(A)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
+    },
+    {
+      "id": "SEDI-PRG-04",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 2_ Definitions and Program _ SEDI.pdf",
+        "sha256": "48985662316a50ea6b446bffb7c82d1c20f6088381728a0b7fe5edf9647c74b7",
+        "pages": [
+          11,
+          12
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "roles": "Department",
+      "observation": "Minimum 45-day accessible public comment period; administrative evidence of publication and timing, not technical certification.",
+      "authority_reference": "Utah Code § 63A-20-202(3)(b)(i)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      }
+    },
+    {
+      "id": "SEDI-PRG-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 2_ Definitions and Program _ SEDI.pdf",
+        "sha256": "48985662316a50ea6b446bffb7c82d1c20f6088381728a0b7fe5edf9647c74b7",
+        "pages": [
+          13,
+          14
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verification": {
+        "AUTO": [],
+        "EXPT": [],
+        "ADMN": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "roles": "Department",
+      "observation": "Published substantive responses before rules take effect; generic acknowledgment insufficient.",
+      "authority_reference": "Utah Code § 63A-20-202(3)(b)(ii)",
+      "verification_applicability": {
+        "AUTO": "N/A",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      }
+    },
+    {
+      "id": "SEDI-ENF-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 8_ Enforcement and Audit _ SEDI.pdf",
+        "sha256": "b22279d5eb9d7c65bba15db9e33241c04b7d383beca10f535bd026605b08e512",
+        "pages": [
+          6,
+          7,
+          8
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3
+        ],
+        "EXPT": [
+          4,
+          5,
+          6
+        ],
+        "ADMN": [
+          7,
+          8
+        ]
+      },
+      "roles": "Department",
+      "observation": "Audit-ready program records; field completeness is not substantive completeness; audit evidence must respect anti-surveillance.",
+      "authority_reference": "Utah Code § 63A-20-802(1)",
+      "verification_applicability": {
+        "AUTO": "Recommended",
+        "EXPT": "Mandatory",
+        "ADMN": "Recommended"
+      }
+    },
+    {
+      "id": "SEDI-INT-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          25,
+          26,
+          27
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          3,
+          6
+        ],
+        "ADMN": [
+          4,
+          5,
+          6
+        ],
+        "EXPT": []
+      },
+      "roles": "Department",
+      "observation": "Open protocols, formats, schemas and APIs; catalog validation cannot detect uncataloged dependencies. EXPT marked N/A although limitation describes expert review need.",
+      "authority_reference": "Utah Code § 63A-20-301(2)(e)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "N/A",
+        "ADMN": "Mandatory"
+      },
+      "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
+    },
+    {
+      "id": "SEDI-INT-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          27,
+          28,
+          29
+        ]
+      },
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "EXPT": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "ADMN": []
+      },
+      "roles": "Department, Wallet Providers, Verifiers",
+      "observation": "Common credential format; equivalent online/offline assurance and privacy, not merely common syntax.",
+      "authority_reference": "Utah Code § 63A-20-301(1)(d)",
+      "verification_applicability": {
+        "AUTO": "Mandatory",
+        "EXPT": "Recommended",
+        "ADMN": "N/A"
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "C-01",
+      "constructed": "Issuer, wallet and verifier pass separate synthetic checks against the same profile version",
+      "risk": "EX-RK-CF01",
+      "requirements": [
+        "SEDI-PRG-01",
+        "SEDI-INT-02"
+      ],
+      "proposed_evidence": "Require actual paired interaction evidence, applicable role-specific obligations and matching profile version; separately evaluate privacy, status freshness, and service outcomes. Do not turn same-profile declaration into demonstrated interoperability.",
+      "authority": "Department, Wallet Providers, Verifiers",
+      "related_themes": [
+        "SEDI-01",
+        "SEDI-02",
+        "SEDI-03"
+      ],
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "C-02",
+      "constructed": "Two individually conforming actors use different profile versions or incompatible hook resolutions",
+      "risk": "EX-RK-CF02",
+      "requirements": [
+        "SEDI-PRG-02",
+        "SEDI-INT-01",
+        "SEDI-INT-02"
+      ],
+      "proposed_evidence": "Inspect exact profile identifier/version, normative references, hook resolutions, criteria mappings and applicable vectors. Test incompatibility and safe refusal; no assumption of cross-profile interoperability or downgrade permission.",
+      "authority": "Department, Wallet Providers, Verifiers",
+      "related_themes": [
+        "SEDI-01",
+        "SEDI-02"
+      ],
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "C-03",
+      "constructed": "A technically successful profile is presented as approved despite missing evidence of rulemaking",
+      "risk": "EX-RK-CF03",
+      "requirements": [
+        "SEDI-PRG-04",
+        "SEDI-PRG-05"
+      ],
+      "proposed_evidence": "Inspect the rulemaking docket, publication and response records and Department approval. Treat missing records as unknown; distinguish technical suitability, approval and actual certification.",
+      "authority": "Department",
+      "related_themes": [],
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "C-04",
+      "constructed": "Audit-ready logging is used to collect individually linkable presentation records",
+      "risk": "EX-RK-CF04",
+      "requirements": [
+        "SEDI-ENF-03"
+      ],
+      "proposed_evidence": "Inspect record scope, access and retention against anti-surveillance protections and audit purpose; verify evidence can be produced without expanding forbidden monitoring. Separate program operational audit from presentation history.",
+      "authority": "Department, independent assessor",
+      "related_themes": [
+        "SEDI-02",
+        "SEDI-04"
+      ],
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "C-05",
+      "constructed": "Passing automated tests coexist with absent expert assessment or conflicting administrative records",
+      "risk": "EX-RK-CF05",
+      "requirements": [
+        "SEDI-PRG-01",
+        "SEDI-INT-01",
+        "SEDI-ENF-03"
+      ],
+      "proposed_evidence": "Keep method applicability, observations and evidence dates separate; preserve missing or contradictory evidence. INT-01 marks EXPT N/A yet describes an expert-review need in its limitation; ask for clarification, not silently modify the matrix. Test unauthorized promotion of partial results.",
+      "authority": "Department, independent assessor",
+      "related_themes": [],
+      "status": "open",
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "C-06",
+      "constructed": "Common format passes online and offline encoding tests but privacy or assurance differs by mode",
+      "risk": "EX-RK-CF01",
+      "requirements": [
+        "SEDI-INT-02",
+        "SEDI-PRG-01"
+      ],
+      "proposed_evidence": "Check each mode independently for selective disclosure, unlinkability, predicate proofs and equivalent assurance; cross-reference offline status constraints. Successful decoding alone is insufficient.",
+      "authority": "Department, Wallet Providers, Verifiers",
+      "related_themes": [
+        "SEDI-02",
+        "SEDI-03"
+      ],
+      "status": "open",
+      "operational_evidence": "not acquired"
+    }
+  ],
+  "framework": {
+    "source": {
+      "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Conformance and Profiles _ SEDI.pdf",
+      "sha256": "e0d59d6e7e568bb35a7fd68414fbd0587a2f2d24dfd0bc9aecba17f1864db64f",
+      "pages": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "observations": [
+      "Base conformance is mandatory; profile conformance binds technology choices and supports interoperability within the same profile.",
+      "Conformance chapter identifies issuer, wallet and verifier/RP types, and refers to Annex E for full per-requirement obligations.",
+      "Profiles must include identifier/version, normative references, hook resolution, evaluation-criterion mapping, profile-specific requirements and test vectors or reference implementations where applicable.",
+      "Department approval proceeds through rulemaking; multiple profiles may coexist.",
+      "Evaluation methodology includes document review, architecture analysis, functional testing, security assessment, interoperability testing and privacy analysis.",
+      "Guide does not establish a certification program; certification guidance is prospective.",
+      "Base-conformance text names Parts 1–8 and annexes while actor-specific types include applicable Part 9 CRY/PRV/INT requirements; clarify how all applicable cross-cutting requirements, including KMS/ORG, enter base conformance. Do not infer exemption."
+    ],
+    "candidate_aggregation_rule": "No overall PASS inferred from document completeness, individual component results, partial method coverage, common format or a profile label. Retain unknown, stale, contradictory and out-of-scope evidence separately; accountable review required."
+  },
+  "limitations": [
+    "No actual profiles, approval dockets, certification artifacts or operational evidence examined.",
+    "No independent legal conclusion, risk scoring or verified guardrail.",
+    "Framework observations are not numbered SEDI requirements; objective totals count only selected requirement records.",
+    "Separate documentary tranche pending consolidated runner."
+  ],
+  "metadata_reconciliation": {
+    "source": "Retained PDF detailed-section extraction, 2026-11-27; verification method declarations corroborated, INT-04 ADMN undeclared. Heading citations for SDI-24, ENF-03 and ENF-04 distinguished from cross-references in preceding prose. Existing page bindings retained pending full page-span review. Source interpretation not independently reviewed.",
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27"
+  }
+}

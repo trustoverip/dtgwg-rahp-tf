@@ -1,0 +1,526 @@
+{
+  "schema": "sedi-coverage-tranche/v1",
+  "work_packages": [
+    "WP-F"
+  ],
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "provenance": {
+    "contributor": "Sankarshan Mukhopadhyay (AI-assisted)",
+    "date": "2026-11-27",
+    "source": "Retained Part 9 PDF pp44–62; archive and member SHA-256 independently recomputed."
+  },
+  "requirements": [
+    {
+      "id": "SEDI-ORG-01",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          45,
+          46
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b), 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            2
+          ],
+          "applicability": "Recommended"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            3,
+            4
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Least privilege, MFA, revocation within four hours of role change/termination, quarterly access review and cited AC/Category 2 alignment.",
+      "limitation": "MFA and stale-account detection do not establish least privilege or four-hour revocation; expert sampling and role definitions limit assurance.",
+      "evidence_needed": "Compare actual privilege and role-change records, timed deprovisioning, session/token invalidation and quarterly remediation.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Stale or excessive privilege enables unauthorized issuance or key use.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Privilege and deprovisioning bounds are prescribed; actual role-change and session-invalidation evidence is needed to establish timely withdrawal.",
+      "related_requirements": [
+        "SEDI-KMS-02",
+        "SEDI-KMS-03",
+        "SEDI-SDI-14"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-ORG-02",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          47,
+          48
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b), 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            3,
+            4,
+            5
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2,
+            3
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Access-level-commensurate screening, annual training, separation of duties and cited PS/Category 4 alignment.",
+      "limitation": "Personnel records do not verify behavior; expert sampling is incomplete.",
+      "evidence_needed": "Review role-specific screening criteria, training and actual separation in critical operations without collecting personnel data.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Personnel misuse or unchecked critical actions compromise issuance.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Screening, training and separation are stated; role-specific evidence is necessary to establish their operation without collecting unnecessary personnel data.",
+      "related_requirements": [
+        "SEDI-ORG-01",
+        "SEDI-KMS-02"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-ORG-03",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          49,
+          50,
+          51
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b), 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            2,
+            5,
+            6,
+            7
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            3,
+            4
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Quarterly scans of all components, annual independent penetration tests, severity-based patch timelines and cited RA/SI/Category 8 alignment.",
+      "limitation": "Scan coverage gaps, engagement scope and test duration limit conclusions.",
+      "evidence_needed": "Reconcile actual component inventory, scan scope, independent tester qualifications, patch deadlines and remediation evidence; no operational penetration testing performed.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Unmanaged vulnerability enables infrastructure compromise.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Scan and remediation intervals are prescribed; inventory, coverage and remediation evidence are necessary to establish that the actual system is included.",
+      "related_requirements": [
+        "SEDI-SDI-14",
+        "SEDI-ORG-05",
+        "SEDI-ORG-07"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-ORG-04",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          51,
+          52,
+          53
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b), 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "applicability": "Mandatory"
+        },
+        "EXPT": {
+          "objectives": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "applicability": "Recommended",
+          "parameter_check": true
+        },
+        "ADMN": {
+          "objectives": [],
+          "applicability": "N/A"
+        }
+      },
+      "protection": "Security-event logging, minimum retention, cryptographic integrity, continuous monitoring and explicit exclusion of holder-identifying presentation information; cited AU/Categories 6–7 alignment.",
+      "limitation": "AUTO cannot establish all-subsystem instrumentation; EXPT sampling bounded. ADMN N/A limitation nevertheless describes organizational policy/retention review.",
+      "evidence_needed": "Inspect actual log scope, integrity and retention, negative privacy checks across all subsystems and monitoring evidence; clarify method assignment.",
+      "risk_refs": [
+        "EX-RK-CF04"
+      ],
+      "potential_harm": "Audit blind spots or presentation surveillance undermine accountability/privacy.",
+      "disposition": "clarification-required",
+      "disposition_rationale": "The verification-method assignment needs clarification for expert and administrative review of monitoring and privacy exclusions; actual log evidence remains necessary.",
+      "related_requirements": [
+        "SEDI-SDI-17",
+        "SEDI-PRV-03",
+        "SEDI-ENF-03",
+        "SEDI-WAL-06"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-ORG-05",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          53,
+          54,
+          55
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(1)(a), 301(2)(b), 301(2)(d), 301(6)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            2,
+            3,
+            5,
+            8,
+            9
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Documented response/recovery, automated alerting, defined initiation timeline, lawful breach notification, corrective-action closure, annual review/exercise and cited IR/Category 8 alignment.",
+      "limitation": "Documentation and exercises do not establish real-incident effectiveness; automated alerting addressed in ORG-04.",
+      "evidence_needed": "Inspect alert-to-response timing, exercise and actual incident records where available, notification basis and corrective-action verification.",
+      "risk_refs": [
+        "EX-RK-LC04"
+      ],
+      "potential_harm": "Delayed containment or recovery causes cascading harm or service interruption.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Response and recovery duties are defined; exercise and incident records are required to establish timing, notification and verified closure.",
+      "related_requirements": [
+        "SEDI-ORG-04",
+        "SEDI-SDI-24",
+        "SEDI-KMS-05"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-ORG-06",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          55,
+          56,
+          57
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b), 301(2)(c), 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            4
+          ],
+          "applicability": "Mandatory"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Delegated third parties subject to all applicable KMS/ORG obligations, equivalent written agreements, annual independent audit, function inventory and retained Department accountability; cited SA alignment.",
+      "limitation": "Audit scope/frequency bounded by contract; contract review does not establish operational behavior.",
+      "evidence_needed": "Map delegated functions to obligations and inventory, inspect actual operational custody, subdelegation, audit coverage and remediation; reconcile with state control and sole Department HSM operational control.",
+      "risk_refs": [
+        "EX-RK-TC02"
+      ],
+      "potential_harm": "Delegation creates unaccountable infrastructure or key custody gaps.",
+      "disposition": "clarification-required",
+      "disposition_rationale": "The interaction between delegated operation, state custody and sole Department HSM control needs clarification before delegated functions can be assessed against the intended authority boundary.",
+      "related_requirements": [
+        "SEDI-SDI-13",
+        "SEDI-SDI-21",
+        "SEDI-KMS-02",
+        "SEDI-KMS-03",
+        "SEDI-IDP-11"
+      ],
+      "operational_evidence": "not acquired"
+    },
+    {
+      "id": "SEDI-ORG-07",
+      "source": {
+        "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 9_ Cross-Cutting Technical Requirements _ SEDI.pdf",
+        "sha256": "8c6aed191d9fde79d7ea88b55250200786e17ba6c6bffb27476072da369674ae",
+        "pages": [
+          57,
+          58,
+          59
+        ]
+      },
+      "authority_reference": "Utah Code § 63A-20-301(2)(b), 301(2)(d)",
+      "roles": [
+        "Department"
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "verification": {
+        "AUTO": {
+          "objectives": [],
+          "applicability": "N/A"
+        },
+        "EXPT": {
+          "objectives": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8
+          ],
+          "applicability": "Recommended"
+        },
+        "ADMN": {
+          "objectives": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "applicability": "Mandatory",
+          "parameter_check": true
+        }
+      },
+      "protection": "Significant changes require risk assessment, production-mirroring tests, authorized approval and rollback; emergency expedited review/reconciliation; cited CM/Category 1 alignment.",
+      "limitation": "Records do not establish quality; expert sampling misses changes.",
+      "evidence_needed": "Inspect change classification, test fidelity, approvals, rollback and emergency reconciliation; examine evidence invalidation and targeted reassessment.",
+      "risk_refs": [
+        "EX-RK-CF05"
+      ],
+      "potential_harm": "Material changes invalidate prior assurance while stale claims remain in use.",
+      "disposition": "evidence-required",
+      "disposition_rationale": "Change-control and rollback requirements are explicit; actual approvals, test fidelity and reassessment evidence are needed to establish that material changes do not bypass them.",
+      "related_requirements": [
+        "SEDI-PRG-01",
+        "SEDI-ORG-03",
+        "SEDI-KMS-04",
+        "SEDI-KMS-05"
+      ],
+      "operational_evidence": "not acquired"
+    }
+  ],
+  "local_risks": [],
+  "cases": [
+    {
+      "id": "OS-01",
+      "risk": "EX-RK-TC02",
+      "requirements": [
+        "SEDI-ORG-01",
+        "SEDI-ORG-02",
+        "SEDI-ORG-06",
+        "SEDI-KMS-03"
+      ],
+      "constructed": "Delegated operator's role ends, but a previously authorized privileged session or credential remains usable beyond the four-hour revocation boundary.",
+      "evidence": "Check role-change time, all applicable access paths, active session/token invalidation, third-party responsibility and actual Department oversight; distinguish account disablement from loss of effective privilege.",
+      "authority": "Department; delegated infrastructure operators"
+    },
+    {
+      "id": "OS-02",
+      "risk": "EX-RK-CF04",
+      "requirements": [
+        "SEDI-ORG-04",
+        "SEDI-ORG-05",
+        "SEDI-SDI-17",
+        "SEDI-PRV-03",
+        "SEDI-ENF-03"
+      ],
+      "constructed": "Security logs have integrity and alerting but include linkable holder presentation identifiers, or omit a critical subsystem.",
+      "evidence": "Inspect actual coverage and log content across subsystems; exercise critical alert and incident response without introducing presentation tracking. Clarify ADMN N/A versus policy review limitation.",
+      "authority": "Department; independent assessor"
+    },
+    {
+      "id": "OS-03",
+      "risk": "EX-RK-CF05",
+      "requirements": [
+        "SEDI-ORG-03",
+        "SEDI-ORG-05",
+        "SEDI-ORG-07",
+        "SEDI-PRG-01"
+      ],
+      "constructed": "Emergency patch changes a material control; previously successful conformance evidence is retained without assessing its applicability to the changed configuration.",
+      "evidence": "Inspect scope, authorized expedited review, post-change reconciliation, rollback and affected evidence; test whether stale evidence remains distinguishable from current evidence.",
+      "authority": "Department; independent assessor"
+    }
+  ],
+  "limitations": [
+    "ORG denotes organizational security, not organizational identity. Part 9 p44 defines the domain and applicability to the Department and delegated infrastructure operators via ORG-06.",
+    "ORG-04 ADMN N/A limitation describes organizational policy review; preserve source method applicability and seek clarification.",
+    "ORG-06 lists delegated key custody and hosting as examples; their relationship to SDI-13/KMS-03 state/sole Department control needs explicit interpretation, not presumed permission.",
+    "Part 9 pp60–62 is informative technology limitations; use it to qualify control claims, not invent numbered requirements.",
+    "No implementation evidence, independent review, risk scoring, guardrail verification or legal determination."
+  ]
+}

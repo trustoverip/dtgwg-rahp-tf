@@ -1,0 +1,86 @@
+{
+  "source_matrix": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex E_ Role-Obligation Matrix _ SEDI.pdf",
+    "sha256": "ba9344b6323c43d58d1970b4d299caa2fcab1e193c30ad7b831ec0e5886b9cdb"
+  },
+  "source_roles": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Annex G_ Roles and Actors _ SEDI.pdf",
+    "sha256": "7b4893075a572ea85e9580dfeb1cefa0777c8284e37e542625b59096db711108"
+  },
+  "source_requirements": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+    "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256"
+  },
+  "mappings": [
+    {
+      "id": "SEDI-BOR-03",
+      "matrix_page": 1,
+      "control": "ADMN",
+      "roles": [
+        "Department",
+        "Governmental Entities"
+      ],
+      "role_sections": [
+        "4.2",
+        "4.8"
+      ]
+    },
+    {
+      "id": "SEDI-BOR-04",
+      "matrix_page": 1,
+      "control": "ADMN",
+      "roles": [
+        "Department",
+        "Governmental Entities"
+      ],
+      "role_sections": [
+        "4.2",
+        "4.8"
+      ]
+    },
+    {
+      "id": "SEDI-BOR-09",
+      "matrix_page": 2,
+      "control": "ADMN",
+      "roles": [
+        "Relying Parties",
+        "Governmental Entities",
+        "Health Care Providers"
+      ],
+      "role_sections": [
+        "4.6",
+        "4.8",
+        "4.9"
+      ]
+    }
+  ],
+  "rights_bearer": {
+    "role": "Holders / Individuals",
+    "section": "4.3",
+    "page": 6,
+    "interpretation": "Rights bearer, not obligation bearer; distinguish individual from digital guardian acting for individual."
+  },
+  "companion_requirements": [
+    {
+      "id": "SEDI-APP-04",
+      "page": 61
+    },
+    {
+      "id": "SEDI-GOV-01",
+      "page": 93
+    },
+    {
+      "id": "SEDI-GOV-02",
+      "page": 95
+    },
+    {
+      "id": "SEDI-GOV-05",
+      "page": 100
+    }
+  ],
+  "companion_source": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 3_ State-Endorsed Digital Identity _ SEDI.pdf",
+    "sha256": "983b5097f504d4f505cc9f9a7cb7edf49fa1062c1cf3ae1e2ac22d55c2c28334"
+  },
+  "limitation": "Companion requirements identified for subsequent examination, not assessed here. Matrix Ctrl identifies primary control type, not all applicable verification methods."
+}

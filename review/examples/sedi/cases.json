@@ -1,0 +1,184 @@
+{
+  "status": "candidate documentary examination; accountable review pending",
+  "source": {
+    "member": "SEDI RAHP Review Input/SEDI Implementation Guide/Part 1_ Digital Identity Bill of Rights _ SEDI.pdf",
+    "sha256": "dc5bce7dcede9759116c329b3014b7e34544823e46cc4dc1727b388190b0a256"
+  },
+  "scope": "Otherwise eligible government service applicant; same entitlement, purpose and lawful identity options. No real service data.",
+  "contexts": [
+    {
+      "id": "C1",
+      "description": "Individual choosing physical identification without a compatible device."
+    },
+    {
+      "id": "C2",
+      "description": "Individual choosing physical identification due to accessibility needs."
+    },
+    {
+      "id": "C3",
+      "description": "Individual declining digital enrollment irrespective of device ownership."
+    }
+  ],
+  "reuse_review": {
+    "baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+    "risk_analogies": [
+      {
+        "id": "RK-ID02",
+        "reason": "Exclusion mechanism is social-graph privilege, not service-format discrimination."
+      },
+      {
+        "id": "RK-HX02",
+        "reason": "Informal discrimination is relevant, but vouching is not the SEDI service transaction."
+      },
+      {
+        "id": "RK-HX04",
+        "reason": "Capacity and support exclusion are relevant only where supported decision-making is implicated."
+      },
+      {
+        "id": "RK-NM01",
+        "reason": "Wallet usability risk is adjacent, not sufficient for format choice."
+      }
+    ],
+    "persona_analogies": [
+      {
+        "id": "D3",
+        "reason": "Legitimate participant encountering access barriers; different admission mechanism."
+      },
+      {
+        "id": "EC1",
+        "reason": "Accessibility and support needs; no assumption of minor status in the scoped cases."
+      }
+    ],
+    "decision": "Use example-local hypotheses; no canonical IDs redefined and no canonical risk scores inherited."
+  },
+  "hypotheses": [
+    {
+      "id": "EX-RK-HX01",
+      "name": "Physical pathway unavailable",
+      "harm": "Exclusion from otherwise lawful service"
+    },
+    {
+      "id": "EX-RK-HX02",
+      "name": "Indirect or informal digital compulsion",
+      "harm": "Loss of meaningful format choice or service access"
+    },
+    {
+      "id": "EX-RK-HX03",
+      "name": "Format-dependent service disadvantage",
+      "harm": "Discriminatory cost, delay or reduced service"
+    },
+    {
+      "id": "EX-RK-HX04",
+      "name": "Unsupported service equivalence conclusion",
+      "harm": "Undetected exclusion or compulsion persists under nominal assurance"
+    }
+  ],
+  "cases": [
+    {
+      "id": "equivalent-service",
+      "contexts": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "risks": [
+        "EX-RK-HX04"
+      ],
+      "requirements": [
+        "SEDI-BOR-03",
+        "SEDI-BOR-04",
+        "SEDI-BOR-09"
+      ],
+      "constructed": "Both paths usable without different burdens; assume comparative evidence exists only in fixture.",
+      "documentary_observation": "All three requirements explicitly address the intended protection.",
+      "candidate_disposition": "design addresses proposition; operational effectiveness unverified",
+      "control_plane": "operational-policy",
+      "evidence_needed": "Matched service records, accessibility observations, current acceptance and pathway inventories."
+    },
+    {
+      "id": "unavailable-physical-path",
+      "contexts": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "risks": [
+        "EX-RK-HX01"
+      ],
+      "requirements": [
+        "SEDI-BOR-03",
+        "SEDI-BOR-04"
+      ],
+      "constructed": "Listed physical acceptance point does not accept physical identity.",
+      "documentary_observation": "BOR-03 objectives 3 and 5 require coverage and review; administrative method acknowledges local discontinuation detection limit.",
+      "candidate_disposition": "risk addressed by stated requirement; detection effectiveness unverified",
+      "control_plane": "operational-policy",
+      "evidence_needed": "Current inventory, independent service point inspection, complaints and correction evidence."
+    },
+    {
+      "id": "digital-enrollment-condition",
+      "contexts": [
+        "C1",
+        "C3"
+      ],
+      "risks": [
+        "EX-RK-HX02"
+      ],
+      "requirements": [
+        "SEDI-BOR-04",
+        "SEDI-BOR-09"
+      ],
+      "constructed": "Staff condition otherwise lawful service on digital enrollment despite documented fallback.",
+      "documentary_observation": "BOR-04 objectives 4 and 5 address policy and informal compulsion; automated coverage excludes external portals.",
+      "candidate_disposition": "risk addressed by stated requirement; operational enforcement unverified",
+      "control_plane": "operational-policy",
+      "evidence_needed": "Staff practices, fallback execution, grievance accessibility and resolution evidence."
+    },
+    {
+      "id": "unequal-service",
+      "contexts": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "risks": [
+        "EX-RK-HX03"
+      ],
+      "requirements": [
+        "SEDI-BOR-09"
+      ],
+      "constructed": "Physical users experience materially longer wait or additional fees.",
+      "documentary_observation": "BOR-09 objectives 1–3 address service equivalence and permitted distinctions; EXPT and ADMN cannot establish all counter behavior.",
+      "candidate_disposition": "decision-dependent and operational evidence required",
+      "control_plane": "governance",
+      "evidence_needed": "Authoritative permitted distinctions, matched processing time and fee evidence, complaints and remediation."
+    },
+    {
+      "id": "evidence-missing",
+      "contexts": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "risks": [
+        "EX-RK-HX04"
+      ],
+      "requirements": [
+        "SEDI-BOR-03",
+        "SEDI-BOR-04",
+        "SEDI-BOR-09"
+      ],
+      "constructed": "Documented policy parity but no comparable service observations.",
+      "documentary_observation": "All three verification tables explicitly delimit what their methods can establish.",
+      "candidate_disposition": "indeterminate operational effectiveness; not PASS",
+      "control_plane": "governance",
+      "evidence_needed": "Independent comparative service evidence and accountable interpretation of limitations."
+    }
+  ],
+  "limitations": [
+    "Constructed cases are not observed incidents.",
+    "No risk severity, likelihood, guardrail result, formal finding or risk acceptance asserted.",
+    "Candidate dispositions are explanatory, not governed review statuses.",
+    "Source byte identity does not authenticate publisher release."
+  ]
+}

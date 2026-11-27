@@ -1,0 +1,302 @@
+{
+  "schema": "sedi-consolidation-index/v1",
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "rahp_baseline": "8f6be0638fc1932abe5713263e26fee3929be147",
+  "records": [
+    "cases.json",
+    "privacy-examination.json",
+    "lifecycle-examination.json",
+    "delegation-examination.json",
+    "conformance-examination.json",
+    "rights-governance-examination.json",
+    "identity-proofing-examination.json",
+    "technical-architecture-examination.json",
+    "ecosystem-interactions-examination.json",
+    "organizational-security-examination.json"
+  ],
+  "provenance": "AI-assisted author-side proposition index; not findings or independent review",
+  "findings": [
+    {
+      "id": "SEDI-P-001",
+      "case": "equivalent-service",
+      "source_record": "cases.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-002",
+      "case": "unavailable-physical-path",
+      "source_record": "cases.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-003",
+      "case": "digital-enrollment-condition",
+      "source_record": "cases.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-004",
+      "case": "unequal-service",
+      "source_record": "cases.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-005",
+      "case": "evidence-missing",
+      "source_record": "cases.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-006",
+      "case": "P-01",
+      "source_record": "privacy-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-007",
+      "case": "P-02",
+      "source_record": "privacy-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-008",
+      "case": "P-03",
+      "source_record": "privacy-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-009",
+      "case": "P-04",
+      "source_record": "privacy-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-010",
+      "case": "P-05",
+      "source_record": "privacy-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-011",
+      "case": "P-06",
+      "source_record": "privacy-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-012",
+      "case": "L-01",
+      "source_record": "lifecycle-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-013",
+      "case": "L-02",
+      "source_record": "lifecycle-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-014",
+      "case": "L-03",
+      "source_record": "lifecycle-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-015",
+      "case": "L-04",
+      "source_record": "lifecycle-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-016",
+      "case": "L-05",
+      "source_record": "lifecycle-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-017",
+      "case": "L-06",
+      "source_record": "lifecycle-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-018",
+      "case": "D-01",
+      "source_record": "delegation-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-019",
+      "case": "D-02",
+      "source_record": "delegation-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-020",
+      "case": "D-03",
+      "source_record": "delegation-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-021",
+      "case": "D-04",
+      "source_record": "delegation-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-022",
+      "case": "D-05",
+      "source_record": "delegation-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-023",
+      "case": "D-06",
+      "source_record": "delegation-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-024",
+      "case": "C-01",
+      "source_record": "conformance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-025",
+      "case": "C-02",
+      "source_record": "conformance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-026",
+      "case": "C-03",
+      "source_record": "conformance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-027",
+      "case": "C-04",
+      "source_record": "conformance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-028",
+      "case": "C-05",
+      "source_record": "conformance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-029",
+      "case": "C-06",
+      "source_record": "conformance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-030",
+      "case": "AB-01",
+      "source_record": "rights-governance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-031",
+      "case": "AB-02",
+      "source_record": "rights-governance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-032",
+      "case": "AB-03",
+      "source_record": "rights-governance-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-033",
+      "case": "IP-01",
+      "source_record": "identity-proofing-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-034",
+      "case": "IP-02",
+      "source_record": "identity-proofing-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-035",
+      "case": "IP-03",
+      "source_record": "identity-proofing-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-036",
+      "case": "IP-04",
+      "source_record": "identity-proofing-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-037",
+      "case": "TC-01",
+      "source_record": "technical-architecture-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-038",
+      "case": "TC-02",
+      "source_record": "technical-architecture-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-039",
+      "case": "TC-03",
+      "source_record": "technical-architecture-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-040",
+      "case": "TC-04",
+      "source_record": "technical-architecture-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-041",
+      "case": "EI-01",
+      "source_record": "ecosystem-interactions-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-042",
+      "case": "EI-02",
+      "source_record": "ecosystem-interactions-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-043",
+      "case": "EI-03",
+      "source_record": "ecosystem-interactions-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-044",
+      "case": "EI-04",
+      "source_record": "ecosystem-interactions-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-045",
+      "case": "OS-01",
+      "source_record": "organizational-security-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-046",
+      "case": "OS-02",
+      "source_record": "organizational-security-examination.json",
+      "status": "open"
+    },
+    {
+      "id": "SEDI-P-047",
+      "case": "OS-03",
+      "source_record": "organizational-security-examination.json",
+      "status": "open"
+    }
+  ]
+}
