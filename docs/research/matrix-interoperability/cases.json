@@ -1,5 +1,5 @@
 {
-  "notice": "Synthetic research fixtures only; no deployed-agent observations.",
+  "notice": "Earlier synthetic oracle fixture; retained as a regression of evidence-role handling, not the lifecycle experiment or deployed-agent observations.",
   "subject": {
     "id": "fictional-booking-agent",
     "revision": "fixture-v1",
@@ -115,7 +115,7 @@
       },
       {
         "evidence": "cached-approval",
-        "state": "contradicted"
+        "state": "invalid"
       },
       {
         "evidence": "human-outcome",

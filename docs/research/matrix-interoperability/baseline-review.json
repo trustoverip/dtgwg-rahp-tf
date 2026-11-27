@@ -6,7 +6,7 @@
     "repository": "trustoverip/aimwg-agent-fiduciary-duties",
     "revision": "140b558791bab5bacdbe5245df0aada93d2b27bd",
     "artifact": "Assurance Matrix/README.md",
-    "version_label": "Matrix documentary review with baseline reference experiment; see source lock and evidence"
+    "version_label": "Pinned Matrix README documentary examination; constructed experiment recorded separately"
   },
   "rahp_version": "trustoverip/dtgwg-rahp-tf@cfecfeb053eb0bde2a4397ce02c6d194b0cf8ae1",
   "reviewed_at": "2026-11-27",
@@ -22,7 +22,7 @@
     },
     {
       "id": "F-002",
-      "summary": "The authorized reference path succeeds before revocation; historical success does not establish revocation enforcement or current permission.",
+      "summary": "The README describes permission withdrawal as a proposed test design and requires evidence of resulting behavior; it does not establish deployed revocation enforcement.",
       "risks": [
         "EX-RK-AU02"
       ],

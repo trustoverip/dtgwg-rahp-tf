@@ -54,7 +54,7 @@
       },
       {
         "evidence": "cached-approval",
-        "state": "contradicted"
+        "state": "invalid"
       },
       {
         "evidence": "human-outcome",
