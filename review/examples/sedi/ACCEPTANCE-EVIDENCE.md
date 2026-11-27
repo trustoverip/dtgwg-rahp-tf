@@ -20,3 +20,20 @@ Reconciled 43 companion/thematic authority references and visible method applica
 ### Source correction
 
 Reinspection of retained Parts 7 and 9 establishes ADMN Mandatory and EXPT N/A for KMS-04, LOY-04, LOY-05 and INT-01. KMS-04 and INT-01 AUTO Mandatory; LOY-04/05 AUTO N/A. Corrected exact objective coverage, including KMS-04 parameter checks. The earlier four conflicts originated in author-side metadata, not the source. EXPT limitations for KMS-04 and INT-01 still describe expert review. Other metadata requires systematic corroboration; no claim of completed CP2.
+
+## Source reconciliation and commit-bound replay — 2026-11-27
+
+The retained archive SHA-256 matches the manifest; all 21 extracted substantive source files were compared byte-for-byte with their ZIP members. Author-side detailed-section extraction located 141 of the 142 indexed requirements, containing 703 numbered objectives. Comparison against the original uploaded snapshot found no differences in the numbered objective sequences or explicit method-objective assignments. This is a structural comparison, not independent interpretation of the source. INT-04 has no declared ADMN applicability; null is not N/A. The heading references for SDI-24, ENF-03 and ENF-04 were distinguished from other citations in their preceding prose. The 43 legacy array records now reflect the extracted verification-method declarations, and LOY-03–05 retain the source's all-participant scope. Existing source page ranges still need full-span corroboration; no assertion of complete source reconciliation is made.
+
+The synthesis now contains twelve open propositions with explicit recommendations, proposed treatment authorities, interpretation boundaries and requirement references. The consumer derives source bindings from normalized records and rejects missing or duplicate required references, invalid additional references and empty recommendations. The direct CRY-04/ORG-04 references in S-10 are separately justified rather than being represented as case-derived evidence. No observed implementation failure or independent acceptance is asserted.
+
+### Executed validation
+
+Execution baseline: `4c190963210c8c50b28c74820c9a1d053dbd447f`. Reconstructed the execution files from the supplied GitHub ZIP at `7a04d19861cff821afadcc430ac30886a68a0e6f`. The original snapshot's indexed review, tests, tools, method, data, context, site, docs and root guidance match the corresponding Git tree/blob identities. Its historical archive directory differs from the base Git tree; full repository-tree identity is not claimed. All nine changed execution/data/test files were reconstructed and individually matched the execution baseline's Git blob SHAs. The evidence-only Markdown file was not needed for execution.
+
+- Actual retained-source `consolidate.py`: exit 0; 21 verified members; 141/142 examined; 703 objectives; 31 local hypotheses; 47 constructed cases; 12 synthesis propositions; 47 records with normalization gaps (including IDP-08); documentary coverage incomplete; normalization incomplete; review-required.
+- Actual retained-source `examine.py`: exit 0; seven scoped requirements; 32 mapped objectives; four open findings; candidate validation complete; formal review not established.
+- `python -m unittest discover -s tests -p 'test_sedi*.py' -v`: 28 tests passed, including new negative mutation subtests.
+- `check_coverage.py --require-complete`: exit 1, expected rejection: one requirement remains indexed only.
+
+The executable replay resolves the earlier repository retrieval obstacle. Missing analytical metadata, complete page-span verification, source interpretation, IDP-08 publisher clarification and independent review remain outstanding. The strict completeness gate currently rejects indexed-only coverage, not all unresolved analytical metadata; do not treat this as satisfying the full strict-completeness acceptance criterion. No canonical DTG changes, risk scoring, risk acceptance, legal determination or operational assurance.
