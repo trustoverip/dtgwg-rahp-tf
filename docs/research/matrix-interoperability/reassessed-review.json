@@ -1,0 +1,33 @@
+{
+  "schema": "rahp-spec-review/v1",
+  "reviewer": "sankarshanmukhopadhyay",
+  "assessment_id": "SR-392",
+  "target": {
+    "repository": "trustoverip/aimwg-agent-fiduciary-duties",
+    "revision": "140b558791bab5bacdbe5245df0aada93d2b27bd",
+    "artifact": "Assurance Matrix/README.md",
+    "version_label": "Matrix documentary review with reassessed reference experiment; see source lock and evidence"
+  },
+  "rahp_version": "trustoverip/dtgwg-rahp-tf@cfecfeb053eb0bde2a4397ce02c6d194b0cf8ae1",
+  "reviewed_at": "2026-11-27",
+  "findings": [
+    {
+      "id": "F-001",
+      "summary": "RAHP review v1 records findings and treatments, but does not natively carry Matrix campaign evidence closure, coverage or derived outcomes.",
+      "risks": [
+        "EX-RK-AU01"
+      ],
+      "control_plane": "implementation-guidance",
+      "status": "open"
+    },
+    {
+      "id": "F-002",
+      "summary": "The reference experiment blocks descendant, cached, fallback and recombined booking requests after revocation; deployment-specific enforcement remains unassessed.",
+      "risks": [
+        "EX-RK-AU02"
+      ],
+      "control_plane": "runtime-control",
+      "status": "open"
+    }
+  ]
+}

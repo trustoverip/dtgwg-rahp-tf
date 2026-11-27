@@ -2,7 +2,25 @@
   "issue": "https://github.com/trustoverip/dtgwg-rahp-tf/issues/39",
   "sources": [
     {"repository": "trustoverip/dtgwg-rahp-tf", "commit": "448e2ff4ca7f747ca899e0e845adfe45f750f094", "paths": ["review/spec-review.schema.json", "review/README.md", "review/examples/vrc-v03/README.md", "review/examples/vrc-v03/evaluate.py", "review/examples/standalone-trqp/README.md"]},
-    {"repository": "trustoverip/aimwg-agent-fiduciary-duties", "commit": "140b558791bab5bacdbe5245df0aada93d2b27bd", "paths": ["Assurance Matrix/README.md"]}
+    {"repository": "trustoverip/dtgwg-rahp-tf", "commit": "cfecfeb053eb0bde2a4397ce02c6d194b0cf8ae1", "paths": ["review/spec-review.schema.json", "review/validate_spec_review.py", "review/README.md", "review/examples/tea-delegated-authority/README.md"]},
+    {"repository": "trustoverip/aimwg-agent-fiduciary-duties", "commit": "140b558791bab5bacdbe5245df0aada93d2b27bd", "paths": ["Assurance Matrix/README.md"], "readme_blob": "c322c983aa377cbce169a2166d4d76c2b3d57b8f"}
   ],
-  "validation": {"source_tree_digest_verified": false, "workbook_rows_verified": false, "wla_full_text_verified": false, "independent_review": false}
+  "local_sources": {
+    "workbook": {
+      "name": "Fiduciary-Agent-Threat-and-Assurance-Matrix .xlsx",
+      "sha256": "c11a77f1b66ba2aeaf303e32be3d2d76b31a27f1e26ced8a747af7f5ca40551a",
+      "publisher_reference": "https://docs.google.com/spreadsheets/d/19hJPpeZzvtIUzT9B5SrRJYqO7XIyvkyCvk_biMi0Qck/edit?usp=sharing",
+      "locators": ["Threats!8 (Authority-01)", "Propositions!11 (A01-P5)", "Scenarios!19:21 (A01-P5-ADV/NEG/POS)", "Assessment Runs!82:84 (RUN-0076:RUN-0078)", "Controls!15 (CTRL-09)", "Campaigns!7 (CAMP-001)", "Coverage!7", "Evidence Registry!7", "Assurance Dependencies!7", "Lists!12:24"],
+      "equivalence_to_live_edition": "not established"
+    },
+    "wla": {
+      "name": "Warranted Lifecycle Alignment.docx",
+      "version_label": "Stephen Vitka, v0.1, October 2026",
+      "sha256": "f5f734dec605d2d1decc76a327112cb5522be16e682ba5e4ed5b5e5e2d5063c5",
+      "publisher_reference": "https://docs.google.com/document/d/1afsvN0Qav0l7e6QY0ZocEikKE12QTxVO5Gk2hnRVqg4/edit?usp=sharing",
+      "locators": ["2.1-2.4 bounded claims and lineage", "9.1 structural testing", "10.2 controls and outcomes", "11.1 coverage and performance", "19.1 evidence closure", "20.1 assurance and authority", "39-41 materiality, reassessment and evidence decay"]
+    }
+  },
+  "provenance": "Contributor-supplied local copies inspected on 2026-11-27; exact bytes identified by digest. Publisher authentication, online equivalence and redistribution permission have not been established. Source copies are not redistributed.",
+  "validation": {"source_tree_digest_verified": false, "workbook_rows_verified": true, "wla_full_text_verified": false, "wla_relevant_sections_verified": true, "independent_review": false}
 }
