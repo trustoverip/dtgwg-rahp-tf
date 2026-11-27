@@ -128,3 +128,5 @@ Run `python3 review/examples/sedi/normalize_coverage.py` to derive a consistent 
 ## Consolidated consumer and review handover
 
 Run `python3 review/examples/sedi/consolidate.py /path/to/retained.zip` for the integrated retained-source and documentary consistency path. See [review handover](REVIEW-HANDOVER.md) for limitations and remaining gates. Candidate propositions are not formal findings; independent review is pending.
+
+The [synthesis](synthesis.json) groups documentary observations into twelve open review propositions, including the IDP-08 dependency. Case IDs remain analytical instruments; the consumer rejects invented case-level control-plane assignments. Proposed treatment authorities are not acceptance authorities.

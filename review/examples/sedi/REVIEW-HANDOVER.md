@@ -28,7 +28,7 @@ The strict completeness command must fail for IDP-08. The composed result must r
 
 - Reconcile missing metadata and source interpretation, including original 46 records.
 - Resolve or explicitly retain IDP-08 through publisher clarification and Task Force disposition.
-- Qualify candidate treatment authorities and control planes and consolidate substantive findings; do not equate all constructed cases with findings.
+- Review the twelve source-linked synthesis propositions in synthesis.json, including proposed treatment authorities and control planes; do not equate all constructed cases with findings.
 - Execute exact archive consumer and negative cases; retain actual evidence.
 - Identify independent reviewers, record objections and disposition, agree publication/communication.
 - Reassess after changes to retained source, governing rules, profile or implementation, or new evidence.

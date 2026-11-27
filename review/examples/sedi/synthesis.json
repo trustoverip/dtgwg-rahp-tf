@@ -1,0 +1,170 @@
+{
+  "schema": "sedi-synthesis/v1",
+  "archive_sha256": "9e04d004b1243510ce534c3707ac8487c76c72d8e60aa3001193115a0af4db99",
+  "review_state": "author-prepared; independent review pending",
+  "findings": [
+    {
+      "id": "S-01",
+      "control_plane": "operational-policy",
+      "cases": [
+        "unavailable-physical-path",
+        "digital-enrollment-condition",
+        "unequal-service",
+        "AB-01",
+        "AB-02"
+      ],
+      "observation": "The rights and acceptance provisions explicitly protect physical alternatives and voluntary use; documentary and laboratory checks cannot establish field-level access or remedy.",
+      "authority": "Department, governmental entities and applicable service operators",
+      "resolution_evidence": "Representative service observations, matched service outcomes, accessible correction and complaint disposition.",
+      "status": "open"
+    },
+    {
+      "id": "S-02",
+      "control_plane": "specification",
+      "cases": [
+        "P-01",
+        "P-02",
+        "TC-03",
+        "EI-01"
+      ],
+      "observation": "The draft provides disclosure and predicate protections; joint satisfaction of BOR-08, SDI-07 and CRY-03 and the end-to-end request context require examination. A selected field list is not proof of cryptographic hiding.",
+      "authority": "SEDI specification owners; wallet, verifier and relying-party implementers",
+      "resolution_evidence": "Clarify combined requirements; independently examine actual cryptographic construction, purpose and recipient binding, negative disclosure and metadata tests.",
+      "status": "open"
+    },
+    {
+      "id": "S-03",
+      "control_plane": "governance",
+      "cases": [
+        "P-03",
+        "C-04",
+        "EI-02",
+        "OS-02"
+      ],
+      "observation": "Anti-surveillance restrictions coexist with holder-controlled history and security/audit obligations. The relevant evidence boundary is log content, access and completeness, not logging alone.",
+      "authority": "Department and applicable wallet providers",
+      "resolution_evidence": "Log and telemetry data flows, access, integrity and instrumentation evidence without holder-identifying presentation history.",
+      "status": "open"
+    },
+    {
+      "id": "S-04",
+      "control_plane": "runtime-control",
+      "cases": [
+        "L-01",
+        "L-02",
+        "L-04",
+        "L-05",
+        "D-03"
+      ],
+      "observation": "Offline availability, status freshness, compromise recovery and portability are separately protected; effectiveness depends on how lifecycle transitions compose.",
+      "authority": "Department, wallet providers and verifiers",
+      "resolution_evidence": "Status staleness policy, propagation, recovery, migration, emergency key transitions and continuity evidence.",
+      "status": "open"
+    },
+    {
+      "id": "S-05",
+      "control_plane": "governance",
+      "cases": [
+        "D-01",
+        "D-02",
+        "D-04",
+        "D-05",
+        "L-03",
+        "IP-04",
+        "OS-01"
+      ],
+      "observation": "Identity, current authority, action scope and factual justification are distinct. Technical authorization does not establish appropriate exercise of authority.",
+      "authority": "Department and competent oversight authorities",
+      "resolution_evidence": "Relationship and appointment evidence, scoped authority, termination, attribution, factual grounds and accessible challenge.",
+      "status": "open"
+    },
+    {
+      "id": "S-06",
+      "control_plane": "implementation-guidance",
+      "cases": [
+        "C-01",
+        "C-02",
+        "C-05",
+        "C-06",
+        "OS-03"
+      ],
+      "observation": "Component conformance and profile claims cannot establish interaction-level protection; missing or stale evidence must remain visible.",
+      "authority": "Department and profile owners",
+      "resolution_evidence": "Version-bound paired interaction evidence, applicable role and method coverage, change-impact and reassessment records.",
+      "status": "open"
+    },
+    {
+      "id": "S-07",
+      "control_plane": "governance",
+      "cases": [
+        "IP-01",
+        "IP-02",
+        "IP-03"
+      ],
+      "observation": "Proofing and eligibility gates require substantively valid evidence; the draft recognizes proportionality and upstream accuracy limits. Clarify age gate and guardian pathways without inferring legal inconsistency.",
+      "authority": "Department and identity-proofing entities",
+      "resolution_evidence": "Approved proofing criteria, authoritative inputs, proportionality, correction and representative accessibility evidence.",
+      "status": "open"
+    },
+    {
+      "id": "S-08",
+      "control_plane": "operational-policy",
+      "cases": [
+        "AB-03",
+        "P-04",
+        "TC-04",
+        "EI-03"
+      ],
+      "observation": "The draft restricts purpose, retention and disclosure. A later consent record does not alone establish that all other processing restrictions are satisfied.",
+      "authority": "Department and applicable processors",
+      "resolution_evidence": "Data lineage, purpose and legal basis, consent scope, retention/deletion and downstream access evidence.",
+      "status": "open"
+    },
+    {
+      "id": "S-09",
+      "control_plane": "governance",
+      "cases": [
+        "TC-01",
+        "TC-02",
+        "OS-01"
+      ],
+      "observation": "Issuer signature verification, state infrastructure control and third-party equivalent obligations require distinct evidence. Delegated hosting or custody examples do not establish permission to relinquish sole control.",
+      "authority": "Department and competent independent assessors",
+      "resolution_evidence": "Key provenance, actual custody and control, ceremony and delegated function scope; clarify combined SDI-13, KMS-03 and ORG-06 obligations.",
+      "status": "open"
+    },
+    {
+      "id": "S-10",
+      "control_plane": "specification",
+      "cases": [
+        "C-05"
+      ],
+      "observation": "INT-01, CRY-04 and ORG-04 retain apparent method-applicability questions; do not silently change source assignments.",
+      "authority": "SEDI guide maintainers",
+      "resolution_evidence": "Publisher clarification of applicability and intended assessment objects.",
+      "status": "open"
+    },
+    {
+      "id": "S-11",
+      "control_plane": "governance",
+      "cases": [
+        "C-03",
+        "EI-04"
+      ],
+      "observation": "Technical suitability is distinct from rulemaking approval and actor-specific acceptance obligations.",
+      "authority": "Department and applicable regulated actors",
+      "resolution_evidence": "Approval docket, role applicability and exception basis.",
+      "status": "open"
+    },
+    {
+      "id": "S-12",
+      "control_plane": "specification",
+      "cases": [],
+      "observation": "IDP-08 is indexed but its detailed section is absent from the retained source. APP-08 is not a substitute.",
+      "authority": "SEDI guide maintainers",
+      "resolution_evidence": "Publisher-qualified detailed requirement or explicit disposition of the source omission.",
+      "status": "open",
+      "source_gap": "SEDI-IDP-08"
+    }
+  ]
+}

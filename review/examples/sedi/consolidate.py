@@ -37,7 +37,7 @@ def compose(archive, loader=load):
     findings = []
     seen = set()
     for f in index["findings"]:
-        if f["case"] not in cases or f["case"] in seen or f["status"] != "open":
+        if f["case"] not in cases or f["case"] in seen or f["status"] != "open" or "control_plane" in f:
             raise ValueError("Invalid case or unsupported disposition")
         seen.add(f["case"])
         name, case = cases[f["case"]]
@@ -46,6 +46,8 @@ def compose(archive, loader=load):
         evidence = case.get("proposed_evidence") or case.get("evidence_needed") or case.get("evidence")
         if name != f["source_record"] or not refs or not set(refs) <= risks.keys() or not reqs or not set(reqs) <= rows.keys() or not evidence:
             raise ValueError("Invalid finding linkage")
+        if any(rows[r]["status"] == "indexed" or not rows[r].get("source") for r in reqs):
+            raise ValueError("Case cites unexamined requirement")
         if case.get("status", "open") != "open" or case.get("operational_evidence", "not acquired") != "not acquired":
             raise ValueError("Unsupported case assurance claim")
         findings.append({**f, "risk_refs": refs, "requirements": reqs,
@@ -54,9 +56,25 @@ def compose(archive, loader=load):
                          "authority": case.get("authority"), "classification": "constructed; not observed"})
     if seen != cases.keys() or len({f["id"] for f in findings}) != len(findings):
         raise ValueError("Incomplete or duplicate finding index")
+    synthesis = loader("synthesis.json")
+    if synthesis["archive_sha256"] != manifest["sha256"]:
+        raise ValueError("Synthesis baseline mismatch")
+    synth_ids = set()
+    for finding in synthesis["findings"]:
+        if finding["id"] in synth_ids or finding["status"] != "open" or not finding["authority"] or not finding["resolution_evidence"]:
+            raise ValueError("Invalid synthesis disposition or authority")
+        synth_ids.add(finding["id"])
+        if finding["control_plane"] not in {"specification", "companion-specification", "governance", "implementation-guidance", "runtime-control", "operational-policy", "none"}:
+            raise ValueError("Invalid control plane")
+        if not set(finding["cases"]) <= cases.keys() or (not finding["cases"] and not finding.get("source_gap")):
+            raise ValueError("Invalid synthesis binding")
+        if finding.get("source_gap") and not rows.get(finding["source_gap"], {}).get("source_gap"):
+            raise ValueError("Unknown source gap")
     return {**integrity, "coverage": view["summary"], "risks": list(risks.values()),
+            "synthesis": synthesis["findings"],
             "candidate_propositions": findings, "overall_assurance": "review-required",
-            "formal_review": "not-established", "documentary_coverage_complete": False}
+            "formal_review": "not-established", "documentary_coverage_complete": all(r["status"] != "indexed" for r in rows.values()),
+            "normalization_complete": not any(r["normalization_gaps"] for r in rows.values())}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
