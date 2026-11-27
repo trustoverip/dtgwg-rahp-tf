@@ -96,3 +96,7 @@ The [tutorial](TUTORIAL.md) describes source verification and independent review
 ## SEDI-05: Compositional conformance
 
 [Conformance documentary examination](conformance-examination.json) distinguishes mandatory base requirements, profile-specific technology bindings, actor-level claims, Department rulemaking, paired interaction evidence and prospective certification. It retains explicit questions about Part 9 base coverage and INT-01 expert-review applicability, and links privacy, lifecycle and service-equivalence dependencies to earlier themes. No actual profile or certificate is assessed. This completes the planned thematic expansion; consolidated replay, findings and accountable review remain outstanding.
+
+## Complete requirement coverage extension
+
+The proposed execution scope now includes all 142 indexed requirements, with differentiated scenario depth. [Coverage conventions](COVERAGE.md) and [coverage register](requirement-coverage.json) distinguish 46 previously examined requirements from 96 indexed-only requirements. This extends the five thematic records without duplicating their contents. The complete-coverage gate must remain failing until all requirements have documentary examination records; no operational assurance is inferred.
