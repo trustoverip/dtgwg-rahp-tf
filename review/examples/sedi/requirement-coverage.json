@@ -833,9 +833,19 @@
     {
       "id": "SEDI-APP-01",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-APP-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
@@ -901,99 +911,215 @@
     {
       "id": "SEDI-APP-05",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-APP-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-APP-06",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-APP-06",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-APP-07",
       "index_page": 4,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-APP-07",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-01",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-02",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-03",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-04",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-04",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-05",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-06",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-06",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-07",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-07",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-APP-08",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-APP-08",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
@@ -1004,32 +1130,69 @@
       "disposition": null,
       "examination": null,
       "work_package": "WP-C",
-      "review_state": "not-reviewed"
+      "review_state": "not-reviewed",
+      "source_gap": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-08",
+        "reason": "Detailed requirement and numbered objectives unavailable in retained source; see source_gaps."
+      }
     },
     {
       "id": "SEDI-IDP-09",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-09",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-10",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-10",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-IDP-11",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "identity-proofing-examination.json",
+        "id": "SEDI-IDP-11",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-C",
       "review_state": "not-reviewed"
     },

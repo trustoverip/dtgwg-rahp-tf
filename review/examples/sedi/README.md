@@ -104,3 +104,7 @@ The proposed execution scope now includes all 142 indexed requirements, with dif
 ### WP-A/B: Rights, governance, processing restrictions and enforcement
 
 [Rights and governance examination](rights-governance-examination.json) adds 22 requirements, source bindings, verification coverage, risk relevance, authority dependencies and evidence needs. PRC is processing restrictions, not procurement. Three additional constructed cases address discriminatory endorsement, coerced device surrender and cross-purpose processing. The register now records 68 examined and 74 indexed-only requirements. Existing thematic risks are reused where sufficient; two distinct local hypotheses supplement them. No independent review or operational assurance is asserted.
+
+### WP-C: Application and identity proofing
+
+[Identity-proofing examination](identity-proofing-examination.json) records 15 additional full documentary requirement examinations, four constructed cases and three new local hypotheses. IDP-08 is indexed and cross-referenced but lacks its standalone detailed section in the retained Part 3 PDF; its source gap is explicitly recorded and the register retains indexed status. The APP-01 age gate is examined alongside guardian pathways, and the informative NIST mapping is not treated as an adopted rule. Coverage: 83/142 examined, 59 indexed-only (including IDP-08). No source objectives invented; no operational assurance asserted.
