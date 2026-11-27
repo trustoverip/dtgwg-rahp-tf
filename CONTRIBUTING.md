@@ -5,11 +5,20 @@ to change them safely, and what a reviewable contribution looks like.
 
 ## The one rule
 
-**`data/` is canonical. Everything in `build/` and `_site/` is generated.**
+**Fix the source, then rebuild. Everything in `build/` and `_site/` is generated.**
 
 If a fact is wrong on the website, in the JSON-LD, or in a spreadsheet export,
-the fix goes in `data/` and you re-run `python3 tools/build.py` (analyst views,
-JSON-LD and exports) or `python3 tools/build_pages.py` (the published website).
+find the source it comes from and fix it there:
+
+| What's wrong | Where to fix it |
+|---|---|
+| A risk, control, guardrail, persona, scenario or other DTG record | `data/` |
+| A vocabulary term, lifecycle stage, gap or schema | `method/` |
+| A worked example or review record | `review/examples/` |
+| The front door, a published example, or the site's design | `site/` (see [`site/README.md`](site/README.md)) |
+
+Then re-run `python3 tools/build.py` (analyst views, JSON-LD and exports) or
+`python3 tools/build_pages.py` (the published website).
 Never edit a generated file — your change will be silently destroyed by the next build.
 
 ## Repository layout
