@@ -16,3 +16,7 @@ Keep open: persona/context justification across all risks; normalized risk/contr
 ## CP2–CP4 changes
 
 Reconciled 43 companion/thematic authority references and visible method applicability rows. Legacy objective coverage arrays retained for compatibility. Null/absent method applicability is unresolved, not N/A; no claim that all source fields or objective text are reconciled. All cases now linked to synthesis; consumer rejects omitted synthesis coverage. Repeat actual archive replay after this commit, not just baseline execution.
+
+### Source correction
+
+Reinspection of retained Parts 7 and 9 establishes ADMN Mandatory and EXPT N/A for KMS-04, LOY-04, LOY-05 and INT-01. KMS-04 and INT-01 AUTO Mandatory; LOY-04/05 AUTO N/A. Corrected exact objective coverage, including KMS-04 parameter checks. The earlier four conflicts originated in author-side metadata, not the source. EXPT limitations for KMS-04 and INT-01 still describe expert review. Other metadata requires systematic corroboration; no claim of completed CP2.

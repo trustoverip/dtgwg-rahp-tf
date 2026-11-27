@@ -465,21 +465,23 @@
       ],
       "verification": {
         "AUTO": [],
-        "EXPT": [],
         "ADMN": [
           1,
           2,
           3,
           4
-        ]
+        ],
+        "EXPT": []
       },
       "roles": "All ecosystem participants",
       "observation": "No detrimental practices, accessible complaints, pattern review and remediation.",
       "authority_reference": "Utah Code § 63A-20-701(4)",
       "verification_applicability": {
         "AUTO": "N/A",
-        "EXPT": "Mandatory"
-      }
+        "ADMN": "Mandatory",
+        "EXPT": "N/A"
+      },
+      "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
     },
     {
       "id": "SEDI-LOY-05",
@@ -500,22 +502,24 @@
       ],
       "verification": {
         "AUTO": [],
-        "EXPT": [],
         "ADMN": [
           1,
           2,
           3,
           4,
           5
-        ]
+        ],
+        "EXPT": []
       },
       "roles": "All ecosystem participants",
       "observation": "No harmful practices, accessible complaints, harm review and incident remediation. Annex G guardian table lists LOY-01–04 only; Part 7 names all participants. Applicability requires clarification rather than silent reconciliation.",
       "authority_reference": "Utah Code § 63A-20-701(5)",
       "verification_applicability": {
         "AUTO": "N/A",
-        "EXPT": "Mandatory"
-      }
+        "ADMN": "Mandatory",
+        "EXPT": "N/A"
+      },
+      "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
     }
   ],
   "cases": [

@@ -319,12 +319,12 @@
           1,
           3
         ],
-        "EXPT": [],
         "ADMN": [
           2,
           4,
           5
         ],
+        "EXPT": [],
         "ADMN_parameter_check": true
       },
       "roles": "Department",
@@ -332,8 +332,10 @@
       "authority_reference": "Utah Code § 63A-20-301(1)(a), 301(2)(d)",
       "verification_applicability": {
         "AUTO": "Mandatory",
-        "EXPT": "Mandatory"
-      }
+        "ADMN": "Mandatory",
+        "EXPT": "N/A"
+      },
+      "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
     },
     {
       "id": "SEDI-KMS-05",

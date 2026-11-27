@@ -279,20 +279,22 @@
           3,
           6
         ],
-        "EXPT": [],
         "ADMN": [
           4,
           5,
           6
-        ]
+        ],
+        "EXPT": []
       },
       "roles": "Department",
       "observation": "Open protocols, formats, schemas and APIs; catalog validation cannot detect uncataloged dependencies. EXPT marked N/A although limitation describes expert review need.",
       "authority_reference": "Utah Code § 63A-20-301(2)(e)",
       "verification_applicability": {
         "AUTO": "Mandatory",
-        "EXPT": "Mandatory"
-      }
+        "ADMN": "Mandatory",
+        "EXPT": "N/A"
+      },
+      "source_reconciliation": "Rechecked retained PDF verification table and Objective coverage statement. ADMN mandatory; EXPT N/A. No inference of operational effectiveness."
     },
     {
       "id": "SEDI-INT-02",
