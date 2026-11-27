@@ -92,3 +92,7 @@ The [tutorial](TUTORIAL.md) describes source verification and independent review
 ## SEDI-04: Delegated authority and accountability
 
 [Delegation documentary examination](delegation-examination.json) examines guardian consent, appointment and action scope, current authority, service parity and duty of loyalty. It distinguishes identity, legal relationship, action-specific authorization and best-interest judgment. Annex G p16 lists LOY-01–04 for guardians while Part 7 LOY-05 names all ecosystem participants; this is retained as an applicability question, not a legal conclusion. The tranche remains outside the SEDI-01 composed candidate pending consolidation.
+
+## SEDI-05: Compositional conformance
+
+[Conformance documentary examination](conformance-examination.json) distinguishes mandatory base requirements, profile-specific technology bindings, actor-level claims, Department rulemaking, paired interaction evidence and prospective certification. It retains explicit questions about Part 9 base coverage and INT-01 expert-review applicability, and links privacy, lifecycle and service-equivalence dependencies to earlier themes. No actual profile or certificate is assessed. This completes the planned thematic expansion; consolidated replay, findings and accountable review remain outstanding.
