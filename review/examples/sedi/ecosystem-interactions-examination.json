@@ -59,11 +59,12 @@
       "limitation": "Tests cannot establish algorithm strength or side-channel resistance.",
       "evidence_needed": "Review platform-specific key protection, runtime integrity and independent security evidence.",
       "risk_refs": [
-        "EX-RK-LC05"
+        "EX-RK-LC05",
+        "EX-RK-LC02"
       ],
       "potential_harm": "Credential theft or unauthorized use.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Tests cannot establish algorithm strength or side-channel resistance.",
+      "disposition_rationale": "The design specifies storage protections, but independent platform and security evidence is needed to establish resistance to unauthorized use; migration and recovery risks are related, not exhaustive.",
       "related_requirements": [
         "SEDI-WAL-04",
         "SEDI-CRY-02"
@@ -239,11 +240,12 @@
       "limitation": "Physical tampering and platform variation incompletely tested.",
       "evidence_needed": "Exercise tamper detection and response, compare hardware/software properties and recovery outcomes.",
       "risk_refs": [
-        "EX-RK-LC05"
+        "EX-RK-LC05",
+        "EX-RK-LC02"
       ],
       "potential_harm": "Tampering enables unauthorized use or lockout.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Physical tampering and platform variation incompletely tested.",
+      "disposition_rationale": "The required protection varies with platform capability, so implementation-specific tamper and recovery evidence is needed rather than a further general design statement.",
       "related_requirements": [
         "SEDI-WAL-01",
         "SEDI-CRY-02",
@@ -1582,11 +1584,11 @@
       "limitation": "Business/legal decision outside technical boundary; context changes.",
       "evidence_needed": "Review actor-specific applicability and legal exceptions, including GOV-06 health-provider obligations; do not infer blanket exemption.",
       "risk_refs": [
-        "EX-RK-HX01"
+        "EX-RK-HX03"
       ],
       "potential_harm": "Incorrect acceptance boundary denies access.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Business/legal decision outside technical boundary; context changes.",
+      "disposition_rationale": "Clarification is needed on the relationship between permissive relying-party acceptance and specific actor obligations before an acceptance test can establish the intended boundary.",
       "related_requirements": [
         "SEDI-GOV-04",
         "SEDI-GOV-06",
@@ -1705,7 +1707,7 @@
     },
     {
       "id": "EI-04",
-      "risk": "EX-RK-HX01",
+      "risk": "EX-RK-HX03",
       "requirements": [
         "SEDI-RPY-08",
         "SEDI-GOV-06",
