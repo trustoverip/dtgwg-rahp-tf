@@ -61,3 +61,7 @@ The proposed first examination needs the pinned source, relevant administrative 
 The next increment must qualify the local archive representation for the review contract without weakening existing Git checks. The archive is available for documentary examination; no publisher authenticity or redistribution claim is made. Only then introduce example-local risks, cases, review and evidence bindings and reproducible checks. No risk scores, guardrail results, findings or assurance outcomes are asserted here.
 
 No canonical DTG records or shared contracts are modified. This foundation was prepared with AI assistance and remains subject to accountable human review.
+
+## First documentary examination (27 November 2026)
+
+[Requirement index](requirement-index.json) enumerates all 142 Annex A identifiers and their PDF page locations. [Scoped role mappings](role-mappings.json) cross-check the three selected requirements against Annexes E and G. [Candidate cases](cases.json) records five constructed cases, affected contexts, corpus reuse reasoning and documentary dispositions with source bindings. These are author-prepared analytical records, not formal RAHP review findings. The full-text requirement inventory and ecosystem-wide role mapping are not claimed. A non-Git review representation and accountable review remain necessary; no operational assurance is asserted.
