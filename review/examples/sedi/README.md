@@ -99,4 +99,8 @@ The [tutorial](TUTORIAL.md) describes source verification and independent review
 
 ## Complete requirement coverage extension
 
-The proposed execution scope now includes all 142 indexed requirements, with differentiated scenario depth. [Coverage conventions](COVERAGE.md) and [coverage register](requirement-coverage.json) distinguish 46 previously examined requirements from 96 indexed-only requirements. This extends the five thematic records without duplicating their contents. The complete-coverage gate must remain failing until all requirements have documentary examination records; no operational assurance is inferred.
+The proposed execution scope now includes all 142 indexed requirements, with differentiated scenario depth. [Coverage conventions](COVERAGE.md) and [coverage register](requirement-coverage.json) track documentary examination and indexed-only requirements. This extends the five thematic records without duplicating their contents. The complete-coverage gate must remain failing until all requirements have documentary examination records; no operational assurance is inferred.
+
+### WP-A/B: Rights, governance, processing restrictions and enforcement
+
+[Rights and governance examination](rights-governance-examination.json) adds 22 requirements, source bindings, verification coverage, risk relevance, authority dependencies and evidence needs. PRC is processing restrictions, not procurement. Three additional constructed cases address discriminatory endorsement, coerced device surrender and cross-purpose processing. The register now records 68 examined and 74 indexed-only requirements. Existing thematic risks are reused where sufficient; two distinct local hypotheses supplement them. No independent review or operational assurance is asserted.

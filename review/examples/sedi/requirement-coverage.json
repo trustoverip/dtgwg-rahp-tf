@@ -66,9 +66,20 @@
     {
       "id": "SEDI-BOR-01",
       "index_page": 1,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-BOR-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-A",
       "review_state": "not-reviewed"
     },
@@ -140,27 +151,59 @@
     {
       "id": "SEDI-BOR-05",
       "index_page": 1,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-BOR-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-A",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-BOR-06",
       "index_page": 1,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-BOR-06",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-A",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-BOR-07",
       "index_page": 1,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-BOR-07",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-A",
       "review_state": "not-reviewed"
     },
@@ -230,9 +273,21 @@
     {
       "id": "SEDI-BOR-11",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-BOR-11",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "work_package": "WP-A",
       "review_state": "not-reviewed"
     },
@@ -279,9 +334,21 @@
     {
       "id": "SEDI-PRG-03",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
@@ -326,54 +393,130 @@
     {
       "id": "SEDI-PRG-06",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-06",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRG-07",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-07",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRG-08",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-08",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRG-09",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-09",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRG-10",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-10",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRG-11",
       "index_page": 2,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRG-11",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
@@ -931,18 +1074,38 @@
     {
       "id": "SEDI-GOV-03",
       "index_page": 5,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-GOV-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-GOV-04",
       "index_page": 6,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-GOV-04",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
@@ -969,18 +1132,39 @@
     {
       "id": "SEDI-GOV-06",
       "index_page": 6,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-GOV-06",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-GOV-07",
       "index_page": 6,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "decision-dependent",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-GOV-07",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
@@ -1428,45 +1612,108 @@
     {
       "id": "SEDI-PRC-01",
       "index_page": 8,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRC-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRC-02",
       "index_page": 8,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRC-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-PRC-03",
       "index_page": 8,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "clarification-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-PRC-03",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ENF-01",
       "index_page": 8,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-ENF-01",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
     {
       "id": "SEDI-ENF-02",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-ENF-02",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
@@ -1519,9 +1766,19 @@
     {
       "id": "SEDI-ENF-05",
       "index_page": 9,
-      "status": "indexed",
-      "disposition": null,
-      "examination": null,
+      "status": "examined",
+      "disposition": "evidence-required",
+      "examination": {
+        "record": "rights-governance-examination.json",
+        "id": "SEDI-ENF-05",
+        "theme": "coverage-extension",
+        "objectives": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
       "work_package": "WP-B",
       "review_state": "not-reviewed"
     },
