@@ -40,6 +40,16 @@ class LifecycleTests(unittest.TestCase):
                 if variant == "fallback-mutant":
                     self.assertFalse(trace["gate_allow"])
 
+    def test_deadline_controls_late_propagation(self):
+        late = M.campaign("reassessed", "late-propagation-mutant", deadline=12)
+        self.assertEqual(late["trial_results"]["R1"], "FAIL")
+        self.assertEqual(late["trial_results"]["R7"], "PASS")
+        self.assertEqual(late["protocol_result"], "FAIL")
+        boundary = M.campaign("reassessed", "late-propagation-mutant", deadline=13)
+        self.assertEqual(boundary["protocol_result"], "PASS")
+        self.assertEqual(boundary["observations"][0]["tick"], 13)
+        self.assertNotEqual(late["context"]["protocol_sha256"], boundary["context"]["protocol_sha256"])
+
     def test_missing_duplicate_unknown_and_malformed_observations(self):
         for records in (self.obs[:-1], self.obs + [self.obs[0]], self.obs + [{"id": "unknown"}], self.obs + [{"id": []}]):
             self.assertEqual(M.aggregate("reassessed", records, self.ctx), "INDETERMINATE")
@@ -60,7 +70,7 @@ class LifecycleTests(unittest.TestCase):
 
     def test_duplicate_effect_is_a_failure(self):
         records = copy.deepcopy(self.obs)
-        records[-1]["effects"] *= 2
+        next(o for o in records if o["id"] == "R6")["effects"] *= 2
         self.assertEqual(M.aggregate("reassessed", records, self.ctx), "FAIL")
 
     def test_unchanged_read_grant_and_revoked_descendant(self):
