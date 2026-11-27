@@ -21,7 +21,7 @@
           14
         ]
       },
-      "authority_reference": "Utah Code § 63A-20-301(1)(b); 201(4)(b)",
+      "authority_reference": "Utah Code § 63A-20-301(1)(b)",
       "roles": [
         "Department",
         "Verifiers"
@@ -933,7 +933,7 @@
           7
         ]
       },
-      "authority_reference": "Utah Code § 63A-20-301(1)(b); 201(4)(b)",
+      "authority_reference": "Utah Code § 63A-20-201(4), 201(30)",
       "roles": [
         "Department",
         "Verifiers"

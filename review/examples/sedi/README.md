@@ -120,3 +120,7 @@ The proposed execution scope now includes all 142 indexed requirements, with dif
 ### WP-F: Organizational security
 
 [Organizational security examination](organizational-security-examination.json) covers all seven ORG requirements (Part 9 pp44–59), including access and personnel security, vulnerability management, privacy-preserving logging, incident response, delegated infrastructure and change control. ORG means organizational security, not organizational identity. Existing risk hypotheses suffice; three cross-actor cases extend them. Coverage is 141/142, with IDP-08 the sole indexed-only source dependency. No operational assurance is asserted.
+
+## G1: Normalized documentary view
+
+Run `python3 review/examples/sedi/normalize_coverage.py` to derive a consistent requirement view from the register and existing examination records. No generated duplicate is committed. Source bindings, objective sequences and method coverage are checked; missing authority, applicability, analytical fields and the IDP-08 source gap remain visible. The view is not a source transcription or independent assurance decision. Source-field reconciliation and normalization gaps remain open before review readiness.

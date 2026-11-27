@@ -47,7 +47,9 @@
       "limitation": "Administrative verification may miss local withdrawal of physical acceptance.",
       "pdf_pages": [
         9,
-        11
+        10,
+        11,
+        12
       ]
     },
     {
@@ -101,6 +103,7 @@
       "limitation": "Platform tests cannot cover external portals; review cannot establish every downstream or informal interaction.",
       "pdf_pages": [
         12,
+        13,
         14
       ]
     },
@@ -154,6 +157,7 @@
       "limitation": "Design review cannot establish real service performance; administrative review may miss local degradation.",
       "pdf_pages": [
         24,
+        25,
         26
       ]
     }
