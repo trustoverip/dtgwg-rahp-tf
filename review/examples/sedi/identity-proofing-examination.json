@@ -61,7 +61,7 @@
       ],
       "potential_harm": "Eligible young applicants excluded or ineligible applicants enrolled.",
       "disposition": "clarification-required",
-      "disposition_rationale": "Upstream age data accuracy and authenticity of emancipation evidence are not established by a workflow test.",
+      "disposition_rationale": "The relationship between the age gate and the guardian-consent pathways in APP-02/03 must be clarified before classifying rejected minor applications as justified.",
       "related_requirements": [
         "SEDI-APP-02",
         "SEDI-APP-03",
@@ -129,7 +129,7 @@
       ],
       "potential_harm": "Erroneous eligibility decisions exclude eligible applicants.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Tests cannot verify upstream eligibility data accuracy; expert review is point-in-time.",
+      "disposition_rationale": "Eligibility and denial grounds are defined; source provenance, freshness and disputed-record handling are needed to establish that the decision is correct and remediable.",
       "related_requirements": [
         "SEDI-IDP-04",
         "SEDI-BOR-05",
@@ -190,7 +190,7 @@
       ],
       "potential_harm": "Excess collection and secondary processing during enrollment.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Field mappings do not establish necessity; annual audit cannot inspect runtime flows.",
+      "disposition_rationale": "The minimization rule is stated; field-level purpose justification and observed SDK/network flows are needed to determine whether collection exceeds it.",
       "related_requirements": [
         "SEDI-APP-07",
         "SEDI-IDP-03",
@@ -256,7 +256,7 @@
       ],
       "potential_harm": "Unjustified collection exposes identity information or creates barriers.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Automated checks cannot determine strict necessity; later changes may evade expert review.",
+      "disposition_rationale": "Additional fields depend on published rule-defined necessity; assessment must first establish the authorized field decision and then compare actual collection.",
       "related_requirements": [
         "SEDI-APP-06",
         "SEDI-IDP-02",
@@ -319,7 +319,7 @@
       ],
       "potential_harm": "Fraudulent endorsement or erroneous fraud finding harms legitimate holders.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Detection effectiveness and material falsity require judgment; novel fraud not covered by static tests.",
+      "disposition_rationale": "The source distinguishes feasible detection from confirmed-fraud decisions; actual case and review evidence is needed to establish that suspicion does not become an unauthorized denial.",
       "related_requirements": [
         "SEDI-BOR-05",
         "SEDI-SDI-23",
@@ -377,7 +377,7 @@
       ],
       "potential_harm": "Unjustified proofing assurance enables impersonation or exclusion.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Structural alignment does not establish achieved assurance; drift and actual operations may not be captured.",
+      "disposition_rationale": "The governing proofing standard and assurance level require Department selection; assessment evidence must be evaluated against that approved baseline.",
       "related_requirements": [
         "SEDI-IDP-02",
         "SEDI-IDP-05",
@@ -435,7 +435,7 @@
       ],
       "potential_harm": "Under-proofing enables impersonation; excessive proofing excludes or over-collects.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Methodological rigor and proportionality require expert judgment; threat landscape changes.",
+      "disposition_rationale": "Proportional assurance is an accountable risk decision; the selected level, alternatives and affected-person trade-offs must be established before judging adequacy.",
       "related_requirements": [
         "SEDI-IDP-01",
         "SEDI-IDP-03",
@@ -496,7 +496,7 @@
       ],
       "potential_harm": "Persistent biometric exposure or surveillance.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Technical deletion tests do not establish necessity or cover all operational deviations.",
+      "disposition_rationale": "Biometric necessity and deletion are required; actual collection, processor and copy inventories plus deletion evidence are needed to establish the restriction.",
       "related_requirements": [
         "SEDI-APP-06",
         "SEDI-BOR-10",
@@ -563,7 +563,7 @@
       ],
       "potential_harm": "Incorrect binding or eligibility can produce fraudulent endorsement or erroneous denial.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Tests establish structural gate, not upstream evidence accuracy or reliability of assertion generation.",
+      "disposition_rationale": "The four issuance assertions are explicit; provenance and negative gate tests are needed to establish that missing or invalid assertions prevent endorsement.",
       "related_requirements": [
         "SEDI-APP-05",
         "SEDI-IDP-01",
@@ -620,7 +620,7 @@
       ],
       "potential_harm": "Unsupported age reliance harms individuals or excludes valid users.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Sufficiency is a policy/trust determination; publication does not establish adoption.",
+      "disposition_rationale": "Sufficiency for age reliance depends on the selected assurance level and relying-party use case; those decisions must be established before evaluating evidence.",
       "related_requirements": [
         "SEDI-IDP-01",
         "SEDI-IDP-02",
@@ -676,7 +676,7 @@
       ],
       "potential_harm": "False equivalence claim conceals presentation-mode weaknesses.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Same workflow does not establish functional equivalence of presentations.",
+      "disposition_rationale": "Equivalent proofing across presentation modes is specified; comparative process and credential evidence are needed to establish that mode does not weaken proofing.",
       "related_requirements": [
         "SEDI-SDI-06",
         "SEDI-INT-02",
@@ -738,7 +738,7 @@
       ],
       "potential_harm": "Tracking or false claim of continuously verified identity/attributes.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Application checks miss infrastructure monitoring; review does not detect later changes.",
+      "disposition_rationale": "Point-in-time endorsement and no tracking are stated; observed renewal and status paths are needed to establish absence of continuous re-verification.",
       "related_requirements": [
         "SEDI-SDI-01",
         "SEDI-SDI-17",
@@ -798,7 +798,7 @@
       ],
       "potential_harm": "Loss of physical alternative or exclusion through document surrender.",
       "disposition": "evidence-required",
-      "disposition_rationale": "Review cannot cover every enrollment location or informal practice.",
+      "disposition_rationale": "The no-surrender rule is explicit; representative enrollment observation is needed to distinguish document inspection from compulsory relinquishment.",
       "related_requirements": [
         "SEDI-BOR-03",
         "SEDI-BOR-04",
@@ -861,7 +861,7 @@
       ],
       "potential_harm": "Disproportionate or unavailable proofing paths exclude applicants.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Tests cannot judge appropriateness; reviews cannot establish continued real availability.",
+      "disposition_rationale": "Permitted proofing methods depend on rulemaking; actual accessibility and assurance evidence must be assessed against the approved conditions.",
       "related_requirements": [
         "SEDI-IDP-02",
         "SEDI-IDP-11",
@@ -919,7 +919,7 @@
       ],
       "potential_harm": "Unqualified or no-longer-authorized proofing entity supplies unreliable identity evidence.",
       "disposition": "decision-dependent",
-      "disposition_rationale": "Administrative evidence does not establish ongoing operational practices between reviews.",
+      "disposition_rationale": "Entity authorization requires established competency criteria and a current authorization decision; registry and reauthorization evidence must be checked against those criteria.",
       "related_requirements": [
         "SEDI-IDP-01",
         "SEDI-IDP-04",
