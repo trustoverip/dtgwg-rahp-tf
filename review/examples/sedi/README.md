@@ -124,3 +124,7 @@ The proposed execution scope now includes all 142 indexed requirements, with dif
 ## G1: Normalized documentary view
 
 Run `python3 review/examples/sedi/normalize_coverage.py` to derive a consistent requirement view from the register and existing examination records. No generated duplicate is committed. Source bindings, objective sequences and method coverage are checked; missing authority, applicability, analytical fields and the IDP-08 source gap remain visible. The view is not a source transcription or independent assurance decision. Source-field reconciliation and normalization gaps remain open before review readiness.
+
+## Consolidated consumer and review handover
+
+Run `python3 review/examples/sedi/consolidate.py /path/to/retained.zip` for the integrated retained-source and documentary consistency path. See [review handover](REVIEW-HANDOVER.md) for limitations and remaining gates. Candidate propositions are not formal findings; independent review is pending.
