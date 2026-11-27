@@ -2,7 +2,7 @@
 
 ## Research conclusion
 
-RAHP can represent the findings of a bounded, source-derived contextual reassessment without changing its specification-review contract. The Matrix experiment strengthens the case for preserving assessment context and evidence applicability, but does not establish a need for a new core contract. Existing downstream mechanisms already address substantial parts of the problem. This is a contributor's research recommendation, not task-force acceptance.
+RAHP can represent the findings of a bounded, source-derived contextual reassessment without changing its specification-review contract. The constructed experiment illustrates the case for preserving assessment context and evidence applicability, but does not establish a need for a new core contract. Existing downstream mechanisms already address substantial parts of the problem. This is a contributor's research recommendation, not task-force acceptance.
 
 ## Evidence and comparison boundary
 
@@ -16,8 +16,8 @@ This is a documentary and code-level comparison of existing evidence, not a newl
 | Evidence-linked findings | Replay and source | Source propositions | Source and constructed invocation | Reference traces and draft reviews | Normalized results |
 | Material change | Not exercised | Actual source revision | Not exercised | Same code; changed grant state | Freshness and impact mechanisms |
 | Historical context | Retained bundle | Both reviews retained | Bounded original context | Both contexts retained | Lineage and freshness |
-| Evidence applicability | Time consistency; not historical truth | Revision-bound | Capability scope | Explicit contextual dispositions | Freshness; optional temporal profile |
-| Dependency selection | Not exercised | Example-specific | Constructed delegation chain | Declared grant lineage | Directed graph reachability |
+| Evidence applicability | Time consistency; not historical truth | Revision-bound | Capability scope | Authored contextual dispositions; not computed | Freshness; optional temporal profile |
+| Dependency selection | Not exercised | Example-specific | Constructed delegation chain | Authored grant-lineage selection | Directed graph reachability |
 | Comparative judgment | Not exercised | Finding transition | Not exercised | Protocol results, not comparative release judgment | Profile-bound digest |
 
 ## Findings and dispositions
@@ -32,7 +32,7 @@ These mechanisms are relevant but not equivalent to the Matrix's evidence-level 
 
 ### 2. Impact selection is not proof of complete coverage
 
-Matrix grant ancestry identifies which paths require re-examination. The unaffected read path is actually re-exercised, not inferred from absence of a dependency. Downstream [impact analysis](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/tools/impact.py) traverses declared directed relationships and reports affected assessments and unresolved changed nodes. Its [regression tests](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/tests/test_assurance_graph_impact.py) examine directionality, unresolved changes and incomplete graphs. A missing edge is not proof of no impact.
+The author uses the constructed grant ancestry to select requests for re-examination; no dependency selection engine is exercised. The unaffected read path is actually re-exercised, not inferred from absence of a dependency. Downstream [impact analysis](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/tools/impact.py) traverses declared directed relationships and reports affected assessments and unresolved changed nodes. Its [regression tests](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/tests/test_assurance_graph_impact.py) examine directionality, unresolved changes and incomplete graphs. A missing edge is not proof of no impact.
 
 Reachability does not itself determine evidence sufficiency, materiality or the legality of authority. **Disposition:** existing downstream tooling is a relevant implementation reference; automatic selection is not demonstrated in upstream review v1. Keep dependency modeling example-local here. No new Matrix-specific graph or runtime monitoring is warranted.
 
