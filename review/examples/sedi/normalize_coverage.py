@@ -147,7 +147,7 @@ def reconcile(rows, manifest, loader):
             row["relationship_basis"] = "Co-examination in cited cases or bounded review bindings; not asserted as a normative dependency."
             row["evidence_needed"] = row["evidence_needed"] or case_evidence
             row["case_evidence_requests"] = case_evidence
-            row["disposition_rationale"] = "Evidence required: " + row["limitation"]
+            row["disposition_rationale"] = notes.get("disposition_rationales", {}).get(req)
         else:
             if not set(row.get("risk_refs") or []) <= risk_records.keys():
                 raise ValueError(f"{req}: unknown local risk")
@@ -157,6 +157,8 @@ def reconcile(rows, manifest, loader):
         if not set(row.get("related_requirements") or []) <= known_ids - {req}:
             raise ValueError(f"{req}: invalid related requirement")
         row["normalization_gaps"] = [k for k in REQUIRED_ANALYSIS if not present(row.get(k))]
+        if row.get("disposition_rationale") and row["disposition_rationale"].strip() in {row["limitation"].strip(), "Evidence required: " + row["limitation"].strip()}:
+            row["normalization_gaps"].append("disposition rationale restates limitation")
         if not row["risk_relevance"]["harms"]:
             row["normalization_gaps"].append("risk relevance harms")
         if any(v["applicability"] is None for v in row["verification"].values()):
