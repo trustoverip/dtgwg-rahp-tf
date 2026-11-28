@@ -1,6 +1,6 @@
 {
   "schema": "rahp-spec-review/v1",
-  "reviewer": "sankarshanmukhopadhyay",
+  "reviewer": "sankarshanmukhopadhyay (accountable draft owner; AI-assisted; not independently reviewed)",
   "assessment_id": "SR-391",
   "target": {
     "repository": "trustoverip/aimwg-agent-fiduciary-duties",
@@ -15,7 +15,7 @@
       "id": "F-001",
       "summary": "RAHP review v1 records findings and treatments, but does not natively carry Matrix campaign evidence closure, coverage or derived outcomes.",
       "risks": [
-        "EX-RK-AU01"
+        "EX-RK-MX01"
       ],
       "control_plane": "implementation-guidance",
       "status": "open"
@@ -24,7 +24,7 @@
       "id": "F-002",
       "summary": "The README describes permission withdrawal as a proposed test design and requires evidence of resulting behavior; it does not establish deployed revocation enforcement.",
       "risks": [
-        "EX-RK-AU02"
+        "EX-RK-MX02"
       ],
       "control_plane": "runtime-control",
       "status": "open"

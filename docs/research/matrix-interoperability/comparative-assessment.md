@@ -2,7 +2,7 @@
 
 ## Research conclusion
 
-RAHP can represent the findings of a bounded, source-derived contextual reassessment without changing its specification-review contract. The constructed experiment illustrates the case for preserving assessment context and evidence applicability, but does not establish a need for a new core contract. Existing downstream mechanisms already address substantial parts of the problem. This is a contributor's research recommendation, not task-force acceptance.
+RAHP can represent the findings of a bounded, source-derived contextual reassessment without changing its specification-review contract. The constructed experiment illustrates the case for preserving assessment context and evidence applicability, but does not establish a need for a new core contract. Downstream mechanisms are relevant implementation references, not capabilities available to upstream adopters. Whether upstream needs freshness or impact support remains a V3 question (#81, #77). This is a contributor's research recommendation, not task-force acceptance.
 
 ## Evidence and comparison boundary
 
@@ -28,7 +28,7 @@ TRQP distinguishes schema validity from truth and query-time agreement; VRC demo
 
 The downstream [freshness schema](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/method/schema/assurance-freshness.schema.json) and [freshness evaluator](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/tools/assurance_state.py) already distinguish current, potentially stale, stale, retest-required, superseded and indeterminate states based on declared effects. The [optional temporal profile](https://github.com/sankarshanmukhopadhyay/rahp-toolkit/blob/16a2fdca4d2856083d44a11ad18cc6c008aaa5dc/docs/temporal-provenance.md) distinguishes target time, knowledge cutoff, observed and recorded times, claimed effective intervals and evaluation time. It explicitly does not authenticate authority or establish historical truth.
 
-These mechanisms are relevant but not equivalent to the Matrix's evidence-level dispositions. In particular, a contradicted observation is not merely stale, and a fresh observation can be irrelevant to the claim. Applicability must be scoped to a proposition and context. **Disposition:** existing implementation and experimental profile; no new core semantics justified. A future consumer may evaluate their composition using authoritative inputs.
+These mechanisms are relevant but not equivalent to the Matrix's evidence-level dispositions. In particular, a contradicted observation is not merely stale, and a fresh observation can be irrelevant to the claim. Applicability must be scoped to a proposition and context. **Disposition:** downstream implementation and experimental profile; no new upstream core semantics justified on this evidence alone. A future consumer may evaluate their composition using authoritative inputs.
 
 ### 2. Impact selection is not proof of complete coverage
 
@@ -56,6 +56,6 @@ RAHP may assess evidence about a delegated grant, record changed conditions, rec
 
 ## Recommendation and review boundary
 
-No change to RAHP core, review schema, canonical vocabulary, scoring, runtime enforcement or release is recommended on the present evidence. Retain the worked assessment and crosswalk as research documentation. Broader applicability was assessed, but no extension meets the justification threshold. Any future convergence of freshness, dependency or evidence contracts belongs to a separately scoped method decision, supported by independent consumer evidence rather than this example alone.
+No change to RAHP core, review schema, canonical vocabulary, scoring, runtime enforcement or release is recommended on the present evidence. This is not a finding that upstream freshness or dependency support is sufficient. The Matrix derives its assurance-register foundation from RAHP; shared ancestry is not independent confirmation. Evaluate upstream needs through [#81](https://github.com/${repo}/issues/81) and [#77](https://github.com/${repo}/issues/77), source identity through #75 and human revalidation through #80. Retain the worked assessment and crosswalk as research documentation. Broader applicability was assessed, but no extension meets the justification threshold. Any future convergence of freshness, dependency or evidence contracts belongs to a separately scoped method decision, supported by independent consumer evidence rather than this example alone.
 
 Outstanding: confirm publisher provenance and permitted source handling for the Matrix/WLA copies, obtain independent methodological review of the crosswalk and reference experiment, and verify final contribution checks. The workbook's draft campaign was not executed; no live deployment assurance, native interchange or task-force endorsement is claimed. Prepared with AI assistance.
