@@ -1,0 +1,33 @@
+{
+  "schema": "rahp-spec-review/v1",
+  "reviewer": "sankarshanmukhopadhyay (accountable draft owner; AI-assisted; not independently reviewed)",
+  "assessment_id": "SR-391",
+  "target": {
+    "repository": "trustoverip/aimwg-agent-fiduciary-duties",
+    "revision": "140b558791bab5bacdbe5245df0aada93d2b27bd",
+    "artifact": "Assurance Matrix/README.md",
+    "version_label": "Pinned Matrix README documentary examination; constructed experiment recorded separately"
+  },
+  "rahp_version": "trustoverip/dtgwg-rahp-tf@cfecfeb053eb0bde2a4397ce02c6d194b0cf8ae1",
+  "reviewed_at": "2026-11-27",
+  "findings": [
+    {
+      "id": "F-001",
+      "summary": "RAHP review v1 records findings and treatments, but does not natively carry Matrix campaign evidence closure, coverage or derived outcomes.",
+      "risks": [
+        "EX-RK-MX01"
+      ],
+      "control_plane": "implementation-guidance",
+      "status": "open"
+    },
+    {
+      "id": "F-002",
+      "summary": "The README describes permission withdrawal as a proposed test design and requires evidence of resulting behavior; it does not establish deployed revocation enforcement.",
+      "risks": [
+        "EX-RK-MX02"
+      ],
+      "control_plane": "runtime-control",
+      "status": "open"
+    }
+  ]
+}
