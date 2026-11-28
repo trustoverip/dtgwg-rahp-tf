@@ -93,3 +93,8 @@ status remain unchanged. The Task Force must independently review and accept any
 wider methodology or operational commitment.
 
 Tests: `python3 -m unittest discover -s tests -v`.
+
+
+### Source currency and failure diagnostics
+
+A configured branch is a discovery hint, not a review identity. If the observed branch SHA differs from the reviewed SHA, the run stops before checkout/validation with `source_currency.state: review-out-of-date`, both revisions, a nonzero exit and target assurance `not-assessed`. This reports a revision difference only, not materiality, invalidation of historical evidence or an authorized reassessment decision. A pinned-only run makes no claim about the latest branch (`pinned-only`); a matching observed ref is `matches-reviewed-ref`. Unavailable acquisition leaves currency `not-checked`. JSON and Markdown distinguish safe reason codes/messages from external stderr; failed runs are not comparable findings. The fields are additive to experimental v1alpha2. Git ignores inherited GIT_* overrides and global/system config. No scheduling or operational support commitment is implied; scope and maintenance remain with #63/#62, and general lifecycle semantics with #81/#80.

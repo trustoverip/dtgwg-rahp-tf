@@ -57,3 +57,8 @@ On a VM, a systemd timer or cron should run the same command with an explicit wo
 - No built-in alert delivery, web API, indefinite background process, automatic GitHub issue mutation, risk acceptance or runtime enforcement is provided.
 - The container is supplied as a reproducible build recipe, not a released, independently security-audited artifact.
 - Remote Git operations require a Git installation and public GitHub network access; tests use isolated local source fixtures and do not establish that external transport will always be available.
+
+
+### Source currency and failure diagnostics
+
+A configured branch is a discovery hint, not a review identity. If the observed branch SHA differs from the reviewed SHA, the run stops before checkout/validation with `source_currency.state: review-out-of-date`, both revisions, a nonzero exit and target assurance `not-assessed`. This reports a revision difference only, not materiality, invalidation of historical evidence or an authorized reassessment decision. A pinned-only run makes no claim about the latest branch (`pinned-only`); a matching observed ref is `matches-reviewed-ref`. Unavailable acquisition leaves currency `not-checked`. JSON and Markdown distinguish safe reason codes/messages from external stderr; failed runs are not comparable findings. The fields are additive to experimental v1alpha2. Git ignores inherited GIT_* overrides and global/system config. No scheduling or operational support commitment is implied; scope and maintenance remain with #63/#62, and general lifecycle semantics with #81/#80.

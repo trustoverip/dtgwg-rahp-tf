@@ -147,16 +147,27 @@ def validate(config_path: Path) -> tuple[dict, dict]:
                     "targets": [t["id"] for t in targets]}
 
 
+class EvaluationFailure(ConfigurationError):
+    """Stable, sanitized operational failure; never include external stderr."""
+
+    def __init__(self, code: str, reason: str, observed_revision: str | None = None):
+        super().__init__(reason)
+        self.code = code
+        self.observed_revision = observed_revision
+
+
 def git(*args: str, timeout: int = 90, cwd: Path | None = None) -> str:
     # No shell, hooks, file protocol, credential prompting, or externally configured transport.
-    environment = dict(os.environ)
+    environment = {k: v for k, v in os.environ.items()
+                   if not k.startswith("GIT_")}
     environment.update({"GIT_TERMINAL_PROMPT": "0", "GIT_CONFIG_NOSYSTEM": "1",
+                        "GIT_CONFIG_GLOBAL": os.devnull,
                         "GIT_ALLOW_PROTOCOL": "https", "GIT_OPTIONAL_LOCKS": "0"})
     result = subprocess.run(["git", "-c", "core.hooksPath=/dev/null", *args],
                             cwd=cwd, env=environment, capture_output=True, text=True,
                             timeout=timeout, check=False)
     if result.returncode:
-        raise ConfigurationError(f"Git source acquisition failed (exit {result.returncode})")
+        raise EvaluationFailure("source-acquisition-failed", "Git source acquisition failed")
     return result.stdout.strip()
 
 
@@ -177,13 +188,13 @@ def acquire(target: dict, destination: Path) -> tuple[str, Path]:
     else:
         expected = target["revision"]
     if target.get("revision") and target["revision"] != expected:
-        raise ConfigurationError("remote ref changed from configured revision")
+        raise EvaluationFailure("review-out-of-date", "Observed ref differs from reviewed revision", expected)
     git("init", "--quiet", str(destination))
     git("-C", str(destination), "remote", "add", "origin", url)
     git("-C", str(destination), "fetch", "--depth", "1", "origin", expected)
     actual = git("-C", str(destination), "rev-parse", "FETCH_HEAD^{commit}")
     if actual != expected:
-        raise ConfigurationError("fetched revision differs from expected SHA")
+        raise EvaluationFailure("source-revision-mismatch", "Fetched revision differs from expected SHA")
     git("-C", str(destination), "checkout", "--detach", "--quiet", actual)
     return actual, destination
 
@@ -193,7 +204,8 @@ def report_comparison(prior: dict | None, current: dict) -> dict:
         return {"state": "no-baseline", "changes": []}
     a = prior.get("comparison_key")
     b = current.get("comparison_key")
-    if not a or a != b or prior.get("execution", {}).get("state") != "completed":
+    if (not a or a != b or prior.get("execution", {}).get("state") != "completed"
+            or current.get("execution", {}).get("state", "completed") != "completed"):
         return {"state": "not-comparable", "changes": []}
     older = prior.get("findings") or {}
     newer = current.get("findings") or {}
@@ -235,6 +247,10 @@ def render(report: dict) -> str:
              f"- Repository: `{report['repository']}`",
              f"- Source revision: `{report.get('source_revision') or 'unavailable'}`",
              f"- Execution: **{report['execution']['state']}**",
+             f"- Failure reason: {report['execution'].get('reason') or 'none'}",
+             f"- Source currency: **{report['source_currency']['state']}**",
+             f"- Reviewed revision: `{report['source_currency']['reviewed_revision'] or 'unavailable'}`",
+             f"- Observed ref revision: `{report['source_currency']['observed_revision'] or 'unavailable'}`",
              f"- Review validation: **{report['execution']['validation']}**",
              f"- Target assurance: **{report['execution']['assurance']}**",
              f"- Historical comparison: {report['comparison']['state']}", "",
@@ -261,13 +277,15 @@ def evaluate_target(config_path: Path, target: dict, output: Path,
         "schema": SCHEMA, "run_id": run_id, "observed_at": datetime.now(timezone.utc).isoformat(),
         "target_id": target["id"], "series": target.get("series", target["id"]),
         "repository": target["repository"],
-        "source_revision": None, "artifact_sha256": None, "configuration_sha256": hash_file(config_path),
+        "source_revision": None, "artifact_sha256": None,
+        "source_currency": {"state": "not-checked", "reviewed_revision": None,
+                            "observed_revision": None}, "configuration_sha256": hash_file(config_path),
         "review_sha256": hash_file(relative_file(config_path.parent, target["review"])),
         "risks_sha256": hash_file(relative_file(config_path.parent, target["risks"])),
         "method_sha256": hash_file(ROOT / "review/validate_spec_review.py"),
         "runner_revision": installed_revision(), "findings": {},
         "execution": {"state": "failed", "validation": "indeterminate",
-                      "assurance": "not-assessed", "reason": "not executed"},
+                      "assurance": "not-assessed", "reason": "not executed", "reason_code": "not-executed"},
         "claim_boundary": BOUNDARY,
     }
     # Comparison key does not include target revision; changes to source are precisely
@@ -279,28 +297,42 @@ def evaluate_target(config_path: Path, target: dict, output: Path,
     with tempfile.TemporaryDirectory(prefix="rahp-evaluation-") as temporary:
         try:
             source = Path(temporary) / "checkout"
-            revision, source = acquire_source(target, source)
-            report["source_revision"] = revision
             review_path = relative_file(config_path.parent, target["review"])
             risks_path = relative_file(config_path.parent, target["risks"])
             review = read_yaml(review_path)
-            if review["target"]["revision"] != revision:
-                raise ConfigurationError("fetched revision disagrees with reviewer-authored review")
+            reviewed = review["target"]["revision"]
+            report["source_currency"]["reviewed_revision"] = reviewed
+            # Bind ref discovery to the review even when config has no explicit revision.
+            revision, source = acquire_source({**target, "revision": reviewed}, source)
+            report["source_revision"] = revision
+            if reviewed != revision:
+                raise EvaluationFailure("review-out-of-date", "Acquired revision differs from reviewed revision", revision)
+            report["source_currency"].update(
+                state="matches-reviewed-ref" if target.get("ref") else "pinned-only",
+                observed_revision=revision if target.get("ref") else None)
             artifact = relative_file(source, target["artifact"])
             report["artifact_sha256"] = hash_file(artifact)
             if target.get("artifact_sha256") and report["artifact_sha256"] != target["artifact_sha256"]:
-                raise ConfigurationError("fetched artifact digest differs from configured source")
+                raise EvaluationFailure("artifact-digest-mismatch", "Fetched artifact digest differs from configured source")
             cmd = [sys.executable, str(ROOT / "review/validate_spec_review.py"),
                    str(review_path), "--risks", str(risks_path)]
             process = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True,
                                      timeout=120, check=False)
             if process.returncode:
-                raise ConfigurationError("upstream review-record validator rejected review")
+                raise EvaluationFailure("review-rejected", "Upstream review-record validator rejected review")
             report["findings"] = {f["id"]: f["status"] for f in review["findings"]}
             report["execution"] = {"state": "completed", "validation": "review-record-valid",
-                                   "assurance": "review-required", "reason": None}
-        except (OSError, ConfigurationError, subprocess.TimeoutExpired, ValueError, KeyError) as exc:
-            report["execution"]["reason"] = f"Evaluation incomplete ({type(exc).__name__})"
+                                   "assurance": "review-required", "reason": None, "reason_code": None}
+        except EvaluationFailure as exc:
+            report["execution"].update(reason=str(exc), reason_code=exc.code)
+            if exc.code == "review-out-of-date":
+                report["source_currency"].update(state="review-out-of-date",
+                                                  observed_revision=exc.observed_revision)
+        except subprocess.TimeoutExpired:
+            report["execution"].update(reason="Evaluation operation timed out", reason_code="timeout")
+        except (OSError, ConfigurationError, ValueError, KeyError, yaml.YAMLError):
+            report["execution"].update(reason="Evaluation input or operation could not be completed",
+                                       reason_code="evaluation-incomplete")
     report["comparison"] = report_comparison(comparable_baseline(output, report["series"], report), report)
     output.mkdir(parents=True, exist_ok=True)
     folder = output / (target["id"] + "-" + run_id)
@@ -352,7 +384,7 @@ def main(argv=None) -> int:
             raise ConfigurationError("run-all does not take --target")
         results, status = run_service(args.config, args.output, args.target)
         print(json.dumps([{"id": r["target_id"], "execution": r["execution"],
-                           "run_id": r["run_id"], "comparison": r["comparison"]}
+                           "run_id": r["run_id"], "source_currency": r["source_currency"], "comparison": r["comparison"]}
                           for r in results], indent=2))
         return status
     except (ConfigurationError, OSError, yaml.YAMLError, ValueError) as exc:

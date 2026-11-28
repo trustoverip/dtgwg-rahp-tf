@@ -11,7 +11,7 @@ from unittest.mock import patch
 import yaml
 
 from runner.service import (ConfigurationError, read_inventory, validate, acquire,
-                            run_service, report_comparison, relative_file)
+                            run_service, report_comparison, relative_file, git, EvaluationFailure)
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "runner/examples/service.yaml"
@@ -126,6 +126,56 @@ class EvaluationServiceTests(unittest.TestCase):
             with self.assertRaises(ConfigurationError):
                 acquire({"repository": "trustoverip/dtgwg-cred-tf",
                          "ref": "main", "revision": "a" * 40}, Path(d) / "git")
+
+    @patch("runner.service.git")
+    def test_moved_ref_is_distinct_from_unavailable_source(self, fake_git):
+        doc = yaml.safe_load(DTG_CONFIG.read_text())
+        doc["inventory"]["path"] = "repo://runner/examples/dtg-curated.yaml"
+        target = doc["targets"][0]
+        reviewed = target.pop("revision")
+        target["ref"] = "main"
+        doc["targets"] = [target]
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            config = root / "config.yaml"
+            config.write_text(yaml.safe_dump(doc))
+            observed = "a" * 40 if reviewed != "a" * 40 else "b" * 40
+            fake_git.return_value = observed + "\trefs/heads/main"
+            reports, status = run_service(config, root / "runs")
+            r = reports[0]
+            self.assertEqual(status, 1)
+            self.assertEqual(r["execution"]["reason_code"], "review-out-of-date")
+            self.assertEqual(r["execution"]["assurance"], "not-assessed")
+            self.assertEqual(r["source_currency"], {
+                "state": "review-out-of-date", "reviewed_revision": reviewed,
+                "observed_revision": observed})
+            self.assertIsNone(r["source_revision"])
+            self.assertEqual(r["findings"], {})
+            self.assertEqual(fake_git.call_count, 1)
+            fake_git.side_effect = EvaluationFailure("source-acquisition-failed", "Git source acquisition failed")
+            reports, status = run_service(config, root / "runs")
+            self.assertEqual(status, 1)
+            self.assertEqual(reports[0]["execution"]["reason_code"], "source-acquisition-failed")
+            self.assertEqual(reports[0]["source_currency"]["state"], "not-checked")
+
+    @patch("runner.service.subprocess.run")
+    def test_git_config_isolation(self, run):
+        run.return_value.returncode = 0
+        run.return_value.stdout = ""
+        with patch.dict("os.environ", {"GIT_CONFIG_COUNT": "1", "GIT_CONFIG_KEY_0": "url.evil.insteadOf",
+                                      "GIT_CONFIG_VALUE_0": "https://github.com", "GIT_DIR": "/tmp/other"}):
+            git("ls-remote", "https://github.com/example/repo")
+        env = run.call_args.kwargs["env"]
+        self.assertEqual(env["GIT_CONFIG_GLOBAL"], "/dev/null")
+        self.assertEqual(env["GIT_CONFIG_NOSYSTEM"], "1")
+        self.assertNotIn("GIT_CONFIG_COUNT", env)
+        self.assertNotIn("GIT_DIR", env)
+
+    def test_failed_current_review_is_not_compared(self):
+        prior = {"comparison_key": "same", "execution": {"state": "completed"},
+                 "findings": {"F-001": "open"}}
+        current = {"comparison_key": "same", "execution": {"state": "failed"}, "findings": {}}
+        self.assertEqual(report_comparison(prior, current), {"state": "not-comparable", "changes": []})
 
 
 if __name__ == "__main__":
