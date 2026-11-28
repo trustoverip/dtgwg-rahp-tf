@@ -1,0 +1,23 @@
+# Informative, adapted from DTG Portfolio Monitor curated inventory.
+# Original: https://github.com/sankarshanmukhopadhyay/dtg-portfolio-monitor/blob/1a1982212bce36d79a5fb9dc6d58bec7b7d9e01a/config/repositories.yaml
+# Original project: independent Apache-2.0 portfolio observation project, not an official ToIP publication.
+# This is NOT a runner execution config: no upstream-supported evaluator for these
+# particular specifications has been asserted by selecting them.
+version: 1
+kind: advisory-target-selection
+repositories:
+  - repo: trustoverip/dtgwg-cred-spec
+    role: normative-specification
+    lifecycle: active
+    default_branch: main
+    material_paths: [README.md, 'docs/**', 'specs/**', 'schemas/**']
+  - repo: trustoverip/dtgwg-zkp-tf
+    role: implementation-guidance
+    lifecycle: active
+    default_branch: main
+    material_paths: [README.md, 'docs/**', 'specs/**', 'schemas/**']
+composition:
+  id: credential-spec--zkp
+  review_required: true
+  upstream_evaluator: not-established
+  reason: The monitor's cross-spec mapping points to downstream pressure-test profiles, not accepted upstream review executors.

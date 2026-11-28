@@ -1,0 +1,14 @@
+version: 1
+repositories:
+  - repo: trustoverip/dtgwg-cred-tf
+    role: task-force-workspace
+    lifecycle: active
+    material_paths: [README.md, 'docs/**', 'specs/**']
+  - repo: trustoverip/dtgwg-cred-spec
+    role: normative-specification
+    lifecycle: active
+    material_paths: [README.md, 'docs/**', 'specs/**']
+  - repo: trustoverip/dtgwg-zkp-tf
+    role: implementation-guidance
+    lifecycle: active
+    material_paths: [README.md, 'docs/**', 'specs/**']

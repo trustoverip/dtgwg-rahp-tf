@@ -1,0 +1,24 @@
+# DTG Portfolio Monitor-derived *advisory* target allowlist.
+# This is an adapted small snapshot, not a live interface or canonical monitor registry.
+schema: rahp-evaluation-runner/v1alpha2
+inventory:
+  kind: dtg-portfolio-monitor-curated-v1
+  path: dtg-curated.yaml
+  sha256: c2bb5dcbdb0267a64f0428a24c6597089b5947ff1f97ed52807a1af971007c3a
+targets:
+  - id: vrc-baseline
+    series: vrc-review
+    repository: trustoverip/dtgwg-cred-tf
+    revision: 62bbd8a19d598078f50560948ca71ec0e034a6fc
+    assessment: upstream-review-validation
+    review: repo://review/examples/vrc-v03/baseline-review.yaml
+    risks: repo://data/risks.yaml
+    artifact: dtg.md
+  - id: vrc-reassessed
+    series: vrc-review
+    repository: trustoverip/dtgwg-cred-tf
+    revision: 200acbaa47a422b173652ed2c3dc961c4fbc9e7a
+    assessment: upstream-review-validation
+    review: repo://review/examples/vrc-v03/reassessed-review.yaml
+    risks: repo://data/risks.yaml
+    artifact: dtg.md

@@ -1,0 +1,64 @@
+name: RAHP evaluation runner source acquisition smoke
+on:
+  pull_request:
+    paths:
+      - 'runner/**'
+      - 'tests/test_evaluation_service.py'
+      - '.github/workflows/evaluation-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install -r requirements.txt
+      - name: Validate pinned DTG configuration
+        run: python3 -m runner.service validate --config runner/examples/dtg-service.yaml
+      - name: Build container and validate bundled deployment configuration
+        run: |
+          docker build -f runner/Dockerfile -t rahp-evaluation-runner:ci .
+          docker run --rm --read-only --cap-drop=ALL --security-opt=no-new-privileges \
+            --tmpfs /tmp:rw,nosuid,nodev \
+            rahp-evaluation-runner:ci validate --config runner/examples/dtg-service.yaml
+      - name: Execute real source acquisition and two independent historical reviews
+        run: python3 -m runner.service run-all --config runner/examples/dtg-service.yaml --output "$RUNNER_TEMP/rahp-evaluation-runs"
+      - name: Verify retained run evidence and conservative comparison
+        env:
+          RUNS: ${{ runner.temp }}/rahp-evaluation-runs
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          runs = sorted(Path(os.environ['RUNS']).glob('*/evaluation.json'))
+          assert len(runs) == 2, f'expected two retained evaluations: {runs}'
+          reports = [json.loads(p.read_text()) for p in runs]
+          assert all(x['execution']['state'] == 'completed' for x in reports)
+          assert all(x['execution']['validation'] == 'review-record-valid' for x in reports)
+          assert all(x['execution']['assurance'] == 'review-required' for x in reports)
+          assert all(x['source_revision'] and x['artifact_sha256'] for x in reports)
+          assert {x['comparison']['state'] for x in reports} == {'no-baseline', 'comparable'}
+          after = next(x for x in reports if x['target_id'] == 'vrc-reassessed')
+          assert {'finding': 'F-001', 'before': 'open', 'after': 'resolved'} in after['comparison']['changes']
+          print('Two source-bound documentary reviews reproduced; target assurance not claimed.')
+          PY
+      - name: Retain source-linked evaluation outputs for independent examination
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: rahp-evaluation-evidence-${{ github.run_id }}
+          path: ${{ runner.temp }}/rahp-evaluation-runs/
+          if-no-files-found: warn
+          retention-days: 14
